@@ -1,0 +1,110 @@
+% vim: spelllang=en_gb
+
+% Filter out unwanted warnings
+\RequirePackage{silence}
+\WarningFilter{hyperref}{Draft mode}
+\WarningFilter{microtype}{The `disable' option is in effect}
+
+\documentclass[11pt,a4paper,draft]{scrartcl}
+
+% --------------------
+% Set Language Options
+% --------------------
+
+\usepackage[nswissgerman,french,main=english]{babel}
+\usepackage[autostyle,english=american,german=swiss]{csquotes}
+\MakeOuterQuote{"}
+
+\usepackage[shortcuts]{extdash}
+
+% --------------
+% Font & Symbols
+% --------------
+
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\usepackage[oldstyle,proportional]{libertinus}
+
+% ---------------
+% Set Page Layout
+% ---------------
+
+% Detect draft mode
+\usepackage{ifdraft}
+
+% Get length of 65 characters
+%\setlxvchars
+
+\usepackage[driver=auto]{geometry}
+% A5: 148mm × 210mm
+% A4: 210mm × 297mm
+\geometry{
+  width=150mm,
+  height=237mm,
+  marginparsep=3mm,
+  marginparwidth=30mm,
+}
+\ifdraft{\geometry{
+  inner=10mm,
+  marginparwidth=50mm
+}}{}
+
+
+% ---------------------
+% Load Various Packages
+% ---------------------
+
+% Various Math Environments
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+% For more fine grained typesetting
+\usepackage[disable=ifdraft]{microtype}
+
+% Links and stuff
+\usepackage{hyperref}
+
+% For lists
+\usepackage[shortlabels]{enumitem}
+
+% For better Tables
+\usepackage{tabularray}
+
+% For general figures
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{babel,cd}
+\tikzcdset{arrow style=math font}
+
+% For Todonotes
+\usepackage[obeyDraft]{todonotes}
+
+% --------------------------------------------
+% Define Theorem Environments & Math Operators
+% --------------------------------------------
+
+\declaretheorem[numberwithin=section]{theorem}
+\declaretheorem[sibling=theorem]{lemma, proposition, corollary}
+\declaretheorem[sibling=theorem,style=definition]{definition, example}
+\declaretheorem[sibling=theorem,style=remark]{remark}
+
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\HF}{HF}
+\DeclareMathOperator{\HM}{HM}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Tor}{Tor}
+
+
+
+\begin{document}
+\title{Exotic Tori from ATFs oder so}
+\author{JoJoJo — Joé Brendel, Johannes Hauber, Joel Schmitz}
+
+\maketitle
+
+
+\end{document}
