@@ -201,6 +201,45 @@ as the symplectic area of the spheres \(S_k\) is zero.
 By a nodal slide we can move the critical points in the moment image such that they don't occur for \(\symbf{H}_2 > 2y\). By classification of toric manifolds, \(\{p ∈ B_{dpq} \mid \symbf{H_2}(p)<2y\}\) is then symplectomorphic to \(B²(2y)×ℝ×S¹\), where \(B²(a)\) is the 2-ball of area \(a\).
 Here we can choose \(D_0\) to be \(\overline{B^2(y)}×\{(x,\text{pt})\}\), which is J-holomorphic with the standard almost complex structure. Our claim is that \(D_0\) is the minimal J-disc.
 
+\subsection{Minimal J-Disks don't run away}
+
+Let \((n,a)\) be two coprime integers, \(μ_n\) the group of \(n\)-th roots of unity. Let \(μ_n\) act on \(ℂ^2\) by \(μ(z₁,z₂) = ( μz_1,μ^a z_2)\).
+Let \(ℂ^2/μ_n\) be the quotient space.
+This space is an orbifold, with one orbifold point at \([0,0]\).
+
+We define the Hamiltonian system on \(ℂ^2/μ_n\) by 
+\[\symbf{G}(z_1,z_2) = \frac{1}{2}\qty(\frac{1}{n}\qty(\abs{z₁}²+a\abs{z₂}²), \abs{z₂}²)\; .\]
+
+\begin{lemma}
+  Let \(r_+ > r_- ≥ 0\). Let \(u: Σ → (B_{r_+} ∖ B_{r_-})/μ_n\) be a J-holomorphic curve such that the closure of \(u(Σ)\) intersects \(∂B_{r_-}\). Then the symplectic area of \(u\) is at least \(π(r_+^2-r_-^2\).
+\end{lemma}
+
+\begin{proof}
+  Let \(r ∈ (r_-,r_+)\) such that the intersection \(u(Σ) ∩ ∂B_r\) is transversal.
+  Then this intersection is an immersed 1-dimensional manifold, so it is a collection of immersed circles.
+  Let \(γ\) be a parametrization of one of these circles.
+  We choose a local holomorphic reparametrization of \(u\) as follows: 
+  \begin{align*}
+    \tilde{u} : S¹xI &→ ℂ^n \\
+    u(t,0) &= γ(t)
+  \end{align*} \todo{ja, was jetzt?}
+  
+  Then
+  \begin{align*}
+    F'(r) &= ∫_{u(Σ) ∩ ∂B_r} u^* ω \\
+          &≥ ∫_{S¹} ω(\pdv{u∘s}{t},\pdv{u∘s}{r}) \dd t \\
+          &= ∫_{S¹} ω(\pdv{u}{t}+\pdv{s}{t}\pdv{u}{s},\pdv{s}{r}\pdv{u}{s}) \dd t \\
+          &= ∫_{S¹} \pdv{s}{r} ω(\pdv{u}{t},i \pdv{u}{t}) \dd t \\
+          &= ∫_{S¹} \pdv{s}{r} \abs{\dot{γ}(t)}^2 \dd t \\
+          &≥ l^2(γ) ∫_{S¹} \pdv{r}{s} \dd t
+  \end{align*}
+
+  Also
+  \begin{align*}
+    l^2(γ) &≥ ∫_{S¹} γ^* α_n = ∫_{S¹}⟨\dot{γ},ξ⟩ \dd t
+  \end{align*}
+\end{proof}
+
 \printbibliography
 
 \end{document}
