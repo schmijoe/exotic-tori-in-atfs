@@ -1,15 +1,7 @@
 % vim: spelllang=en_gb
 
 \documentclass[12pt,a4paper,draft]{scrartcl}
-
-% Filter out unwanted warnings
 \usepackage{ifdraft}
-\ifdraft{
-\RequirePackage{silence}
-\WarningFilter{hyperref}{Draft mode}
-\WarningFilter{microtype}{The `disable' option is in effect}
-\WarningFilter{latex}{Marginpar}
-}{}
 
 % --------------------
 % Set Language Options
@@ -76,10 +68,10 @@
 \usepackage{tabularray}
 
 % For more fine grained typesetting
-\usepackage[disable=ifdraft]{microtype}
+\ifdraft{}{\usepackage{microtype}}
 
 % Links and stuff
-\usepackage{hyperref}
+\ifdraft{}{\usepackage{hyperref}}
 \usepackage[noabbrev]{cleveref}
 
 % For Todonotes
