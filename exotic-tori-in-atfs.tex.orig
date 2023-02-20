@@ -211,10 +211,13 @@ as the symplectic area of the spheres \(S_k\) is zero.
 
 Assume that \(c_1 ≠ 0\). Let \(U₀ = \symbf{H}^{-1}(ℝ×(y,3y))\). Then \(u(Σ) ∩ U₀ ≠ ∅\), and for every \(ε>0\) we find a ball embedding \(B⁴(y-ε) → U₀\) such that the origin of the embedded ball lies on \(u(Σ)\). By the monotonicity theorem\todo{ist das der richtige name? referenz?}, we have that \(∫_u ω ≥ y\), so \(∫_u ω ≥ ∫_{D_0} ω\), which was what we wanted to show.
 
+<<<<<<< HEAD
+\todo[inline]{Hier wäre wahrscheinlich irgend so ein monotonicity argument schöner (muss man vielleicht auch nicht so vorsichtig mit den verschiedenen J's sein…}
+=======
 
 \todo{Subsection 4.1 am besten ganz neu machen. Unten mein Vorschlag.}
 
-\subsection*{Displacement energy and exotic tori in \texorpdfstring{\(B_{dpq}\)}{Bdpq}}
+\subsection{Displacement energy and exotic tori in \texorpdfstring{\(B_{dpq}\)}{Bdpq}}
 
 After a mutation, the ATF base diagram of~$B_{dpq}$ is the right half-plane decorated with~$d$ nodes on the ray in the direction~$(p,q)$. The position of the nodes can be varied by nodal slides. In this subsection we denote by~$L(x_0,y_0)$ the almost toric fibre over the point~$(x_0,y_0)$ with~$x > 0$. Fibres~$L(\lambda p,\lambda q)$ for~$\lambda > 0$ are monotone whenever they are not on a node. We compute displacement energy of the non-monotone fibres. Note that~$L(x_0,y_0)$ yields a well-defined torus up to Hamiltonian isotopy, i.e.\ it is independent of the nodal slides, see~\ref{...}. 
 
@@ -243,6 +246,7 @@ Let $L(x_0,y_0)$ be a non-monotone ATF-fibre of $B_{dpq}$. Then it has displacem
 Add proof of Theorem~\ref{thm:bdpqexotic}. 
 
 
+>>>>>>> 8390b1bbf452c78b43cd6b89261d3f492859a859
 
 \subsection{\texorpdfstring{\(D_0\)}{D₀} stays a Minimal J-Disks for Suitable Embeddings}
 
