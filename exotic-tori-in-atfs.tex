@@ -67,8 +67,9 @@
 % For better Tables
 \usepackage{tabularray}
 
-% For more fine grained typesetting
-\ifdraft{}{\usepackage{microtype}}
+% For more fine grained typesetting in final mode.
+% Else set the tolerance for overfull warnings higher.
+\ifdraft{\hfuzz=0.5pt}{\usepackage{microtype}}
 
 % Links and stuff
 \usepackage[final]{hyperref}
