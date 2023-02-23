@@ -207,8 +207,6 @@ The boundary map $∂ \colon H_2(S,∂T) → H_1(∂T)$ is given by $\partial D_
   \begin{tikzpicture}
     \fill[black!5] (0,4) rectangle (6,-1);
 
-    \draw[thick,dotted] (0,0) -- (2,1) node[cross] {} -- (4,2) node[cross] {};
-
     \coordinate (xy) at (2.7,3.5);
     \node[anchor=south] at (xy) {\(T(x,y)\)};
     \fill (xy) circle[radius=.05];
@@ -216,6 +214,10 @@ The boundary map $∂ \colon H_2(S,∂T) → H_1(∂T)$ is given by $\partial D_
            .. controls +(0,0) and +(-.5,1) .. node[anchor=east, near end] {\(D₁\)} (2,1)
       (xy) .. controls +(0,0) and +(-.5,1) .. node[anchor=west, near end] {\(D₂\)} (4,2)
       (xy) .. controls +(0,0) and +(1,0) .. node[anchor=south, near end] {\(D₀\)} (0,2.5);
+
+    \draw[ultra thick, blue, draw opacity=.3] (2,1) -- node[anchor=north] {\(S₂\)} (4,2);
+
+    \draw[thick,dotted] (0,0) -- (2,1) node[cross] {} -- (4,2) node[cross] {};
 
     \draw[thick] (0,4) -- (0,-1);
   \end{tikzpicture}
