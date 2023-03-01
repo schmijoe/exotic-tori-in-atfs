@@ -130,9 +130,9 @@ Define the manifold \(M_P\) by
 We define the Hamiltonian system
 \[\symbf{H}(z_1,z_2,z_3) = \qty(\abs{z_3}^2, \frac{1}{2}\qty(\abs{z_1}^2-\abs{z_2}^2))\]
 
-Let \(μ_p\) be the group of \(p\)-Th roots of unity acting on \(M_P\) by
-\[μ \cdot (z₁,z₂,z₃) = \qty(μz₁,μ^{-1}z₂,μ^q z₃), \quad μ ∈ μ_p \; .\]
-This is a free  action, so we can define the quotient \(B_{dpq} = M_P/μ_p\). The Hamiltonian system \(\symbf{H}\) is invariant under the action, so it descends to a Hamiltonian system on \(B_{dpq}\).
+Let \(ρ_p\) be the group of \(p\)-Th roots of unity acting on \(M_P\) by
+\[ρ \cdot (z₁,z₂,z₃) = \qty(ρz₁,ρ^{-1}z₂,ρ^q z₃), \quad ρ ∈ ρ_p \; .\]
+This is a free  action, so we can define the quotient \(B_{dpq} = M_P/ρ_p\). The Hamiltonian system \(\symbf{H}\) is invariant under the action, so it descends to a Hamiltonian system on \(B_{dpq}\).
 
 \todo{pass to action-angle coordinates etc.}
 
@@ -274,10 +274,10 @@ Then it has displacement energy
 
 \subsubsection{Almost complex structure on \texorpdfstring{\(B_{dpq}\)}{Bdpq}}
 
-Let \((n,a)\) be two coprime integers, \(μ_n\) the group of \(n\)-th roots of unity. Let \(μ_n\) act on \(ℂ^2\) by \(μ(z₁,z₂) = ( μ z_1,μ^a z_2)\).
-Let \(A(n,a) = ℂ^2/μ_n\) be the quotient space.
+Let \((n,a)\) be two coprime integers, \(ρ_n\) the group of \(n\)-th roots of unity. Let \(ρ_n\) act on \(ℂ^2\) by \(ρ(z₁,z₂) = ( ρ z_1,ρ^a z_2)\).
+Let \(A(n,a) = ℂ^2/ρ_n\) be the quotient space.
 This space is an orbifold, with one orbifold point at \([(0,0)]\).
-The space \(S³/μₙ\) is the lens space \(L(n,a)\)\todo{notation clash!!!}, so \(A(n,a)\) is the cone over \(L(n,a)\).
+The space \(S³/ρₙ\) is the lens space \(L(n,a)\)\todo{notation clash!!!}, so \(A(n,a)\) is the cone over \(L(n,a)\).
 
 We define the Hamiltonian system on \(A(n,a)\) by 
 \begin{equation}
@@ -287,6 +287,15 @@ We define the Hamiltonian system on \(A(n,a)\) by
 
 With this Hamiltonian system the moment polytope is a wedge with edges pointing along vectors \((1,0), (n,a)\), as seen in \cref{fig:Ana_moment_image}.
 \(A(n,a)\) has a almost complex structure \(J\) coming from the canonical complex structure on \(ℂ²\).
+
+We have the commutative diagram
+
+\begin{equation*}
+  \begin{tikzcd}
+    ℂ² \ar[r] \ar[d, "\symbf{H}"] & A(n,a) \ar[d, "\symbf{G}"] \\
+    Δ_{ℂ²} \ar[r] & Δ_{A(n,a)}
+  \end{tikzcd}
+\end{equation*}
 
 \begin{figure}
   \centering
@@ -383,7 +392,7 @@ We give the slight generalization:
   \label{fig:cutting_out_a_hyperannulens}
 \end{figure}
 \begin{proof}
-  Since the action of \(μ_n\) is free in \((ℂ^*)²\), the projection map \(π \colon (ℂ^*)² → A(n,a) ∖ \{[(0,0)]\}\) is an n-fold covering map.
+  Since the action of \(ρ_n\) is free in \((ℂ^*)²\), the projection map \(π \colon (ℂ^*)² → A(n,a) ∖ \{[(0,0)]\}\) is an n-fold covering map.
 
   As shown below, the preimage \(π^{-1}(X)\) is \(B(na_+) ∖ \overline{B(na_-)}\), and \(u\) lifts to a J-curve \(\tilde{u}\), i.e. a curve making the diagram
   \[
