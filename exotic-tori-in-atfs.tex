@@ -75,7 +75,7 @@
 
 % For more fine grained typesetting in final mode.
 % Else set the tolerance for overfull warnings higher.
-\ifdraft{\hfuzz=0.5pt}{\usepackage{microtype}}
+\ifdraft{\hfuzz=1.5pt}{\usepackage{microtype}}
 
 % Links and stuff
 \usepackage[final]{hyperref}
@@ -130,11 +130,10 @@ Define the manifold \(M_P\) by
 We define the Hamiltonian system
 \[\symbf{H}(z_1,z_2,z_3) = \qty(\abs{z_3}^2, \frac{1}{2}\qty(\abs{z_1}^2-\abs{z_2}^2))\]
 
-Let \(ρ_p\) be the group of \(p\)-Th roots of unity acting on \(M_P\) by
+Let \(ρ_p\) be the group of \(p\)-th roots of unity acting on \(M_P\) by
 \[ρ \cdot (z₁,z₂,z₃) = \qty(ρz₁,ρ^{-1}z₂,ρ^q z₃), \quad ρ ∈ ρ_p \; .\]
 This is a free  action, so we can define the quotient \(B_{dpq} = M_P/ρ_p\). The Hamiltonian system \(\symbf{H}\) is invariant under the action, so it descends to a Hamiltonian system on \(B_{dpq}\).
-
-\todo{pass to action-angle coordinates etc.}
+As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the critical values in the moment image, and use the flux map to obtain a moment map \(μ\) generating a Hamiltonian torus action everywhere except on the critical points, and having moment image as in \cref{fig:Bdpq_moment_image}.\todo{Kann man besser formulieren.}
 
 The position of the nodes can be varied along this ray by nodal slides.\todo{…which only affect some ε-neighboorhood.}
 
@@ -143,7 +142,7 @@ The position of the nodes can be varied along this ray by nodal slides.\todo{…
   \begin{tikzpicture}[scale=.7]
     \fill[black!5] (0,4) rectangle (8,-2);
 
-    \draw[thick,dotted] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (8,4);
+    \draw[thick,dotted,->] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (8,4) node[anchor=west] {\((p,q)\)};
     \draw[thick] (0,4) -- (0,-2);
   \end{tikzpicture}
   \caption{Moment image of \(B_{dpq}\) under \(μ\)}
@@ -224,7 +223,7 @@ The boundary map $∂ \colon H_2(S,∂T) → H_1(∂T)$ is given by $\partial D_
     \fill[black!5] (0,4) rectangle (7,-1);
 
     \coordinate (xy) at (2.7,3.5);
-    \node[anchor=south] at (xy) {\(T(x,y)\)};
+    \node[anchor=south] at (xy) {\(L(x,y)\)};
     \fill (xy) circle[radius=.05];
     \draw (xy)
            .. controls +(0,0) and +(-.5,1) .. node[anchor=east, near end] {\(D₁\)} (2,1)
@@ -289,13 +288,14 @@ With this Hamiltonian system the moment polytope is a wedge with edges pointing 
 \(A(n,a)\) has a almost complex structure \(J\) coming from the canonical complex structure on \(ℂ²\).
 
 We have the commutative diagram
-
 \begin{equation*}
   \begin{tikzcd}
-    ℂ² \ar[r] \ar[d, "\symbf{H}"] & A(n,a) \ar[d, "\symbf{G}"] \\
+    ℂ² \ar[r] \ar[d] & A(n,a) \ar[d, "\symbf{G}"] \\
     Δ_{ℂ²} \ar[r] & Δ_{A(n,a)}
   \end{tikzcd}
 \end{equation*}
+where the left vertical map is given by \((z₁,z₂) ↦ \frac{1}{2}\qty(\abs{z_1}²,\abs{z_2}²)\), and the bottom map is a linear transformation given by the matrix
+\[ \mqty(0 & 1\\\frac{1}{n} & \frac{a}{n})\;.\]
 
 \begin{figure}
   \centering
@@ -305,49 +305,6 @@ We have the commutative diagram
   \caption{Moment image of \(A(n,a)\) with given by Hamiltonian system \(G\)}
   \label{fig:Ana_moment_image}
 \end{figure}
-
-After mutation the moment image of \(B_{dpq}\) looks as in \cref{fig:Bdpq_moment_image2}.
-Removing the preimage of the branch cut line \(μ^{-1}(l)\) marked in red in \cref{fig:Bdpq_moment_image2}, the moment image is the same as that of \(A(dp²,dpq-1)\) with the corresponding line removed.
-Since the moment images are the same, by Delzant we get a symplectic embedding
-\[ B_{dpq} ∖ μ^{-1}(l) → A(dp²,dpq-1)\; ,\]
-and we can equip \(B_{dpq}\) with a almost complex structure \(J\) obtained by extending the almost complex structure of \(A(dp²,dpq-1)\) to \(μ^{-1}(l)\).
-
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=0.9]
-    \draw[thick,fill=black!5,->] (0,5) -- (0,0) -- (14,5) node[anchor=south] {\((dp²,dpq-1)\)};
-    \clip (0,5) -- (0,0) -- (14,5);
-    \draw[blue,line width=.25cm,draw opacity=.5, line cap=round] (0,0) -- node[anchor=south, near end] {\(U_l\)} (6,4);
-    \draw[thick,dotted] (0,0) -- (3,2) node[cross] {} -- (6,4) node[cross] {};
-  \end{tikzpicture}
-  \caption{Moment image of \(B_{dpq}\) after mutation}
-  \label{fig:Bdpq_moment_image2}
-\end{figure}
-
-\begin{lemma}
-\label{lem:bdpqdisk}
-  Equipped with this almost complex structure we have
-  \[\min \{\sigma_D(B_{dpq}, L(x_0,y_0), J) , \sigma_S(B_{dpq}, J)\} = x_0. \]  
-\end{lemma}
-
-\begin{proof}
-  Independently of the choice of $J$, there are no $J$-holomorphic spheres in $B_{dpq}$, since $H_2(B_{dpq})$ admits a basis the elements of which can be realized by Lagrangian spheres as discussed in \cref{sec:homology}.
-
-  In order to deal with disks we choose a particular $J$ as follows.
-  Perform nodal slides such that all nodes lie in $\{x > x_0 + \varepsilon \}$.
-  The subset $U = \pi^{-1}(\{x < x_0 + \varepsilon\})$ is symplectomorphic to $D(x_0 + \varepsilon) \times T^*S^1$.
-  Take the standard complex structure coming from this symplectomorphism on $U$ and extend it to an arbitrary almost complex structure $J$ taming $\omega$.
-  Since the projection 
-  \[ p \colon (U, J\vert_U) \rightarrow (D(x_0 + \varepsilon), i) \]
-  is holomorphic, the maximum principle \todo{gibts hierfür noch eine referenz? Weil als armen Studenten würde mich sowas aufregen. Ich bin vom Wort allein noch nicht ganz überzeugt…} implies that the image of any $J$-disk with boundary on $T(x_0,y_0)$ is contained in $U$.
-  Since $H_2(U,T(x_0,y_0))$ is generated by the disk $D_0$ (see \cref{sec:homology}), and since there is an obvious $J$-disk $u$ with $[u] = D_0$, the claim follows.
-\end{proof}
-
-\todo{Add proof of \cref{thm:bdpqexotic}.}
-
-
-
-\subsection{\texorpdfstring{\(D_0\)}{D₀} stays a Minimal J-Disks for Suitable Embeddings}
 
 Let \(B(a) ∈ ℂ^n\) be the open ball in \(ℂ^n\) of radius \(\sqrt{\frac{a}{π}}\).
 In \cite[appendix~A]{chekanovschlenk2015} the following lemma is proven:
@@ -367,7 +324,7 @@ We give the slight generalization:
   equipped with the almost complex structure of \(A(n,a)\).
 
   Let \(u \colon Σ → X\) be a J-holomorphic curve whose closure intersects
-  \[\symbf{H}^{-1}\qty(\qty{c₁(0,1)+c₂(n,a) \mid a_- = c₁ + c₂}) \; .\]
+  \[\symbf{G}^{-1}\qty(\qty{c₁(0,1)+c₂(n,a) \mid a_- = c₁ + c₂}) \; .\]
 
   Then \(∫_u ω ≥ a_+ - a_-\).
 \end{lemma}
@@ -411,6 +368,84 @@ We give the slight generalization:
   \[\mqty(0 & 1 \\ \frac{1}{n} & \frac{a}{n})\todo{Das ist jetzt nicht wie bei Evans linkswirkend, sondern normal…} \;,\]
   whose inverse maps \(\symbf{G}(X)\) to \(\symbf{H}(B(na_+) ∖ \overline{B(na_-)})\), and since \(π\) maps fibres to fibres, the claim follows.
 \end{proof}
+
+After a mutation on \(B_{dpq}\), we get a modified moment map \(\tilde{μ}\), with moment image as in \cref{fig:Bdpq_moment_image2}.
+
+Let \(ε>0\).
+Using a nodal slide we can assume that the nodes are all located in \(U_l = \tilde{μ}^{-1}\qty{c₁(0,1) + c₂(dp²,dpq-1) \mid c₁+c₂<ε }\), marked in blue in \cref{fig:Bdpq_moment_image2}.
+Removing \(U_l\), the moment image is the same as that of \(A(dp²,dpq-1)\) with the corresponding corner \(U_l^A\) removed.
+Since the moment images are the same, by Delzant we get a equivariant symplectomorphism
+\[ B_{dpq} ∖ U_l → A(dp²,dpq-1) ∖ U_l^A\; ,\]
+and we can equip \(B_{dpq}\) with a almost complex structure \(J\) obtained by extending the almost complex structure of \(A(dp²,dpq-1)\) to all of \(B_{dpq}\) such that \(J\) tames \(ω\).
+
+\begin{figure}
+  \centering
+\iffalse
+  \begin{tikzpicture}[scale=0.8]
+    \draw[thick,fill=black!5,->] (0,5) -- (0,0) -- (15,5) node[anchor=south] {\((dp²,dpq-1)\)};
+    \clip (0,5) -- (0,0) -- (15,5);
+    \draw[blue,line width=.25cm,draw opacity=.5, line cap=round] (0,0) -- node[anchor=south, near end] {\(U_l\)} (6,4);
+    \draw[thick,dotted] (0,0) -- (3,2) node[cross] {} -- (6,4) node[cross] {};
+
+    \coordinate (xy1) at (3,3);
+    \draw[fill=black] (xy1) circle[radius=0.05] node[anchor=south]{\(L(x₀,y₀)\)} -- node[anchor=south]{\(D_0\)} +(-3,-1);
+
+    \coordinate (xy2) at (5,3);
+    \draw[fill=black] (xy2) circle[radius=0.05] node[anchor=west]{\(L(x₀',y₀')\)} -- node[anchor=east]{\(D_0'\)} +(0,-2);
+  \end{tikzpicture}
+\fi
+\missingfigure{}
+  \caption{Moment image of \(B_{dpq}\) after mutation}
+  \label{fig:Bdpq_moment_image2}
+\end{figure}
+
+\begin{lemma}
+\label{lem:bdpqdisk}
+  Equipped with this almost complex structure we have
+  \[\min \{\sigma_D(B_{dpq}, L(x_0,y_0), J) , \sigma_S(B_{dpq}, J)\} = x_0. \]  
+\end{lemma}
+
+\begin{proof}
+  Independently of the choice of $J$, there are no $J$-holomorphic spheres in $B_{dpq}$, since $H_2(B_{dpq})$ admits a basis the elements of which can be realized by Lagrangian spheres as discussed in \cref{sec:homology}.
+
+\iffalse
+  If the torus \(L(x_0,y_0)\) lies above the branch cut line, we can choose the collection of \(dp²\) holomorphic disks \(ρ_{dp²}\sqrt{2((1-dqp)x₀+dp²y₀)} × D(x₀) ⊂ ℂ²\) where the first factor is the orbit under the \(dp²\)-th roots of unity \(ρ_{dp²}\).
+  Under the projection \(ℂ²∖B(ε) → A(dp²,dpq-1) ∖ U_l^A → B_{dpq} ∖ U_l\) these disks map to one J-holomorphic disk \(D₀\) with boundary on \(L(x_0,y_0)\) over the ray \(-t(dp²,dpq-1)\).\todo{image}
+
+  If the torus \(L(x_0,y_0)\) is below the branch cut line we proceed similarly, by choosing the collection of \(dp²\) holomorphic disks \(ρ_{dp²}\sqrt{2((1+dqp)x₀-dp²y₀)} × D(x₀) ⊂ ℂ²\), which project to one J-holomorphic disk \(D₀\) over the ray \(-t(dp²,dpq+1)\).
+
+  In either case, \(D₀\) has area \(x₀\), and is a representative of the homology class \([D₀]\) discussed in \cref{sec:homology} Our claim is that \(D₀\) is a minimal \(J\)-disk.
+\fi
+
+Suppose \(u\colon (Σ,∂Σ) → (B_{dpq},L(x_0,y_0))\) is any J-holomorphic disk, and \(D₀, D₁,\) \(S₂, …, S_d\) representatives of the homology classes generating \(H₂(B_{dpq},L(x₀,y₀))\) as described in \cref{sec:homology}.
+  If we have \([u]=[D₀]\) for the homology classes, the areas are also equal, so \(∫_u ω = ∫_{D₀} ω = x₀\).
+  Suppose \([u]\) is not some multiple of \([D₀]\).
+  As discussed in \cref{sec:homology}, this means that \([u]\) has some non-zero component of \([D₁],[S₂],…,[S_d]\).
+  This means that \(u(Σ) ∩ U_l ≠ ∅\), and in particular \(u(Σ) ∩ ∂U_l ≠ ∅\). So we can use \cref{lem:hyperannulus2} on the region 
+  \[ \tilde{μ}^{-1}\qty{c₁(0,1)+c₂(dp²,dpq-1) \mid ε < c₁+c₂ < 2x₀+dp\abs{qx-py}} \;, \]
+  which gives us
+  \[ ∫_u ω ≥ 2x₀+dp\abs{qx-py} - ε ≥ x₀\;, \]
+  if we assume that we have chosen \(ε ≤ x₀+dp\abs{qx-py}\).
+
+\iffalse
+    \textbf{Altes ding:}
+    In order to deal with disks we choose a particular $J$ as follows.
+  Perform nodal slides such that all nodes lie in $\{x > x_0 + \varepsilon \}$.
+  The subset $U = μ^{-1}(\{x < x_0 + \varepsilon\})$ is symplectomorphic to $D(x_0 + \varepsilon) \times T^*S^1$.
+  Take the standard complex structure coming from this symplectomorphism on $U$ and extend it to an arbitrary almost complex structure $J$ taming $\omega$.
+  Since the projection 
+  \[ p \colon (U, J\vert_U) \rightarrow (D(x_0 + \varepsilon), i) \]
+  is holomorphic, the maximum principle \todo{gibts hierfür noch eine referenz? Weil als armen Studenten würde mich sowas aufregen. Ich bin vom Wort allein noch nicht ganz überzeugt…} implies that the image of any $J$-disk with boundary on $T(x_0,y_0)$ is contained in $U$.
+Since $H_2(U,T(x_0,y_0))$ is generated by the disk $D_0$ (see \cref{sec:homology}), and since there is an obvious $J$-disk $u$ with $[u] = D_0$, the claim follows.
+\fi
+\end{proof}
+
+\todo{Add proof of \cref{thm:bdpqexotic}.}
+
+
+
+\subsection{\texorpdfstring{\(D_0\)}{D₀} stays a Minimal J-Disks for Suitable Embeddings}
+
 
 Define \(B_{dpq}(a) ≔ \symbf{G}\todo{was ist \(G\) genau?}^{-1}\qty{c₁(0,1)+c₂(dp²,dpq-1) \mid c₁+c₂ < a)}\)\todo{gibts davon noch eine schönere definition?}, and let \((X,ω,J)\) be a symplectic manifold with tame almost complex structure.
 
