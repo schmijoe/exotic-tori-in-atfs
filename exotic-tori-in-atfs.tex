@@ -258,7 +258,24 @@ Note that $T(x_0,y_0)$ yields a well-defined torus up to Hamiltonian isotopy, i.
 
 We want to use \cref{thm:chekanov} to find a lower bound, so first we need to choose a suitable almost complex structure on \(B_{dpq}\)
 
-\subsection{Buffer Zone Lemma}
+\subsection{Almost complex structure for \texorpdfstring{\(B_{dpq}\)}{Bdpq}}
+
+
+\begin{proposition}
+\label{prop:bdpq}
+Let $T(x_0,y_0)$ be a non-monotone ATF-fibre of $B_{dpq}$.
+Then it has displacement energy
+\[e(B_{dpq}, T(x_0,y_0)) ≥ x_0 .\]
+\end{proposition}
+
+\begin{proof}
+    We use \cref{thm:chekanov} together with \cref{lem:bdpqdisk}. 
+\end{proof}
+
+\todo{Add proof of \cref{thm:bdpqexotic}.}
+
+
+\section{Buffer Zone Lemma}
 
 Let \((n,a)\) be two coprime integers, \(ρ_n\) the group of \(n\)-th roots of unity. Let \(ρ_n\) act on \(ℂ^2\) by \(ρ(z₁,z₂) = ( ρ z_1,ρ^a z_2)\).
 Let \(A(n,a) = ℂ^2/ρ_n\) be the quotient space.
@@ -357,119 +374,8 @@ We give the slight generalization:
 
 \end{proof}
 
-\subsection{Almost complex structure for \texorpdfstring{\(B_{dpq}\)}{Bdpq}}
 
-\begin{lemma}
-\label{lem:bdpqdisk}
-There is an almost complex structure on \(B_{dpq}\)
-  \[\min \{\sigma_D(B_{dpq}, T(x_0,y_0), J) , \sigma_S(B_{dpq}, J)\} = x_0. \]  
-\end{lemma}
-
-\begin{proof}
-
-  Independently of the choice of $J$, there are no $J$-holomorphic spheres in $B_{dpq}$, since $H_2(B_{dpq})$ admits a basis the elements of which can be realized by Lagrangian spheres as discussed in \cref{sec:homology}.
-
-After a mutation on \(B_{dpq}\), we get a modified moment map \(\tilde{μ}\), with moment image \(\tilde{Δ}_{B_{dpq}}\) as in \cref{fig:Bdpq_moment_image2}, satisfying the commutative diagram
-\begin{equation}
-  \begin{tikzcd}
-     & B_{dpq} \ar[dl,"μ"'] \ar[dr,"\tilde{μ}"] & \\
-    Δ_{B_{dpq}} \ar[rr,"M"] & & \tilde{Δ}_{B_{dpq}}
-  \end{tikzcd}
-\end{equation}
-where \(M\) is the mutation map given by the matrix
-\[\mqty(dqp+1 & -dp² \\ dq² & -dpq+1)\]
-for points below the branch cut line, and the identity for points above.
-
-Let \(ε>0\).
-Using a nodal slide we can assume that the nodes are all located in \(U_l = \qty{c₁(0,1) + c₂(dp²,dpq-1) \mid c₁+c₂<ε }\), marked in blue in \cref{fig:Bdpq_moment_image2}.
-Removing \(U_l\), the moment image \(Δ_{B_{dpq}}\) is the same as that of \(A(dp²,dpq-1)\) with the corresponding corner \(U_l^A\) removed.
-Since the moment images are the same, by Delzant we get a equivariant symplectomorphism
-\[ B_{dpq} ∖ \tilde{μ}^{-1}(U_l) → A(dp²,dpq-1) ∖ \symbf{G}^{-1}(U_l^A)\; ,\]
-and we can equip \(B_{dpq}\) with a almost complex structure \(J\) obtained by extending the almost complex structure of \(A(dp²,dpq-1)\) to all of \(B_{dpq}\) such that \(J\) tames \(ω\).
-
-Chasing a point \((x,y)\) through the maps
-\[
-  \begin{tikzcd}
-    Δ_{B_{d,p,q}} ∖ U_l \ar[r,"M"] & \tilde{Δ}_{A(n,a)} ∖ U_l^A \ar[r,"L_{A(n,a)}^{-1}"] & Δ_ℂ ∖ π(B(ε))
-  \end{tikzcd}
-\]
-we obtain the point \((x + dp(py-qx),x)\) or \((x,x - dp(py-qx))\) depending on whether \((x,y)\) lies above or below the branch cut line.
-
-
-\begin{figure}
-  \centering
-\iffalse
-  \begin{tikzpicture}[scale=0.8]
-    \draw[thick,fill=black!5,->] (0,5) -- (0,0) -- (15,5) node[anchor=south] {\((dp²,dpq-1)\)};
-    \clip (0,5) -- (0,0) -- (15,5);
-    \draw[blue,line width=.25cm,draw opacity=.5, line cap=round] (0,0) -- node[anchor=south, near end] {\(U_l\)} (6,4);
-    \draw[thick,dotted] (0,0) -- (3,2) node[cross] {} -- (6,4) node[cross] {};
-
-    \coordinate (xy1) at (3,3);
-    \draw[fill=black] (xy1) circle[radius=0.05] node[anchor=south]{\(T(x₀,y₀)\)} -- node[anchor=south]{\(D_0\)} +(-3,-1);
-
-    \coordinate (xy2) at (5,3);
-    \draw[fill=black] (xy2) circle[radius=0.05] node[anchor=west]{\(T(x₀',y₀')\)} -- node[anchor=east]{\(D_0'\)} +(0,-2);
-  \end{tikzpicture}
-\fi
-\missingfigure{}
-  \caption{Moment image of \(B_{dpq}\) after mutation}
-  \label{fig:Bdpq_moment_image2}
-\end{figure}
-
-
-\iffalse
-  If the torus \(T(x_0,y_0)\) lies above the branch cut line, we can choose the collection of \(dp²\) holomorphic disks \(ρ_{dp²}\sqrt{2((1-dqp)x₀+dp²y₀)} × D(x₀) ⊂ ℂ²\) where the first factor is the orbit under the \(dp²\)-th roots of unity \(ρ_{dp²}\).
-  Under the projection \(ℂ²∖B(ε) → A(dp²,dpq-1) ∖ U_l^A → B_{dpq} ∖ U_l\) these disks map to one J-holomorphic disk \(D₀\) with boundary on \(T(x_0,y_0)\) over the ray \(-t(dp²,dpq-1)\).\todo{image}
-
-  If the torus \(T(x_0,y_0)\) is below the branch cut line we proceed similarly, by choosing the collection of \(dp²\) holomorphic disks \(ρ_{dp²}\sqrt{2((1+dqp)x₀-dp²y₀)} × D(x₀) ⊂ ℂ²\), which project to one J-holomorphic disk \(D₀\) over the ray \(-t(dp²,dpq+1)\).
-
-  In either case, \(D₀\) has area \(x₀\), and is a representative of the homology class \([D₀]\) discussed in \cref{sec:homology} Our claim is that \(D₀\) is a minimal \(J\)-disk.
-\fi
-
-Suppose \(u\colon (Σ,∂Σ) → (B_{dpq},T(x_0,y_0))\) is any J-holomorphic disk, and \(D₀, D₁,\) \(S₂, …, S_d\) representatives of the homology classes generating \(H₂(B_{dpq},T(x₀,y₀))\) as described in \cref{sec:homology}.
-  If we have \([u]=[D₀]\) for the homology classes, the areas are also equal, so \(∫_u ω = ∫_{D₀} ω = x₀\).
-  Suppose \([u]\) is not some multiple of \([D₀]\).
-  As discussed in \cref{sec:homology}, this means that \([u]\) has some non-zero component of \([D₁],[S₂],…,[S_d]\).
-  This means that \(u(Σ) ∩ U_l ≠ ∅\) (with \(U_l\) defined as above), and in particular \(u(Σ) ∩ ∂U_l ≠ ∅\). So we can use \cref{lem:hyperannulus2} on the region 
-  \[ \tilde{μ}^{-1}\qty{c₁(0,1)+c₂(dp²,dpq-1) \mid ε < c₁+c₂ < 2x₀+dp\abs{qx-py}}\todo{where does this weird thing come from} \;, \]
-  which gives us
-  \[ ∫_u ω ≥ 2x₀+dp\abs{qx-py} - ε ≥ x₀\;, \]
-  if we assume that we have chosen \(ε ≤ x₀+dp \abs{qx-py}\).
-\iffalse
-    \textbf{Altes ding:}
-    In order to deal with disks we choose a particular $J$ as follows.
-  Perform nodal slides such that all nodes lie in $\{x > x_0 + \varepsilon \}$.
-  The subset $U = μ^{-1}(\{x < x_0 + \varepsilon\})$ is symplectomorphic to $D(x_0 + \varepsilon) \times T^*S^1$.
-  Take the standard complex structure coming from this symplectomorphism on $U$ and extend it to an arbitrary almost complex structure $J$ taming $\omega$.
-  Since the projection 
-  \[ p \colon (U, J\vert_U) \rightarrow (D(x_0 + \varepsilon), i) \]
-  is holomorphic, the maximum principle \todo{gibts hierfür noch eine referenz? Weil als armen Studenten würde mich sowas aufregen. Ich bin vom Wort allein noch nicht ganz überzeugt…} implies that the image of any $J$-disk with boundary on $T(x_0,y_0)$ is contained in $U$.
-Since $H_2(U,T(x_0,y_0))$ is generated by the disk $D_0$ (see \cref{sec:homology}), and since there is an obvious $J$-disk $u$ with $[u] = D_0$, the claim follows.
-\fi
-\end{proof}
-
-\begin{proposition}
-\label{prop:bdpq}
-Let $T(x_0,y_0)$ be a non-monotone ATF-fibre of $B_{dpq}$.
-Then it has displacement energy
-\[e(B_{dpq}, T(x_0,y_0)) ≥ x_0 .\]
-\end{proposition}
-
-\begin{proof}
-    We use \cref{thm:chekanov} together with \cref{lem:bdpqdisk}. 
-\end{proof}
-
-\todo{Add proof of \cref{thm:bdpqexotic}.}
-
-
-
-\subsection{\texorpdfstring{\(D_0\)}{D₀} stays a Minimal J-Disks for Suitable Embeddings}
-
-
-Define \(B_{dpq}(a) ≔ \tilde{μ}^{-1}\qty{c₁(0,1)+c₂(dp²,dpq-1) \mid c₁+c₂ < a)}\)\todo{gibts davon noch eine schönere definition?}, and let \((X,ω,J)\) be a symplectic manifold with tame almost complex structure.
-
-Suppose we have an embedding \(B_{dqp}(2a) → X\), and that all J-spheres in \(X\) have at least area \(a\). Using \cref{rem:hyperannulus3,lem:hyperannulus2}, we get that the minimal J-curve with boundary on the torus \(T_k(a)\) has area \(a\), and since there are no smaller J-spheres by assumption, using \cref{thm:chekanov}, we get that the displacement energy of \(T_k(a)\) is at least \(a\).\todo{Brauchen wir hier noch ein ε platz?}
+\section{Upper bound on displacement energy: Probes}
 
 \iffalse
 %incomplete proof of Chekanov-Schlenk lemma
@@ -500,7 +406,6 @@ Suppose we have an embedding \(B_{dqp}(2a) → X\), and that all J-spheres in \(
 \end{proof}
 \fi
 
-\section{Upper bound on displacement energy: Probes}
 
 \printbibliography
 
