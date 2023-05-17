@@ -17,6 +17,7 @@
 % Font & Symbols
 % --------------
 
+\usepackage{mathtools}
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 \usepackage[oldstyle,proportional]{libertinus}
 
@@ -47,7 +48,6 @@
 % ---------------------
 
 % Various Math Environments
-\usepackage{mathtools}
 \usepackage{amsthm,thmtools}
 \usepackage{physics} % various shortcuts
 
@@ -123,17 +123,23 @@
 \end{theorem}
 
 
-Let \(d,p,q ∈ ℕ\) such that \(d≥\) and \(p,q\) coprime with \(1≤q<p\) or \(q=0,p=1\), and \(0<a_1<…<a_d\) real integers.
+Let \(d,p,q ∈ ℕ\) such that \(d≥1\) and \(p,q\) coprime with \(1≤q<p\) or \(q=0,p=1\), and \(0<a_1<…<a_d ∈ ℝ\).
 Let \(P\) be the polynomial \(P(z) = \prod_{i=1}^d (z^p-a_i)\).
 Define the manifold \(M_P\) by
-\[M_P = \qty{(z_1,z_2,z_3) ∈ ℂ³ \mid z₁z₂ + P(z₃)=0 } \; .\]
+\begin{equation}
+  \label{eqn:MP}
+M_P = \qty{(z_1,z_2,z_3) ∈ ℂ³ \mid z₁z₂ + P(z₃)=0 } \; .
+\end{equation}
 We define the Hamiltonian system
-\[\symbf{H}(z_1,z_2,z_3) = \qty(\abs{z_3}^2, \frac{1}{2}\qty(\abs{z_1}^2-\abs{z_2}^2))\]
+\begin{equation}
+  \label{eqn:non-toric-system}
+  \symbf{H}(z_1,z_2,z_3) = \qty(\abs{z_3}^2, \frac{1}{2}\qty(\abs{z_1}^2-\abs{z_2}^2))
+\end{equation}
 
 Let \(ρ_p\) be the group of \(p\)-th roots of unity acting on \(M_P\) by
 \[ρ \cdot (z₁,z₂,z₃) = \qty(ρz₁,ρ^{-1}z₂,ρ^q z₃), \quad ρ ∈ ρ_p \; .\]
-This is a free  action, so we can define the quotient \(B_{dpq} = M_P/ρ_p\). The Hamiltonian system \(\symbf{H}\) is invariant under the action, so it descends to a Hamiltonian system on \(B_{dpq}\).
-As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the critical values in the moment image, and use the flux map to obtain a moment map \(μ\) generating a Hamiltonian torus action everywhere except on the critical points, and having moment image \(Δ_{B_{dpq}}\) as in \cref{fig:Bdpq_moment_image}.\todo{Kann man besser formulieren.}
+This is a free  action, so we can define the quotient \(B_{dpq} = M_P/ρ_p\). The Hamiltonian system \(\symbf{H}\) is invariant under the action, so it descends to a Hamiltonian system on \(B_{dpq}\), giving us the almost toric fibration \(\symbf{H} \colon B_{dpq} → B\), where \(B = \im(H)\).
+As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the critical values in the moment image, and use the flux map to obtain a moment map \(μ \colon B_{dpq} → Δ_{B_{dpq}}\) generating a Hamiltonian torus action everywhere except on the critical points, and having moment image \(Δ_{B_{dpq}}\) as in \cref{fig:Bdpq_moment_image}.\todo{Kann man besser formulieren.}
 
 The position of the nodes can be varied along this ray by nodal slides.\todo{…which only affect some ε-neighboorhood.}
 
@@ -244,19 +250,37 @@ The boundary map $∂ \colon H_2(S,∂T) → H_1(∂T)$ is given by $\partial D_
 
 \section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
 
-Let \(T(x,y)\) a fibre torus, where \((x,y)\) is not over the branch cut line. In \cite{chekanov1998} the following is proven:
+We want to use the following Theorem by Chekanov \cite{chekanov1998} for a lower bound of the displacement energy
 
 \begin{theorem}
   \label{thm:chekanov}
-  Let \((X,ω,J)\) be a \todo{tame/geometrically bounded} symplectic manifold with \(ω\)-tame almost complex structure \(J\). Let \(L ⊂ X\) be a compact Lagrangian submanifold. Then the displacement energy satisfies
+  Let \((X,ω,J)\) be a tame symplectic manifold with \(ω\)-tame almost complex structure \(J\). Let \(L ⊂ X\) be a compact Lagrangian submanifold. Then the displacement energy satisfies
   \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}\]
 \end{theorem}
 
-
 Fibres $T(λ p,λ q)$ for $λ > 0$ are monotone whenever they are not on a node. We compute displacement energy of the non-monotone fibres.\todo{das müsste man auch noch zeigen oder verrefferenzen, ist aber irgendwie irrelevant…}
-Note that $T(x_0,y_0)$ yields a well-defined torus up to Hamiltonian isotopy, i.e.\ it is independent of the nodal slides, see \todo{referenz, kein guter platz hierfür}.
+Note that $T(x_0,y_0)$ yields a well-defined torus up to Hamiltonian isotopy, i.e.\ it is independent of the nodal slides, see \todo{referenz, wahrscheinlich nicht der richtige ort für diesen kommentar.}.
 
-We want to use \cref{thm:chekanov} to find a lower bound, so first we need to choose a suitable almost complex structure on \(B_{dpq}\)
+To use \cref{thm:chekanov}, we can choose a suitable almost complex structure on \(B_{dpq}\).
+
+We do so in the following way: During the construction of \(B_{dpq}\), we defined \(B_{dpq}\) as the quotient of \(M_P\) under the free action of \(ρ_p\). As a algebraic hypersurface \(M_P\) naturally inherits the complex structure of \(ℂ³\), and we use \(J\) to denote it on \(M_P\) as well as on its quotient \(B_{dpq}\).
+
+The first coordinate of \(\symbf{H}\) in \cref{eqn:non-toric-system}, is a plurisubharmonic function on \(ℂ³\), as \(-\dd \dd^ℂ \symbf{H}₁ = 2 \dd{x_3} ∧ \dd{y_3} ≥ 0\). As \(M_P\) is an algebraic hypersurface, this restricts to a plurisubharmonic function on \(M_P\), and also descends to the quotient \(B_{dpq}\) as a plurisubharmonic function.
+
+In particular, any J-holomorphic curve \(u\colon Σ → B_{dpq}\) satisfies the maximum principle with respect to \(\symbf{H}₁\), i.e.\ if \(\symbf{H}₁ ∘ u\) has a maximum, it must be on \(∂Σ\), and if \(\symbf{H}₁ ∘ u\) is non-zero then it must be constant.\footnote{The latter is obtained by applying the maximum principle to \(\frac{1}{\symbf{H}₁ ∘ u}\).}
+
+Let \(b = (b₁,b₂) ∈ \im(\symbf{H})\) and set \(L = \symbf{H}^{-1}(b)\). Let \(u: (Σ,∂Σ) → (B_{dpq},L)\) be a J-holomorphic curve. We have \(\symbf{H}₁ ∘ u ≤ b₁\) by the maximum principle. This means that if we have \(b₁ ≤ \symbf{H}₁(aᵢ)\) for all \(1≤i≤d\), then \(u\) is entirely contained in the region \(\symbf{H}^{-1}(\qty{\symbf{H}₁ ≤ b₁})\) which is homotopic to a solid torus rel \(L\).
+
+Since the homology of this space is isomorphic to \(ℤ\) and generated by \(D₀\) as in \cref{sec:homology}, and the area of a J-disc rel \(L\) only depends on its homology class, we have that
+\[σ_D(X,L,J) ≥ ∫_{D₀} ω  = μ₁(L)\]
+
+Since \(B_{dpq}\) contains no J-holomorphic spheres,\footnote{Its homology is generated by Lagrangian spheres, thus any closed J-holomorphic curve has symplectic area 0 and must be constant.} we have proven the following:
+
+\begin{lemma}
+  If \(b₁ < \symbf{H}₁(aᵢ)\) for all \(1 ≤ i ≤ d\), then
+  \[e(B_{dpq},L) ≥ μ₁(L) \; .\]
+\end{lemma}
+
 
 \subsection{Almost complex structure for \texorpdfstring{\(B_{dpq}\)}{Bdpq}}
 
@@ -269,7 +293,7 @@ Then it has displacement energy
 \end{proposition}
 
 \begin{proof}
-    We use \cref{thm:chekanov} together with \cref{lem:bdpqdisk}. 
+    We use \cref{thm:chekanov} together with %\cref{lem:bdpqdisk}. 
 \end{proof}
 
 \todo{Add proof of \cref{thm:bdpqexotic}.}
