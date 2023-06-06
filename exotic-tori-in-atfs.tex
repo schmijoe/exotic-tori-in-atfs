@@ -115,12 +115,12 @@
   Let $k ∈ ℕ$ such that $0<k≤d$ and $a ∈ (0,∞)$. Through nodal slides we can arrange the ATF on $B_{dpq}$ such that the line $x₂=a$ intersects the branch cut line between the $(k-1)$-th and $k$-th degenerated fibre. $T_k(a)$ is defined to be the fibre over the intersection point of these two lines.
 \end{definition}
 
-\begin{theorem}
+\begin{restatable}{theorem}{thmbdpqexotic}
     \label{thm:bdpqexotic}
   Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
-  The restriction of the displacement energy germ to $U$ is given by
-  \[ \eval{S_{T_k(a)}^e}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\}\todo{so oder so ähnlich…} \]
-\end{theorem}
+  Up to change of basis, the restriction of the displacement energy germ to $U$ is given by
+  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\}\todo{so oder so ähnlich…} \]
+\end{restatable}
 
 
 Let $d,p,q ∈ ℕ$ such that $d≥1$ and $p,q$ coprime with $1≤q<p$ or $q=0,p=1$, and $0<a_1<…<a_d ∈ ℝ$.
@@ -290,24 +290,33 @@ Since $B_{dpq}$ contains no J-holomorphic spheres,\footnote{Its homology is gene
 
 \begin{lemma}
   \label{lem:bdq_displacement}
-  Let $(x,y) ∈ Δ_{B_{dpq}}$ not on the branch cut line. Then the displacement energy of $T = μ^{-1}(x,y)$ is equal to $x$.
+  Let $(x,y) ∈ Δ_{B_{dpq}}$ not on the branch cut ray. Then the displacement energy of $T = μ^{-1}(x,y)$ is equal to $x$.
 \end{lemma}
 
 \begin{proof}
-  First Nodal Slide so \emph{everything is nice}. By \cite[Theorem 8.9]{evans2021atfs}, the nodal slide can be «local», so the displacement energy of $T$ is invariant. \todo{Do it better.}
+  In the proof we will be wanting to move the nodes around freely by nodal slides without affecting the displacement energy. The following makes this possible:
+  By \cite[Theorem 8.9]{evans2021atfs}, we can pick a contractible neighbourhood of the sliding nodes, such that the branch cut induces a fibred symplectomorphism outside that neighbourhood. Choosing a neighbourhood not intersecting $T$, we may freely apply nodal slides without affecting the displacement energy of $T$.
 
-  Using probes (which is possible since \emph{everything is nice}), we get the upper bound $e(T)≤x$.
+  For the lower bound, we first use a nodal slide to make room for a probe (see\todo{Picture}). Using that, we get the upper bound $e(T)≤x$.
   
-  Since \emph{everything is nice}, after the nodal slide we also have that $b_1 = \symbf{H}_1(T) ≤ \symbf{H}_1(a_i)$ for all $ 1 ≤ i ≤ d$, so we can apply \cref{lem:lower_bound}, and to get the lower bound $e(T) ≥ x$.
+  Using a nodal slide together with \cite[Corollary 5.4]{symington2002FourDF} which determines the symplectic manifold over a almost toric base up to symplectomorphism, we can modify the polynomial $P(z) = Π_{i=1}^d (z-a_i)$, while keeping $\symbf{H}(T) = {b}$.
+  Thus we can choose the nodal slide so that we have that $b_1 = \symbf{H}_1(T) ≤ \symbf{H}_1(a_i)$ for all $ 1 ≤ i ≤ d$.
+  So we can apply \cref{lem:lower_bound}, and to get the lower bound $e(T) ≥ x$.
 \end{proof}
+
+We are now ready to prove
+
+\thmbdpqexotic*
+
+Recall that $T_k(a)$ is the fibre over $(a,\frac{q}{p}a)$ such that there are $k$ nodes below on the branch cut ray.
 
 \begin{proof}[Proof of \cref{thm:bdpqexotic}]
   Using mutations at the $k$ nodes to the left of $T_k(a)$, we get a new moment map $\overline{μ}$ and moment polytope $\overline{Δ_{B_{dpq}}}$ such that $T_k(a)$ is a regular \todo{this is the wrong word...} fibre of $\overline{μ}$ (Instead of sitting on a branch cut line).
-  Then using a versal deformation \todo{whooo magic word}, we can identify a neighbourhood $U$ of $0 ∈ H¹(T_k(a);ℝ)$ with a neighbourhood $V ⊂ \overline{Δ_{B_{dpq}}}^{\text{reg}}$ of the basepoint $b = μ(T_k(a))$, where we identify points in $\overline{Δ_{B_{dqp}}}^{reg}$ with their preimages, which are Lagrangian tori.
+  Then using a versal deformation \todo{whooo magic word}, we can identify a neighbourhood $U$ of $0 ∈ H¹(T_k(a);ℝ)$ with a neighbourhood $V ⊂ \overline{Δ_{B_{dpq}}}^{\text{reg}}$ of the basepoint $(a,\frac{qa}{p}) = μ(T_k(a))$, where we identify points in $\overline{Δ_{B_{dqp}}}^{reg}$ with their preimages, which are Lagrangian tori.
 
   Choose generators in $H¹(T_k(a);ℝ)$ corresponding to $μ_1,μ_2$\todo{wie genau?}. Then $(x,y) ∈ H¹(T_k(a);ℝ)$ is sent by versal deformation to $(a + x, \frac{q}{p}a + y)$ in $\overline{Δ_{B_{dpq}}}$.
   If it is above the branch cut ray, the mutation leaves it unaffected, and the displacement energy is $x+a$.
-  If it is below the branch cut ray, the mutation sends it to $(a,\frac{q}{p}a) + (kp²y -x(kpq -1), -kq²x + y(kpq +1))$, and the displacement energy is $a + -kq²x + y(kpq + 1))$, so we get the desired result.
+  If it is below the branch cut ray, the mutation sends it to $(a,\frac{q}{p}a) + (kp²y -x(kpq -1), -kq²x + y(kpq +1))$, and the displacement energy is $a +kp²y - x(kpq-1) = a + x + kp(py-qx)$ where the last term is negative, so we get the desired result.
 \end{proof}
 
 
@@ -333,6 +342,23 @@ As a simple corollary we get:
 
 \begin{proof}
   Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{lem:monotonicity} to $B$ we get the desired result.
+\end{proof}
+
+\section{Proof of small embedded version}
+
+\todo[inline]{AHHHHHHHHHHHHHHH}
+
+\begin{theorem}
+  Let $(M,ω)$ be a compact tame symplectic 4-manifold. Let $B_{dpq}(a) ⊂ B_{dpq}$ be the preimage of a convex open neighbourhood $U$ of $(0,0)$ and the nodes in $Δ_{B_{dpq}}$ such that $\sup\{\tilde{a} | T_k(\tilde{a}) ⊂ B_{dpq}(a)\} = a$, and $φ \colon B_{dpq}(a) → M$ an embedding. Then there exists $ε>0$ such that for all $\tilde{a}<ε$, $φ(T_k(\tilde{a})) ⊂ M$ has the same displacement energy germ as $T_k(\tilde{a}) ⊂ B_{dpq}$.
+\end{theorem}
+
+\begin{proof}
+  We want to proceed in a similar way as \cref{lem:bdq_displacement}. To be able to do that, we need to be able to displace Lagrangian tori near $T_k(\tilde{a})$ by probes. Since $μ(B_{dpq}(a))$ is convex, we can choose an $ε_1>0$ such that this is possible for all.
+
+  Next we want to establish the lower bound using \cref{thm:chekanov} and \cref{cor:small_buffer}. Choose a tubular neighbourhood $ι \colon μ^{-1}(∂U) × (0,1)$, and $B = ι(μ^{-1}(∂U), (0,\frac{1}{2}))$ a slightly smaller tubular neighbourhood.
+  Then, since $μ^{-1}(∂U)$ is compact, $B$ has two disjoint boundary components $∂B^±$ and $d(∂B^+,∂B^-) > 0$ for any metric $d$.
+  Choose a almost complex structure $J_1$ on $B$ and let $ε_2 = \frac{d(∂B^+,∂B^-)^2}{16π}$.
+
 \end{proof}
 
 
