@@ -249,6 +249,7 @@ The boundary map $∂ \colon H_2(S,∂T) → H_1(∂T)$ is given by $\partial D_
 \end{figure}
 
 \section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
+\label{sec:lower_bound}
 
 We want to use the following Theorem by Chekanov \cite{chekanov1998} for a lower bound of the displacement energy
 
@@ -353,16 +354,18 @@ As a simple corollary we get:
 \end{theorem}
 
 \begin{proof}
+  Note that to show the result, we only need to show \cref{lem:bdq_displacement} for "the embedded case".
+
   We want to proceed in a similar way as \cref{lem:bdq_displacement}. To be able to do that, we need to be able to displace Lagrangian tori near $T_k(\tilde{a})$ by probes. Since $μ(B_{dpq}(a))$ is convex, we can choose an $ε_1>0$ such that this is possible for all.
 
-  Next we want to establish the lower bound using \cref{thm:chekanov} and \cref{cor:small_buffer}. Choose a small collar $ι \colon μ^{-1}(∂U) × [0,1)$, and $B = ι(μ^{-1}(∂U), (0,\frac{1}{2}))$ a slightly smaller collar neighbourhood of $μ^{-1}$.
+  Next we want to establish the lower bound using \cref{thm:chekanov} and \cref{cor:small_buffer}. Choose a small two-sided collar $ι \colon μ^{-1}(∂U) × (-1,1)$, and $B = ι(μ^{-1}(∂U), (-1,0))$ an inner collar of $μ^{-1}(U)$.
   Then, since $μ^{-1}(∂U)$ is compact, $B$ has two disjoint boundary components $∂B^±$ and $d(∂B^+,∂B^-) > 0$ for any metric $d$.
-  Choose a almost complex structure $J_1$ on $B$ and let $ε_2 = \frac{d(∂B^+,∂B^-)^2}{16π}$.
-  
-  Extend $J_1$ to an almost complex structure on \emph{all} of $M$, and let $ε_3 = σ_S(M,J_1)$.
 
-  We now claim that for any $J_0$ chosen on $B_{dpq}(a) ∖ \im{ι}$, and a suitable smooth interpolation between $J_0$ and $J_1$ on $ι(μ^{-1}(∂U), [\frac{1}{2},1))$, the resulting $J$ will satisfy $σ_S(M,J) ≥ \min\{ε_2,ε_3\}$. Suppose there exists a $J$-sphere with area $≤\min\{ε_2,ε_3\}$
+  Choose the almost complex structure $J_0$ on $B_{dpq}(a)$ coming from $ℂ^3$ as in \cref{sec:lower_bound}. Then using \cref{cor:small_buffer} on $B$, we get that any $J_0$-holomorphic disc crossing $B$ must have area at least $\frac{d(∂B⁺,∂B⁻)²}{16 π} = ε_2$.
 
+  Take an extension $J$ of $J_0$ to all of $M$, and let $ε_3 = σ_S(M,J)$.
+
+  Now for all fibres $T$ with $μ_1(T) ≤ \min\{ε_1,ε_2,ε_3\}$ and $\symbf{H}_1 ≤ a_1$,\footnote{The latter can always be achieved by a nodal slide} \cref{lem:lower_bound} works, and the upper bound is given by the probe.
 \end{proof}
 
 
