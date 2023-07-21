@@ -285,6 +285,39 @@ Since $B_{dpq}$ contains no J-holomorphic spheres,\footnote{Its homology is gene
 
 \section{Upper bound on displacement energy: Probes}
 
+We want to use the method of probes to calculate an upper bound on the displacement energy of certain toric fibres $T(x,y)$, i.e. we give a Hamiltonian diffeomorphism that displaces the $T(x,y)$ from itself. The method to construct such a Hamiltonian diffeomorphism is the method of probes, that was first introduced by McDuff \cite{mcduff2011displacing} for exactly the same purpose. Probes were originally introduced in the context of toric symplectic manifolds.\\
+We quickly recall the main ideas of the method and then explain how they are applied in our situation. Assume that $(X^{2n},\omega)$ is a toric symplectic manifold with moment map $\mu:X\to ℝ^n$ and moment polytope $\Delta$. A \textit{probe} $p_\lambda(w)$ is a half open line segment contained in $\Delta$, starting at a point $w \in \Delta$, where $w$ is lying on a facet of $\Delta$, pointing in the direction of $\lambda \in ℤ^n$, where the direction  $\lambda$ is integrally transverse to the facet and such that the line segment intersects the boundary of the polytope $\Delta$ only in the point $w$. In \cite[Lemma 2.4.]{mcduff2011displacing} it is shown that if a toric fibre $\mu^{-1}(u)$ lies over a probe $p_\lambda(w)$, where $u\in \text{int}\Delta$ is strictly less than halfway along the probe, then it is displaceable. It is worthwhile to note that this Hamiltonian displacement is local in nature. To see this one realises that the definition probes implies that one can find an appropriate $Gl_n(\mathbb{Z})$ transformation of the $\mathbb{R^n}$ such that the facet $F$, from which the probe emanates, lies on the hyperplane $\{x_1=0\}$ and such that the direction of the probe is given by $\lambda=(1,0,\ldots,0)$. Furthermore, there is a corresponding Darboux chart on $X$ with coordinates $z_1,\ldots,z_n$ such that the preimage under the moment map of the probe is given by
+\begin{equation*}
+    \mu^{-1}(p_\lambda(w))=\left\{z\in \mathbb{C}^n \mid \abs{z_1}^2<2a, \abs{z_i}=\text{const for }i\neq 1\right\},
+\end{equation*}
+where $a \in \mathbb{R}$ is the affine length of the probe. By abuse of notation this information is condensed in the following diagram of symplectic reduction
+\[
+\begin{tikzcd}
+  \left(\mu^{-1}(p_\lambda(w)),\left.\omega\right|_A\right)\ar[r,hook]\ar[d]&
+  \left(\mu^{-1}(U),\left.\omega\right|_U\right)
+  \\
+  \left(\mathbb{D}^2(a),\omega_\text{std}\right),
+\end{tikzcd}
+\]
+where $\mathbb{D}^2(a)\subseteq \mathbb{C}$ is the open disk enclosing area $2\pi a$. Now a circle $S^1(b)\vcentcolon=\{z\in \mathbb{C}\mid \abs{z}^2=2b\} \subseteq \mathbb{D}^2(a)$ is displaceable by a Hamiltonian diffeomorphism of $\mathbb{D}^2(a)$ if and only if $b<\frac{a}{2}$. The Hamiltonian generating this diffeomorphism can be extended to all of $\mathbb{C}$ in such a way that it can be lifted to $\mu^{-1}(U)$ in a compactly supported manner.\\
+It is clear that this discussion construction extends to the case of almost toric fibrations and does trivially so, if the probe does not intersect the branch cut line.\\
+Now assume that everything is arranged as in the assumptions and notations of \cref{thm:bdpqexotic}. In particular the moment image associated to this setup is shown in \cref{fig:Bdpq_moment_image}. Using the method of probes we show the upper bound on the displacement energy, i.e. 
+
+\begin{restatable}{lemma}{lemmabdpqexoticupper}
+    \label{thm:lemmabdpqexoticupper}
+  Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
+  Up to change of basis, the restriction of the displacement energy germ to $U$ is bounded from above by
+  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\} \]
+\end{restatable}
+
+\begin{proof}
+    Recall that $T_k(a)$ is the fibre over $(a,b) \in Δ_{B_{dpq}}$, where $b\vcentcolon=\frac{q}{p}a$, such that there are $k$ nodes below on the branch cut line. After mutating $k$ times the base point of $T_k(a)$ is contained in a neighbourhood that admits a regular torus fibration. The mutation process yields a new moment map $\overline{μ}$ and moment polytope $\overline{Δ_{B_{dpq}}}$. \todo{Draw the correct picture and show the neighbourhood that is meant.} Now a neighbourhood of $0 ∈ H¹(T_k(a);ℝ)$ can be identified with a neighbourhood $V ⊂ \overline{Δ_{B_{dpq}}}$ of $(a,\frac{qa}{p}) = μ(T_k(a))$, such that $V \subset U$. Choose generators of $H¹(T_k(a);ℝ)$ corresponding to the components of the moment map $\overline{\mu}=(\overline{\mu_1},\overline{\mu_2})$, i.e. generators that are orthogonal to those. Using this identification a point $(x,y) ∈ H¹(T_k(a);ℝ)$ close to $0$ is sent by the versal deformation to $(a + x, b + y)$ in $\overline{Δ_{B_{dpq}}}$. Now the goal is to estimate the displacement energy of fibres over these points. This is achieved by the method of probes. In the moment image $\overline{Δ_{B_{dpq}}}$ horizontal probes can be used to displace all the regular toric fibres. Denote the Lagrangian torus fibres over $(a + x, b + y)$ by $T_{x,y}$. This yields 
+    \[ e(B_{dpq},T_{x,y})\leq a+x. \]
+    If it is above the branch cut ray,  the mutation leaves it unaffected, and the displacement energy is $x+a$. Note that this calculation involved a choice of basis of the cohomology vector spaces, but that the displacement energy germ is intrinsically given.\footnote{For details on displacement energy germs and versal deformations compare \cite{chekanovschlenk2015} and \cite{brendel2020real}} To compare the estimates we get for different choices of $a$'s we therefore apply the inverse mutation to get back to the original moment map $\mu$. The points above the branch cut are unaffected by the mutation but to the points below the branch cut line we have to apply the inverse of the anticlockwise monodromy matrix.\todo{Maybe include the calculations here?} A point $(a + x, b + y)$ below the branch cut line is send to $(a,b) + (x(1-kpq)+kp²y, -kq²x + y(kpq +1))$. Hence the displacement energy germ calculated in these coordinates is estimated by 
+    \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\}. \]
+\end{proof}
+
+
 \section{Proof of non-embedded version}
 
 \todo[inline]{ !!! Hier wird noch viel Händewedeln betrieben.}
