@@ -19,7 +19,7 @@
 
 \usepackage{mathtools}
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-\usepackage[oldstyle,proportional]{libertinus}
+\usepackage[oldstyle,proportional]{libertinus-otf}
 
 % ---------------
 % Set Page Layout
@@ -138,7 +138,8 @@ We define the pair of Hamiltonian functions
 
 Let $ρ_p$ be the group of $p$-th roots of unity acting on $M_P$ by
 \[ρ \cdot (z₁,z₂,z₃) = \qty(ρz₁,ρ^{-1}z₂,ρ^q z₃), \quad ρ ∈ ρ_p \; .\]
-This is a free  action, so we can define the quotient $B_{dpq} = M_P/ρ_p$. $\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Hamiltonians on $B_{dpq}$, giving us the almost toric fibration\todo{definieren} $\symbf{H} \colon B_{dpq} → B$, where $B = \im(H)$.
+This is a free  action, so we can define the quotient $B_P = M_P/ρ_p$. $\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Hamiltonians on $B_P$, giving us the almost toric fibration $\symbf{H} \colon B_P → B$, where $B = \im(\symbf{H})$.
+As it turns out $B_P$ is (up to symplectomorphism) independent of the exact choice of $P$, only depending on $d,p,q$. So unless necessary we will denote $B_P$ by $B_{dpq}$.
 As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the critical values in the moment image, and use the flux map to obtain a moment map $μ \colon B_{dpq} → Δ_{B_{dpq}}$ generating a Hamiltonian torus action everywhere except on the critical points, and having moment image $Δ_{B_{dpq}}$ as in \cref{fig:Bdpq_moment_image}.\todo{Kann man besser \& genauer formulieren.}
 
 The position of the nodes can be varied along this ray by nodal slides.\todo{…which only affect some ε-neighboorhood.}
@@ -189,7 +190,7 @@ Let us call the resulting space $S$.
     \label{fig:branch_cut_retraction}
   \end{subfigure}%
   \begin{subfigure}{0.55\textwidth}
-    \includegraphics[width=\textwidth]{img/homology_collapse.png}
+    \includegraphics[width=\textwidth]{img/homology_collapse.pdf}
     \caption{The two cycles marked in red and purple (here $p=2, q=1$) are collapsed to a point.}
     \label{fig:collapse_cycles}
   \end{subfigure}
@@ -248,6 +249,13 @@ The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given b
   \label{fig:homology_generating_discs}
 \end{figure}
 
+\section{Fun facts über ATFS by Joé}
+
+\begin{lemma}
+  \label{lem:nodal_slide}
+  Nodal slides geben symplektomorphismus supported auf umgebung von geslideten nodes.
+\end{lemma}
+
 \section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
 \label{sec:lower_bound}
 
@@ -258,30 +266,79 @@ We want to use the following theorem by Chekanov \cite{chekanov1998} for a lower
   Let $(X,ω,J)$ be a tame symplectic manifold with $ω$-tame almost complex structure $J$. Let $L ⊂ X$ be a compact Lagrangian submanifold. Then the displacement energy satisfies
   \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}\]
 \end{theorem}
+\todo{Why is $B_{dpq}$ tame?}
 
 The fibres $T(λ p,λ q)$ for $λ > 0$ are monotone whenever they are not on a node. We compute the displacement energy of the non-monotone fibres.\todo{das müsste man auch noch zeigen oder verrefferenzen, ist aber irgendwie irrelevant…}
-Note that $T(x_0,y_0)$ yields a well-defined torus up to Hamiltonian isotopy, i.e.\ it is independent of the nodal slides, see \todo{referenz, wahrscheinlich nicht der richtige ort für diesen kommentar.}.
+Note that $T(b_1,b_2)$ yields a well-defined torus up to Hamiltonian isotopy, i.e.\ it is independent of the nodal slides, see \todo{referenz, wahrscheinlich nicht der richtige ort für diesen kommentar.}.
 
 To use \cref{thm:chekanov}, we can choose a suitable almost complex structure on $B_{dpq}$.
 
-We do so in the following way: In the above the construction of $B_{dpq}$, we defined $B_{dpq}$ as the quotient of $M_P$ under the free action of $ρ_p$. As a algebraic hypersurface $M_P$ naturally inherits the complex structure of $ℂ³$, and we use $J$ to denote it on $M_P$ as well as on its quotient $B_{dpq}$.
+We do so in the following way: In the above the construction of $B_{dpq}$, we defined $B_{dpq}$ as the quotient of $M_P$ under the free action of $ρ_p$. As a algebraic hypersurface $M_P$ naturally inherits the complex structure of $ℂ³$, and we use $J$ to denote this structure on $M_P$ as well as on its quotient $B_{dpq}$.
 
-The first component of $\symbf{H}$ in \ref{eqn:non-toric-system}, is a (weakly) plurisubharmonic\todo{definieren} function on $ℂ³$, as $-\dd \dd^ℂ \symbf{H}₁ = 2 \dd{x_3} ∧ \dd{y_3} ≥ 0$. As $M_P$ is an algebraic hypersurface, this restricts to a plurisubharmonic function on $M_P$, and also descends to the quotient $B_{dpq}$ as a plurisubharmonic function.
+\begin{definition}
+  Let $(M,J)$ be a almost complex manifold.
+  A (smooth) function $f\colon (M,J) → ℂ$ is weakly plurisubharmonic if
+  \[-\dd \dd^ℂ f = -\dd(\dd f ∘ J) ≥ 0 \;.\]
+\end{definition}
+
+The first component of $\symbf{H}$ in \ref{eqn:non-toric-system}, is a weakly plurisubharmonic function on $ℂ³$, as $-\dd \dd^ℂ \symbf{H}₁ = 2 \dd{x_3} ∧ \dd{y_3} ≥ 0$. As $M_P$ is an algebraic hypersurface, this restricts to a plurisubharmonic function on $M_P$, and also descends to the quotient $B_{dpq}$ as a plurisubharmonic function.
 
 In particular, any $J$-holomorphic curve $u\colon Σ → B_{dpq}$ satisfies the maximum principle with respect to $\symbf{H}₁$, i.e.\ if $\symbf{H}₁ ∘ u$ has a maximum, it must be on $∂Σ$, and if $\symbf{H}₁ ∘ u$ is non-zero then it must be constant.\footnote{The latter is obtained by applying the maximum principle to $\frac{1}{\symbf{H}₁ ∘ u}$.}
 
-Let $b = (b₁,b₂) ∈ \im(\symbf{H})$ and set $T = \symbf{H}^{-1}(b)$. Let $u \colon (Σ,∂Σ) → (B_{dpq},T)$ be a $J$-holomorphic curve. We have $\symbf{H}₁ ∘ u ≤ b₁$ by the maximum principle, thus $u$ is entirely contained in the region $\symbf{H}^{-1}(\qty{\symbf{H}₁ ≤ b₁})$. This means that if we have $b₁ ≤ \symbf{H}₁(aᵢ)$, for all $1≤i≤d$, where the $a_i$ are the zeros of $P$ as in \cref{sec:homology}, then this region is homotopic to a solid torus.
+\subsection{Non-Embedded lower bound}
+
+Let $b = (b₁,b₂) ∈ \im(\symbf{H})$ and set $T = \symbf{H}^{-1}(b)$. Let $u \colon (Σ,∂Σ) → (B_{dpq},T)$ be a $J$-holomorphic curve. We have $\symbf{H}₁ ∘ u ≤ b₁$ by the maximum principle, thus $u$ is entirely contained in the region $\symbf{H}^{-1}(\qty{\symbf{H}₁ ≤ b₁})$. If we have $b₁ ≤ \symbf{H}₁(aᵢ)$, for all $1≤i≤d$, where the $a_i$ are the zeros of $P$ as in \cref{sec:homology}, then this region is homotopic to a solid torus.
 
 Since the homology of $(\symbf{H}^{-1}(\qty{\symbf{H}_1 ≤ b_1}), T)$ is isomorphic to $ℤ$ and generated by $D₀$ as in \cref{sec:homology}, and the area of a $J$-disc rel $T$ only depends on its homology class, we have that
 \[σ_D(X,T,J) ≥ ∫_{D₀} ω  = μ₁(T)\]
 
-Since $B_{dpq}$ contains no $J$-holomorphic spheres,\footnote{Its homology is generated by Lagrangian spheres, thus any closed $J$-holomorphic curve has symplectic area $0$ and must be constant.} we have proven the following:
+Since $B_{dpq}$ contains no $J$-holomorphic spheres,\footnote{As seen in \cref{sec:homology} the homology of $B_{dpq}$ is generated by Lagrangian spheres, thus any closed $J$-holomorphic curve has symplectic area $0$ and must be constant.} we have proven the following:
 
 \begin{lemma}
-  \label{lem:lower_bound}
   If $b₁ < \symbf{H}₁(aᵢ)$ for all $1 ≤ i ≤ d$, then
   \[e(B_{dpq},T) ≥ σ_D(X,T,J) ≥ ∫_{D₀} ω  = μ₁(T) \; .\]
 \end{lemma}
+
+Actually, since we are free to choose another almost complex structure, we can improve this result: 
+Using a nodal slide on the moment image $μ$ as in \cref{lem:nodal_slide} we may construct a symplectomorphism $B_{P_1} → B_{P_2}$ supported on a neighbourhood of the line $\symbf{H}^{P_k}_2=0$, where
+$P_k$ are two polynomials each with $d$ distinct roots of multiplicity $p$.
+For a torus $\symbf{H}^{-1}(b)$ with $b_2 ≠ 0$ we may therefore always change to a different polynomial $P_2$ where $b_1 < \symbf{H}_1(a_i)$, and choose the pullback of the natural almost complex structure of $B_{P_2}$. So we obtain:
+
+\begin{lemma}
+  \label{lem:lower_bound}
+  If $b_2 ≠ 0$ then $e(B_{dpq},T) ≥ μ₁(T)$.
+\end{lemma}
+
+\subsection{Embedded lower bound}
+
+Let $(M,ω,J)$ be a symplectic manifold with $ω$-tame almost complex structure $J$, and denote by $g$ the associated Riemannian metric, and $u\colon Σ → M$ be a J-holomorphic curve.
+
+Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
+
+\begin{lemma}[Monotonicity]
+  \label{lem:monotonicity}
+  Let $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$. If $u(∂Σ) ⊂ M ∖ B$ then we have
+  \[∫_u ω ≥ \frac{π r²}{4}\]
+\end{lemma}
+
+As a simple corollary we get:
+
+\begin{corollary}
+  \label{cor:small_buffer}
+  Suppose $∂M = ∂M^+ ⊔ ∂M^-$, with $∂M^±$ non-empty, $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,∂M)$ J-holomorphic with $u(∂Σ^±) ⊂ ∂M^±$, then
+  \[∫_u ω ≥ \frac{π d(∂M^+,∂M^-)^2}{16} \; .\]
+\end{corollary}
+
+\begin{proof}
+  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{lem:monotonicity} to $B$ we get the desired result.
+\end{proof}
+
+\begin{proposition}
+  Let $T=\symbf{H}^{-1}(b) ⊂ B_{dpq}$ with $b_2 ≠ 0$, $B_r(T) = \qty{p ∈ B_{dpq} \mid \inf{d(p,θ) < r \mid θ ∈ T}}$, $(M,ω)$ a tame symplectic manifold and $φ \colon B_r(T) → M$ a symplectic embedding. 
+  
+  If $\frac{πr²}{16} ≥ \max\qty{σ_S,μ_1(T)}$, then $e(M,φ(T)) ≥ μ₁(T)$.
+\end{proposition}
+
 
 \section{Upper bound on displacement energy: Probes}
 
@@ -351,30 +408,6 @@ Recall that $T_k(a)$ is the fibre over $(a,\frac{q}{p}a)$ such that there are $k
   If it is below the branch cut ray, the mutation sends it to $(a,\frac{q}{p}a) + (kp²y -x(kpq -1), -kq²x + y(kpq +1))$, and the displacement energy is $a +kp²y - x(kpq-1) = a + x + kp(py-qx)$ where the last term is negative, so we get the desired result.
 \end{proof}
 
-
-\section{Small Buffer Zone Lemma}
-
-Let $(M,ω,J)$ be a symplectic manifold with $ω$-tame almost complex structure $J$, and denote by $g$ the associated Riemannian metric, and $u\colon Σ → M$ be a J-holomorphic curve.
-
-Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
-
-\begin{lemma}[Monotonicity]
-  \label{lem:monotonicity}
-  Let $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$. If $u(∂Σ) ⊂ M ∖ B$ then we have
-  \[∫_u ω ≥ \frac{r²}{4π}\]
-\end{lemma}
-
-As a simple corollary we get:
-
-\begin{corollary}
-  \label{cor:small_buffer}
-  Suppose $∂M = ∂M^+ ⊔ ∂M^-$, with $∂M^±$ non-empty, $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,∂M)$ J-holomorphic with $u(∂Σ^±) ⊂ ∂M^±$, then
-  \[∫_u ω ≥ \frac{d(∂M^+,∂M^-)^2}{16π} \; .\]
-\end{corollary}
-
-\begin{proof}
-  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{lem:monotonicity} to $B$ we get the desired result.
-\end{proof}
 
 \section{Proof of small embedded version}
 
