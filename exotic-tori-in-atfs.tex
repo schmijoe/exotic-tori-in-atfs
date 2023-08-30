@@ -109,6 +109,12 @@
 
 \maketitle
 
+
+Convention:
+\begin{tikzcd}
+                                     & B_{dpq} \arrow[ld, "\symbf{H}"'] \arrow[rd, "μ"] &                     \\
+{b=(b_1,b_2)  \in B} \arrow[rr, "τ"] & {}                                               & {x=(x_1,x_2) \in Δ}
+\end{tikzcd}
 \section{Introduction}
 
 \begin{definition}
@@ -122,8 +128,18 @@
   \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\} \]
 \end{restatable}
 
+\section{Fun facts über ATFS by Joé}
 
-Let $d,p,q ∈ ℕ$ such that $d≥1$ and $p,q$ coprime with $1≤q<p$ or $q=0,p=1$, and $0<a_1<…<a_d ∈ ℝ$.
+\begin{lemma}
+  \label{lem:nodal_slide}
+  Nodal slides geben symplektomorphismus supported auf umgebung von geslideten nodes.
+\end{lemma}
+
+
+\section{Construction of the local model}
+\label{sec:construction}
+
+Let $d,p,q ∈ ℕ$ such that $d≥1$ and $p,q$ coprime\footnote{We consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
 Let $P$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
 Define the manifold $M_P$ by
 \begin{equation}
@@ -138,11 +154,11 @@ We define the pair of Hamiltonian functions
 
 Let $ρ_p$ be the group of $p$-th roots of unity acting on $M_P$ by
 \[ρ \cdot (z₁,z₂,z₃) = \qty(ρz₁,ρ^{-1}z₂,ρ^q z₃), \quad ρ ∈ ρ_p \; .\]
-This is a free  action, so we can define the quotient $B_P = M_P/ρ_p$. $\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Hamiltonians on $B_P$, giving us the almost toric fibration $\symbf{H} \colon B_P → B$, where $B = \im(\symbf{H})$.
-As it turns out $B_P$ is (up to symplectomorphism) independent of the exact choice of $P$, only depending on $d,p,q$. So unless necessary we will denote $B_P$ by $B_{dpq}$.
-As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the critical values in the moment image, and use the flux map to obtain a moment map $μ \colon B_{dpq} → Δ_{B_{dpq}}$ generating a Hamiltonian torus action everywhere except on the critical points, and having moment image $Δ_{B_{dpq}}$ as in \cref{fig:Bdpq_moment_image}.\todo{Kann man besser \& genauer formulieren.}
+This is a free  action, so we can define the quotient $B_{P,q} = M_P/ρ_p$.
+$\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Hamiltonians on $B_{P,q}$, giving us the almost toric fibration $\symbf{H} \colon B_{P,q} → B$, where $B = \im(\symbf{H})$.
+By \cref{lem:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of the exact choice of $a_1,…,a_d$, only depending on $d,p,q$. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
 
-The position of the nodes can be varied along this ray by nodal slides.\todo{…which only affect some ε-neighboorhood.}
+As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the critical values in the moment image, and use the flux map to obtain a (partially defined) moment map $μ \colon B_{dpq} → Δ_{B_{dpq}}$ generating a Hamiltonian torus action everywhere except on the critical points, and having moment image $Δ_{B_{dpq}}$ as in \cref{fig:Bdpq_moment_image}.
 
 \begin{figure}
   \centering
@@ -156,8 +172,7 @@ The position of the nodes can be varied along this ray by nodal slides.\todo{…
   \label{fig:Bdpq_moment_image}
 \end{figure}
 
-
-\section{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
+\subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
 \label{sec:homology}
 
 In order to calculate the lower bound for the displacement energy of a Lagrangian fibre torus $T(x_1,x_2) = μ^{-1}(\qty{(x_1,x_2)})$, we will want to have calculated a basis for the homology $H_2\qty(B_{dpq},T(x_1,x_2))$.
@@ -249,13 +264,6 @@ The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given b
   \label{fig:homology_generating_discs}
 \end{figure}
 
-\section{Fun facts über ATFS by Joé}
-
-\begin{lemma}
-  \label{lem:nodal_slide}
-  Nodal slides geben symplektomorphismus supported auf umgebung von geslideten nodes.
-\end{lemma}
-
 \section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
 \label{sec:lower_bound}
 
@@ -263,14 +271,14 @@ We want to use the following theorem by Chekanov \cite{chekanov1998} for a lower
 
 \begin{theorem}
   \label{thm:chekanov}
-  Let $(X,ω,J)$ be a tame symplectic manifold with $ω$-tame almost complex structure $J$. Let $L ⊂ X$ be a compact Lagrangian submanifold. Then the displacement energy satisfies
+  Let $(X,ω,J)$ be a geometrically bounded\todo{def.} symplectic manifold with $ω$-tame almost complex structure $J$\todo{Was sind die bedingungen an $J$}. Let $L ⊂ X$ be a compact Lagrangian submanifold. Then the displacement energy satisfies
   \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}\]
 \end{theorem}
-\todo{Why is $B_{dpq}$ tame?}
+\todo{Why is $B_{dpq}$ geometrically bounded?}
 
 To use \cref{thm:chekanov}, we can choose a suitable almost complex structure on $B_{dpq}$.
 
-We do so in the following way: In the above the construction of $B_{dpq}$, we defined $B_{dpq}$ as the quotient of $M_P$ under the free action of $ρ_p$. As a algebraic hypersurface $M_P$ naturally inherits the complex structure of $ℂ³$, and we use $J$ to denote this structure on $M_P$ as well as on its quotient $B_{dpq}$.
+We do so in the following way: In the the construction of $B_{dpq}$ in \cref{sec:construction}, we defined $B_{dpq}$ as the quotient of $M_P$ under the free action of $ρ_p$. As a algebraic hypersurface $M_P$ naturally inherits the complex structure of $ℂ³$, and we use $J$ to denote this structure on $M_P$ as well as on its quotient $B_{dpq}$.
 
 \begin{definition}
   Let $(M,J)$ be a almost complex manifold.
@@ -298,25 +306,24 @@ Since $B_{dpq}$ contains no $J$-holomorphic spheres,\footnote{As seen in \cref{s
 \end{lemma}
 
 Actually, since we are free to choose another almost complex structure, we can improve this result: 
-Using a nodal slide on the moment image $μ$ as in \cref{lem:nodal_slide} we may construct a symplectomorphism $B_{P_1} → B_{P_2}$ supported on a neighbourhood of the line $\symbf{H}^{P_k}_2=0$, where
-$P_k$ are two polynomials each with $d$ distinct roots of multiplicity $p$.
-For a torus $\symbf{H}^{-1}(b)$ with $b_2 ≠ 0$ we may therefore always change to a different polynomial $P_2$ where $b_1 < \symbf{H}_1(a_i)$, and choose the pullback of the natural almost complex structure of $B_{P_2}$. So we obtain:
+Using a nodal slide on the moment image $μ$ as in \cref{lem:nodal_slide} we may construct a symplectomorphism $B_{P_1,q} → B_{P_2,q}$ which is a fibre-wise outside a neighbourhood of the line $\symbf{H}^{P_k,q}_2=0$, where $P_k$ are two polynomials each with $d$ distinct roots of multiplicity $p$.
+For a torus $\symbf{H}^{-1}(b)$ with $b_2 ≠ 0$ we may therefore always change to a different polynomial $P_2$ where $b_1 < \symbf{H}_1(a_i)$, and choose the pullback of the natural almost complex structure of $B_{P_2,q}$. So we obtain:
 
 \begin{lemma}
   \label{lem:lower_bound}
-  If $b_2 ≠ 0$ then $e(B_{dpq},T) ≥ μ₁(T)$.
+  If $b_2 ≠ 0$ then $e(B_{dpq},T) ≥ σ_D(X,T,J) ≥ μ₁(T)$.
 \end{lemma}
 
 \subsection{Embedded lower bound}
 
-Let $(M,ω,J)$ be a symplectic manifold with $ω$-tame almost complex structure $J$, and denote by $g$ the associated Riemannian metric, and $u\colon Σ → M$ be a J-holomorphic curve.
+Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-tame almost complex structure $J$, denote by $g$ the associated Riemannian metric, and let $u\colon Σ → M$ be a J-holomorphic curve.
 
 Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
 
 \begin{lemma}[Monotonicity]
   \label{lem:monotonicity}
-  Let $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$. If $u(∂Σ) ⊂ M ∖ B$ then we have
-  \[∫_u ω ≥ \frac{π r²}{4}\]
+  There exists a $C>0$ s.t.\ for all $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$. If $u(∂Σ) ⊂ M ∖ B$ then we have
+  \[∫_u ω ≥ C r²\]
 \end{lemma}
 
 As a simple corollary we get:
@@ -324,29 +331,29 @@ As a simple corollary we get:
 \begin{corollary}
   \label{cor:small_buffer}
   Suppose $∂M = ∂M^+ ⊔ ∂M^-$, with $∂M^±$ non-empty, $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,∂M)$ J-holomorphic with $u(∂Σ^±) ⊂ ∂M^±$, then
-  \[∫_u ω ≥ \frac{π d(∂M^+,∂M^-)^2}{16} \; .\]
+  \[∫_u ω ≥ \frac{C d(∂M^+,∂M^-)^2}{4} \; .\]
 \end{corollary}
 
 \begin{proof}
-  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{lem:monotonicity} to $B$ we get the desired result.
+  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{lem:monotonicity} to $B$ we get the desired result.\todo{image}
 \end{proof}
 
 \begin{proposition}
-  Let $U ⊂ B_{dpq}$ an open neighbourhood of the vanishing cycle, and $φ:U → (X,ω)$ an embedding into a tame symplectic manifold.
+  Let $ℓ = [0,\max\{\symbf{H}(a_i)\}] × \{0\} ⊂ \im(\symbf{H})$ and $U ⊂ B_{dpq}$ an open neighbourhood of $\symbf{H}^{-1}(ℓ)$, and $φ:U → (X,ω)$ an embedding into a tame symplectic manifold.
 
   Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) ≥ μ_1(T(b))$.
 \end{proposition}
 
 \begin{proof}
-  Choose a smaller open neighbourhood of the vanishing cycle $U' ⊂ U$ such that $d(∂U',∂U) = c > 0$.
+  Choose a smaller open neighbourhood $\symbf{H}^{-1}(ℓ) ⊂ U' ⊂ U$ such that $d(∂U',∂U) = s > 0$.
   By shrinking $U'$, we can assume that $U' = \symbf{H}^{-1}(V')$ for some open subset $V' ⊂ \im(\symbf{H})$.
   Let $J$ be the natural almost complex structure as in \cref{lem:lower_bound_tmp}, and $\hat{J}$ an extension of $φ_* J$ to all of $X$.
 
-  We have $μ =  τ ∘ \symbf{H}$, for some diffeomorphism $τ$ defined on the complement of the branch cut line. Set $δ = \min\qty{σ_S(X,\hat{J}), \frac{πc²}{16}}$, and set $V = V' ∩ τ^{-1}(μ_1 < δ)$.
+  The moment map $μ$ is given by $μ =  τ ∘ \symbf{H}$ for some diffeomorphism $τ$ defined on the complement of the branch cut line. Set $δ = \min\qty{σ_S(X,\hat{J}), \frac{Cs²}{4}}$, and set $V = V' ∩ τ^{-1}(μ_1 < δ)$.
 
-  Let $b ∈ V$ with $b_2 ≠ 0$ and $u \colon (Σ,∂Σ) → (X,φ(T(b)))$ be a $\hat{j}$-holomorphic disk.
-  If $u$ is contained in $U$, then $φ^{-1} ∘ u$ is a $J$-holomorphic disk in $B_{dpq}$ and $∫_u ω ≥ μ_1(T(b)) = τ_(b)$.
-  If not, then $u$ crosses the region $U ∖ U'$, so we can apply \cref{cor:small_buffer}, to get that $∫_u ω ≥ \frac{πc²}{16} ≥ δ > μ_1(T(b))$.
+  Let $b ∈ V$ with $b_2 ≠ 0$ and $u \colon (Σ,∂Σ) → (X,φ(T(b)))$ be a $\hat{J}$-holomorphic disk.
+  If $u$ is contained in $U$, then $φ^{-1} ∘ u$ is a $J$-holomorphic disk in $B_{dpq}$ and $∫_{φ^{-1}u} ω ≥ σ_D(B_{dpq},T(b),J) ≥ μ_1(T(b)) = τ(b)$ by \cref{lem:lower_bound}.
+  If not, then $u$ crosses the region $U ∖ U'$, so we can apply \cref{cor:small_buffer}, to get that $∫_u ω ≥ \frac{Cs²}{4} ≥ δ > μ_1(T(b))$.
 
   Since by choice of $δ$ we also have $σ_S(X,\hat{J}) ≥ μ_1(T(b))$, we can apply \cref{thm:chekanov} we get the desired result.
 \end{proof}
@@ -477,108 +484,5 @@ Recall that $T_k(a)$ is the fibre over $(a,\frac{q}{p}a)$ such that there are $k
 \end{proof}
 
 
-
-\section{Big Buffer Zone Lemma}
-
-Let $(n,a)$ be two coprime integers, $ρ_n$ the group of $n$-th roots of unity. Let $ρ_n$ act on $ℂ^2$ by $ρ(z₁,z₂) = ( ρ z_1,ρ^a z_2)$.
-Let $A(n,a) = ℂ^2/ρ_n$ be the quotient space.
-This space is an orbifold, with one orbifold point at $[(0,0)]$.
-The space $S³/ρₙ$ is the lens space $L(n,a)$, so $A(n,a)$ is the cone over $L(n,a)$.
-
-We define the Hamiltonian system on $A(n,a)$ by 
-\begin{equation}
-  \label{eqn:hamsysAna}
-  \symbf{G}(z_1,z_2) = \frac{1}{2}\qty(\abs{z_2}², \frac{1}{n}\qty(\abs{z₁}²+a\abs{z₂}²)) \;.
-\end{equation}
-
-With this Hamiltonian system the moment polytope is a wedge with edges pointing along vectors $(1,0), (n,a)$, as seen in \cref{fig:Ana_moment_image}.
-$A(n,a)$ has a almost complex structure $J$ descending from the canonical complex structure on $ℂ²$.
-
-We have the commutative diagram
-\begin{equation}
-  \label{eqn:Ana_commdiag}
-  \begin{tikzcd}
-    ℂ² \ar[r,"π"] \ar[d,"\symbf{H}"] & A(n,a) \ar[d, "\symbf{G}"] \\
-    Δ_{ℂ²} \ar[r,"L_{A(n,a)}"] & Δ_{A(n,a)}
-  \end{tikzcd}
-\end{equation}
-where the left vertical map $\symbf{H}$ is given by $(z₁,z₂) ↦ \frac{1}{2}\qty(\abs{z_1}²,\abs{z_2}²)$, and the bottom map is a linear transformation given by the matrix
-\[ L_{A(n,a)} = \mqty(0 & 1\\\frac{1}{n} & \frac{a}{n})\;.\]
-
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=1.5]
-    \draw[thick,fill=black!5,->] (0,2) -- (0,0) -- (3,2) node[anchor=south] {$(n,a)$};
-  \end{tikzpicture}
-  \caption{Moment image of $A(n,a)$ with given by Hamiltonian system $G$}
-  \label{fig:Ana_moment_image}
-\end{figure}
-
-Let $B(a) ∈ ℂ^n$ be the open ball in $ℂ^n$ of radius $\sqrt{\frac{a}{π}}$.
-In \cite[appendix~A]{chekanovschlenk2015} the following lemma is proven:
-\begin{lemma}
-  \label{lem:hyperannulus}
-  Let $a_+ > a_- ≥ 0$.
-  Let $u \colon Σ → B(a_+)∖ \overline{B(a_-)}$ be a J-holomorphic curve such that the closure of $u(Σ)$ in $ℂ^n$intersects $∂B(a_-)$.
-  Then $∫_u ω ≥ a_+ - a_-$.
-\end{lemma}
-
-We give the slight generalization:
-
-\begin{lemma}
-  \label{lem:hyperannulus2}
-  Let $a_+ > a_- > 0$, and
-  \[X = \symbf{G}^{-1}\qty(\qty{c₁(0,1)+c₂(n,a) \mid a_- < c₁ + c₂ < a_+}) ⊂ A(n,a) \;,\]
-  equipped with the almost complex structure of $A(n,a)$.
-
-  Let $u \colon Σ → X$ be a J-holomorphic curve whose closure intersects
-  \[\symbf{G}^{-1}\qty(\qty{c₁(0,1)+c₂(n,a) \mid a_- = c₁ + c₂}) \; .\]
-
-  Then $∫_u ω ≥ a_+ - a_-$.
-\end{lemma}
-
-\begin{remark}
-  \label{rem:hyperannulus3}
-  Suppose we have a moment polytope $Δ$ of a (almost) toric symplectic manifold or orbifold $\symbf{H} \colon M → Δ$ with two non-parallel edges given by the two primitive vectors $u₁,u₂$, as in \cref{fig:cutting_out_a_hyperannulens}.
-  Suppose without loss of generality that the edges intersect in the origin.
-  Then the subset
-  \[X = \symbf{H}^{-1}\qty(\qty{c₁u₁+c₂u₂ \mid a_- < c₁ + c₂ < a_+})\]
-  with $a_±$ such that $a_± u₁, a_± u₂ ∈ Δ$, can be transformed by a $T ∈ \GL(ℤ²)$, such that $Tu₁=(0,1), Tu₂=(n,a)$, for some coprime integers $n,a$.
-
-  With this transformation we can view $X$ as a subset of $A(n,a)$. Equipping $M$ with an extension of the almost complex structure coming from $A(n,a)$, we get that J-curves in $M$ intersecting
-  \[\symbf{H}^{-1}\qty(\qty{c₁u₁+c₂u₂ \mid a_- = c₁ + c₂})\]
-  must have at least area $a_+ - a_-$.
-\end{remark}
-
-\begin{figure}
-  \centering
-  \missingfigure{Hyperannulens inside a moment polytope.}
-  \caption{Hyperannulens \todo{\textbf{NOOOOOOOOOOOO!}} inside a moment polytope.}
-  \label{fig:cutting_out_a_hyperannulens}
-\end{figure}
-\begin{proof}
-  Since the action of $ρ_n$ is free in $(ℂ^*)²$, the projection map $π \colon (ℂ^*)² → A(n,a) ∖ \{[(0,0)]\}$ is an n-fold covering map.
-
-  The using the commutative diagram \ref{eqn:Ana_commdiag}, we can compute the preimage
-  \[
-    π^{-1}(X) = (\symbf{H} ∘ L_{A(n,a)})^{-1}(\symbf{G}(X)) = B(na_+) ∖ B(na_-)\;.
-  \]
-
-  A J-curve $u\colon Σ → A(n,a)$ lifts to a J-curve $\tilde{u}$, i.e. a curve making the diagram
-  \[
-    \begin{tikzcd}
-      Σ' \ar[r,"\tilde{u}"] \ar[d,"\tilde{π}"] & ℂ² \ar[d,"π"] \\
-      Σ \ar[r,"u"] & A(n,a)
-    \end{tikzcd}
-  \]
-  commute, where $\tilde{π} \colon Σ' → Σ$ is some n-fold covering of $Σ$.
-
-  Using \cref{lem:hyperannulus}, we get that the symplectic area of $\tilde{u}$ is at least $n(a_+ - a_-)$, and since $\tilde{u}$ is an n-fold covering of $u$, $u$ has at least symplectic area $a_+-a_-$, as desired.
-
-\end{proof}
-
-
-
-\printbibliography
 
 \end{document}
