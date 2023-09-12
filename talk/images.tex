@@ -13,6 +13,7 @@
 
 \begin{document}
 
+
 \begin{tikzcd}[ampersand replacement=\&]
   \begin{tikzpicture}[use Hobby shortcut,scale=0.3,baseline=0]
   \draw[->, very thin] (-4,0) -- (4,0);
@@ -166,6 +167,21 @@
   \fill (1.6,0.5) circle (1pt);
   \fill[blue,fill opacity=0.2,text opacity=1] (1.6,0.5) .. controls ++(0.5,1) and ++(-.5,-1) .. node[near start] {$u$} (2.3,3) -- (2,3) .. controls ++(-1,-2) and ++(0.3,1) .. (1.6,0.5);
 
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \coordinate (L) at (2,0.5);
+  \begin{scope}
+    \clip (0,2) .. controls +(12:2) and +(0,2) .. node[near end,anchor=north east,red] {$U$} (6,0) .. controls +(0,-2) and +(15:2) .. coordinate[pos=0.65] (outer shell) (0,-2);
+    \fill[blue,opacity=0.1](0,-3) rectangle (7,3);
+    \foreach \x in {4.5,5,5.5}
+      \draw (\x,0) node[cross] {};
+      \fill[red,opacity=0.2] (0,1) .. controls +(12:2) and +(0,1) .. (5,0) .. controls +(0,-1) and +(15:2) .. coordinate[pos=0.62] (inner shell) (0,-1) -- (0,-3) -- (6,-3) -- (6,3) -- (0,3);
+    \filldraw[green!80!black,fill opacity=0.3,text opacity=0.8] (L) .. node[anchor=west,black] {$u$} controls +(60:2) and +(-120:2) .. +(-.5,3) .. controls +(60:2) and +(50:2) .. (L);
+    \fill (L) circle[radius=2pt] node[anchor=north] {$L$};
+  \end{scope}
+  \draw[<->] (outer shell) -- node[anchor=west] {$d(∂U^+,∂U^-) > 0$} (inner shell);
+  \draw[thick] (0,-2) -- (0,2);
 \end{tikzpicture}
 
   
