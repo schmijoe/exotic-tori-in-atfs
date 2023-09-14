@@ -1,4 +1,4 @@
-\documentclass[aspectratio=169,handout]{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 \usepackage{appendixnumberbeamer}
 \usetheme[sectionpage=none,
@@ -277,7 +277,7 @@ block=fill]%
   \end{tikzpicture}
 \end{frame}
 
-\begin{frame}{Flux Map gives Hamiltonian Torus Actions}
+\begin{frame}{Flux Map Gives Action-Angle Coordinates}
   \begin{tikzcd}[ampersand replacement=\&]
     \begin{tikzpicture}[scale=1.5,baseline=0]
       \fill[blue,opacity=0.1] (0,1) rectangle (3,-1);
@@ -305,7 +305,7 @@ block=fill]%
 \end{frame}
 
 \begin{frame}{Almost Toric Fibrations}
-  \begin{minipage}{10cm}
+  \begin{minipage}{9cm}
     \begin{definition}[Almost Toric Fibration]
       Lagrangian fibration allowing for the following fibres:
 
@@ -332,29 +332,42 @@ block=fill]%
       \end{tblr}
     \end{definition}
   \end{minipage}
+  \hspace{0.3cm}
+  \pause
+  \begin{minipage}{4.5cm}
+    A loop around a focus-focus singularity induces a monodromy map given by some conjugate of
+    $\begin{pmatrix}
+      1 & 1 \\
+      0 & 1
+    \end{pmatrix}$
+  \end{minipage}
 \end{frame}
 
 \begin{frame}{Almost Toric Fibrations}
   A neighbourhood of a focus-focus singularity admits exactly 2 choices of branch cut to get "closed" action angle coordinates.
 
-  \begin{tikzpicture}[scale=0.5]
-    \begin{scope}[shift={(180:2)}]
-      \fill[blue,opacity=0.1] (-1,-1) rectangle (1,1);
-      \draw (0,0) node[cross] {};
-    \end{scope}
+  \begin{tikzpicture}[scale=0.8]
+%    \begin{scope}[shift={(180:2)}]
+%      \fill[blue,opacity=0.1] (-1,-1) rectangle (1,1);
+%      \draw (0,0) node[cross] {};
+%    \end{scope}
     \begin{scope}[shift={(60:2)}]
       \fill[opacity=0.1] (-1,-1) rectangle (1,1);
       \draw[dashed] (0,0) node[cross] {} -- (1,.5);
+      \clip (-1,-1) rectangle (1,1);
+      \foreach \x in {-1.5,-1.25,...,1.5} \draw[very thin,gray] (-1,\x) -- (1,\x) (-1,\x-.5) -- (1,\x+.5);
       \coordinate (top) at (0,-1);
     \end{scope}
     \begin{scope}[shift={(-60:2)}]
       \fill[opacity=0.1] (-1,-1) rectangle (1,1);
       \draw[dashed] (0,0) node[cross] {} -- (-1,-.5);
+      \clip (-1,-1) rectangle (1,1);
+      \foreach \x in {-2.5,-2.25,...,1.5} \draw[very thin,gray] (1,\x) -- (2*\x,\x) -- +(3,3) (-1,\x-.5) -- (1,\x+.5);
       \coordinate (bottom) at (0,1);
     \end{scope}
     \draw[<->] (top) -- node[anchor=west] {mutation} (bottom);
   \end{tikzpicture}
-  \hspace{2cm}
+  \hspace{1cm}
   \begin{tikzpicture}
     \filldraw[thick,fill opacity=0.1]
       (-2,0) coordinate (A) --
