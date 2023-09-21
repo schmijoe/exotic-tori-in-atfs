@@ -1,4 +1,4 @@
-\documentclass[handout,aspectratio=169]{beamer}
+\documentclass[aspectratio=169]{beamer}
 
 \usepackage{appendixnumberbeamer}
 \usetheme[sectionpage=none,
@@ -530,7 +530,7 @@ block=fill]%
       ρ ⋅ (z_1,z_2,z_3) = (ρ z_1, ρ^{-1} z_2, ρ^q z_3)
     \]
     \pause
-    $B_{dpq} = M_P/ρ_p$ with ATF $\symbf{H} \colon B_{dpq} → B$ given by
+    $B_{dpq} = M_P/ρ_p$ with ATF $\symbf{H} \colon B_{dpq} → ℝ²$ given by
     \[
       \symbf{H}([z_1,z_2,z_3]) = (\abs{z_3}^{2}, \abs{z_1}²-\abs{z_2}²)
     \]
@@ -610,7 +610,7 @@ block=fill]%
 
   \pause
   \begin{theorem}[Chekanov]
-    For every tame almost complex structure $J$, we have $e(L) ≥ \max\{σ_S(X,J), σ_D(X,L,J)\}$.
+    For every tame almost complex structure $J$, we have $e(L) ≥ \min\{σ_S(X,J), σ_D(X,L,J)\}$.
   \end{theorem}
 \end{frame}
 
