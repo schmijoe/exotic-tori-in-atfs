@@ -104,7 +104,7 @@
 \DeclareMathOperator{\Tor}{Tor}
 
 \begin{document}
-\title{Semi-Local Tori in Dimension 4}
+\title{Semi-Local Tori in Dimension Four}
 \author{JoJoJo}
 
 \maketitle
@@ -125,13 +125,13 @@ Convention:
     \label{thm:bdpqexotic}
   Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
   Up to a change of basis, the restriction of the displacement energy germ to $U$ is given by
-  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\} \]
+  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) ~ a+\min\{x,x(1-kpq)+ykp²\} \]
 \end{restatable}
 
 \section{Fun facts über ATFS by Joé}
 
 \begin{lemma}
-  \label{lem:nodal_slide}
+  \label{thm:nodal_slide}
   Nodal slides geben symplektomorphismus supported auf umgebung von geslideten nodes.
 \end{lemma}
 
@@ -156,9 +156,48 @@ Let $ρ_p$ be the group of $p$-th roots of unity acting on $M_P$ by
 \[ρ \cdot (z₁,z₂,z₃) = \qty(ρz₁,ρ^{-1}z₂,ρ^q z₃), \quad ρ ∈ ρ_p \; .\]
 This is a free  action, so we can define the quotient $B_{P,q} = M_P/ρ_p$.
 $\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Hamiltonians on $B_{P,q}$, giving us the almost toric fibration $\symbf{H} \colon B_{P,q} → B$, where $B = \im(\symbf{H})$.
-By \cref{lem:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of the exact choice of $a_1,…,a_d$, only depending on $d,p,q$. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
+By \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of the exact choice of $a_1,…,a_d$, only depending on $d,p,q$. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
 
-As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the critical values in the moment image, and use the flux map to obtain a (partially defined) moment map $μ \colon B_{dpq} → Δ_{B_{dpq}}$ generating a Hamiltonian torus action everywhere except on the critical points, and having moment image $Δ_{B_{dpq}}$ as in \cref{fig:Bdpq_moment_image}. \todo{Warum ist das das moment map image?}
+\begin{figure}
+  \centering
+  \missingfigure{Auroux fibration bild dingsbums}
+  \caption{The projection $M_P ∋ z ↦ z_3$.}
+  \label{fig:conic_fibration}
+\end{figure}
+
+Let us further inspect this fibration. To get a good picture of what is going on we look at the projection $π_3 \colon M_P → ℂ$ given by projection onto the $z_3$ coordinate.
+See \cref{fig:conic_fibration}.
+The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$, so if $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$, and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes.
+Fix $b = (b_1,b_2) ∈ \im(\symbf{H})$. The set $\symbf{H}_1^{-1}(b_1)$ gives us a circle in the $z_3$ plane, and the intersection with $\symbf{H}_2^{-1}(b_2)$ fixes a "height" in the cylinders.
+Thus for regular values $\symbf{H}^{-1}(b)$ is a Torus.
+There are two kinds of degenerate values: The elliptic-regular with $b_1=0$, where $\symbf{H}^{-1}(0,b_2)$ is a circle, and focus-focus with $b = ({a_k}^{2/p},0)$ where $\symbf{H}^{-1}(b)$ is a torus with $p$ pinched circles.
+
+Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian\todo{why?} disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$.
+
+\begin{figure}
+  \centering
+  \missingfigure{Auroux fibration dingsbums reduced}
+  \caption{A fundamental domain of the action $ρ_p$ on $M_P$}
+  \label{fig:conic_fibration_fundamental_domain}
+\end{figure}
+
+Under the reduction $M_P/ρ_p$, a conic fibre $π_3^{-1}(z_3)$ will be identified with the fibre $π_3^{-1}(ρ^q z_3)$ under the map $(z_1,z_2) ↦ (ρz_1,ρ^{-1}z_2)$.
+Consider the fundamental domain in \cref{fig:conic_fibration_fundamental_domain} of this action obtained by restricting $z_3 = re^{iθ} ∈ M_P$ to $θ \in [-\frac{π}{p},\frac{π}{p}]$, and $π_3^{-1}(0) ∋ (z_1,z_2)$ to $\frac{1}{2}\arg\qty(\frac{z_1}{z_2}) ∈ [-\frac{π}{p},\frac{π}{p}]$.
+Let $ρ = e^{2πi/p}$.
+The cylinders $π_3^{-1}(z_3)$ with $θ=-\frac{π}{p}$ and $r>0$ are identified with the cylinders $π_3^{-1}(ρ z_3)$ by the map $(z_1,z_2) ↦ (ρ^{q'} z_1,ρ^{-q'} z_2)$, where $q'$ is chosen s.t.\ $qq' = 1 \mod p$.
+
+The image $S_k = \hat{S}_k / ρ_p$ is a Lagrangian sphere for $0<k<d$, and a Lagrangian disk with its boundary identified by the map $z ↦ ρ^{q'} z$. $S_0$ is called a Lagrangian pinwheel and denoted $L_{p,q}$. 
+
+To calculate the image of $B_{dpq}$ under action-angle coordinates, we can remove the segment $ℓ = [a_1^{2/p},∞] × \{0\}$ from $\im(\symbf{H})$ to obtain a simply connected domain.
+Now applying the flux map gives us $τ \colon \im(\symbf{H}) ∖ ℓ → Δ$, where we define $Δ ⊂ ℝ²$ to be the image of this map, and thus giving us action-angle coordinates $μ \colon B_{dpq} ∖ \symbf{H}^{-1}(ℓ) → Δ$.
+Since $\symbf{H}_2$ already generates a $S¹$ action, we may choose $τ$ to be of the form $τ(b_1,b_2) = (τ_1(b_1,b_2), b_2)$.\footnote{As when constructing action-angle coordinates in the proof of the Arnold-Liouville Theorem.}
+In particular the segment $[0,a_1^{2/p}] × \{0\}$ is mapped to $[0,τ_1(a_1^{2/p},0)] × \{0\}$, even more particular $S_0$ is a Lagrangian over this segment, making it a so-called visible Lagrangian as described in \cite[Chapter 5]{evans2021atfs}.
+We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elliptic-regular singularities, is sent to a straight line in some rational direction $(n,m)$.
+As we have the visible Lagrangian pinwheel $S_0 = L_{p,q}$ intersecting it, by \cite[Section 5.3]{evans2021atfs}, we must have $(n,m) = (q',p)$.
+After the affine linear transformation $\mqty(p & -q'\\q & \frac{1-qq'}{p})$, the image of $τ$ is the right half plane, with the nodes sitting on a ray in direction $(p,q)$ as in \cref{fig:Bdpq_moment_image}.
+
+Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$.
+
 
 \begin{figure}
   \centering
@@ -175,12 +214,12 @@ As in \cite[Chapter 6]{evans2021atfs}, we can remove a ray going through the cri
 \subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
 \label{sec:homology}
 
-In order to calculate the lower bound for the displacement energy of a Lagrangian fibre torus $T(x_1,x_2) = μ^{-1}(\qty{(x_1,x_2)})$, we will want to have calculated a basis for the homology $H_2\qty(B_{dpq},T(x_1,x_2))$.
+In order to calculate the lower bound for the displacement energy of a Lagrangian fibre torus $T(b) = μ^{-1}(\qty{b})$ for $b ∈ \im(\symbf{H})$, we will want to have calculated a basis for the homology $H_2\qty(B_{dpq},T(b))$.
 
-$B_{dpq}$ deformation retracts to the preimage of the branch cut line segment $ℓ$ shown in red in \cref{fig:branch_cut_retraction}, by first vertically shrinking the space onto the ray in direction $(p,q)$, and then compressing the part of the ray that is to the right of all the critical points.
+$B_{dpq}$ deformation retracts to the preimage of the branch cut line segment $ℓ$ shown in red in \cref{fig:branch_cut_retraction}, by first vertically shrinking the space onto the ray $[0,∞) × \{0\}$, and then compressing the part of the ray that is to the right of all the critical points.
 \todo{Das ist etwas dumm formuliert, lohnt es sich das besser zu formulieren?}
 
-The preimage $μ^{-1}(ℓ)$ can be understood as follows: If there were no critical points on the line, this would be a solid torus $\hat{T} = S¹×D²$ with $∂ \hat{T} = T(x_1,x_2)$.
+The preimage $\symbf{H}^{-1}(ℓ)$ can be understood as follows: If there were no critical points on the line, this would be a solid torus $\hat{T} = S¹×D²$ with $∂ \hat{T} = T(b)$.
 We pick $(1,0),(0,1) ∈ H₁(∂ \hat{T})$ to be the classes generated by the orbits of Hamiltonian flows of $μ_1$ and $μ_2$ respectively.
 For each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop along the homology class $(-q,p)$, as in \cref{fig:collapse_cycles}.
 Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
@@ -191,15 +230,12 @@ Let us call the resulting space $S$.
   \centering
   \begin{subfigure}{0.45\textwidth}
     \centering
-      \begin{tikzpicture}[scale=.7]
-      \begin{scope}[fill=black!5]
-        \fill[clip] (0,4) rectangle (8,-2);
-
-        \draw[black!30, very thick] (0,0) -- (8,4);
-        \draw[red,line width=.125cm,draw opacity=.5, line cap=round] (0,0) -- (4,2) node[anchor=north] {$ℓ$};
-        \draw[thick,dotted] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (8,4);
-      \end{scope}
-      \draw[thick] (0,4) -- (0,-2);
+    \begin{tikzpicture}[scale=1.8]
+      \fill[blue,opacity=0.2] (0,1) rectangle (3,-1);
+      \draw[thick] (0,1) -- (0,-1);
+      \draw[line width=0.08cm,red,opacity=0.4,text opacity=1] (0,0) -- node[pos=0.6, anchor=north] {$ℓ$} (2.5,0);
+    \fill (2.5,0)  circle[radius=1pt] node[anchor=south] {$T(b)$};
+      \draw (1,0) node[cross] {} (2,0) node[cross] {};
     \end{tikzpicture}
     \caption{Retraction to branch cut line}
     \label{fig:branch_cut_retraction}
@@ -300,17 +336,17 @@ Since the homology of $(\symbf{H}^{-1}(\qty{\symbf{H}_1 ≤ b_1}), T)$ is isomor
 Since $B_{dpq}$ contains no $J$-holomorphic spheres,\footnote{As seen in \cref{sec:homology} the homology of $B_{dpq}$ is generated by Lagrangian spheres, thus any closed $J$-holomorphic curve has symplectic area $0$ and must be constant.} we have proven the following:
 
 \begin{lemma}
-  \label{lem:lower_bound_tmp}
+  \label{thm:lower_bound_tmp}
   If $b₁ < \symbf{H}₁(aᵢ)$ for all $1 ≤ i ≤ d$, then
   \[e(B_{dpq},T) ≥ σ_D(X,T,J) ≥ ∫_{D₀} ω  = μ₁(T) \; .\]
 \end{lemma}
 
 Actually, since we are free to choose another almost complex structure, we can improve this result: 
-Using a nodal slide on the moment image $μ$ as in \cref{lem:nodal_slide} we may construct a symplectomorphism $B_{P_1,q} → B_{P_2,q}$ which is a fibre-wise outside a neighbourhood of the line $\symbf{H}^{P_k,q}_2=0$, where $P_k$ are two polynomials each with $d$ distinct roots of multiplicity $p$.
+Using a nodal slide on the moment image $μ$ as in \cref{thm:nodal_slide} we may construct a symplectomorphism $B_{P_1,q} → B_{P_2,q}$ which is a fibre-wise outside a neighbourhood of the line $\symbf{H}^{P_k,q}_2=0$, where $P_k$ are two polynomials each with $d$ distinct roots of multiplicity $p$.
 For a torus $\symbf{H}^{-1}(b)$ with $b_2 ≠ 0$ we may therefore always change to a different polynomial $P_2$ where $b_1 < \symbf{H}_1(a_i)$, and choose the pullback of the natural almost complex structure of $B_{P_2,q}$. So we obtain:
 
 \begin{lemma}
-  \label{lem:lower_bound}
+  \label{thm:lower_bound}
   If $b_2 ≠ 0$ then $e(B_{dpq},T) ≥ σ_D(X,T,J) ≥ μ₁(T)$.
 \end{lemma}
 
@@ -321,7 +357,7 @@ Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω
 Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
 
 \begin{lemma}[Monotonicity]
-  \label{lem:monotonicity}
+  \label{thm:monotonicity}
   There exists a $C>0$ s.t.\ for all $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$. If $u(∂Σ) ⊂ M ∖ B$ then we have
   \[∫_u ω ≥ C r²\]
 \end{lemma}
@@ -335,11 +371,16 @@ As a simple corollary we get:
 \end{corollary}
 
 \begin{proof}
-  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{lem:monotonicity} to $B$ we get the desired result.\todo{image}
+  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.\todo{image}
 \end{proof}
 
+\begin{definition}
+  A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^{-1}([0,\max_{1 ≤ i ≤ d}\symbf{H}(a_i)] × \{0\})$. 
+\end{definition}
+
 \begin{proposition}
-  Let $ℓ = [0,\max\{\symbf{H}(a_i)\}] × \{0\} ⊂ \im(\symbf{H})$ and $U ⊂ B_{dpq}$ an open neighbourhood of $\symbf{H}^{-1}(ℓ)$, and $φ:U → (X,ω)$ an embedding into a tame symplectic manifold.
+  \label{thm:embedded_lower_bound}
+  Let $φ:B_{dpq} ⊃ U → (X,ω)$ an embedding of a milnor fibre of $B_{dpq}$ into a tame symplectic manifold.
 
   Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) ≥ μ_1(T(b))$.
 \end{proposition}
@@ -347,12 +388,12 @@ As a simple corollary we get:
 \begin{proof}
   Choose a smaller open neighbourhood $\symbf{H}^{-1}(ℓ) ⊂ U' ⊂ U$ such that $d(∂U',∂U) = s > 0$.
   By shrinking $U'$, we can assume that $U' = \symbf{H}^{-1}(V')$ for some open subset $V' ⊂ \im(\symbf{H})$.
-  Let $J$ be the natural almost complex structure as in \cref{lem:lower_bound_tmp}, and $\hat{J}$ an extension of $φ_* J$ to all of $X$.
+  Let $J$ be the natural almost complex structure as in \cref{thm:lower_bound_tmp}, and $\hat{J}$ an extension of $φ_* J$ to all of $X$.
 
   The moment map $μ$ is given by $μ =  τ ∘ \symbf{H}$ for some diffeomorphism $τ$ defined on the complement of the branch cut line. Set $δ = \min\qty{σ_S(X,\hat{J}), \frac{Cs²}{4}}$, and set $V = V' ∩ τ^{-1}(μ_1 < δ)$.
 
   Let $b ∈ V$ with $b_2 ≠ 0$ and $u \colon (Σ,∂Σ) → (X,φ(T(b)))$ be a $\hat{J}$-holomorphic disk.
-  If $u$ is contained in $U$, then $φ^{-1} ∘ u$ is a $J$-holomorphic disk in $B_{dpq}$ and $∫_{φ^{-1}u} ω ≥ σ_D(B_{dpq},T(b),J) ≥ μ_1(T(b)) = τ(b)$ by \cref{lem:lower_bound}.
+  If $u$ is contained in $U$, then $φ^{-1} ∘ u$ is a $J$-holomorphic disk in $B_{dpq}$ and $∫_{φ^{-1}u} ω ≥ σ_D(B_{dpq},T(b),J) ≥ μ_1(T(b)) = τ(b)$ by \cref{thm:lower_bound}.
   If not, then $u$ crosses the region $U ∖ U'$, so we can apply \cref{cor:small_buffer}, to get that $∫_u ω ≥ \frac{Cs²}{4} ≥ δ > μ_1(T(b))$.
 
   Since by choice of $δ$ we also have $σ_S(X,\hat{J}) ≥ μ_1(T(b))$, we can apply \cref{thm:chekanov} we get the desired result.
@@ -396,12 +437,12 @@ In particular the moment image associated to this setup is shown in \cref{fig:Bd
 Using the method of probes we show the upper bound on the displacement energy, i.e.
 
 
-\begin{restatable}{lemma}{lemmabdpqexoticupper}
-    \label{thm:lemmabdpqexoticupper}
+\begin{lemma}
+    \label{thm:upper_bound}
   Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
   Up to change of basis, the restriction of the displacement energy germ to $U$ is bounded from above by
   \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\} \]
-\end{restatable}
+\end{lemma}
 
 \begin{proof}
   Recall that $T_k(a)$ is the fibre over $(a,b) \in Δ_{B_{dpq}}$, where $b\vcentcolon=\frac{q}{p}a$, such that there are $k$ nodes below on the branch cut line.
@@ -425,64 +466,42 @@ Using the method of probes we show the upper bound on the displacement energy, i
   \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\}. \]
 \end{proof}
 
+\section{Proof of Main Theorem}
 
-\section{Proof of non-embedded version}
-
-\begin{lemma}
-  \label{lem:bdq_displacement}
-  Let $(x,y) ∈ Δ_{B_{dpq}}$ not on the branch cut ray. Then the displacement energy of $T = μ^{-1}(x,y)$ is equal to $x$.
-\end{lemma}
-
-\begin{proof}
-  In the proof we will be wanting to move the nodes around freely by nodal slides without affecting the displacement energy. The following makes this possible:
-  By \cite[Theorem 8.9]{evans2021atfs}, we can pick a contractible neighbourhood of the sliding nodes, such that the branch cut induces a fibred symplectomorphism outside that neighbourhood. Choosing a neighbourhood not intersecting $T$, we may freely apply nodal slides without affecting the displacement energy of $T$.
-
-  For the lower bound, we first use a nodal slide to make room for a probe (see\todo{Picture}). Using that, we get the upper bound $e(T)≤x$.
-  
-  Using a nodal slide together with \cite[Corollary 5.4]{symington2002FourDF} which determines the symplectic manifold over an almost toric base up to symplectomorphism, we can modify the polynomial $P(z) = Π_{i=1}^d (z-a_i)$, while keeping $\symbf{H}(T) = {b}$.
-  Thus we can choose the nodal slide so that we have that $b_1 = \symbf{H}_1(T) ≤ \symbf{H}_1(a_i)$ for all $ 1 ≤ i ≤ d$.
-  So we can apply \cref{lem:lower_bound}, and to get the lower bound $e(T) ≥ x$.
-\end{proof}
-
-We are now ready to prove
-
-\thmbdpqexotic*
-
-Recall that $T_k(a)$ is the fibre over $(a,\frac{q}{p}a)$ such that there are $k$ nodes below on the branch cut ray.
-
-\begin{proof}[Proof of \cref{thm:bdpqexotic}]
-  Using mutations at the $k$ nodes to the left of $T_k(a)$, we get a new moment map $\overline{μ}$ and moment polytope $\overline{Δ_{B_{dpq}}}$ such that $T_k(a)$ is a regular \todo{this is the wrong word...} fibre of $\overline{μ}$ (Instead of sitting on a branch cut line).
-  Then using a versal deformation \todo{definieren}, we can identify a neighbourhood $U$ of $0 ∈ H¹(T_k(a);ℝ)$ with a neighbourhood $V ⊂ \overline{Δ_{B_{dpq}}}^{\text{reg}}$ of the basepoint $(a,\frac{qa}{p}) = μ(T_k(a))$, where we identify points in $\overline{Δ_{B_{dqp}}}^{reg}$ with their preimages, which are Lagrangian tori.
-
-  Choose generators in $H¹(T_k(a);ℝ)$ corresponding to $μ_1,μ_2$\todo{wie genau?}. Then $(x,y) ∈ H¹(T_k(a);ℝ)$ is sent by versal deformation to $(a + x, \frac{q}{p}a + y)$ in $\overline{Δ_{B_{dpq}}}$.
-  If it is above the branch cut ray, the mutation leaves it unaffected, and the displacement energy is $x+a$.
-  If it is below the branch cut ray, the mutation sends it to $(a,\frac{q}{p}a) + (kp²y -x(kpq -1), -kq²x + y(kpq +1))$, and the displacement energy is $a +kp²y - x(kpq-1) = a + x + kp(py-qx)$ where the last term is negative, so we get the desired result.
-\end{proof}
-
-
-\section{Proof of small embedded version}
-
-\todo[inline]{AHHHHHHHHHHHHHHH}
+Combining the "non-embedded" upper and lower bounds of \cref{thm:lower_bound} and \cref{thm:upper_bound}, we immediately get:
 
 \begin{theorem}
-  Let $(M,ω)$ be a compact tame symplectic 4-manifold. Let $B_{dpq}(a) ⊂ B_{dpq}$ be the preimage of a convex open neighbourhood $U$ of $(0,0)$ and the nodes in $Δ_{B_{dpq}}$ such that $\sup\{\tilde{a} | T_k(\tilde{a}) ⊂ B_{dpq}(a)\} = a$, and $φ \colon B_{dpq}(a) → M$ an embedding. Then there exists $ε>0$ such that for all $\tilde{a}<ε$, $φ(T_k(\tilde{a})) ⊂ M$ has the same displacement energy germ as $T_k(\tilde{a}) ⊂ B_{dpq}$.
+  \label{thm:displacement_energy}
+  Let $b=(b_1,b_2) ∈ \im(\symbf{H})$ with $b_2 ≠ 0$. Then $e(\symbf{H}^{-1}(b)) = μ_1(\symbf{H}^{-1}(b)) = τ_1(b)$.
 \end{theorem}
 
-\begin{proof}
-  Note that to show the result, we only need to show \cref{lem:bdq_displacement} for "the embedded case".
+Combining the "embedded" upper and lower bounds of \cref{thm:embedded_lower_bound} and \cref{thm:embedded_upper_bound} we get:
 
-  We want to proceed in a similar way as \cref{lem:bdq_displacement}. To be able to do that, we need to be able to displace Lagrangian tori near $T_k(\tilde{a})$ by probes. Since $μ(B_{dpq}(a))$ is convex, we can choose an $ε_1>0$ such that this is possible for all.
+\begin{theorem}
+  \label{thm:displacement_energy_embedded}
+  Let $φ \colon B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a geometrically bounded symplectic manifold. Then there is a neighbourhood $V$ of $[0,ε) × \{0\}$ such that for $b = (b_1,b_2) ∈ V$ with $b_2 ≠ 0$ we have $e(\symbf{H}^{-1}(b)) = μ_1(\symbf{H}^{-1}(b)) = τ_1(b)$.
+\end{theorem}
 
-  Next we want to establish the lower bound using \cref{thm:chekanov} and \cref{cor:small_buffer}. Choose a small two-sided collar $ι \colon μ^{-1}(∂U) × (-1,1)$, and $B = ι(μ^{-1}(∂U), (-1,0))$ an inner collar of $μ^{-1}(U)$.
-  Then, since $μ^{-1}(∂U)$ is compact, $B$ has two disjoint boundary components $∂B^±$ and $d(∂B^+,∂B^-) > 0$ for any metric $d$.
+\begin{figure}
+  \centering
+  \missingfigure{$T_{kpq}$ definition}
+  \caption{$T_{kpq}$}
+  \label{fig:tkpq_def}
+\end{figure}
 
-  Choose the almost complex structure $J_0$ on $B_{dpq}(a)$ coming from $ℂ^3$ as in \cref{sec:lower_bound}. Then using \cref{cor:small_buffer} on $B$, we get that any $J_0$-holomorphic disc crossing $B$ must have area at least $\frac{d(∂B⁺,∂B⁻)²}{16 π} = ε_2$.
+\begin{definition}
+  Let $0 ≤ k ≤ d$.
+  Using nodal slides arrange it such that the line $μ_1 = a$ separates the $k$-th and the $(k+1)$-th nodes as in \cref{fig:tkpq_def}.
+  Then set $T_{k,p,q}(a) = μ^{-1}(a,\frac{aq}{p})$.
+\end{definition}
 
-  Take an extension $J$ of $J_0$ to all of $M$, and let $ε_3 = σ_S(M,J)$.
+\begin{theorem}
+  \label{thm:main}
 
-  Now for all fibres $T$ with $μ_1(T) ≤ \min\{ε_1,ε_2,ε_3\}$ and $\symbf{H}_1 ≤ a_1$,\footnote{The latter can always be achieved by a nodal slide} \cref{lem:lower_bound} works, and the upper bound is given by the probe.
-\end{proof}
+  For $x ∈ H^1(B_{dpq}, T_{kpq})$ not on the eigenline\todo{define or refine}, the displacement energy germ at $T_{kpq}$ is given by
+  \[ \symcal{E}_{T_{kpq}(a)} (x) = a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; . \]
 
-
+If $φ \colon B_{dpq} ⊃ U → (X,ω)$ is an embedding of a Milnor fibre into a geometrically bounded symplectic manifold, and $a<ε$ as given by \cref{thm:displacement_energy_embedded}, then the same expression holds for the displacement energy germ at $φ(T_{kpq}(a))$.
+\end{theorem}
 
 \end{document}
