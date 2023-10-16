@@ -102,6 +102,7 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Flux}{Flux}
 
 \begin{document}
 \title{Semi-Local Tori in Dimension Four}
@@ -379,7 +380,7 @@ As a simple corollary we get:
 \end{definition}
 
 \begin{proposition}
-  \label{thm:embedded_lower_bound}
+  \label{thm:lower_bound_embedded}
   Let $φ:B_{dpq} ⊃ U → (X,ω)$ an embedding of a milnor fibre of $B_{dpq}$ into a tame symplectic manifold.
 
   Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) ≥ μ_1(T(b))$.
@@ -466,6 +467,10 @@ Using the method of probes we show the upper bound on the displacement energy, i
   \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\}. \]
 \end{proof}
 
+\begin{theorem}
+  \label{thm:upper_bound_embedded}
+\end{theorem}
+
 \section{Proof of Main Theorem}
 
 Combining the "non-embedded" upper and lower bounds of \cref{thm:lower_bound} and \cref{thm:upper_bound}, we immediately get:
@@ -475,7 +480,7 @@ Combining the "non-embedded" upper and lower bounds of \cref{thm:lower_bound} an
   Let $b=(b_1,b_2) ∈ \im(\symbf{H})$ with $b_2 ≠ 0$. Then $e(\symbf{H}^{-1}(b)) = μ_1(\symbf{H}^{-1}(b)) = τ_1(b)$.
 \end{theorem}
 
-Combining the "embedded" upper and lower bounds of \cref{thm:embedded_lower_bound} and \cref{thm:embedded_upper_bound} we get:
+Combining the "embedded" upper and lower bounds of \cref{thm:lower_bound_embedded} and \cref{thm:upper_bound_embedded} we get:
 
 \begin{theorem}
   \label{thm:displacement_energy_embedded}
@@ -490,18 +495,60 @@ Combining the "embedded" upper and lower bounds of \cref{thm:embedded_lower_boun
 \end{figure}
 
 \begin{definition}
-  Let $0 ≤ k ≤ d$.
-  Using nodal slides arrange it such that the line $μ_1 = a$ separates the $k$-th and the $(k+1)$-th nodes as in \cref{fig:tkpq_def}.
+  Let $0 ≤ k ≤ d$ and $a>0$.
+  Using nodal slides to modify $μ$, arrange it such that the line $μ_1 = a$ separates the $k$-th and the $(k+1)$-th nodes as in \cref{fig:tkpq_def}.
   Then set $T_{k,p,q}(a) = μ^{-1}(a,\frac{aq}{p})$.
 \end{definition}
 
 \begin{theorem}
   \label{thm:main}
 
-  For $x ∈ H^1(B_{dpq}, T_{kpq})$ not on the eigenline\todo{define or refine}, the displacement energy germ at $T_{kpq}$ is given by
-  \[ \symcal{E}_{T_{kpq}(a)} (x) = a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; . \]
+  For $x ∈ H^1(B_{dpq}, T_{kpq})$, the displacement energy germ at $T_{kpq}$ is given by
+  \[ \symcal{E}_{T_{kpq}(a)} (x) \sim a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; . \]
 
 If $φ \colon B_{dpq} ⊃ U → (X,ω)$ is an embedding of a Milnor fibre into a geometrically bounded symplectic manifold, and $a<ε$ as given by \cref{thm:displacement_energy_embedded}, then the same expression holds for the displacement energy germ at $φ(T_{kpq}(a))$.
 \end{theorem}
 
+\begin{figure}
+  \centering
+  \missingfigure{modified moment map}
+  \caption{Modifiying the moment map $μ$.}
+  \label{fig:mod_moment_map}
+\end{figure}
+
+\begin{proof}
+  The proof of the embedded and non-embedded part are essentially the same. For simplicity we only give the non-embedded part.
+
+  Change the branch cuts of $μ$ such that $T_{kpq}$ does not lie on a branch cut, giving a new moment map $\hat{μ}$ as in \cref{fig:mod_moment_map},
+  giving the relation
+  \begin{equation}
+    \label{eq:mu_muhat_rel}
+    \hat{μ}(z) = \begin{cases}
+      μ(z) & \text{if $μ(z)$ lies above the eigenline of $A$}\\
+      A μ(z) & \text{if $μ(z)$ lies below the eigenline of $A$}
+    \end{cases}
+  \end{equation}
+  where $A$ is given as the shear matrix
+  \[\mqty(kpq+1 & -kp²\\ kq² & 1-kpq) = \qty(x ↦ x+k\det\mqty(x_1 & p\\ x_2 & q)(p,q)).\]
+
+  Choose a versal deformation $v$ at $T_{kpq}(a)$ such that
+  \[
+    \hat{μ}(v(x)) = \Flux(T_{kpq},v(x)) = (a,\frac{aq}{p}) + (x_1,x_2) \; .
+  \]
+  \todo{versal deformations schön einführen.}
+  Then we know from \cref{thm:displacement_energy} (resp. \cref{thm:displacement_energy_embedded}) that for $v(x)$ not on the eigenline of the nodes, $e(v(x)) = μ_1(v(x))$.
+
+  Applying \eqref{eq:mu_muhat_rel}, we get
+  \[e(v(x)) = \begin{cases}
+    μ_1(v(x)) = a + x_1 & \text{$x$ lies above the eigenline of $A$}\\
+    A μ_1(v(x)) = a + x_1(kpq+1) - x_2kp² & \text{$x$ lies below the eigenline of $A$}\\
+    \text{unknown} & \text{$x$ lies on the eigenline of $A$}
+  \end{cases}\]
+
+  Now we have that $kp⟨x,(q,-p)⟩ = x_1 kpq - x_2 kp^2 > 0$ iff $x$ lies above the eigenline of $A$, so we get
+  \[e(v(x)) = \begin{cases}
+    a + \min\qty{x_1,x_1(kpq+1) - x_2kp²} & \text{$x$ doesn't lie on the eigenline of $A$}\\
+    \text{unknown} & \text{$x$ lies on the eigenline of $A$}\\
+  \end{cases}\]
+\end{proof}
 \end{document}
