@@ -17,7 +17,7 @@
 % Font & Symbols
 % --------------
 
-\usepackage{mathtools}
+\usepackage{amssymb,mathtools}
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 \usepackage[oldstyle,proportional]{libertinus-otf}
 
@@ -60,12 +60,66 @@
 \graphicspath{{/img}}
 \usepackage{subcaption}
 \usepackage{tikz}
-\usetikzlibrary{babel,cd,shapes}
+\usetikzlibrary{babel,cd,shapes,3d}
 \tikzcdset{arrow style=math font}
-\tikzset{cross/.style={cross out, draw, solid, thin, 
-         minimum size=2*(#1-\pgflinewidth), 
-         inner sep=0pt, outer sep=0pt},
-         cross/.default={3}}
+\tikzset{cross/.style={
+    cross out, draw, solid, thin, 
+    minimum size=2*(#1-\pgflinewidth), 
+    inner sep=0pt, outer sep=0pt
+  },
+  cross/.default={3},
+  conic/.pic={
+    \begin{scope}[canvas is xz plane at y=0]
+      \draw (0,0) circle [radius=0.5];
+    \end{scope}
+    \begin{scope}[canvas is xz plane at y=1]
+      \draw (0,0) circle [radius=0.8];
+    \end{scope}
+    \begin{scope}[canvas is xz plane at y=-1]
+      \draw (-20:.8) arc [start angle=-20,end angle=160,radius=.8];
+      \draw[dotted] (160:.8) arc [start angle=160,end angle=340,radius=.8];
+    \end{scope}
+    \begin{scope}[rotate around y=20]
+      \draw (.8,1) .. controls +(0,0) and +(0,.3) .. (0.5,0) .. controls +(0,-0.3) and +(0,0) .. (.8,-1);
+      \draw (-.8,1) .. controls +(0,0) and +(0,.3) .. (-0.5,0) .. controls +(0,-0.3) and +(0,0) .. (-.8,-1);
+    \end{scope}
+  },
+  degenerate conic/.pic={
+    \begin{scope}[canvas is xz plane at y=1]
+      \draw (0,0) circle [radius=.8];
+    \end{scope}
+    \begin{scope}[canvas is xz plane at y=-1]
+      \draw (-20:.8) arc [start angle=-20,end angle=160,radius=.8];
+      \draw[dotted] (160:.8) arc [start angle=160,end angle=340,radius=.8];
+    \end{scope}
+    \begin{scope}[rotate around y=20]
+      \draw (-.8,-1) -- (.8,1);
+      \draw (-.8,1) -- (.8,-1);
+    \end{scope}
+  },
+  reduced conic/.pic={
+    \begin{scope}[canvas is xz plane at y=1]
+      \draw[very thin, opacity=0.5] (0,0) circle [radius=.8];
+      \draw (-32:.8) arc [start angle=-32,end angle=32,radius=.8];
+    \end{scope}
+    \begin{scope}[canvas is xz plane at y=-1]
+      \draw[very thin, opacity=0.5] (0,0) circle [radius=.8];
+      \draw (-32:.8) arc [start angle=-32,end angle=32,radius=.8];
+    \end{scope}
+    \begin{scope}[canvas is xz plane at y=0]
+      \draw[very thin, opacity=0.5] (0,0) circle [radius=.5];
+      \draw (-32:.5) arc [start angle=-32,end angle=32,radius=.5];
+    \end{scope}
+    \foreach \φ in {32,-32} {
+      \begin{scope}[rotate around y=\φ]
+        \draw (.8,1) .. controls +(0,0) and +(0,.3) .. (0.5,0) .. controls +(0,-0.3) and +(0,0) .. (.8,-1);
+      \end{scope}
+    }
+    \begin{scope}[rotate around y=20]
+      \draw[very thin, opacity=0.5] (-.8,1) .. controls +(0,0) and +(0,.3) .. (-0.5,0) .. controls +(0,-0.3) and +(0,0) .. (-.8,-1);
+    \end{scope}
+  }
+}
 
 % For lists
 \usepackage[shortlabels]{enumitem}
@@ -93,6 +147,7 @@
 \declaretheorem[sibling=theorem,style=definition]{definition, example}
 \declaretheorem[sibling=theorem,style=remark]{remark}
 
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Diff}{Diff}
@@ -161,7 +216,79 @@ By \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of
 
 \begin{figure}
   \centering
-  \missingfigure{Auroux fibration bild dingsbums}
+  \begin{tikzpicture}[scale=0.7]
+    \begin{scope}[shift={(-4.25cm,0)}]
+      \begin{scope}[canvas is xz plane at y=0]
+        \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
+        \clip (-4,-4) rectangle (4,4);
+        \foreach \φ in {0,72,144,216,288} {
+          \draw[opacity=0.4] (0,0) -- (\φ:6);
+          \foreach \x in {1,2,3} \draw (\φ:\x) circle [radius=1pt];
+        }
+        \draw[very thin] (0,0) circle [radius=3];
+      \end{scope}
+      \begin{scope}[canvas is xz plane at y=2]
+        \foreach \φ in {0,72,144,216,288} {
+          \draw[purple] (\φ:3) .. controls (\φ+36:3+0.3) .. (\φ+72:3) .. controls (\φ+36:3-0.3) .. (\φ:3);
+        }
+      \end{scope}
+      \foreach \φ in {0,72,144,216,288} {
+        \begin{scope}[rotate around y=\φ]
+          \draw (3,2,0) pic[scale=0.5, transform shape, rotate around y=-\φ]{degenerate conic};
+          \draw[very thin] (3,1.3,0) -- (3,0,0);
+        \end{scope}
+      }
+    \end{scope}
+    \begin{scope}[shift={(4.25cm,0)}]
+          \begin{scope}[canvas is xz plane at y=0]
+          \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
+          \clip (-4,-4) rectangle (4,4);
+          \foreach \φ in {0,72,144,216,288} {
+            \draw[opacity=0.4] (0,0) -- (\φ:6);
+            \foreach \x in {1,2,3} \draw (\φ:\x) circle [radius=1pt];
+          }
+          \draw[very thin] (0,0) circle [radius=3.5];
+        \end{scope}
+        \begin{scope}[canvas is xz plane at y=2]
+          \draw[purple] (0,0) circle [radius=3.5+0.2] circle [radius=3.5-0.2];
+        \end{scope}
+        \foreach \φ in {0,72,144,216,288} {
+          \begin{scope}[rotate around y=\φ]
+            \draw (3.5,2,0) pic[scale=0.4, transform shape, rotate around y=-\φ]{conic};
+            \draw[very thin] (3.5,1.3,0) -- (3.5,0,0);
+          \end{scope}
+        }
+    \end{scope}
+    \begin{scope}[shift={(0,-5cm)}]
+      \begin{scope}[canvas is xz plane at y=0]
+        \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
+        \clip (-4,-4) rectangle (4,4);
+        \foreach \φ in {0,72,144,216,288} {
+          \draw[opacity=0.4] (0,0) -- (\φ:6);
+          \foreach \x in {1,2,3} \draw (\φ:\x) circle [radius=1pt];
+        }
+      \end{scope}
+      \draw (0,2,0) pic[scale=0.3] {conic};
+      \foreach \φ in {0,72,144,216,288} {
+        \begin{scope}[rotate around y=\φ]
+          \foreach \x in {1,2,3}
+          \draw[very thin, opacity = 0.5] (\x,0,0) -- (\x,2,0);
+        \end{scope}
+      }
+      \begin{scope}[canvas is xz plane at y=2]
+        \foreach \φ in {0,72,144,216,288} {
+          \begin{scope}[rotate=\φ]
+            \foreach \d in {-0.2,0.2} {
+              \draw[red] (0,\d) .. controls +(0.5,0) and +(0,0) .. (1,0);
+              \draw[purple] (1,0) .. controls +(.5,1.5*\d) .. (2,0);
+              \draw[blue] (2,0) .. controls +(.5,1.5*\d) .. (3,0);
+%              \draw (0,\d) -- (3,\d);
+            }
+          \end{scope}
+        }
+      \end{scope}
+    \end{scope}
+\end{tikzpicture}
   \caption{The projection $M_P ∋ z ↦ z_3$.}
   \label{fig:conic_fibration}
 \end{figure}
@@ -170,14 +297,29 @@ Let us further inspect this fibration. To get a good picture of what is going on
 See \cref{fig:conic_fibration}.
 The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$, so if $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$, and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes.
 Fix $b = (b_1,b_2) ∈ \im(\symbf{H})$. The set $\symbf{H}_1^{-1}(b_1)$ gives us a circle in the $z_3$ plane, and the intersection with $\symbf{H}_2^{-1}(b_2)$ fixes a "height" in the cylinders.
-Thus for regular values $\symbf{H}^{-1}(b)$ is a Torus.
-There are two kinds of degenerate values: The elliptic-regular with $b_1=0$, where $\symbf{H}^{-1}(0,b_2)$ is a circle, and focus-focus with $b = ({a_k}^{2/p},0)$ where $\symbf{H}^{-1}(b)$ is a torus with $p$ pinched circles.
+Thus for regular values $\symbf{H}^{-1}(b)$ is a torus, as in the top right part of \cref{fig:conic_fibration}.
+There are two kinds of degenerate values: The elliptic-regular with $b_1=0$, where $\symbf{H}^{-1}(0,b_2)$ is a circle, and focus-focus with $b = ({a_k}^{2/p},0)$ where $\symbf{H}^{-1}(b)$ is a torus with $p$ pinched circles, as in the top left part of \cref{fig:conic_fibration}.
 
-Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian\todo{why?} disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$.
+Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian\todo{why?} disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see bottom part of \cref{fig:conic_fibration}.
 
 \begin{figure}
   \centering
-  \missingfigure{Auroux fibration dingsbums reduced}
+  \begin{tikzpicture}[scale=1.5]
+    \begin{scope}[canvas is xz plane at y=0]
+      \fill[green,opacity=0.2] (0,0) -- (32:4) arc[start angle=32,end angle=-32,radius=4] -- (0,0);
+      \draw[opacity=0.4] (0,0) -- (4,0);
+      \draw[very thin] (32:3) arc[start angle=32,end angle=-32,radius=3];
+      \draw (0,0) node[cross] {} \foreach \x in {1,2,3} {(\x,0) circle[radius=1pt]};
+    \end{scope}
+    \begin{scope}[canvas is xz plane at y=2]
+      \foreach \d in {0.2,-0.2}
+      \draw[purple] (-32:3+\d) .. controls (-16:3+\d) .. (0:3) .. controls (16:3+\d) .. (32:3+\d);
+    \end{scope}
+    \draw (0,2,0) pic[scale=0.4,transform shape] {reduced conic};
+    \draw (3,2,0) pic[scale=0.4,transform shape] {degenerate conic};
+    \draw[very thin] (0,0,0) -- (0,1.3,0);
+    \draw[very thin] (3,0,0) -- (3,1.3,0);
+  \end{tikzpicture}
   \caption{A fundamental domain of the action $ρ_p$ on $M_P$}
   \label{fig:conic_fibration_fundamental_domain}
 \end{figure}
@@ -187,7 +329,14 @@ Consider the fundamental domain in \cref{fig:conic_fibration_fundamental_domain}
 Let $ρ = e^{2πi/p}$.
 The cylinders $π_3^{-1}(z_3)$ with $θ=-\frac{π}{p}$ and $r>0$ are identified with the cylinders $π_3^{-1}(ρ z_3)$ by the map $(z_1,z_2) ↦ (ρ^{q'} z_1,ρ^{-q'} z_2)$, where $q'$ is chosen s.t.\ $qq' = 1 \mod p$.
 
-The image $S_k = \hat{S}_k / ρ_p$ is a Lagrangian sphere for $0<k<d$, and a Lagrangian disk with its boundary identified by the map $z ↦ ρ^{q'} z$. $S_0$ is called a Lagrangian pinwheel and denoted $L_{p,q}$. 
+The image $S_k = \hat{S}_k / ρ_p$ is a Lagrangian sphere for $0<k<d$, and a Lagrangian disk with its boundary identified by the map $z ↦ ρ^{q'} z$. $S_0$ is called a Lagrangian pinwheel and denoted $L_{p,q}$. On the fibre $π_3(0)$, there are $p$ flanges meeting, such that one turn around the circle shifts the identification of the flanges by $q'$ places. See \cref{fig:pinwheel}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{img/pinwheel2.pdf}
+  \caption{The "core" of the Lagrangian pinwheel $S_0 = L_{q,p}$. The pinwheel is obtained by glueing the boundary to a point.}
+  \label{fig:pinwheel}
+\end{figure}
 
 To calculate the image of $B_{dpq}$ under action-angle coordinates, we can remove the segment $ℓ = [a_1^{2/p},∞] × \{0\}$ from $\im(\symbf{H})$ to obtain a simply connected domain.
 Now applying the flux map gives us $τ \colon \im(\symbf{H}) ∖ ℓ → Δ$, where we define $Δ ⊂ ℝ²$ to be the image of this map, and thus giving us action-angle coordinates $μ \colon B_{dpq} ∖ \symbf{H}^{-1}(ℓ) → Δ$.
@@ -195,7 +344,7 @@ Since $\symbf{H}_2$ already generates a $S¹$ action, we may choose $τ$ to be o
 In particular the segment $[0,a_1^{2/p}] × \{0\}$ is mapped to $[0,τ_1(a_1^{2/p},0)] × \{0\}$, even more particular $S_0$ is a Lagrangian over this segment, making it a so-called visible Lagrangian as described in \cite[Chapter 5]{evans2021atfs}.
 We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elliptic-regular singularities, is sent to a straight line in some rational direction $(n,m)$.
 As we have the visible Lagrangian pinwheel $S_0 = L_{p,q}$ intersecting it, by \cite[Section 5.3]{evans2021atfs}, we must have $(n,m) = (q',p)$.
-After the affine linear transformation $\mqty(p & -q'\\q & \frac{1-qq'}{p})$, the image of $τ$ is the right half plane, with the nodes sitting on a ray in direction $(p,q)$ as in \cref{fig:Bdpq_moment_image}.
+After the affine linear transformation $\mqty(p & -q'\\q & p')$, with $p' = \frac{1-qq'}{p}$, the image of $τ$ is the right half plane, with the nodes sitting on a ray in direction $(p,q)$ as in \cref{fig:Bdpq_moment_image}.
 
 Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$.
 
@@ -203,10 +352,18 @@ Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for poin
 \begin{figure}
   \centering
   \begin{tikzpicture}[scale=.7]
-    \fill[black!5] (0,4) rectangle (8,-2);
+    \begin{scope}[shift={(-5cm,0)}]
+        \fill[blue,opacity=0.2] (0,4) rectangle (8,-1);
 
-    \draw[thick,dotted,->] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (8,4) node[anchor=west] {$(p,q)$};
-    \draw[thick] (0,4) -- (0,-2);
+        \draw (2,1.5) node[cross] {} (4,1.5) node[cross] {} (6,1.5) node[cross] {};
+        \draw[thick] (0,4) -- (0,-1);
+    \end{scope}
+    \begin{scope}[shift={(5cm,0)}]
+        \fill[opacity=0.1] (0,4) rectangle (8,-1);
+
+        \draw[thick,dotted,->] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (6,3) node[cross] {} -- (8,4) node[anchor=west] {$(p,q)$};
+        \draw[thick] (0,4) -- (0,-1);
+    \end{scope}
   \end{tikzpicture}
   \caption{Moment image of $B_{dpq}$ under $μ$}
   \label{fig:Bdpq_moment_image}
@@ -372,12 +529,15 @@ As a simple corollary we get:
 \end{corollary}
 
 \begin{proof}
-  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.\todo{image}
+  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),∂M^+) = d((u ∘ γ)(t), ∂M^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(∂M^+,∂M^-)/2}(x) ⊂ M ∖ ∂M $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.
 \end{proof}
 
 \begin{definition}
-  A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^{-1}([0,\max_{1 ≤ i ≤ d}\symbf{H}(a_i)] × \{0\})$. 
-\end{definition}
+A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^{-1}(ℓ)$, where $ℓ = [0,\symbf{H}(a_d)] × \{0\}$. \end{definition}
+
+\begin{remark}
+  This definition is a bit unusual but equivalent to the usual one.
+\end{remark}
 
 \begin{proposition}
   \label{thm:lower_bound_embedded}
@@ -387,14 +547,14 @@ As a simple corollary we get:
 \end{proposition}
 
 \begin{proof}
-  Choose a smaller open neighbourhood $\symbf{H}^{-1}(ℓ) ⊂ U' ⊂ U$ such that $d(∂U',∂U) = s > 0$.
-  By shrinking $U'$, we can assume that $U' = \symbf{H}^{-1}(V')$ for some open subset $V' ⊂ \im(\symbf{H})$.
-  Let $J$ be the natural almost complex structure as in \cref{thm:lower_bound_tmp}, and $\hat{J}$ an extension of $φ_* J$ to all of $X$.
+  Choose a smaller open neighbourhood $\symbf{H}^{-1}(ℓ) ⊂ U' ⊂ U$ such that $d(∂U',∂U) = s > 0$ and $U' = \symbf{H}^{-1}(V')$ for some open subset $V' ⊂ \im(\symbf{H})$ (this is possible since $\symbf{H}$ is an open map).
+  Let $J$ be the natural almost complex structure on $B_{dqp}$ as in \cref{thm:lower_bound_tmp}, and $\hat{J}$ an extension of $φ_* J$ to all of $X$.
+
 
   The moment map $μ$ is given by $μ =  τ ∘ \symbf{H}$ for some diffeomorphism $τ$ defined on the complement of the branch cut line. Set $δ = \min\qty{σ_S(X,\hat{J}), \frac{Cs²}{4}}$, and set $V = V' ∩ τ^{-1}(μ_1 < δ)$.
 
   Let $b ∈ V$ with $b_2 ≠ 0$ and $u \colon (Σ,∂Σ) → (X,φ(T(b)))$ be a $\hat{J}$-holomorphic disk.
-  If $u$ is contained in $U$, then $φ^{-1} ∘ u$ is a $J$-holomorphic disk in $B_{dpq}$ and $∫_{φ^{-1}u} ω ≥ σ_D(B_{dpq},T(b),J) ≥ μ_1(T(b)) = τ(b)$ by \cref{thm:lower_bound}.
+  If $u$ is contained in $U$, then $φ^{-1} ∘ u$ is a $J$-holomorphic disk in $B_{dpq}$ and $∫_{φ^{-1}u} ω ≥ σ_D(B_{dpq},T(b),J) ≥ e(T(b)) = μ_1(T(b)) = τ(b)$ by \cref{thm:lower_bound}.
   If not, then $u$ crosses the region $U ∖ U'$, so we can apply \cref{cor:small_buffer}, to get that $∫_u ω ≥ \frac{Cs²}{4} ≥ δ > μ_1(T(b))$.
 
   Since by choice of $δ$ we also have $σ_S(X,\hat{J}) ≥ μ_1(T(b))$, we can apply \cref{thm:chekanov} we get the desired result.
@@ -470,6 +630,47 @@ Using the method of probes we show the upper bound on the displacement energy, i
 \begin{theorem}
   \label{thm:upper_bound_embedded}
 \end{theorem}
+
+\section{Versal Deformations \& Nearby Lagrangians}
+
+Fix a Lagrangian $L ⊂ (X,ω)$, and denote by $\symcal{L}$ the set of Lagrangians Lagrangian isotopic to $L$, equipped with the $\symcal{C}^1$-topology.
+Denote by $\hat{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies $Λ$ starting at $L$ up to endpoint preserving isotopies.
+
+\begin{definition}
+  For any Lagrangian isotopy $Λ$ starting at $L$, we have a map
+  \begin{align*}
+    H_1(L) &→ ℝ\\
+    ξ &↦  ∫_{C_ξ} ω
+  \end{align*}
+  where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L$ along the Lagrangian isotopy. This is well defined (independent of the choice of $C_ξ$) and also independent by end point preserving isotopies of $Λ$.\footnote{If $C_ξ ~ C_ξ'$ by homotopy $H$, $0=∫_{∂H} ω = ∫_{C_ξ} ω - ∫_{C_ξ'} ω + ∫_A ω + ∫_B ω$, with $A,B$ contained in the endpoints of the isotopy, which are Lagrangian.}
+
+  Using $\Hom(H_1(L),ℝ) = H^1(L;ℝ)$ this gives a well defined map
+  \[\Flux \colon \hat{\symcal{L}} → H^1(L;ℝ) \; ,\]
+  called the \textbf{flux map}.
+\end{definition}
+
+Suppose for a moment $X=T^* L$ with $L ⊂ T^* L$ the zero section. For any $α ∈ Ω_1(L)$, the graph $Γ_α$ of $α$ is Lagrangian iff $dα=0$. Also if $Γ_α ≅ Γ_β$ are Hamiltonian isotopic, then $α-β$ is exact. So up to Hamiltonian isotopy, Lagrangians that are graphs of one forms are classified by $H^1(L;ℝ)$ and also $\Flux(Γ_α) = [α]$.\todo{Ein paar schöne details mehr?}
+Now, due to the nature of the $\symcal{C}¹$-topology on $\symcal{L}$, there is some simply connected neighbourhood $U ⊂ \symcal{L}$ of the zero section $L$, such that every $L' ∈ U$ is graph of a one form. So on this neighbourhood, $\Flux \colon U → H^1(L;ℝ)$ classifies all Lagrangians up to local Hamiltonian isotopy.
+
+Return now to the case of a general $X$. Then $L$ admits an embedding of a Weinstein-neighbourhood $φ: T^*L \dashrightarrow X$ \footnote{The $\dashrightarrow$ notes that the map is only defined near $0$ (section)} sending the zero section onto $L$. As above, take a simply connected neighbourhood $U ⊂ \symcal{L}$ s.t.\ every $L' ∈ U$ is given as $φ(Γ_α)$ for some $α ∈ Ω_1(L)$. We call $U$ a \textbf{close neighbourhood} of $L$.
+
+\begin{definition}
+  For $U$ some close neighbourhood, a \textbf{versal deformation} of $L$ is a section of the map
+  \[ \Flux\colon U → H^1(L;ℝ) \; , \]
+  i.e.\ $v_L \colon H^1(L;ℝ) \dashrightarrow U$ s.t.\ $\Flux(v_L(α)) = α$.
+\end{definition}
+
+We immediately get that if $v_L,v_L'$ are two versal deformations both defined for $α ∈ H^1(L;ℝ)$, then $v_L(α) ≅ v_L'(α)$, so we might say colloquially that a versal deformations parametrizes all nearby Lagrangians by a neighbourhood of zero in $H^1(L;ℝ)$ up to local Hamiltonian isotopy.
+
+\todo[inline]{The following are imprecice}
+
+\begin{lemma}
+  Let $\symbf{H} \colon X → ℝ^n$ be a regular Lagrangian (toric) fibration with simply connected image. Then the map $x ↦ \Flux(\symbf{H}^{-1}(\symbf{H}(x)))$ gives action angle coordinates on $X$.
+\end{lemma}
+
+\begin{lemma}
+  If $μ \colon X → ℝ^n$ is a moment map with simply connected image, and $L = μ^{-1}(b_0)$, then $\Flux(μ^{-1}(b)) = b - b_0$.
+\end{lemma}
 
 \section{Proof of Main Theorem}
 
