@@ -477,10 +477,10 @@ We do so in the following way: In the the construction of $B_{dpq}$ in \cref{sec
 \begin{definition}
   Let $(M,J)$ be a almost complex manifold.
   A (smooth) function $f\colon (M,J) → ℂ$ is weakly plurisubharmonic if
-  \[-\dd \dd^ℂ f = -\dd(\dd f ∘ J) ≥ 0 \;.\]
+  \[-d d^ℂ f = -d(d f ∘ J) ≥ 0 \;.\]
 \end{definition}
 
-The first component of $\symbf{H}$ in \ref{eqn:non-toric-system}, is a weakly plurisubharmonic function on $ℂ³$, as $-\dd \dd^ℂ \symbf{H}₁ = 2 \dd{x_3} ∧ \dd{y_3} ≥ 0$. As $M_P$ is an algebraic hypersurface, this restricts to a plurisubharmonic function on $M_P$, and also descends to the quotient $B_{dpq}$ as a plurisubharmonic function.
+The first component of $\symbf{H}$ in \ref{eqn:non-toric-system}, is a weakly plurisubharmonic function on $ℂ³$, as $-d d^ℂ \symbf{H}₁ = 2 d{x_3} ∧ d{y_3} ≥ 0$. As $M_P$ is an algebraic hypersurface, this restricts to a plurisubharmonic function on $M_P$, and also descends to the quotient $B_{dpq}$ as a plurisubharmonic function.
 
 In particular, any $J$-holomorphic curve $u\colon Σ → B_{dpq}$ satisfies the maximum principle with respect to $\symbf{H}₁$, i.e.\ if $\symbf{H}₁ ∘ u$ has a maximum, it must be on $∂Σ$, and if $\symbf{H}₁ ∘ u$ is non-zero then it must be constant.\footnote{The latter is obtained by applying the maximum principle to $\frac{1}{\symbf{H}₁ ∘ u}$.}
 
@@ -633,34 +633,124 @@ Using the method of probes we show the upper bound on the displacement energy, i
 
 \section{Versal Deformations \& Nearby Lagrangians}
 
-Fix a Lagrangian $L ⊂ (X,ω)$, and denote by $\symcal{L}$ the set of Lagrangians Lagrangian isotopic to $L$, equipped with the $\symcal{C}^1$-topology.
-Denote by $\hat{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies $Λ$ starting at $L$ up to endpoint preserving isotopies.
+Fix a Lagrangian $L_0 ⊂ (X,ω)$, and denote by $\symcal{L}_{L_0}$ (or $\symcal{L}$ when we're lazy) the set of Lagrangians Lagrangian isotopic to $L_0$, equipped with the $\symcal{C}^1$-topology.
+Denote by $\hat{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies $Λ$ starting at $L_0$ up to endpoint preserving isotopies.
 
 \begin{definition}
-  For any Lagrangian isotopy $Λ$ starting at $L$, we have a map
+  \label{def:flux_map}
+  For any Lagrangian isotopy $Λ \colon ([0,1],0) → (\symcal{L},L_0)$, we have a map
   \begin{align*}
-    H_1(L) &→ ℝ\\
+    H_1(L_0) &→ ℝ\\
     ξ &↦  ∫_{C_ξ} ω
   \end{align*}
-  where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L$ along the Lagrangian isotopy. This is well defined (independent of the choice of $C_ξ$) and also independent by end point preserving isotopies of $Λ$.\footnote{If $C_ξ ~ C_ξ'$ by homotopy $H$, $0=∫_{∂H} ω = ∫_{C_ξ} ω - ∫_{C_ξ'} ω + ∫_A ω + ∫_B ω$, with $A,B$ contained in the endpoints of the isotopy, which are Lagrangian.}
+  where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L_0$ along the Lagrangian isotopy. This is well defined (independent of the choice of $C_ξ$) and also independent by end point preserving isotopies of $Λ$.\footnote{If $C_ξ ≅ C_ξ'$ by homotopy $H$, $0=∫_{∂H} ω = ∫_{C_ξ} ω - ∫_{C_ξ'} ω + ∫_A ω + ∫_B ω$, with $A,B$ contained in the endpoints of the isotopy, which are Lagrangian.}
 
-  Using $\Hom(H_1(L),ℝ) = H^1(L;ℝ)$ this gives a well defined map
-  \[\Flux \colon \hat{\symcal{L}} → H^1(L;ℝ) \; ,\]
+  Using $\Hom(H_1(L_0),ℝ) = H^1(L_0;ℝ)$ this gives a well defined map
+  \[ \Flux \colon \hat{\symcal{L}} → H^1(L_0;ℝ) \; ,\]
   called the \textbf{flux map}.
 \end{definition}
 
-Suppose for a moment $X=T^* L$ with $L ⊂ T^* L$ the zero section. For any $α ∈ Ω_1(L)$, the graph $Γ_α$ of $α$ is Lagrangian iff $dα=0$. Also if $Γ_α ≅ Γ_β$ are Hamiltonian isotopic, then $α-β$ is exact. So up to Hamiltonian isotopy, Lagrangians that are graphs of one forms are classified by $H^1(L;ℝ)$ and also $\Flux(Γ_α) = [α]$.\todo{Ein paar schöne details mehr?}
-Now, due to the nature of the $\symcal{C}¹$-topology on $\symcal{L}$, there is some simply connected neighbourhood $U ⊂ \symcal{L}$ of the zero section $L$, such that every $L' ∈ U$ is graph of a one form. So on this neighbourhood, $\Flux \colon U → H^1(L;ℝ)$ classifies all Lagrangians up to local Hamiltonian isotopy.
+\begin{lemma}
+  \label{thm:hamiltonian_flux}
+  $Λ_t$ is a Hamiltonian isotopy, iff $∀t ∈ [0,1], \Flux(Λ_s|_{s ∈ [0,t]}) = 0$.
+\end{lemma}
+\begin{proof}
+  Let $γ(θ), θ ∈ S¹$ be a parametrisation of a 1-cycle in $L_0$, $X_t$ a Vector field generating the flow $φ_t$ with $φ_t(L_0) = Λ_t$, and $φ_t(γ(θ))$ a parametrisation of the cylinder $C_γ$ over $Λ_t$ as in \cref{def:flux_map}.
+  \[ ∂_t \Flux(Λ_s|_{s ∈ [0,t]}) = ∂_t ∫_0^t ∫_{φ_s ∘ γ} ι_{∂_s φ_s} ω ds = ∫_{φ_t ∘ γ} ι_{∂_t φ_t} ω
+  = ∫_{φ_t ∘ γ} ι_{X_t ∘ φ_t} ω = ∫_γ φ_t^* ι_{X_t ∘ φ_t} ω.\]
 
-Return now to the case of a general $X$. Then $L$ admits an embedding of a Weinstein-neighbourhood $φ: T^*L \dashrightarrow X$ \footnote{The $\dashrightarrow$ notes that the map is only defined near $0$ (section)} sending the zero section onto $L$. As above, take a simply connected neighbourhood $U ⊂ \symcal{L}$ s.t.\ every $L' ∈ U$ is given as $φ(Γ_α)$ for some $α ∈ Ω_1(L)$. We call $U$ a \textbf{close neighbourhood} of $L$.
+  Now if $X_t$ is generated by a Hamiltonian $H_t$, the last integral is equal to
+  \[ ∫_γ φ_t^* dH_t = ∫_{∂γ} φ_t^* H_t = 0.\]
+
+  If the last integral is zero for all $γ$, the restriction of the 1-form $φ_t^* ι_{X_t ∘ φ_t} ω$ to $TL_0 ⊂ TTL_0$ is exact, so we find primitives $\tilde{H}_t$ defined on $L_0$. $H_t = \tilde{H}_t ∘ φ_{-t}$ can then be extended smoothly to $X$ and $ι_{X_t ∘ φ_t} ω = φ_t^* d H_t$.
+\end{proof}
+
+\subsection{\texorpdfstring{$T^* L_0$}{T*L} and Graphs of 1-Forms} 
+
+Suppose for a moment $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero section. We have the following easy statements:
+
+\begin{lemma}
+  \label{thm:graph_lagrangian}
+  For any $α ∈ Ω_1(L_0)$, the graph $Γ_α$ of $α$ is Lagrangian iff $d α=0$.
+\end{lemma}
+\begin{proof}
+  We have the embedding $α \colon L_0 → Γ_α ⊂ T^* L_0$. $Γ_α$ is Lagrangian iff $0 = α^* d λ = d α^* λ = d α = 0$. ($α^* λ = α$ by the definition of the canonical 1-form.)
+\end{proof}
+
+\begin{lemma}
+  \label{thm:graph_flux}
+  Let $α ∈ Ω_1(L_0)$ closed and $Λ_t$ be a Lagrangian isotopy from the zero section $L_0$ to $Γ_α$, the graph of $α$. Then $\Flux(Λ_t) = [α]$.
+\end{lemma}
+\begin{proof}
+  Let $ξ$ be some 1-cycle in $L_0$, $C_ξ$ the cylinder along $Λ_t$ with $∂C_ξ = α ∘ ξ' - s_0 ∘ ξ$ where $α ∘ ξ'$ is a 1-cylce in $Γ_α$, and $s_0$ the zero section.
+  Since $T^* L_0$ is homotopy equivalent to $L_0$, and $ξ$ is homotopic to $ξ'$, $[ξ] = [ξ'] ∈ H_1(L_0)$.
+  Now
+  \[⟨\Flux(Λ_t),ξ ⟩ = ∫_{C_ξ} dλ = ∫_{∂C_ξ} λ = ∫_{α ∘ ξ'}λ - ∫_{s_0 ∘ ξ} λ = ∫_{ξ'} α^* λ = ∫_{ξ'} α = ⟨α,ξ'⟩ = ⟨α,ξ⟩ \; ,\]
+  where the last equality used the fact that $α$ is closed.
+\end{proof}
+
+\begin{lemma}
+  \label{thm:graph_hamiltonian_isotopic}
+  $Γ_α ≅ Γ_β$ are Hamiltonian isotopic, iff $α-β$ is exact, for example by the linear isotopy $Γ_{(1-t)α + t β}$.
+\end{lemma}
+\begin{proof}
+  If $α-β = d f$ for some function $f ∈ C(L_0)$, set $F = f ∘ π$, where $π$ is the projection $T^*L → L$, $X_F$ its associated Hamiltonian vector field and $φ_t$ to be the fibre wise linear map given by $ξ_x ↦  ξ_x + tdF$ in the fibre $T_x^*L$.
+  $φ_1$ sends $Γ_β$ to $Γ_α$ and, as is easily verified in coordinates, $∂_t φ_t = X_F ∘ φ_t$, so $φ_t$ is a Hamiltonian symplectomorphism generated by $F$.
+
+  If $Γ_α ≅ Γ_β$, then we can extend a Lagrangian isotopy (e.g. $Γ_{tα}$) from $0$ to $α$ by the Hamiltonian isotopy from $Γ_α$ to $Γ_β$ to get $Λ_t$. By \cref{thm:hamiltonian_flux} adding the Hamiltonian part does not change the flux map, so $[α] = \Flux(Λ_t) = [β]$, by \cref{thm:graph_flux}.
+\end{proof}
+
+\begin{corollary}
+  \label{thm:cotangent_classification}
+  Summarising, if $\symcal{L}_Γ ⊂ \symcal{L}$ is the space of graphs of closed 1-forms, then $\symcal{L}_Γ$ contains a neighbourhood of $L_0$ (due to the $\symcal{C}^1$-topology) and 
+\[ \Flux \colon \symcal{L}_Γ → H^1(L_0;ℝ) \]
+is well defined (\cref{thm:graph_flux}) and classifies $\symcal{L}_Γ$ up to Hamiltonian isotopy (\cref{thm:graph_hamiltonian_isotopic}).\footnote{In fact Ono \cite[Proposition 2.3]{ono2008LagrangianFlux} allows to replace $\symcal{L}_Γ$ by $\symcal{L}$ in this statement in the case of the cotangent bundle. We won't need this however.}
+\end{corollary}
+
+\subsection{Versal deformations}
+
+Return now to the case of a general $X$.
+Then $L_0$ admits an embedding of a Weinstein-neighbourhood $φ: T^*L_0 \dashrightarrow X$. \footnote{The $\dashrightarrow$ notes that the map is only defined near the zero-section.}
+As above, take a neighbourhood $U ⊂ \symcal{L}$ s.t.\ every $L' ∈ U$ is given as $φ(Γ_α)$ for some $α ∈ Ω_1(L_0)$ and $\symcal{U}$ is convex w.r.t.\ the linear structure coming from $Ω_1(L_0)$.
+We call such a neighbourhood \textbf{Weinstein convex} or \textbf{W-convex} if we're feeling lazy, and $(\symcal{U},φ)$ a \textbf{Weinstein convex pair} (\textbf{W-convex pair}).
+
+\begin{proposition}
+  \label{thm:local_classification}
+  The map $ \Flux_{\symcal{U}} \colon \symcal{U} → H¹(L_0;ℝ)$ obtained by restricting $\Flux$ is well defined, and classifies $\symcal{U}$ up to Hamiltonian isotopies contained in $U$.
+\end{proposition}
+\begin{proof}
+  This is essentially \cref{thm:cotangent_classification}. The fact that $\symcal{U}$ is convex guarantees that the linear Hamiltonian isotopy of \cref{thm:graph_hamiltonian_isotopic} between $L_1 ≅ L_2$, both in $\symcal{U}$ exists.\todo{Könnte man convex mit path-connected fibres ersetzen?}.
+\end{proof}
 
 \begin{definition}
-  For $U$ some close neighbourhood, a \textbf{versal deformation} of $L$ is a section of the map
-  \[ \Flux\colon U → H^1(L;ℝ) \; , \]
-  i.e.\ $v_L \colon H^1(L;ℝ) \dashrightarrow U$ s.t.\ $\Flux(v_L(α)) = α$.
+  A \textbf{versal deformation $v_{L_0}$ of $L_0$} is a "section of all local flux maps", i.e.\ 
+  $v_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow \symcal{L}$ \footnote{The $\dashrightarrow$ denotes that it is only defined on some neighbourhood of $0$}, such that for all W-convex $\symcal{U}$, $\Flux_{\symcal{U}} ∘ v_{L_0} = \id$.
 \end{definition}
 
-We immediately get that if $v_L,v_L'$ are two versal deformations both defined for $α ∈ H^1(L;ℝ)$, then $v_L(α) ≅ v_L'(α)$, so we might say colloquially that a versal deformations parametrizes all nearby Lagrangians by a neighbourhood of zero in $H^1(L;ℝ)$ up to local Hamiltonian isotopy.
+\begin{lemma}
+  If $v_{L_0}, v_{L_0}'$ are two versal deformations. For $α ∈ H^1(L_0;ℝ)$ close enough to $0$, $v_{L_0}(α) ≅ v_{L_0}'(α)$.
+\end{lemma}
+\begin{proof}
+Let $(\symcal{U},φ)$ be a W-convex pair, and $v_{L_0}(α) = φ(Γ_β), v_{L_0}'(α) = φ(Γ_γ)$. Now by \cref{thm:graph_flux} $[γ] = \Flux_{\symcal{U}}(φ(Γ_β)) = α = \Flux_{\symcal{U}}(φ(Γ_β)) = [β]$, which proves the claim by \cref{thm:graph_hamiltonian_isotopic}.
+\end{proof}
+
+We might say colloquially that a versal deformations parametrizes all nearby Lagrangians by a neighbourhood of zero in $H^1(L_0;ℝ)$ up to local Hamiltonian isotopy.
+
+Let now $μ\colon M → B$ be a surjective regular Lagrangian fibration with simply connected base and moment map, and $L_0 = μ^{-1}(b_0)$.
+Since $μ$ is a moment map, we also get that $M$ is symplectomorphic to $B × T^n$ with action angle coordinates $(b_i,θ_i)$, the elements $[d θ_i] ∈ H^1(μ^{-1}(b);ℝ)$ forming a basis. This gives an identification of $i\colon H^1(L_0;ℝ) → ℝ^n$.
+Let $\symcal{L}_μ = μ^{-1}(B) ⊂ \symcal{L}_{L_0}$. Restricting to Lagrangian isotopies contained in $\symcal{L}_μ$, the flux map is well defined for all $μ^{-1}(b)$.
+
+\begin{lemma}
+  \[
+    i(\Flux(μ^{-1}(b))) = b - b_0 \; .
+  \]
+\end{lemma}
+
+\begin{proof}
+  Since $M = B × T^n = T^* T^n$, $ω = d λ$ where $λ = b_i d θ_i$ is the canonical 1-form.
+  For $L = μ^{-1}(b)$ and $[a] ∈ H_1(L_0;ℝ)$ let $C_{[a]}$ a cylinder as in the definition of the flux map. Then
+  \[⟨\Flux(L),[a]⟩ = ∫_{C_{[a]}} \\d λ = ∫_{φ ∘ a} λ - ∫_a λ = ∫_a φ^* λ \]
+\end{proof}
 
 \todo[inline]{The following are imprecice}
 
@@ -668,9 +758,6 @@ We immediately get that if $v_L,v_L'$ are two versal deformations both defined f
   Let $\symbf{H} \colon X → ℝ^n$ be a regular Lagrangian (toric) fibration with simply connected image. Then the map $x ↦ \Flux(\symbf{H}^{-1}(\symbf{H}(x)))$ gives action angle coordinates on $X$.
 \end{lemma}
 
-\begin{lemma}
-  If $μ \colon X → ℝ^n$ is a moment map with simply connected image, and $L = μ^{-1}(b_0)$, then $\Flux(μ^{-1}(b)) = b - b_0$.
-\end{lemma}
 
 \section{Proof of Main Theorem}
 
@@ -701,11 +788,13 @@ Combining the "embedded" upper and lower bounds of \cref{thm:lower_bound_embedde
   Then set $T_{k,p,q}(a) = μ^{-1}(a,\frac{aq}{p})$.
 \end{definition}
 
+
 \begin{theorem}
   \label{thm:main}
 
-  For $x ∈ H^1(B_{dpq}, T_{kpq})$, the displacement energy germ at $T_{kpq}$ is given by
-  \[ \symcal{E}_{T_{kpq}(a)} (x) \sim a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; . \]
+  For $x ∈ H^1(T_{kpq}; ℝ)$, the displacement energy germ at $T_{kpq}$ is given by
+  \[ \symcal{E}_{T_{kpq}(a)} (x) \sim a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; , \]
+  where we're identifying $H^1(T_{kpq};ℝ)$ with $ℝ^2$ by the choosing the basis $(d θ_1, d θ_2)$ given by the action angle coordinates given by $μ$.
 
 If $φ \colon B_{dpq} ⊃ U → (X,ω)$ is an embedding of a Milnor fibre into a geometrically bounded symplectic manifold, and $a<ε$ as given by \cref{thm:displacement_energy_embedded}, then the same expression holds for the displacement energy germ at $φ(T_{kpq}(a))$.
 \end{theorem}
