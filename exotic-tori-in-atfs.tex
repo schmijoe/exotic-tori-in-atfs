@@ -643,7 +643,8 @@ Denote by $\hat{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the sp
     H_1(L_0) &→ ℝ\\
     ξ &↦  ∫_{C_ξ} ω
   \end{align*}
-  where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L_0$ along the Lagrangian isotopy. This is well defined (independent of the choice of $C_ξ$) and also independent by end point preserving isotopies of $Λ$.\footnote{If $C_ξ ≅ C_ξ'$ by homotopy $H$, $0=∫_{∂H} ω = ∫_{C_ξ} ω - ∫_{C_ξ'} ω + ∫_A ω + ∫_B ω$, with $A,B$ contained in the endpoints of the isotopy, which are Lagrangian.}
+  where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L_0$ along the Lagrangian isotopy (called a \textbf{flux cylinder over $Λ$}).
+  This is well defined (independent of the choice of $C_ξ$) and also independent by end point preserving isotopies of $Λ$.\footnote{If $C_ξ ≅ C_ξ'$ by homotopy $H$, $0=∫_{∂H} ω = ∫_{C_ξ} ω - ∫_{C_ξ'} ω + ∫_A ω + ∫_B ω$, with $A,B$ contained in the endpoints of the isotopy, which are Lagrangian.}
 
   Using $\Hom(H_1(L_0),ℝ) = H^1(L_0;ℝ)$ this gives a well defined map
   \[ \Flux \colon \hat{\symcal{L}} → H^1(L_0;ℝ) \; ,\]
@@ -655,7 +656,7 @@ Denote by $\hat{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the sp
   $Λ_t$ is a Hamiltonian isotopy, iff $∀t ∈ [0,1], \Flux(Λ_s|_{s ∈ [0,t]}) = 0$.
 \end{lemma}
 \begin{proof}
-  Let $γ(θ), θ ∈ S¹$ be a parametrisation of a 1-cycle in $L_0$, $X_t$ a Vector field generating the flow $φ_t$ with $φ_t(L_0) = Λ_t$, and $φ_t(γ(θ))$ a parametrisation of the cylinder $C_γ$ over $Λ_t$ as in \cref{def:flux_map}.
+  Let $γ(θ), θ ∈ S¹$ be a parametrisation of a 1-cycle in $L_0$, $X_t$ a Vector field generating the flow $φ_t$ with $φ_t(L_0) = Λ_t$, and $φ_t(γ(θ))$ a parametrisation of the flux cylinder $C_γ$ over $Λ_t$ as in \cref{def:flux_map}.
   \[ ∂_t \Flux(Λ_s|_{s ∈ [0,t]}) = ∂_t ∫_0^t ∫_{φ_s ∘ γ} ι_{∂_s φ_s} ω ds = ∫_{φ_t ∘ γ} ι_{∂_t φ_t} ω
   = ∫_{φ_t ∘ γ} ι_{X_t ∘ φ_t} ω = ∫_γ φ_t^* ι_{X_t ∘ φ_t} ω.\]
 
@@ -682,7 +683,7 @@ Suppose for a moment $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero sec
   Let $α ∈ Ω_1(L_0)$ closed and $Λ_t$ be a Lagrangian isotopy from the zero section $L_0$ to $Γ_α$, the graph of $α$. Then $\Flux(Λ_t) = [α]$.
 \end{lemma}
 \begin{proof}
-  Let $ξ$ be some 1-cycle in $L_0$, $C_ξ$ the cylinder along $Λ_t$ with $∂C_ξ = α ∘ ξ' - s_0 ∘ ξ$ where $α ∘ ξ'$ is a 1-cylce in $Γ_α$, and $s_0$ the zero section.
+  Let $ξ$ be some 1-cycle in $L_0$, $C_ξ$ the flux cylinder along $Λ_t$ with $∂C_ξ = α ∘ ξ' - s_0 ∘ ξ$ where $α ∘ ξ'$ is a 1-cylce in $Γ_α$, and $s_0$ the zero section.
   Since $T^* L_0$ is homotopy equivalent to $L_0$, and $ξ$ is homotopic to $ξ'$, $[ξ] = [ξ'] ∈ H_1(L_0)$.
   Now
   \[⟨\Flux(Λ_t),ξ ⟩ = ∫_{C_ξ} dλ = ∫_{∂C_ξ} λ = ∫_{α ∘ ξ'}λ - ∫_{s_0 ∘ ξ} λ = ∫_{ξ'} α^* λ = ∫_{ξ'} α = ⟨α,ξ'⟩ = ⟨α,ξ⟩ \; ,\]
@@ -711,53 +712,99 @@ is well defined (\cref{thm:graph_flux}) and classifies $\symcal{L}_Γ$ up to Ham
 
 Return now to the case of a general $X$.
 Then $L_0$ admits an embedding of a Weinstein-neighbourhood $φ: T^*L_0 \dashrightarrow X$. \footnote{The $\dashrightarrow$ notes that the map is only defined near the zero-section.}
-As above, take a neighbourhood $U ⊂ \symcal{L}$ s.t.\ every $L' ∈ U$ is given as $φ(Γ_α)$ for some $α ∈ Ω_1(L_0)$ and $\symcal{U}$ is convex w.r.t.\ the linear structure coming from $Ω_1(L_0)$.
+Then there exists a neighbourhood $\symcal{U} ⊂ \symcal{L}$ s.t.\ every $L' ∈ U$ is given as $φ(Γ_α)$ for some $α ∈ Ω_1(L_0)$ and $\symcal{U}$ is convex w.r.t.\ the linear structure coming from $Ω_1(L_0)$.
 We call such a neighbourhood \textbf{Weinstein convex} or \textbf{W-convex} if we're feeling lazy, and $(\symcal{U},φ)$ a \textbf{Weinstein convex pair} (\textbf{W-convex pair}).
+
+In particular $\symcal{U}$ is simply connected and path connected, so that $\symcal{L}$ is locally simply connected and locally path connected, meaning that $π_{\symcal{L}} \colon \hat{\symcal{L}} → \symcal{L}$ is actually a covering map.
+Choosing $\symcal{V} ⊂ \symcal{L}$ to be a connected evenly covered neighbourhood of $L_0$, and $\symcal{V}_0 ⊂ \hat{\symcal{L}}$ to be the copy of $\symcal{V}$ containing the constant isotopy $L_0$, we define the \textbf{local flux map on $\symcal{V}$} by \[\Flux_{\symcal{V}} = \Flux ∘ (π_{ \symcal{L}}|_{ \symcal{V_0}})^{-1} \; .\] 
+
+Note that since W-convex sets are simply connected, they are also evenly covered.
 
 \begin{proposition}
   \label{thm:local_classification}
-  The map $ \Flux_{\symcal{U}} \colon \symcal{U} → H¹(L_0;ℝ)$ obtained by restricting $\Flux$ is well defined, and classifies $\symcal{U}$ up to Hamiltonian isotopies contained in $U$.
+  Let $\symcal{U}$ be W-convex.
+  The map $\Flux_{\symcal{U}}$ classifies $\symcal{U}$ up to Hamiltonian isotopies contained in $\symcal{U}$, i.e.\ $L ≅ L'$ with Hamiltonian isotopy contained in $\symcal{U}$ iff $\Flux_{\symcal{U}}(L) = \Flux_{\symcal{U}}(L')$.
 \end{proposition}
 \begin{proof}
-  This is essentially \cref{thm:cotangent_classification}. The fact that $\symcal{U}$ is convex guarantees that the linear Hamiltonian isotopy of \cref{thm:graph_hamiltonian_isotopic} between $L_1 ≅ L_2$, both in $\symcal{U}$ exists.\todo{Könnte man convex mit path-connected fibres ersetzen?}.
+  This is essentially \cref{thm:cotangent_classification}. The fact that $\symcal{U}$ is convex guarantees that the linear Hamiltonian isotopy of \cref{thm:graph_hamiltonian_isotopic} between $L_1 ≅ L_2 ∈ \symcal{U}$ exists.
 \end{proof}
 
 \begin{definition}
-  A \textbf{versal deformation $v_{L_0}$ of $L_0$} is a "section of all local flux maps", i.e.\ 
-  $v_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow \symcal{L}$ \footnote{The $\dashrightarrow$ denotes that it is only defined on some neighbourhood of $0$}, such that for all W-convex $\symcal{U}$, $\Flux_{\symcal{U}} ∘ v_{L_0} = \id$.
+  A \textbf{versal deformation $v_{L_0}$ of $L_0$} is a continuous "local section of the local flux map", i.e.\ 
+  $v_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow \symcal{L}$, \footnote{The $\dashrightarrow$ denotes that it is only defined on some neighbourhood of $0$} continuous such that for all evenly covered $\symcal{U}$ there exists an open neighbourhood $V$ of $0 ∈ H^1(L_0;ℝ)$ s.t.\ $\Flux_{\symcal{U}} ∘ v_{L_0}|_V = \id$.
 \end{definition}
 
 \begin{lemma}
-  If $v_{L_0}, v_{L_0}'$ are two versal deformations. For $α ∈ H^1(L_0;ℝ)$ close enough to $0$, $v_{L_0}(α) ≅ v_{L_0}'(α)$.
+  \label{thm:vd_existence}
+  A versal deformation exists.
 \end{lemma}
 \begin{proof}
-Let $(\symcal{U},φ)$ be a W-convex pair, and $v_{L_0}(α) = φ(Γ_β), v_{L_0}'(α) = φ(Γ_γ)$. Now by \cref{thm:graph_flux} $[γ] = \Flux_{\symcal{U}}(φ(Γ_β)) = α = \Flux_{\symcal{U}}(φ(Γ_β)) = [β]$, which proves the claim by \cref{thm:graph_hamiltonian_isotopic}.
+  Choose a W-convex pair $(\symcal{U},φ)$, and a choice of reprasentatives $α_1,…,α_d ∈ Ω_1(L_0)$ of a basis of $H¹(L_0;ℝ)$. Define the linear map $v_{L_0}([α_i]) = φ(Γ_{α_i})$ (thinking of $\symcal{U}$ inheriting its linear structure from $Ω_1(L_0)$, and we're choosing the domain of $v_{L_0}$ so the definition makes sense).
+
+  If $\symcal{V}$ is now evenly covered, we can restrict the domain of $v_{L_0}$ to $V$ s.t.\ $\im(v_{L_0}|_V) ⊂ \symcal{V}$. Further restricting $V$ we may additionally assume that the pair $(\symcal{V},φ)$ is also W-convex. Then for $[α] ∈ V$ we have
+  \[
+    \Flux_{ \symcal{V}}(v_L(α)) = \Flux_{ \symcal{V}}(φ(Γ_α)) = \Flux(φ(Γ_{t α}|_{t ∈ [0,1]})) = [α] \; .
+  \]
+\end{proof}
+
+\begin{lemma}
+  \label{thm:vd_hamiltonian_isotopy}
+  If $v_{L_0}, v_{L_0}'$ are two versal deformations, there is a neighbourhood $V ∈ H^1(L_0;ℝ)$ of $0$, s.t.\ $∀ α ∈ V, v_{L_0}(α) ≅ v_{L_0}'(α)$.
+\end{lemma}
+\begin{proof}
+  Let $\symcal{U}$ be evenly covered and $V$ such that $\Flux_{ \symcal{U}} ∘ v_{L_0}|_V = \Flux_{ \symcal{U}} ∘ v_{L_0}'|_V = \id$. Additionally restricting $V$ we may also assume that $\symcal{U}$ is also W-convex.
+  Then for $α ∈ V$, by \cref{thm:local_classification} the result follows since $\Flux_{ \symcal{U}}(v_{L_0}(α)) = \Flux_{ \symcal{U}}(v_{L_0}'(α))$.
 \end{proof}
 
 We might say colloquially that a versal deformations parametrizes all nearby Lagrangians by a neighbourhood of zero in $H^1(L_0;ℝ)$ up to local Hamiltonian isotopy.
 
-Let now $μ\colon M → B$ be a surjective regular Lagrangian fibration with simply connected base and moment map, and $L_0 = μ^{-1}(b_0)$.
-Since $μ$ is a moment map, we also get that $M$ is symplectomorphic to $B × T^n$ with action angle coordinates $(b_i,θ_i)$, the elements $[d θ_i] ∈ H^1(μ^{-1}(b);ℝ)$ forming a basis. This gives an identification of $i\colon H^1(L_0;ℝ) → ℝ^n$.
-Let $\symcal{L}_μ = μ^{-1}(B) ⊂ \symcal{L}_{L_0}$. Restricting to Lagrangian isotopies contained in $\symcal{L}_μ$, the flux map is well defined for all $μ^{-1}(b)$.
+\begin{definition}
+  \label{def:invariant_germs}
+  Suppose $I \colon \symcal{L} → A$ is some invariant of Lagrangians up to (Hamiltonian) symplectomorphism, and $v_{L_0}$ a versal deformation. Then the germ of $I ∘ v_{L_0}$ at $0$ is independent of the choice of versal deformation (by \cref{thm:vd_hamiltonian_isotopy}), and is called (by abuse of terminology) the \textbf{germ of $I$ at $L_0$} and denoted by
+  \[
+    [I]_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow A \; .
+  \]
+\end{definition}
+
+\begin{corollary}
+  \label{thm:invariant_germs}
+  If $φ$ is a (Hamiltonian) symplectomorphism, then
+  \[
+    [I]_{φ(L_0)} = [I ∘ φ]_{L_0} = [I]_{L_0} ∘ φ^* \; .
+  \]
+
+  So if there is no linear isomorphism $M \colon H^1(L;ℝ) → H^1(L';ℝ)$ s.t.\ $[I]_L ∘ M = [I]_{L'}$ there is no (Hamiltonian) symplectomorphism $φ$ with $φ(L) = L'$.
+\end{corollary}
+
+\subsection{Versal Deformations and Action Angle Coordinates}
+\label{sec:vd_action_angle}
+
+Let now $μ\colon M → B$ be the moment map of a surjective regular Lagrangian fibration with simply connected base $B ⊂ ℝ^n$, and $L_0 = μ^{-1}(b_0)$.
+Since $μ$ is a moment map, we also get that $M$ is symplectomorphic to $B × T^n$ with action angle coordinates $(b^i,θ_i)$, the elements $[d θ_i] ∈ H^1(μ^{-1}(b);ℝ)$ forming a basis. This gives an identification of $i\colon H^1(L_0;ℝ) → ℝ^n$.
+
+Let $\symcal{B} = μ^{-1}(B) ⊂ \symcal{L}_{L_0}$, since $B$ is simply connected, so is $\symcal{B}$ meaning $\symcal{B}$ is evenly covered (but not open), so we get the local flux map $\Flux_{ \symcal{B}}$.
 
 \begin{lemma}
+  \label{thm:moment_map_flux}
   \[
-    i(\Flux(μ^{-1}(b))) = b - b_0 \; .
+    \Flux_{ \symcal{B}}(μ^{-1}(b)) = i^{-1}(b - b_0 )\; .
   \]
+  In particular $v_μ = μ^{-1} ∘ i$ is a versal deformation of $L_0$.
 \end{lemma}
 
 \begin{proof}
-  Since $M = B × T^n = T^* T^n$, $ω = d λ$ where $λ = b_i d θ_i$ is the canonical 1-form.
-  For $L = μ^{-1}(b)$ and $[a] ∈ H_1(L_0;ℝ)$ let $C_{[a]}$ a cylinder as in the definition of the flux map. Then
-  \[⟨\Flux(L),[a]⟩ = ∫_{C_{[a]}} \\d λ = ∫_{φ ∘ a} λ - ∫_a λ = ∫_a φ^* λ \]
+  Since $M = B × T^n ⊂ T^* T^n$, $ω = d λ$ where $λ = b^i d θ_i$ is the canonical 1-form.
+  Let $L = μ^{-1}(b) = \{b\} × T^n$, $γ$ a path from $b_0$ to $b$ and $a^i$ 1-cycles dual to $d θ_i$ in $T^n$, $(γ(t),a^i(θ))$ a parametrisation of a flux cylinder $C_{a^i}$. 
+  \[⟨\Flux_{ \symcal{B}}(L),[a^i]⟩ = ⟨\Flux(μ^{-1} ∘ γ),[a^i]⟩ = ∫_{C_{a^i}} \\d λ = ∫_{(b,a^i)} λ - ∫_{(b_0,a^i)} λ = b^i - b_0^i \; .\]
 \end{proof}
 
-\todo[inline]{The following are imprecice}
 
-\begin{lemma}
-  Let $\symbf{H} \colon X → ℝ^n$ be a regular Lagrangian (toric) fibration with simply connected image. Then the map $x ↦ \Flux(\symbf{H}^{-1}(\symbf{H}(x)))$ gives action angle coordinates on $X$.
-\end{lemma}
-
+\begin{corollary}
+  Let $\symbf{H} \colon X → ℝ^n$ be a regular Lagrangian (toric) fibration with simply connected image. Then the map $x ↦ i(\Flux(\symbf{H}^{-1}(\symbf{H}(x))))$ gives action angle coordinates on $X$.
+\end{corollary}
+\begin{proof}
+  By Arnold-Liouville a moment map exists and \cref{thm:moment_map_flux} identifies the moment map up to choice of identification $i \colon H¹(L_0;ℝ) → ℝ^n$.
+\end{proof}
 
 \section{Proof of Main Theorem}
 
@@ -788,15 +835,14 @@ Combining the "embedded" upper and lower bounds of \cref{thm:lower_bound_embedde
   Then set $T_{k,p,q}(a) = μ^{-1}(a,\frac{aq}{p})$.
 \end{definition}
 
-
 \begin{theorem}
   \label{thm:main}
 
   For $x ∈ H^1(T_{kpq}; ℝ)$, the displacement energy germ at $T_{kpq}$ is given by
-  \[ \symcal{E}_{T_{kpq}(a)} (x) \sim a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; , \]
-  where we're identifying $H^1(T_{kpq};ℝ)$ with $ℝ^2$ by the choosing the basis $(d θ_1, d θ_2)$ given by the action angle coordinates given by $μ$.
+  \[ [e]_{T_{kpq}(a)} (x) \sim a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; , \]
+  for some identification of $H^1(T_{kpq};ℝ)$ with $ℝ²$.
 
-If $φ \colon B_{dpq} ⊃ U → (X,ω)$ is an embedding of a Milnor fibre into a geometrically bounded symplectic manifold, and $a<ε$ as given by \cref{thm:displacement_energy_embedded}, then the same expression holds for the displacement energy germ at $φ(T_{kpq}(a))$.
+  If $φ \colon B_{dpq} ⊃ U → (X,ω)$ is an embedding of a Milnor fibre into a geometrically bounded symplectic manifold, and $a<ε$ as given by \cref{thm:displacement_energy_embedded}, then the same expression holds for the displacement energy germ at $φ(T_{kpq}(a))$.
 \end{theorem}
 
 \begin{figure}
@@ -821,21 +867,20 @@ If $φ \colon B_{dpq} ⊃ U → (X,ω)$ is an embedding of a Milnor fibre into a
   where $A$ is given as the shear matrix
   \[\mqty(kpq+1 & -kp²\\ kq² & 1-kpq) = \qty(x ↦ x+k\det\mqty(x_1 & p\\ x_2 & q)(p,q)).\]
 
-  Choose a versal deformation $v$ at $T_{kpq}(a)$ such that
+Like in \cref{sec:vd_action_angle}, let $b_0 = \hat{μ}(T_{kpq}) = (a,aq/p)$, $B$ a simply connected neighbourhood of $b_0$, $\symcal{B} = \hat{μ}^{-1}(B) ⊂ \symcal{L}_{T_{kpq}}$, $i \colon H¹(T_{kpq};ℝ) → ℝ^2$ the identification given by the action angle coordinates of $\hat{μ}$ and choose the versal deformation $v_{\hat{μ}}$ of $T_{kpq}(a)$ as in \cref{thm:moment_map_flux} such that for $x ∈ H¹(T_{kpq};ℝ)$
   \[
-    \hat{μ}(v(x)) = \Flux(T_{kpq},v(x)) = (a,\frac{aq}{p}) + (x_1,x_2) \; .
+    \hat{μ}(v_{ \hat{μ}}(x)) = i(\Flux_{ \symcal{B}}(v_{ \hat{μ}}(x))) = b_0 + i(x) \; .
   \]
-  \todo{versal deformations schön einführen.}
-  Then we know from \cref{thm:displacement_energy} (resp. \cref{thm:displacement_energy_embedded}) that for $v(x)$ not on the eigenline of the nodes, $e(v(x)) = μ_1(v(x))$.
+  Then we know from \cref{thm:displacement_energy} (resp. \cref{thm:displacement_energy_embedded}) that for $v_{ \hat{μ}}(x)$ not on the eigenline of the nodes, $e(v_{ \hat{μ}}(x)) = μ_1(v_{ \hat{μ}}(x))$.
 
-  Applying \eqref{eq:mu_muhat_rel}, we get
-  \[e(v(x)) = \begin{cases}
-    μ_1(v(x)) = a + x_1 & \text{$x$ lies above the eigenline of $A$}\\
-    A μ_1(v(x)) = a + x_1(kpq+1) - x_2kp² & \text{$x$ lies below the eigenline of $A$}\\
+  Applying \eqref{eq:mu_muhat_rel} and setting $i(x) = (x_1,x_2)$, we get
+  \[e(v_{ \hat{μ}}(x)) = \begin{cases}
+    μ_1(v_{ \hat{μ}}(x)) = a + x_1 & \text{$x$ lies above the eigenline of $A$}\\
+    A μ_1(v_{ \hat{μ}}(x)) = a + x_1(kpq+1) - x_2kp² & \text{$x$ lies below the eigenline of $A$}\\
     \text{unknown} & \text{$x$ lies on the eigenline of $A$}
   \end{cases}\]
 
-  Now we have that $kp⟨x,(q,-p)⟩ = x_1 kpq - x_2 kp^2 > 0$ iff $x$ lies above the eigenline of $A$, so we get
+  Now we have that $kp⟨i(x),(q,-p)⟩ = x_1 kpq - x_2 kp^2 > 0$ iff $x$ lies above the eigenline of $A$, so we get
   \[e(v(x)) = \begin{cases}
     a + \min\qty{x_1,x_1(kpq+1) - x_2kp²} & \text{$x$ doesn't lie on the eigenline of $A$}\\
     \text{unknown} & \text{$x$ lies on the eigenline of $A$}\\
