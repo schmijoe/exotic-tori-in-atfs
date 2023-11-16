@@ -160,7 +160,7 @@
 \DeclareMathOperator{\Flux}{Flux}
 
 \begin{document}
-\title{Semi-Local Tori in Dimension Four}
+\title{Semi-Local Lagrangian Tori in Dimension Four}
 \author{JoJoJo}
 
 \maketitle
@@ -186,27 +186,29 @@
 \end{lemma}
 
 
-\section{Construction of the local model}
+\section{Construction of the Local Model}
 \label{sec:construction}
 
 Let $d,p,q$ integers such that $d≥1$ and $p,q$ coprime\footnote{We consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
-Let $P$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
-Define the manifold $M_P$ by
+Let $P ∈ ℂ[z]$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
+Define the complex manifold $M_P$ by
 \begin{equation}
   \label{eqn:MP}
-M_P = \qty{(z_1,z_2,z_3) ∈ ℂ³ \mid z₁z₂ + P(z₃)=0 } \; .
+M_P = \qty{(z_1,z_2,z_3) ∈ ℂ³ \mid z₁z₂ + P(z₃)=0 } \; ,
 \end{equation}
-We define the pair of Hamiltonian functions
+with the natural symplectic and complex structure inherited from $ℂ³$.
+
+We define the pair of Poisson commuting Hamiltonian functions $\symbf{H} \colon ℂ^3 → ℝ^2$
 \begin{equation}
   \label{eqn:non-toric-system}
   \symbf{H}(z_1,z_2,z_3) = \qty(\abs{z_3}^2, \frac{1}{2}\qty(\abs{z_1}^2-\abs{z_2}^2)) \; .
 \end{equation}
 
-Let $ρ_p$ be the group of $p$-th roots of unity acting on $M_P$ by
-\[ρ \cdot (z₁,z₂,z₃) = \qty(ρz₁,ρ^{-1}z₂,ρ^q z₃), \quad ρ ∈ ρ_p \; .\]
-This is a free  action, so we can define the quotient $B_{P,q} = M_P/ρ_p$.
-$\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Hamiltonians on $B_{P,q}$, giving us the almost toric fibration $\symbf{H} \colon B_{P,q} → B$, where $B = \im(\symbf{H})$.
-By \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of the exact choice of $a_1,…,a_d$, only depending on $d,p,q$. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
+Let $G_p$ be the group of $p$-th roots of unity acting on $M_P$ by
+\[g \cdot (z₁,z₂,z₃) = \qty(gz₁,g^{-1}z₂,g^q z₃), \quad g ∈ G_p \; .\]
+This is a free  action, so the quotient $B_{P,q} = M_P/G_p$ is a smooth complex and symplectic manifold.
+$\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Poisson commuting Hamiltonians on $B_{P,q}$, giving us the fibration (by abuse of notation also called $\symbf{H}$) $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$.
+As we will see later in \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of the choice of $a_1,…,a_d$, only depending on $d,p,q$. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
 
 \begin{figure}
   \centering
@@ -232,6 +234,7 @@ By \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of
           \draw[very thin] (3,1.3,0) -- (3,0,0);
         \end{scope}
       }
+      \node at (-1,-2.25) {(a)};
     \end{scope}
     \begin{scope}[shift={(4.25cm,0)}]
           \begin{scope}[canvas is xz plane at y=0]
@@ -252,8 +255,9 @@ By \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of
             \draw[very thin] (3.5,1.3,0) -- (3.5,0,0);
           \end{scope}
         }
+        \node at (-1,-2.25) {(b)};
     \end{scope}
-    \begin{scope}[shift={(0,-5cm)}]
+    \begin{scope}[shift={(0,-5.5cm)}]
       \begin{scope}[canvas is xz plane at y=0]
         \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
         \clip (-4,-4) rectangle (4,4);
@@ -281,20 +285,20 @@ By \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of
           \end{scope}
         }
       \end{scope}
+      \node at (-1,-2.25) {(c)};
     \end{scope}
 \end{tikzpicture}
-  \caption{The projection $M_P ∋ z ↦ z_3$.}
+  \caption{The projection $M_P ∋ z ↦ z_3$ for $p=5$, $d=3$.}
   \label{fig:conic_fibration}
 \end{figure}
 
-Let us further inspect this fibration. To get a good picture of what is going on we look at the projection $π_3 \colon M_P → ℂ$ given by projection onto the $z_3$ coordinate.
-See \cref{fig:conic_fibration}.
-The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$, so if $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$, and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes.
-Fix $b = (b_1,b_2) ∈ \im(\symbf{H})$. The set $\symbf{H}_1^{-1}(b_1)$ gives us a circle in the $z_3$ plane, and the intersection with $\symbf{H}_2^{-1}(b_2)$ fixes a "height" in the cylinders.
-Thus for regular values $\symbf{H}^{-1}(b)$ is a torus, as in the top right part of \cref{fig:conic_fibration}.
-There are two kinds of degenerate values: The elliptic-regular with $b_1=0$, where $\symbf{H}^{-1}(0,b_2)$ is a circle, and focus-focus with $b = ({a_k}^{2/p},0)$ where $\symbf{H}^{-1}(b)$ is a torus with $p$ pinched circles, as in the top left part of \cref{fig:conic_fibration}.
+Let us further inspect this fibration. To this end, we look at the projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
+The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$, so if $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$ (as seen in \cref{fig:conic_fibration} (b)), and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes (as seen in \cref{fig:conic_fibration} (a)).
+Fix $b = (b_1,b_2) ∈ B$. For $b_1 ≠ 0$, the set $\symbf{H}_1^{-1}(b_1)$ gives us a circle in the $z_3$ plane, and the intersection with $\symbf{H}_2^{-1}(b_2)$ fixes a "height" in the cylinders.
+Thus if $b$ is a regular value, $\symbf{H}^{-1}(b)$ is a torus, as in \cref{fig:conic_fibration} (b).
+There are two kinds of degenerate values: The elliptic-regular with $b_1=0$, where $\symbf{H}^{-1}(0,b_2)$ is a circle, and focus-focus with $b = ({a_k}^{2/p},0)$ where $\symbf{H}^{-1}(b)$ is a torus with $p$ pinched circles, as in \cref{fig:conic_fibration} (a). \todo{Warum ist $\symbf{H}$ eine almost toric fibration?}
 
-Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian\todo{why?} disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see bottom part of \cref{fig:conic_fibration}.
+Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian\todo{why?} disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see \cref{fig:conic_fibration} (c).
 
 \begin{figure}
   \centering
@@ -314,16 +318,16 @@ Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p
     \draw[very thin] (0,0,0) -- (0,1.3,0);
     \draw[very thin] (3,0,0) -- (3,1.3,0);
   \end{tikzpicture}
-  \caption{A fundamental domain of the action $ρ_p$ on $M_P$}
+  \caption{A fundamental domain of the action of $G_p$ on $M_P$}
   \label{fig:conic_fibration_fundamental_domain}
 \end{figure}
 
-Under the reduction $M_P/ρ_p$, a conic fibre $π_3^{-1}(z_3)$ will be identified with the fibre $π_3^{-1}(ρ^q z_3)$ under the map $(z_1,z_2) ↦ (ρz_1,ρ^{-1}z_2)$.
+Under the reduction $M_P/G_p$, a conic fibre $π_3^{-1}(z_3)$ will be identified with the fibre $π_3^{-1}(g^q z_3)$ under the map $(z_1,z_2) ↦ (gz_1,g^{-1}z_2)$.
 Consider the fundamental domain in \cref{fig:conic_fibration_fundamental_domain} of this action obtained by restricting $z_3 = re^{iθ} ∈ M_P$ to $θ \in [-\frac{π}{p},\frac{π}{p}]$, and $π_3^{-1}(0) ∋ (z_1,z_2)$ to $\frac{1}{2}\arg\qty(\frac{z_1}{z_2}) ∈ [-\frac{π}{p},\frac{π}{p}]$.
-Let $ρ = e^{2πi/p}$.
-The cylinders $π_3^{-1}(z_3)$ with $θ=-\frac{π}{p}$ and $r>0$ are identified with the cylinders $π_3^{-1}(ρ z_3)$ by the map $(z_1,z_2) ↦ (ρ^{q'} z_1,ρ^{-q'} z_2)$, where $q'$ is chosen s.t.\ $qq' = 1 \mod p$.
+Let $g = e^{2πi/p}$ a generator of $G_p$.
+The cylinders $π_3^{-1}(z_3)$ with $θ=-\frac{π}{p}$ and $r>0$ are identified with the cylinders $π_3^{-1}(g z_3)$ by the map $(z_1,z_2) ↦ (g^{q'} z_1,g^{-q'} z_2)$, where $q'$ is chosen s.t.\ $qq' = 1 \mod p$.
 
-The image $S_k = \hat{S}_k / ρ_p$ is a Lagrangian sphere for $0<k<d$, and a Lagrangian disk with its boundary identified by the map $z ↦ ρ^{q'} z$. $S_0$ is called a Lagrangian pinwheel and denoted $L_{p,q}$. On the fibre $π_3(0)$, there are $p$ flanges meeting, such that one turn around the circle shifts the identification of the flanges by $q'$ places. See \cref{fig:pinwheel}.
+The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$, and a Lagrangian disk with its boundary identified by the map $z ↦ g^{q'} z$. $S_0$ is called a Lagrangian pinwheel and denoted $L_{p,q}$. On the fibre $π_3(0)$, there are $p$ flanges meeting, such that one turn around the circle shifts the identification of the flanges by $q'$ places. See \cref{fig:pinwheel}.
 
 \begin{figure}
   \centering
@@ -332,15 +336,15 @@ The image $S_k = \hat{S}_k / ρ_p$ is a Lagrangian sphere for $0<k<d$, and a Lag
   \label{fig:pinwheel}
 \end{figure}
 
-To calculate the image of $B_{dpq}$ under action-angle coordinates, we can remove the segment $ℓ = [a_1^{2/p},∞] × \{0\}$ from $\im(\symbf{H})$ to obtain a simply connected domain.
-Now applying the flux map gives us $τ \colon \im(\symbf{H}) ∖ ℓ → Δ$, where we define $Δ ⊂ ℝ²$ to be the image of this map, and thus giving us action-angle coordinates $μ \colon B_{dpq} ∖ \symbf{H}^{-1}(ℓ) → Δ$.
+To calculate the image of $B_{dpq}$ under action-angle coordinates, we can remove the segment $ℓ = [a_1^{2/p},∞] × \{0\}$ from $\im(\symbf{H})$ to obtain a simply connected domain of regular or elliptic-regular values of $\symbf{H}$.
+Now applying the flux map\todo{Das ganze nach die Versal deformation section?} gives us a smooth map $τ \colon \im(\symbf{H}) ∖ ℓ → Δ ⊂ ℝ²$, where we define $Δ ⊂ ℝ²$ to be the image of this map, and thus giving us action-angle coordinates $μ \colon B_{dpq} ∖ \symbf{H}^{-1}(ℓ) → Δ$.
 Since $\symbf{H}_2$ already generates a $S¹$ action, we may choose $τ$ to be of the form $τ(b_1,b_2) = (τ_1(b_1,b_2), b_2)$.\footnote{As when constructing action-angle coordinates in the proof of the Arnold-Liouville Theorem.}
 In particular the segment $[0,a_1^{2/p}] × \{0\}$ is mapped to $[0,τ_1(a_1^{2/p},0)] × \{0\}$, even more particular $S_0$ is a Lagrangian over this segment, making it a so-called visible Lagrangian as described in \cite[Chapter 5]{evans2021atfs}.
 We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elliptic-regular singularities, is sent to a straight line in some rational direction $(n,m)$.
 As we have the visible Lagrangian pinwheel $S_0 = L_{p,q}$ intersecting it, by \cite[Section 5.3]{evans2021atfs}, we must have $(n,m) = (q',p)$.
 After the affine linear transformation $\mqty(p & -q'\\q & p')$, with $p' = \frac{1-qq'}{p}$, the image of $τ$ is the right half plane, with the nodes sitting on a ray in direction $(p,q)$ as in \cref{fig:Bdpq_moment_image}.
 
-Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$.
+Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$. \todo{MEEHHHR details.}
 
 
 \begin{figure}
