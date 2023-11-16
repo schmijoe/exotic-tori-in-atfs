@@ -189,7 +189,7 @@
 \section{Construction of the local model}
 \label{sec:construction}
 
-Let $d,p,q ∈ ℕ$ such that $d≥1$ and $p,q$ coprime\footnote{We consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
+Let $d,p,q$ integers such that $d≥1$ and $p,q$ coprime\footnote{We consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
 Let $P$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
 Define the manifold $M_P$ by
 \begin{equation}
@@ -557,13 +557,14 @@ A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^
 
 \section{Upper bound on displacement energy: Probes}
 
-We want to use the method of probes to calculate an upper bound on the displacement energy of certain toric fibres $T(x,y)$, i.e.\ we give a Hamiltonian diffeomorphism that displaces the $T(x,y)$ from itself.
+We want to use the method of probes to calculate an upper bound on the displacement energy of certain toric fibres $T(x,y)$. This is achieved by giving a Hamiltonian diffeomorphism that displaces the $T(x,y)$ from itself. By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(x,y)$.
 The method to construct such a Hamiltonian diffeomorphism is the method of probes, that was first introduced by McDuff \cite{mcduff2011displacing} for exactly the same purpose.
-Probes were originally introduced in the context of toric symplectic manifolds.
+Probes were originally introduced in the context of toric symplectic manifolds. However, they generalize to the case of almost toric fibrations. All the definitions and notions of the following paragraph are defined in McDuff's paper \cite{mcduff2011displacing}.
 
 We quickly recall the main ideas of the method and then explain how they are applied in our situation.
-Assume that $(X^{2n},\omega)$ is a toric symplectic manifold with moment map $μ \colon X → ℝ^n$ and moment polytope $\Delta$.
-A \textbf{probe} $p_\lambda(w)$ is a half open line segment contained in $\Delta$, starting at a point $w \in \Delta$, where $w$ is lying on a facet of $\Delta$, pointing in the direction of $\lambda \in ℤ^n$, where the direction  $\lambda$ is integrally transverse to the facet and such that the line segment intersects the boundary of the polytope $\Delta$ only in the point $w$.
+Assume that $(X^{2n},\omega)$ is a toric symplectic manifold with moment map $μ \colon X → ℝ^n$ and associated moment polytope $\Delta\vcentcolon= \mu(X)$.
+A \textbf{probe} $p_\lambda(w)$ is a half open line segment contained in $\Delta$, starting at a point $w \in \Delta$, where $w$ contained in the interior of a facet of $\Delta$, pointing in the direction of $\lambda \in ℤ^n$, where the direction  $\lambda$ is integrally transverse to the facet and such that the line segment intersects the boundary of the polytope $\Delta$ only in the point $w$.
+
 In \cite[Lemma 2.4.]{mcduff2011displacing} it is shown that if a toric fibre $\mu^{-1}(u)$ lies over a probe $p_\lambda(w)$, where $u\in \text{int}\Delta$ is strictly less than halfway along the probe, then it is displaceable.
 It is worthwhile to note that this Hamiltonian displacement is local in nature.
 To see this one realises that the definition probes implies that one can find an appropriate $Gl_n(\mathbb{Z})$ transformation of the $\mathbb{R^n}$ such that the facet $F$, from which the probe emanates, lies on the hyperplane $\{x_1=0\}$ and such that the direction of the probe is given by $\lambda=(1,0,\ldots,0)$.
