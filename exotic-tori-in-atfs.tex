@@ -175,7 +175,7 @@
     \label{thm:bdpqexotic}
   Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
   Up to a change of basis, the restriction of the displacement energy germ to $U$ is given by
-  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) ~ a+\min\{x,x(1-kpq)+ykp²\} \]
+  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\} \]
 \end{restatable}
 
 \section{Fun facts über ATFS by Joé}
@@ -563,34 +563,34 @@ A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^
 
 We want to use the method of probes to calculate an upper bound on the displacement energy of certain toric fibres $T(x,y)$. This is achieved by giving a Hamiltonian diffeomorphism that displaces the $T(x,y)$ from itself. By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(x,y)$.
 The method to construct such a Hamiltonian diffeomorphism is the method of probes, that was first introduced by McDuff \cite{mcduff2011displacing} for exactly the same purpose.
-Probes were originally introduced in the context of toric symplectic manifolds. However, they generalize to the case of almost toric fibrations. All the definitions and notions of the following paragraph are defined in McDuff's paper \cite{mcduff2011displacing}.
+Probes were originally introduced in the context of toric symplectic manifolds. However, they generalize to the case of almost toric fibrations and we will make a remark on what we mean by this later in this section. All the definitions and notions of the following paragraph are defined in McDuff's paper \cite{mcduff2011displacing}.
 
 We quickly recall the main ideas of the method and then explain how they are applied in our situation.
-Assume that $(X^{2n},\omega)$ is a toric symplectic manifold with moment map $μ \colon X → ℝ^n$ and associated moment polytope $\Delta\vcentcolon= \mu(X)$.
-A \textbf{probe} $p_\lambda(w)$ is a half open line segment contained in $\Delta$, starting at a point $w \in \Delta$, where $w$ contained in the interior of a facet of $\Delta$, pointing in the direction of $\lambda \in ℤ^n$, where the direction  $\lambda$ is integrally transverse to the facet and such that the line segment intersects the boundary of the polytope $\Delta$ only in the point $w$.
+Assume that $(X^{4},\omega)$ is a toric symplectic manifold with moment map $μ \colon X → ℝ^2$ and associated moment polytope $\Delta\vcentcolon= \mu(X)$.
+A \textbf{probe} $p_\lambda(w)$ is a half open line segment contained in $\Delta$, starting at a point $w \in \Delta$, where $w$ contained in the interior of a facet of $\Delta$, pointing in the direction of $\lambda \in ℤ^2$, where the direction  $\lambda$ is integrally transverse to the facet and such that the line segment intersects the boundary of the polytope $\Delta$ only in the point $w$.
 
-In \cite[Lemma 2.4.]{mcduff2011displacing} it is shown that if a toric fibre $\mu^{-1}(u)$ lies over a probe $p_\lambda(w)$, where $u\in \text{int}\Delta$ is strictly less than halfway along the probe, then it is displaceable.
+In \cite[Lemma 2.4.]{mcduff2011displacing} it is shown that if a toric fibre $T(x,y)=\mu^{-1}(x,y)$ lies over a probe $p_\lambda(w)$, where $(x,y)\in \text{int}(\Delta)$ is strictly less than halfway along the probe, then it is displaceable.
 It is worthwhile to note that this Hamiltonian displacement is local in nature.
-To see this one realises that the definition probes implies that one can find an appropriate $Gl_n(\mathbb{Z})$ transformation of the $\mathbb{R^n}$ such that the facet $F$, from which the probe emanates, lies on the hyperplane $\{x_1=0\}$ and such that the direction of the probe is given by $\lambda=(1,0,\ldots,0)$.
-Furthermore, there is a corresponding Darboux chart on $X$ with coordinates $z_1,\ldots,z_n$ such that the preimage under the moment map of the probe is given by
+To see this one realises that the definition probes implies that one can find an appropriate $Gl_2(\mathbb{Z})$ transformation of the $\mathbb{R^2}$ such that the facet $F$, from which the probe emanates, lies on the hyperplane $\{x=0\}$ and such that the direction of the probe is given by $\lambda=(1,0)$.
+Furthermore, there is a corresponding Darboux chart on $X$ with coordinates $(z_1,z_2)$ such that preimage of the probe under the moment map is in these coordinates given by
 \begin{equation*}
-  \mu^{-1}(p_\lambda(w))=\left\{z\in \mathbb{C}^n \mid \abs{z_1}^2<2a, \abs{z_i}=\text{const for }i\neq 1\right\},
+  \mu^{-1}(p_\lambda(x,y))=\left\{(z_1,z_2)\in \mathbb{C}^2 \mid \abs{z_1}^2<2a, \abs{z_2}=\text{const.}\right\},
 \end{equation*}
 where $a \in \mathbb{R}$ is the affine length of the probe.
 By abuse of notation this information is condensed in the following diagram of symplectic reduction
 \[
 \begin{tikzcd}
-  \left(\mu^{-1}(p_\lambda(w)),\left.\omega\right|_A\right)\ar[r,hook]\ar[d]&
+  \left(\mu^{-1}(p_\lambda(x,y)),\left.\omega\right|_{\mu^{-1}(p_\lambda(x,y))}\right)\ar[r,hook]\ar[d]&
   \left(\mu^{-1}(U),\left.\omega\right|_U\right)
   \\
-  \left(\mathbb{D}^2(a),\omega_\text{std}\right),
+  \left(\mathbb{D}^2(a),\omega_0\right),
 \end{tikzcd}
 \]
-where $\mathbb{D}^2(a)\subseteq \mathbb{C}$ is the open disk enclosing area $2\pi a$.
+where $\mathbb{D}^2(a)\subseteq \mathbb{C}$ is the open disk of area $2\pi a$, $U$ is a small open neighborhood of the probe $p_\lambda(x,y)$ and $\omega_0$ is the standard symplectic structure on $\mathbb{C}^2$.
 Now a circle $S^1(b)\vcentcolon=\{z\in \mathbb{C}\mid \abs{z}^2=2b\} \subseteq \mathbb{D}^2(a)$ is displaceable by a Hamiltonian diffeomorphism of $\mathbb{D}^2(a)$ if and only if $b<\frac{a}{2}$.
 The Hamiltonian generating this diffeomorphism can be extended to all of $\mathbb{C}$ in such a way that it can be lifted to $\mu^{-1}(U)$ in a compactly supported manner.
 
-It is clear that this discussion construction extends to the case of almost toric fibrations and does trivially so, if the probe does not intersect the branch cut line.
+Note, that from the local nature around a probe of this construction clear that this discussion construction extends to the case of almost toric fibrations and does trivially so, if the probe does not intersect the branch cut line.
 
 Now assume that everything is arranged as in the assumptions and notations of \cref{thm:bdpqexotic}.
 In particular the moment image associated to this setup is shown in \cref{fig:Bdpq_moment_image}.
@@ -599,19 +599,19 @@ Using the method of probes we show the upper bound on the displacement energy, i
 
 \begin{lemma}
     \label{thm:upper_bound}
-  Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
+  Let $U ⊂ H¹(T_k(a);ℝ)\setminus\{\text{branch cut line}\}$.
   Up to change of basis, the restriction of the displacement energy germ to $U$ is bounded from above by
-  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\} \]
+  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\}. \]
 \end{lemma}
 
 \begin{proof}
-  Recall that $T_k(a)$ is the fibre over $(a,b) \in Δ_{B_{dpq}}$, where $b\vcentcolon=\frac{q}{p}a$, such that there are $k$ nodes below on the branch cut line.
-  After mutating $k$ times the base point of $T_k(a)$ is contained in a neighbourhood that admits a regular torus fibration.
-  The mutation process yields a new moment map $\overline{μ}$ and moment polytope $\overline{Δ_{B_{dpq}}}$
+  Recall that $T_k(a)$ is the fibre over $(a,b) \in Δ_{B_{dpq}}$, where $b\vcentcolon=aq/p$, such that there are $k$ nodes below on the branch cut line.
+  After mutating $k$ times, the base point of $T_k(a)$ is contained in a neighbourhood that admits a regular torus fibration.
+  This mutation process yields a new moment map $\overline{μ}$ and moment polytope $\overline{Δ_{B_{dpq}}}$.
   \todo{Draw the correct picture and show the neighbourhood that is meant.} Now a neighbourhood of $0 ∈ H¹(T_k(a);ℝ)$ can be identified with a neighbourhood $V ⊂ \overline{Δ_{B_{dpq}}}$ of $(a,\frac{qa}{p}) = μ(T_k(a))$, such that $V \subset U$.
   Choose generators of $H¹(T_k(a);ℝ)$ corresponding to the components of the moment map $\overline{\mu}=(\overline{\mu_1},\overline{\mu_2})$, i.e.
   generators that are orthogonal to those.
-  Using this identification a point $(x,y) ∈ H¹(T_k(a);ℝ)$ close to $0$ is sent by the versal deformation to $(a + x, b + y)$ in $\overline{Δ_{B_{dpq}}}$.
+  Using this identification, a point $(x,y) ∈ H¹(T_k(a);ℝ)$ close to $0$ is sent by the versal deformation  to $(a + x, b + y)$ in $\overline{Δ_{B_{dpq}}}$.
   Now the goal is to estimate the displacement energy of fibres over these points.
   This is achieved by the method of probes.
   In the moment image $\overline{Δ_{B_{dpq}}}$ horizontal probes can be used to displace all the regular toric fibres.
@@ -632,17 +632,14 @@ Using the method of probes we show the upper bound on the displacement energy, i
 
 \section{Versal Deformations \& Nearby Lagrangians}
 
-Fix a Lagrangian $L_0 ⊂ (X,ω)$, and denote by $\symcal{L}_{L_0}$ (or $\symcal{L}$ when we're lazy) the set of Lagrangians Lagrangian isotopic to $L_0$, equipped with the $\symcal{C}^1$-topology.
-Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies $Λ$ starting at $L_0$ up to endpoint preserving isotopies.
+Let $L_0 ⊂ (X,ω)$ be a compact Lagrangian. By $\symcal{L}_{L_0}$ (or simply $\symcal{L}$), denote the set of Lagrangians which are Lagrangian isotopic to $L_0$, equipped with the $\symcal{C}^1$-topology. See \cite{ono2008LagrangianFlux} for more details on the $\symcal{C}^1$-topology on the space of Lagrangians. For us, a Lagrangian isotopy of $L_0$ is a map $\Lambda \colon [0,1] \rightarrow \symcal{L}, t \mapsto \Lambda_t$ with $\Lambda_0 = L_0$ such that there is a smooth map~$[0,1] \times L_0 \rightarrow X$ which maps $\{t\} \times L_0$ to $\Lambda_t$.  
+Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies of $L_0$ up to endpoint preserving isotopies.
 
 \begin{definition}
   \label{def:flux_map}
-  For any Lagrangian isotopy $Λ \colon ([0,1],0) → (\symcal{L},L_0)$, we have a map
-  \begin{align*}
-    H_1(L_0) &→ ℝ\\
-    ξ &↦  ∫_{C_ξ} ω
-  \end{align*}
-  where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L_0$ along the Lagrangian isotopy (called a \textbf{flux cylinder of $ξ$ over $Λ$}).
+  Let $Λ \colon ([0,1],0) → (\symcal{L},L_0)$ be a Lagrangian isotopy. Its \textbf{(Lagrangian) flux} is the map
+$$    H_1(L_0) → ℝ, \quad    ξ ↦  ∫_{C_ξ} ω, $$
+where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L_0$ along the Lagrangian isotopy (called a \textbf{flux cylinder of $ξ$ over $Λ$}).
   This map is well defined (independent of the choice of $C_ξ$) and also independent by end point preserving isotopies of $Λ$.\footnote{If $C_ξ ≅ C_ξ'$ by homotopy $H$, $0=∫_{∂H} ω = ∫_{C_ξ} ω - ∫_{C_ξ'} ω + ∫_A ω + ∫_B ω$, with $A,B$ contained in the endpoints of the isotopy, which are Lagrangian.}
 
   Using $\Hom(H_1(L_0),ℝ) = H^1(L_0;ℝ)$ this gives a well defined map
@@ -655,8 +652,8 @@ Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the 
   $Λ_t$ is a Hamiltonian isotopy, iff $∀t ∈ [0,1], \Flux(Λ_s|_{s ∈ [0,t]}) = 0$.
 \end{lemma}
 \begin{proof}
-  Let $γ(θ), θ ∈ S¹$ be a parametrisation of a 1-cycle in $L_0$, $X_t$ a Vector field generating the flow $φ_t$ with $φ_t(L_0) = Λ_t$, and $φ_t(γ(θ))$ a parametrisation of the flux cylinder $C_γ$ over $Λ_t$ as in \cref{def:flux_map}.
-  \[ ∂_t \Flux(Λ_s|_{s ∈ [0,t]}) = ∂_t ∫_0^t ∫_{φ_s ∘ γ} ι_{∂_s φ_s} ω ds = ∫_{φ_t ∘ γ} ι_{∂_t φ_t} ω
+  Let $γ(θ), θ ∈ S¹$ be a parametrisation of a 1-cycle with $[\gamma] = \xi$ in $L_0$, $X_t$ a Vector field generating the flow $φ_t$ with $φ_t(L_0) = Λ_t$, and $φ_t(γ(θ))$ a parametrisation of the flux cylinder $C_γ$ over $Λ_t$ as in \cref{def:flux_map}.
+  \[ ∂_t \langle \Flux(Λ_s|_{s ∈ [0,t]}) , \xi \rangle = ∂_t ∫_0^t ∫_{φ_s ∘ γ} ι_{∂_s φ_s} ω ds = ∫_{φ_t ∘ γ} ι_{∂_t φ_t} ω
   = ∫_{φ_t ∘ γ} ι_{X_t ∘ φ_t} ω = ∫_γ φ_t^* ι_{X_t ∘ φ_t} ω.\]
 
   Now if $X_t$ is generated by a Hamiltonian $H_t$, the last integral is equal to
@@ -667,44 +664,42 @@ Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the 
 
 \subsection{\texorpdfstring{$T^* L_0$}{T*L} and Graphs of 1-Forms} 
 
-Suppose for a moment $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero section and $λ$ the canonical 1-form. We have the following statements:
+Let us look at the case $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero section and $λ$ the tautological 1-form. We have the following statements.
 
 \begin{lemma}
   \label{thm:graph_lagrangian}
-  For any $α ∈ Ω_1(L_0)$, the graph $Γ_α$ of $α$ is Lagrangian iff $d α=0$.
+  For any $α ∈ Ω^1(L_0)$, the graph $Γ_α$ of $α$ is Lagrangian iff $d α=0$.
 \end{lemma}
 \begin{proof}
-  We have the embedding $α \colon L_0 → Γ_α ⊂ T^* L_0$. $Γ_α$ is Lagrangian iff $0 = α^* d λ = d α^* λ = d α = 0$. ($α^* λ = α$ by the definition of the canonical 1-form.)
+  We have the embedding $α \colon L_0 → Γ_α ⊂ T^* L_0$. $Γ_α$ is Lagrangian iff $0 = α^* d λ = d α^* λ = d α = 0$. (The property $α^* λ = α$ characterizes the tautological 1-form.)
 \end{proof}
 
 \begin{lemma}
   \label{thm:graph_flux}
-  Let $α ∈ Ω_1(L_0)$ closed and $Λ_t$ be a Lagrangian isotopy from the zero section $L_0$ to $Γ_α$, the graph of $α$. Then $\Flux(Λ_t) = [α]$.
+  Let $α ∈ Ω^1(L_0)$ closed and $Λ_t$ be a Lagrangian isotopy from the zero section $L_0$ to $Γ_α$, the graph of $α$. Then $\Flux(Λ_t) = [α]$.
 \end{lemma}
 \begin{proof}
-  Let $ξ$ be some 1-cycle in $L_0$, $C_ξ$ the flux cylinder along $Λ_t$ with $∂C_ξ = α ∘ ξ' - s_0 ∘ ξ$ where $α ∘ ξ'$ is a 1-cylce in $Γ_α$, and $s_0$ the zero section.
-  Since $T^* L_0$ is homotopy equivalent to $L_0$, and $ξ$ is homotopic to $ξ'$, $[ξ] = [ξ'] ∈ H_1(L_0)$.
-  Now
-  \[⟨\Flux(Λ_t),ξ ⟩ = ∫_{C_ξ} dλ = ∫_{∂C_ξ} λ = ∫_{α ∘ ξ'}λ - ∫_{s_0 ∘ ξ} λ = ∫_{ξ'} α^* λ = ∫_{ξ'} α = ⟨α,ξ'⟩ = ⟨α,ξ⟩ \; ,\]
-  where the last equality used the fact that $α$ is closed.
+  Let $ξ$ be some 1-cycle in $L_0$, $C_ξ$ the flux cylinder over $Λ$. Then $∂C_ξ = α ∘ ξ - ξ$.  Now
+  \[⟨\Flux(Λ_t),ξ ⟩ = ∫_{C_ξ} dλ = ∫_{∂C_ξ} λ = ∫_{α ∘ ξ}λ - ∫_{ξ} λ = ∫_{ξ} α^* λ = ∫_{ξ} α = ⟨α,ξ⟩ .\]
 \end{proof}
 
 \begin{lemma}
   \label{thm:graph_hamiltonian_isotopic}
-  $Γ_α ≅ Γ_β$ are Hamiltonian isotopic, iff $α-β$ is exact, for example by the linear isotopy $Γ_{(1-t)α + t β}$.
+  Let $\alpha,\beta \in  \Omega^1(L_0)$ be closed $1$-forms. Their graphs $\Gamma_{\alpha}, \Gamma_{\beta}$ are Hamiltonian isotopic iff $[\alpha] = [\beta]$.
 \end{lemma}
 \begin{proof}
-  If $α-β = d f$ for some function $f ∈ C(L_0)$, set $F = f ∘ π$, where $π$ is the projection $T^*L → L$, $X_F$ its associated Hamiltonian vector field and $φ_t$ to be the fibre wise linear map given by $ξ_x ↦  ξ_x + tdF$ in the fibre $T_x^*L$.
-  $φ_1$ sends $Γ_β$ to $Γ_α$ and, as is easily verified in coordinates, $∂_t φ_t = X_F ∘ φ_t$, so $φ_t$ is a Hamiltonian symplectomorphism generated by $F$.
+If $[\alpha] = [\beta]$, the linear isotopy $\Lambda_t = Γ_{(1-t)α + t β}$) is a Lagrangian isotopy with $\Flux(Λ_s|_{s ∈ [0,t]}) = 0$ for all $t \in [0,1]$. Since the Lagrangian flux is invariant under symplectomorphisms, we can assume that $\alpha$ coincides with the zero-section. Therefore $\Lambda$ is a Hamiltonian isotopy by \cref{thm:hamiltonian_flux}.
 
   If $Γ_α ≅ Γ_β$, then we can extend a Lagrangian isotopy from $0$ to $α$ (e.g. $Γ_{tα}$) by the Hamiltonian isotopy from $Γ_α$ to $Γ_β$ to get $Λ_t$. By \cref{thm:hamiltonian_flux} adding the Hamiltonian part does not change the flux map, so $[α] = \Flux(Λ_t) = [β]$, by \cref{thm:graph_flux}.
 \end{proof}
 
+Recall that $\symcal{L}$ denotes the space of Lagrangians isotopic to $L_0$ (here it is the zero-section $L_0 \subset T^*L_0$). Let $\symcal{L}_Γ ⊂ \symcal{L}$ be the subspace of graphs of closed 1-forms. Recall also that, a priori, the flux map is defined on the universal cover of $\symcal{L}$. The following is an immediate consequence of \cref{thm:graph_flux} and \cref{thm:graph_hamiltonian_isotopic}. 
+
 \begin{corollary}
   \label{thm:cotangent_classification}
-  Summarising, if $\symcal{L}_Γ ⊂ \symcal{L}$ is the space of graphs of closed 1-forms, then $\symcal{L}_Γ$ contains a neighbourhood of $L_0$ (due to the $\symcal{C}^1$-topology) and $\Flux$ factors through 
+  The subspace $\symcal{L}_Γ$ contains a neighbourhood of $L_0 \in \symcal{L}$ (by the definition of the $\symcal{C}^1$-topology) and $\Flux$ yields a well-defined map
 \[ \Flux_Γ \colon \symcal{L}_Γ → H^1(L_0;ℝ), \]
-which is well defined (\cref{thm:graph_flux}) and classifies $\symcal{L}_Γ$ up to Hamiltonian isotopy (\cref{thm:graph_hamiltonian_isotopic}).\footnote{In fact Ono \cite[Proposition 2.3]{ono2008LagrangianFlux} allows to replace $\symcal{L}_Γ$ by $\symcal{L}$ in this statement in the case of the cotangent bundle. We won't need this however.}
+which classifies elements in $\symcal{L}_Γ$ up to Hamiltonian isotopy.\footnote{In fact Ono \cite[Proposition 2.3]{ono2008LagrangianFlux} allows to replace $\symcal{L}_Γ$ by $\symcal{L}$ in this statement in the case of the cotangent bundle. We do not need this stronger statement.}
 \end{corollary}
 
 \subsection{Versal deformations}
