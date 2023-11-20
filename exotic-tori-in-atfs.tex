@@ -364,6 +364,7 @@ Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for poin
     \end{scope}
   \end{tikzpicture}
   \caption{Moment image of $B_{dpq}$ under $μ$}
+  \todo{Kommentieren, was $\symbf{H}$ is und was $\mu$ ist.}
   \label{fig:Bdpq_moment_image}
 \end{figure}
 
@@ -562,6 +563,7 @@ A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^
 
 
 \section{Upper bound on displacement energy: Probes}
+\label{sec:upper_bound}
 
 We want to use the method of probes to calculate an upper bound on the displacement energy of certain toric fibres $T(x,y)$. This is achieved by giving a Hamiltonian diffeomorphism that displaces the $T(x,y)$ from itself. By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(x,y)$.
 The method to construct such a Hamiltonian diffeomorphism is the method of probes, that was first introduced by McDuff \cite{mcduff2011displacing} for exactly the same purpose.
@@ -601,36 +603,14 @@ Using the method of probes we show the upper bound on the displacement energy, i
 
 \begin{lemma}
     \label{thm:upper_bound}
-  Let $U ⊂ H¹(T_k(a);ℝ)\setminus\{\text{branch cut line}\}$.
-  Up to change of basis, the restriction of the displacement energy germ to $U$ is bounded from above by
-  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\}. \]
+    Assume that $\mu: B_{dpq} \to \mathbb{R}$ is the moment map associated to the almost toric fibration defined on $B_{dpq}$ as shown in $\cref{fig:Bdpq_moment_image}$. 
+    Then for a toric fibre $T(x,y)=\mu^{-1}(x,y)$, such that $(x,y) \in \mathbb{R}^2$ does not lie not on the branch cut line, the displacement energy can be estimated from above by
+    \[ e(B_{dpq},T(x,y))\leq x \]
 \end{lemma}
 
 \begin{proof}
-  Recall that $T_k(a)$ is the fibre over $(a,b) \in Δ_{B_{dpq}}$, where $b\vcentcolon=aq/p$, such that there are $k$ nodes below on the branch cut line.
-  After mutating $k$ times, the base point of $T_k(a)$ is contained in a neighbourhood that admits a regular torus fibration.
-  This mutation process yields a new moment map $\overline{μ}$ and moment polytope $\overline{Δ_{B_{dpq}}}$.
-  \todo{Draw the correct picture and show the neighbourhood that is meant.} Now a neighbourhood of $0 ∈ H¹(T_k(a);ℝ)$ can be identified with a neighbourhood $V ⊂ \overline{Δ_{B_{dpq}}}$ of $(a,\frac{qa}{p}) = μ(T_k(a))$, such that $V \subset U$.
-  Choose generators of $H¹(T_k(a);ℝ)$ corresponding to the components of the moment map $\overline{\mu}=(\overline{\mu_1},\overline{\mu_2})$, i.e.
-  generators that are orthogonal to those.
-  Using this identification, a point $(x,y) ∈ H¹(T_k(a);ℝ)$ close to $0$ is sent by the versal deformation  to $(a + x, b + y)$ in $\overline{Δ_{B_{dpq}}}$.
-  Now the goal is to estimate the displacement energy of fibres over these points.
-  This is achieved by the method of probes.
-  In the moment image $\overline{Δ_{B_{dpq}}}$ horizontal probes can be used to displace all the regular toric fibres.
-  Denote the Lagrangian torus fibres over $(a + x, b + y)$ by $T_{x,y}$.
-  This yields 
-  \[ e(B_{dpq},T_{x,y})\leq a+x. \]
-  If it is above the branch cut ray,  the mutation leaves it unaffected, and the displacement energy is $x+a$.
-  Note that this calculation involved a choice of basis of the cohomology vector spaces, but that the displacement energy germ is intrinsically given.\footnote{For details on displacement energy germs and versal deformations compare \cite{chekanovschlenk2015} and \cite{brendel2020real}} To compare the estimates we get for different choices of $a$'s we therefore apply the inverse mutation to get back to the original moment map $\mu$.
-  The points above the branch cut are unaffected by the mutation but to the points below the branch cut line we have to apply the inverse of the anticlockwise monodromy matrix.
-  \todo{Maybe include the calculations here?} A point $(a + x, b + y)$ below the branch cut line is send to $(a,b) + (x(1-kpq)+kp²y, -kq²x + y(kpq +1))$.
-  Hence the displacement energy germ calculated in these coordinates is estimated by 
-  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) \leq a+\min\{x,x(1-kpq)+ykp²\}. \]
+  Note, that after applying a nodal slide that is localized in a small neighbourhood of the branch cut, that can be made as small as we like.\footnote{In particular it can be chosen small enough, such that the neighbourhood doesn't contain the torus $T(x,y)$.} After applying this nodal slide, we can assume that the probe emanating horizontally from the toric boundary and on height $y \in \mathbb{R}$ doesn't intersect the branch cut.\todo{Include picture here.} Now the general theory on probes, as discussed in the beginning of \cref{sec:upper_bound}, implies that a probe of affine length bigger than $x$ suffices to displace the toric fibre $T(x,y)$. This implies $e(B_{dpq},T(x,y))\leq x$. 
 \end{proof}
-
-\begin{theorem}
-  \label{thm:upper_bound_embedded}
-\end{theorem}
 
 \section{Versal Deformations \& Nearby Lagrangians}
 
@@ -661,12 +641,12 @@ where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L_
   Now if $X_t$ is generated by a Hamiltonian $H_t$, the last integral is equal to
   \[ ∫_γ φ_t^* dH_t = ∫_{∂γ} φ_t^* H_t = 0.\]
 
-  If the last integral is zero for all $γ$, the restriction of the 1-form $φ_t^* ι_{X_t ∘ φ_t} ω$ to $TL_0 ⊂ TTL_0$ is exact, so we find primitives $\tilde{H}_t$ defined on $L_0$. $H_t = \tilde{H}_t ∘ φ_{-t}$ can then be extended smoothly to $X$ and $φ_t^* ι_{X_t ∘ φ_t} ω = φ_t^* d H_t$.
+  If the last integral is zero for all $γ$, the restriction of the 1-form $φ_t^* ι_{X_t ∘ φ_t} ω$ to $TL_0 ⊂ TT^*L_0$ is exact, so we find primitives $\tilde{H}_t$ defined on $L_0$. $H_t = \tilde{H}_t ∘ φ_{-t}$ can then be extended smoothly to $X$ and $φ_t^* ι_{X_t ∘ φ_t} ω = φ_t^* d H_t$.
 \end{proof}
 
 \subsection{\texorpdfstring{$T^* L_0$}{T*L} and Graphs of 1-Forms} 
 
-Let us look at the case $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero section and $λ$ the tautological 1-form. We have the following statements.
+Let us look at the case $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero section and $λ$ the tautological 1-form. We have the following statements:
 
 \begin{lemma}
   \label{thm:graph_lagrangian}
@@ -690,7 +670,7 @@ Let us look at the case $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero 
   Let $\alpha,\beta \in  \Omega^1(L_0)$ be closed $1$-forms. Their graphs $\Gamma_{\alpha}, \Gamma_{\beta}$ are Hamiltonian isotopic iff $[\alpha] = [\beta]$.
 \end{lemma}
 \begin{proof}
-If $[\alpha] = [\beta]$, the linear isotopy $\Lambda_t = Γ_{(1-t)α + t β}$) is a Lagrangian isotopy with $\Flux(Λ_s|_{s ∈ [0,t]}) = 0$ for all $t \in [0,1]$. Since the Lagrangian flux is invariant under symplectomorphisms, we can assume that $\alpha$ coincides with the zero-section. Therefore $\Lambda$ is a Hamiltonian isotopy by \cref{thm:hamiltonian_flux}.
+If $[\alpha] = [\beta]$, the linear isotopy $\Lambda_t = Γ_{(1-t)α + t β}$ is a Lagrangian isotopy with $\Flux(Λ_s|_{s ∈ [0,t]}) = 0$ for all $t \in [0,1]$. Therefore $\Lambda$ is a Hamiltonian isotopy by \cref{thm:hamiltonian_flux}.
 
   If $Γ_α ≅ Γ_β$, then we can extend a Lagrangian isotopy from $0$ to $α$ (e.g. $Γ_{tα}$) by the Hamiltonian isotopy from $Γ_α$ to $Γ_β$ to get $Λ_t$. By \cref{thm:hamiltonian_flux} adding the Hamiltonian part does not change the flux map, so $[α] = \Flux(Λ_t) = [β]$, by \cref{thm:graph_flux}.
 \end{proof}
