@@ -624,7 +624,7 @@ Let $L_0 ⊂ (X,ω)$ be a compact Lagrangian.
 
 By $\symcal{L}_{L_0}$ (or simply $\symcal{L}$), denote the set of Lagrangians which are Lagrangian isotopic to $L_0$, equipped with the $\symcal{C}^1$-topology.
 See \cite{ono2008LagrangianFlux} for more details on the $\symcal{C}^1$-topology on the space of Lagrangians.
-Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies of $L_0$ up to endpoint preserving isotopies.\footnote{As we will see in \cref{sec:versal_deformations} that $\symcal{L}$ is locally simply connected, showing that $\tilde{\symcal{L}}$ is actually a universal cover.}
+Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies of $L_0$ up to endpoint preserving isotopies. Using Weinstein's Lagrangian neighbourhood theorem, one can check that $\symcal{L}$ is locally simply connected, showing that $\tilde{\symcal{L}} \rightarrow \symcal{L}$ is indeed the universal cover.
 
 \begin{definition}
   \label{def:flux_map}
@@ -652,6 +652,16 @@ where $C_ξ$ is the cylinder obtained by sliding a representative of $ξ$ in $L_
 
   If the last integral is zero for all $γ$, the restriction of the 1-form $φ_t^* ι_{X_t ∘ φ_t} ω$ to $TL_0 ⊂ TT^*L_0$ is exact, so we find primitives $\tilde{H}_t$ defined on $L_0$. $H_t = \tilde{H}_t ∘ φ_{-t}$ can then be extended smoothly to $X$ and $φ_t^* ι_{X_t ∘ φ_t} ω = φ_t^* d H_t$.
 \end{proof}
+
+Let $\mathcal{V} \subset \mathcal{L}$ be a simply-connected neighbourhood of $L_0$. Then we define the local flux map on $\mathcal{V}$ by setting 
+\[
+    \label{eq:localflux}
+    \Flux_{\mathcal{V}} = \Flux \vert_{\mathcal{V_0}}, 
+\]
+
+where we have identified $V$ with the copy $V_0 \subset \Tilde{\mathcal{L}}$ containing the constant loop. 
+
+
 
 \subsection{\texorpdfstring{$T^* L_0$}{T*L} and Graphs of 1-Forms} 
 
@@ -699,41 +709,49 @@ which classifies elements in $\symcal{L}_Γ$ up to Hamiltonian isotopy (by \cref
 \subsection{Versal deformations}
 \label{sec:versal_deformations}
 
-Return now to the case of a general $X$.
-Then $L_0$ admits an embedding of a Weinstein-neighbourhood $φ: T^*L_0 \dashrightarrow X$. \footnote{The $\dashrightarrow$ notes that the map is only defined near the zero-section.}
-Then there exists a neighbourhood $\symcal{U} ⊂ \symcal{L}$ s.t.\ every $L' ∈ U$ is given as $φ(Γ_α)$ for some closed $α ∈ Ω_1(L_0)$ and $\symcal{U}$ is convex w.r.t.\ the linear structure inherited from $Ω_1(L_0)$.
-We call such a neighbourhood \textbf{Weinstein convex} or \textbf{W-convex} if we're feeling lazy, and $(\symcal{U},φ)$ a \textbf{Weinstein convex pair} (\textbf{W-convex pair}).
+Let us return to the case of a general $(X,\omega)$.
+Then $L_0$ admits an embedding of a Weinstein-neighbourhood $φ: T^*L_0 \dashrightarrow X$ \footnote{The $\dashrightarrow$ notes that the map is only defined near the zero-section.}, meaning that we can hope to prove a result analogous to \cref{thm:cotangent_classification}. Since its proof relies on a linear interpolation of $1$-forms, we introduce the following notion.
 
-In particular $\symcal{U}$ is a simply connected and path connected neighbourhood of $L_0$, so that $\symcal{L}$ is locally simply connected and locally path connected, meaning that $π_{\symcal{L}} \colon \tilde{\symcal{L}} → \symcal{L}$ is actually a covering map.
-Choosing $\symcal{V} ⊂ \symcal{L}$ to be a connected evenly covered\footnote{In this context evenly covered is always equivalent to simply connected.} neighbourhood of $L_0$, and $\symcal{V}_0 ⊂ \tilde{\symcal{L}}$ to be the copy of $\symcal{V}$ containing the constant isotopy $L_0$, we define the \textbf{local flux map on $\symcal{V}$} by \[\Flux_{\symcal{V}} = \Flux ∘ (π_{ \symcal{L}}|_{ \symcal{V_0}})^{-1} \; .\] 
+\begin{definition}
+    A neighbourhood $\mathcal{U} \subset \mathcal{L}$ of $L_0$ is called \textbf{Weinstein convex} (\textbf{W-convex}) if there is a Weinstein chart $φ: T^*L_0 \dashrightarrow X$ of $L_0$ such that $\varphi(\mathcal{W}) = \mathcal{U}$ for a subset $\mathcal{W} \subset \Omega^1(L_0)$ which is convex in the set of (closed) $1$-forms. Such a pair $(\symcal{U},φ)$ is called \textbf{Weinstein convex pair} (\textbf{W-convex pair})
+\end{definition}
 
-Note that since W-convex sets are simply connected, they are also evenly covered.
+By the definition of the $C^1$-topology on $\mathcal{L}$, every neighbourhood of $L_0$ in $\mathcal{L}$ contains a W-convex neighbourhood. Note that W-convex sets are simply connected, hence the local Flux map \eqref{eq:localflux} makes sense on them.
 
 \begin{proposition}
   \label{thm:local_classification}
   Let $\symcal{U}$ be W-convex.
-  The map $\Flux_{\symcal{U}}$ classifies $\symcal{U}$ up to Hamiltonian isotopies contained in $\symcal{U}$, i.e.\ $L ≅ L'$ with Hamiltonian isotopy contained in $\symcal{U}$ iff $\Flux_{\symcal{U}}(L) = \Flux_{\symcal{U}}(L')$.
+  The map $\Flux_{\symcal{U}}$ classifies $\symcal{U}$ up to Hamiltonian isotopies contained in $\symcal{U}$. By this we mean that any $L, L' \in \mathcal{U}$ are Hamiltonian isotopic by a Hamiltonian isotopy through $\symcal{U}$ iff $\Flux_{\symcal{U}}(L) = \Flux_{\symcal{U}}(L')$.
 \end{proposition}
 \begin{proof}
   This is essentially \cref{thm:cotangent_classification}. The fact that $\symcal{U}$ is convex guarantees that the linear Hamiltonian isotopy of \cref{thm:graph_hamiltonian_isotopic} between $L_1 ≅ L_2 ∈ \symcal{U}$ exists.
 \end{proof}
 
+A versal deformation is essentially a continuous "local section of the flux map".
+
 \begin{definition}
-  A \textbf{versal deformation $v_{L_0}$ of $L_0$} is a continuous "local section of the local flux map", i.e.\ 
-  $v_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow \symcal{L}$, \footnote{The $\dashrightarrow$ denotes that it is only defined on some neighbourhood of $0$} continuous such that for all evenly covered $\symcal{U} ⊂ \symcal{L}$ there exists an open neighbourhood $V$ of $0 ∈ H^1(L_0;ℝ)$ with $\Flux_{\symcal{U}} ∘ v_{L_0}|_V = \id$.
+  A continuous map $v_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow \symcal{L}$, \footnote{The $\dashrightarrow$ denotes that it is only defined on some neighbourhood of $0$} is called \textbf{versal deformation of $L_0$} if for every simply connected neighbourhood $\symcal{U} ⊂ \symcal{L}$ of $L_0$ there exists an open neighbourhood $V$ of $0 ∈ H^1(L_0;ℝ)$ with $\Flux_{\symcal{U}} ∘ v_{L_0}|_V = \id$.
 \end{definition}
+
+\begin{remark}
+    Any simply connected.
+\end{remark}
+
+By continuity of $v_{L_0}$, the neighbourhood $V$ can be chosen small enough for $v_{L_0}(V)$ to be contained in $\mathcal{U}$. Therefore, this definition makes sense.
 
 \begin{lemma}
   \label{thm:vd_existence}
   A versal deformation exists.
 \end{lemma}
 \begin{proof}
-  Choose a W-convex pair $(\symcal{U},φ)$, and a choice of reprasentatives $α_1,…,α_d ∈ Ω_1(L_0)$ of a basis of $H¹(L_0;ℝ)$. Define the linear map $v_{L_0}([α_i]) = φ(Γ_{α_i})$ (thinking of $\symcal{U}$ inheriting its linear structure from $Ω_1(L_0)$, and we're choosing the domain of $v_{L_0}$ so the definition makes sense).
+  Let $φ: T^*L_0 \dashrightarrow X$ be a Weinstein neighbourhood and $α_1,…,α_d ∈ Ω_1(L_0)$ be a set of closed $1$-forms inducing a basis of $H¹(L_0;ℝ)$. Set 
 
-  Let $\symcal{V}$ be evenly covered. We can restrict the domain of $v_{L_0}$ to $V$ s.t.\ $\im(v_{L_0}|_V) ⊂ \symcal{V}$. Further restricting $V$ we may additionally assume that for some $\symcal{V}' subset \symcal{V}$ the pair $(\symcal{V}',φ)$ is also W-convex. Then for $[α] ∈ V$ we have
   \[
-    \Flux_{ \symcal{V}}(v_L(α)) = \Flux_{ \symcal{V}}(φ(Γ_α)) = \Flux(φ(Γ_{t α}|_{t ∈ [0,1]})) = [α] \; .
+        v_{L_0}(b) = \varphi( \Gamma_{b_1[\alpha_1] + \ldots + b_d[\alpha_d]} ), \quad
+        b = \sum_{i=1}^d b_i [\alpha_i] \in H^1(L_0; \mathbb{R}),
   \]
+  
+  where we have chosen a small enough domain for this definition to make sense. Let $\mathcal{U} \subset \mathcal{L}$ be a simply connected neighbourhood of $L_0$. Let $V \subset H^1(L_0;\mathbb{R})$ be a small enough (simply connected) neighbourhood of the origin such that $v_{L_0}(V) \subset \mathcal{U}$. To compute $\Flux_{\mathcal{V}}(v_{L_0}(b))$, we may choose a Lagrangian isotopy $\Lambda_t$ with $\Lambda_1 = v_{L_0}(b)$ through Lagrangians of the form $\varphi(\Gamma_{\alpha})$. Since~$V$ is simply connected, the flux does not depend on that choice. By \cref{thm:graph_flux}, we obtain $\Flux_{\mathcal{V}}(v_{L_0}(b)) = \Flux \Lambda_t = [\sum_i b_i \alpha_i] = b$.
 \end{proof}
 
 \begin{lemma}
@@ -765,6 +783,17 @@ We might say colloquially that a versal deformations parametrizes all nearby Lag
 
   So if there is no linear isomorphism $M \colon H^1(L;ℝ) → H^1(L';ℝ)$ s.t.\ $[I]_L ∘ M = [I]_{L'}$ there is no (Hamiltonian) symplectomorphism $φ$ with $φ(L) = L'$.
 \end{corollary}
+
+\subsection{Versal Deformations of Arnold--Liouville tori}
+\label{sec:vd_AL}
+
+Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. The Arnold--Liouville theorem states that there are action-angle coordinates near $L_b$ and we shall see that this is intimately related to versal deformations of $L_b$. Indeed, recall from \cite[2.4]{evans2021atfs} that action coordinates can be constructed from the Lagrangian flux as follows. Let $\gamma \colon [0,1] \rightarrow B_0$ be a smooth path with $\gamma(0) = b$ and $[\gamma]$ its class in the universal cover $\Tilde{B}_0 \rightarrow B_0$. Let
+    \[
+        I \colon \Tilde{B}_0 \rightarrow H^1(L_b;\mathbb{R}), \quad
+        I([\gamma]) = \Flux(\Lambda_t = \pi^{-1}(\gamma(t)))
+    \]  
+be the \emph{developing map} of $\pi$. 
+
 
 \subsection{Versal Deformations and Action Angle Coordinates}
 \label{sec:vd_action_angle}
