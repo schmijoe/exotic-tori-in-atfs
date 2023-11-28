@@ -805,7 +805,19 @@ We might say colloquially that a versal deformations parametrizes all nearby Lag
 \subsection{Versal Deformations of Arnold--Liouville tori}
 \label{sec:vd_AL}
 
-Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. The Arnold--Liouville theorem states that there are action-angle coordinates near $L_b$ and we shall see that this is intimately related to versal deformations of $L_b$. Indeed, recall from \cite[2.4]{evans2021atfs} that action coordinates can be constructed from the Lagrangian flux as follows. Let $\gamma \colon [0,1] \rightarrow B_0$ be a smooth path with $\gamma(0) = b$ and $[\gamma]$ its class in the universal cover $\Tilde{B}_0 \rightarrow B_0$. Let
+Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. The Arnold--Liouville theorem states that there are action-angle coordinates near $L_b$ and we shall see that this is intimately related to versal deformations of $L_b$. Indeed, recall from \cite[Section 2.4]{evans2021atfs} that action coordinates can be constructed from the Lagrangian flux as follows. Let $U \subset B_0$ be a simply connected subset, let $b_0 \in U$ and denote $L_0 = \pi^{-1}(b_0)$. Set
+\[
+    \mu_U \colon \pi^{-1}(\symbf{U}) \rightarrow H^1(L_0;\mathbb{R}) \cong \mathbb{R}^n, \quad
+    \mu_U(x) = \Flux(\Lambda_t),
+\]
+where $\Lambda_t = \pi^{-1}(\gamma(t))$ for $\gamma \colon [0,1] \rightarrow U$ a smooth path with $\gamma(0) = b_0$ and $\gamma(1) = b$. Note that, since $U$ is simply connected and $\Flux$ is invariant under homotopies of Lagrangian isotopies, the map $\mu_U$ is well-defined. 
+
+\begin{proposition}
+    The map $\mu_U$ defines a Hamiltonian $T^n$-action on $$
+\end{proposition}
+
+
+Let $\gamma \colon [0,1] \rightarrow B_0$ be a smooth path with $\gamma(0) = b$ and $[\gamma]$ its class in the universal cover $\Tilde{B}_0 \rightarrow B_0$. Let
     \[
         I \colon \Tilde{B}_0 \rightarrow H^1(L_b;\mathbb{R}), \quad
         I([\gamma]) = \Flux(\Lambda_t = \pi^{-1}(\gamma(t)))
