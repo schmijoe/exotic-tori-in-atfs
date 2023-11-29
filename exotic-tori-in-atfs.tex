@@ -167,17 +167,6 @@
 
 \section{Introduction}
 
-\begin{definition}
-  Let $k ∈ ℕ$ such that $0<k≤d$ and $a ∈ (0,∞)$. Through nodal slides we can arrange the ATF on $B_{dpq}$ such that the line $x₂=a$ intersects the branch cut line between the $(k-1)$-th and $k$-th degenerated fibre. $T_k(a)$ is defined to be the fibre over the intersection point of these two lines.
-\end{definition}
-
-\begin{restatable}{theorem}{thmbdpqexotic}
-    \label{thm:bdpqexotic}
-  Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
-  Up to a change of basis, the restriction of the displacement energy germ to $U$ is given by
-  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\} \]
-\end{restatable}
-
 \section{Fun facts über ATFS by Joé}
 
 \begin{lemma}
@@ -210,6 +199,10 @@ This is a free  action, so the quotient $B_{P,q} = M_P/G_p$ is a smooth complex 
 $\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Poisson commuting Hamiltonians on $B_{P,q}$, giving us the fibration (by abuse of notation also called $\symbf{H}$) $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$.
 As we will see later in \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of the choice of $a_1,…,a_d$, only depending on $d,p,q$. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
 
+\begin{remark}
+  Was ist der raum $B_dpq$? $ℚ$-gorenstein smoothing of cyclic quotient T-singularity $\frac{1}{dp^2}(1,dpq-1)$… Referenzen?
+\end{remark}
+
 \begin{figure}
   \centering
   \begin{tikzpicture}[scale=0.7]
@@ -234,7 +227,7 @@ As we will see later in \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomor
           \draw[very thin] (3,1.3,0) -- (3,0,0);
         \end{scope}
       }
-      \node at (-1,-2.25) {(a)};
+      \node at (-1,-2.25) {(a) A degenerate "pinched torus" fibre of $\symbf{H} \colon M_P → B$};
     \end{scope}
     \begin{scope}[shift={(4.25cm,0)}]
           \begin{scope}[canvas is xz plane at y=0]
@@ -255,7 +248,7 @@ As we will see later in \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomor
             \draw[very thin] (3.5,1.3,0) -- (3.5,0,0);
           \end{scope}
         }
-        \node at (-1,-2.25) {(b)};
+        \node at (-1,-2.25) {(b) A regular fibre of $\symbf{H} \colon M_P → B$.};
     \end{scope}
     \begin{scope}[shift={(0,-5.5cm)}]
       \begin{scope}[canvas is xz plane at y=0]
@@ -285,20 +278,22 @@ As we will see later in \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomor
           \end{scope}
         }
       \end{scope}
-      \node at (-1,-2.25) {(c)};
+      \node at (-1,-2.25) {(c) The Lagrangians $\hat{S}_k ⊂ M_P$};
     \end{scope}
 \end{tikzpicture}
   \caption{The projection $M_P ∋ z ↦ z_3$ for $p=5$, $d=3$.}
   \label{fig:conic_fibration}
 \end{figure}
 
-Let us further inspect this fibration. To this end, we look at the projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
+Let us further inspect the fibration $\symbf{H} \colon B_{dpq} → B$. To this end, we look at the projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
 The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$, so if $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$ (as seen in \cref{fig:conic_fibration} (b)), and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes (as seen in \cref{fig:conic_fibration} (a)).
 Fix $b = (b_1,b_2) ∈ B$. For $b_1 ≠ 0$, the set $\symbf{H}_1^{-1}(b_1)$ gives us a circle in the $z_3$ plane, and the intersection with $\symbf{H}_2^{-1}(b_2)$ fixes a "height" in the cylinders.
 Thus if $b$ is a regular value, $\symbf{H}^{-1}(b)$ is a torus, as in \cref{fig:conic_fibration} (b).
 There are two kinds of degenerate values: The elliptic-regular with $b_1=0$, where $\symbf{H}^{-1}(0,b_2)$ is a circle, and focus-focus with $b = ({a_k}^{2/p},0)$ where $\symbf{H}^{-1}(b)$ is a torus with $p$ pinched circles, as in \cref{fig:conic_fibration} (a). \todo{Warum ist $\symbf{H}$ eine almost toric fibration?}
 
-Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian\todo{why?} disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see \cref{fig:conic_fibration} (c).
+Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian
+\footnote{They are contained in the fixed point set of an (anti-)symplectic involution, see \cite[Remark 7.10]{evans2021atfs} for details.}
+disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see \cref{fig:conic_fibration} (c).
 
 \begin{figure}
   \centering
@@ -318,7 +313,7 @@ Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p
     \draw[very thin] (0,0,0) -- (0,1.3,0);
     \draw[very thin] (3,0,0) -- (3,1.3,0);
   \end{tikzpicture}
-  \caption{A fundamental domain of the action of $G_p$ on $M_P$}
+  \caption{A fundamental domain of the quotient $B_dpq$ of $M_P$ by $G_p$}
   \label{fig:conic_fibration_fundamental_domain}
 \end{figure}
 
@@ -332,9 +327,13 @@ The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$, and a Lagr
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{img/pinwheel2.pdf}
-  \caption{The "core" of the Lagrangian pinwheel $S_0 = L_{q,p}$. The pinwheel is obtained by glueing the boundary to a point.}
+  \caption{The "core" of the Lagrangian pinwheel $S_0 = L_{q,p}$. The pinwheel is obtained by glueing the boundary to a point. (Here $p=5,q=2$)}
   \label{fig:pinwheel}
 \end{figure}
+
+\begin{lemma}
+  Let $ℓ = [a_1^{2/p},∞] × \{0\}$. Then there is a smooth map $τ: B ∖ ℓ → Δ = \{(u,v) ∈ ℝ² \mid u ≥ 0 \}$, such that $μ = τ ∘ \symbf{H} \colon B_{dpq} → Δ$:
+\end{lemma}
 
 To calculate the image of $B_{dpq}$ under action-angle coordinates, we can remove the segment $ℓ = [a_1^{2/p},∞] × \{0\}$ from $\im(\symbf{H})$ to obtain a simply connected domain of regular or elliptic-regular values of $\symbf{H}$.
 Now applying the flux map\todo{Das ganze nach die Versal deformation section?} gives us a smooth map $τ \colon \im(\symbf{H}) ∖ ℓ → Δ ⊂ ℝ²$, where we define $Δ ⊂ ℝ²$ to be the image of this map, and thus giving us action-angle coordinates $μ \colon B_{dpq} ∖ \symbf{H}^{-1}(ℓ) → Δ$.
