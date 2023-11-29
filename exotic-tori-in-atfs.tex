@@ -167,6 +167,17 @@
 
 \section{Introduction}
 
+\begin{definition}
+  Let $k ∈ ℕ$ such that $0<k≤d$ and $a ∈ (0,∞)$. Through nodal slides we can arrange the ATF on $B_{dpq}$ such that the line $x₂=a$ intersects the branch cut line between the $(k-1)$-th and $k$-th degenerated fibre. $T_k(a)$ is defined to be the fibre over the intersection point of these two lines.
+\end{definition}
+
+\begin{restatable}{theorem}{thmbdpqexotic}
+    \label{thm:bdpqexotic}
+  Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
+  Up to a change of basis, the restriction of the displacement energy germ to $U$ is given by
+  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\} \]
+\end{restatable}
+
 \section{Fun facts über ATFS by Joé}
 
 \begin{lemma}
@@ -197,7 +208,7 @@ Let $G_p$ be the group of $p$-th roots of unity acting on $M_P$ by
 \[g \cdot (z₁,z₂,z₃) = \qty(gz₁,g^{-1}z₂,g^q z₃), \quad g ∈ G_p \; .\]
 This is a free  action, so the quotient $B_{P,q} = M_P/G_p$ is a smooth complex and symplectic manifold.
 $\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Poisson commuting Hamiltonians on $B_{P,q}$, giving us the fibration (by abuse of notation also called $\symbf{H}$) $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$.
-As we will see later in \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomorphism) independent of the choice of $a_1,…,a_d$, only depending on $d,p,q$. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
+Up to symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independent of the choice of $P$. This follows either for standard Moser-type arguments, or from \cref{thm:nodal_slide} using the almost toric fibration on $B_{P,q}$ which will be constructed in \cref{sec:Bdpqatfs}. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
 
 \begin{remark}
   Was ist der raum $B_dpq$? $ℚ$-gorenstein smoothing of cyclic quotient T-singularity $\frac{1}{dp^2}(1,dpq-1)$… Referenzen?
@@ -284,6 +295,9 @@ As we will see later in \cref{thm:nodal_slide}, $B_{P,q}$ is (up to symplectomor
   \caption{The projection $M_P ∋ z ↦ z_3$ for $p=5$, $d=3$.}
   \label{fig:conic_fibration}
 \end{figure}
+
+\subsection{Almost toric fibrations}
+\label{sec:Bdpqatfs}
 
 Let us further inspect the fibration $\symbf{H} \colon B_{dpq} → B$. To this end, we look at the projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
 The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$, so if $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$ (as seen in \cref{fig:conic_fibration} (b)), and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes (as seen in \cref{fig:conic_fibration} (a)).
