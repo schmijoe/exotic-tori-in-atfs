@@ -818,7 +818,29 @@ We might say colloquially that a versal deformations parametrizes all nearby Lag
 \subsection{Versal Deformations of Arnold--Liouville tori}
 \label{sec:vd_AL}
 
-Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. The Arnold--Liouville theorem states that there are action-angle coordinates near $L_b$ and we shall see that this is intimately related to versal deformations of $L_b$. Indeed, recall from \cite[Section 2.4]{evans2021atfs} that action coordinates can be constructed from the Lagrangian flux as follows. Let $U \subset B_0$ be a simply connected subset, let $b_0 \in U$ and denote $L_0 = \pi^{-1}(b_0)$. Set
+Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. Since the base $B$ is $n$-dimensional, a natural candidate for a versal deformation of $L_b$ is picking nearby fibres of $\symbf{H}$. Indeed, we will see that neighbouring fibres, when parametrized by their Lagrangian flux, yield a versal deformation. 
+
+Let $L_{b_0} = \pi^{-1}(b_0) \subset X$ be an Arnold--Liouville torus and let $\mathcal{U} \subset \mathcal{L}$ be a W-convex neighbourhood of $L_{b_0}$. Choose $V \subset B_0$ small enough so that $L_b \in \mathcal{U}$ for every $b \in V$. Then we can define the map $\phi_V \colon V \rightarrow H^1(L_{b_0};\mathbb{R})$ by $b \mapsto \Flux_{\mathcal{U}}(L_b)$. For a small enough $V$, this is a diffeomorphism onto its image. Now define
+\[
+    \label{eq:ltfVD}
+    v_{L_b} \colon H^1(L_b;\mathbb{R}) \dashrightarrow \mathcal{L}, \quad
+    v_{L_b}(a) = L_{\phi_V^{-1}(a)}.
+\]
+By definition we have $\Flux_{\mathcal{U}} \circ v_{L_b} = \id$, and thus by \cref{rem:lazy_vd}, we have proved the following. 
+
+\begin{proposition}
+    The map \eqref{eq:ltfVD} is a versal deformation. 
+\end{proposition}
+
+Any identification $H_1(L_{b_0};\mathbb{Z}) \cong \mathbb{Z}^n$ induces a dual identification $H^1(L_{b_0};\mathbb{R}) \cong \mathbb{R}^n$ which is unique up to transformations in the group of integral affine transformations in $\GL(n;\mathbb{Z}) \ltimes \mathbb{R}^n$. Equipped with charts of the form $\phi_V$, the set $B_0$ inherits the structure of an integral affine manifold. Furthermore, every map $\phi_V \circ \mathbf{H} \colon \pi^{-1}(V) \rightarrow \mathbb{R}^n$ yields action coordinates, see \cite[Lemma 2.15]{evans2021atfs}. Equivalently $\phi_V \circ \mathbf{H}$ is the moment map of a Hamiltonian $T^n$-action. Using a $T^n$-equivariant Weinstein chart of the orbit $L_{b_0}$, one can check directly that any moment map of a Hamiltonian $T^n$-action yields a canonical versal deformation by taking its fibres.  
+
+
+
+
+
+
+
+The Arnold--Liouville theorem states that there are action-angle coordinates near $L_b$ and we shall see that this is intimately related to versal deformations of $L_b$. Indeed, recall from \cite[Section 2.4]{evans2021atfs} that action coordinates can be constructed from the Lagrangian flux as follows. Let $U \subset B_0$ be a simply connected subset, let $b_0 \in U$ and denote $L_0 = \pi^{-1}(b_0)$. Set
 \[
     \mu_U \colon \pi^{-1}(\symbf{U}) \rightarrow H^1(L_0;\mathbb{R}) \cong \mathbb{R}^n, \quad
     \mu_U(x) = \Flux(\Lambda_t),
