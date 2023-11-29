@@ -238,7 +238,7 @@ Up to symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independen
           \draw[very thin] (3,1.3,0) -- (3,0,0);
         \end{scope}
       }
-      \node at (-1,-2.25) {(a) A degenerate "pinched torus" fibre of $\symbf{H} \colon M_P → B$};
+      \node[align=center] at (-1,-2.25) {(a) A degenerate "pinched torus"\\fibre of $\symbf{H} \colon M_P → B$};
     \end{scope}
     \begin{scope}[shift={(4.25cm,0)}]
           \begin{scope}[canvas is xz plane at y=0]
@@ -261,7 +261,7 @@ Up to symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independen
         }
         \node at (-1,-2.25) {(b) A regular fibre of $\symbf{H} \colon M_P → B$.};
     \end{scope}
-    \begin{scope}[shift={(0,-5.5cm)}]
+    \begin{scope}[shift={(0,-6cm)}]
       \begin{scope}[canvas is xz plane at y=0]
         \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
         \clip (-4,-4) rectangle (4,4);
@@ -346,38 +346,47 @@ The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$, and a Lagr
 \end{figure}
 
 \begin{lemma}
-  Let $ℓ = [a_1^{2/p},∞] × \{0\}$. Then there is a smooth map $τ: B ∖ ℓ → Δ = \{(u,v) ∈ ℝ² \mid u ≥ 0 \}$, such that $μ = τ ∘ \symbf{H} \colon B_{dpq} → Δ$:
+  Let $ℓ = [a_1^{2/p},∞) × \{0\}$.
+  Then there is a smooth map $τ: B ∖ ℓ → ℝ²$, such that $μ = τ ∘ \symbf{H} \colon B_{dpq} → ℝ²$ gives action coordinates on $B_{dpq} ∖ \symbf{H}^{-1}(ℓ)$.
+  Furthermore $τ$ continuously extends to $B$, and we may choose $\im(τ)=\{(u,v) \mid u>0\} = Δ$ with $τ(ℓ)$ being a ray in the direction $(p,q)$.
 \end{lemma}
 
-To calculate the image of $B_{dpq}$ under action-angle coordinates, we can remove the segment $ℓ = [a_1^{2/p},∞] × \{0\}$ from $\im(\symbf{H})$ to obtain a simply connected domain of regular or elliptic-regular values of $\symbf{H}$.
-Now applying the flux map\todo{Das ganze nach die Versal deformation section?} gives us a smooth map $τ \colon \im(\symbf{H}) ∖ ℓ → Δ ⊂ ℝ²$, where we define $Δ ⊂ ℝ²$ to be the image of this map, and thus giving us action-angle coordinates $μ \colon B_{dpq} ∖ \symbf{H}^{-1}(ℓ) → Δ$.
-Since $\symbf{H}_2$ already generates a $S¹$ action, we may choose $τ$ to be of the form $τ(b_1,b_2) = (τ_1(b_1,b_2), b_2)$.\footnote{As when constructing action-angle coordinates in the proof of the Arnold-Liouville Theorem.}
-In particular the segment $[0,a_1^{2/p}] × \{0\}$ is mapped to $[0,τ_1(a_1^{2/p},0)] × \{0\}$, even more particular $S_0$ is a Lagrangian over this segment, making it a so-called visible Lagrangian as described in \cite[Chapter 5]{evans2021atfs}.
-We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elliptic-regular singularities, is sent to a straight line in some rational direction $(n,m)$.
-As we have the visible Lagrangian pinwheel $S_0 = L_{p,q}$ intersecting it, by \cite[Section 5.3]{evans2021atfs}, we must have $(n,m) = (q',p)$.
+
+\begin{proof}
+  $B ∖ ℓ$ is simply connected and contains only regular ($b ∈ B ∖ ℓ$ with $b_1>0$) and elliptic-regular points ($b ∈ B ∖ ℓ$ with $b_1 = 0$).
+By \todo{cite flux zeugs}, the flux map determines $τ$ locally up to a $\GL_2(ℤ)$ transform.
+Since $\symbf{H}_2$ already generates a $S¹$ action, we may choose $τ$ to be of the form $τ(b_1,b_2) = (τ_1(b_1,b_2), b_2)$.\todo{Präzisieren?}
+In particular the segment $[0,a_1^{2/p}] × \{0\}$ is mapped to $[0,τ_1(a_1^{2/p},0)] × \{0\}$. Even more particular $S_0$ is a Lagrangian over this segment, making it a so-called visible Lagrangian as described in \cite[Chapter 5]{evans2021atfs}.
+We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elliptic-regular singularities, is sent to a straight line $G$ in some rational direction $(n,m)$.\todo{why?}
+As we have the visible Lagrangian pinwheel $S_0 = L_{p,q}$ intersecting $G$, by \cite[Section 5.3]{evans2021atfs}, we must have $(n,m) = (q',p)$.
 After the affine linear transformation $\mqty(p & -q'\\q & p')$, with $p' = \frac{1-qq'}{p}$, the image of $τ$ is the right half plane, with the nodes sitting on a ray in direction $(p,q)$ as in \cref{fig:Bdpq_moment_image}.
 
-Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$. \todo{MEEHHHR details.}
+Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$. \todo{why?}
+\end{proof}
 
 
 \begin{figure}
   \centering
-  \begin{tikzpicture}[scale=.7]
-    \begin{scope}[shift={(-5cm,0)}]
-        \fill[blue,opacity=0.2] (0,4) rectangle (8,-1);
+  \begin{subfigure}[b]{0.45\textwidth}
+    \begin{tikzpicture}[scale=.6]
+      \fill[blue,opacity=0.2] (0,4) rectangle (8,-1);
 
-        \draw (2,1.5) node[cross] {} (4,1.5) node[cross] {} (6,1.5) node[cross] {};
-        \draw[thick] (0,4) -- (0,-1);
-    \end{scope}
-    \begin{scope}[shift={(5cm,0)}]
-        \fill[opacity=0.1] (0,4) rectangle (8,-1);
+      \draw (2,1.5) node[cross] {} (4,1.5) node[cross] {} (6,1.5) node[cross] {};
+      \draw[thick] (0,4) -- (0,-1);
+    \end{tikzpicture}
+    \caption{$\symbf{H}(X)$ with the focus-focus fibres marked by crosses.}
+  \end{subfigure}%
+  \begin{subfigure}[b]{0.45\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=.6]
+      \fill[opacity=0.1] (0,4) rectangle (8,-1);
 
-        \draw[thick,dotted,->] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (6,3) node[cross] {} -- (8,4) node[anchor=west] {$(p,q)$};
-        \draw[thick] (0,4) -- (0,-1);
-    \end{scope}
-  \end{tikzpicture}
+      \draw[thick,dotted,->] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (6,3) node[cross] {} -- (8,4) node[anchor=west] {$(p,q)$};
+      \draw[thick] (0,4) -- (0,-1);
+    \end{tikzpicture}
+    \caption{$μ(X)$ with the critical values marked by crosses, and the image of $ℓ$ by a dotted line.}
+  \end{subfigure}
   \caption{Moment image of $B_{dpq}$ under $μ$}
-  \todo{Kommentieren, was $\symbf{H}$ is und was $\mu$ ist.}
   \label{fig:Bdpq_moment_image}
 \end{figure}
 
@@ -387,16 +396,24 @@ Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for poin
 
 In order to calculate the lower bound for the displacement energy of a Lagrangian torus fibre $T(b) = μ^{-1}(\qty{b})$ for $b ∈ \im(\symbf{H})$, we will want to have calculated a basis of the homology $H_2\qty(B_{dpq},T(b))$.
 
-$B_{dpq}$ deformation retracts to the preimage under $\symbf{H}$ of the branch cut line segment $ℓ$ shown in red in \cref{fig:branch_cut_retraction}: We first vertically retract the space onto the preimage under $\symbf{H}$ of the ray $[0,∞) × \{0\}$ (for example by flowing along the Morse-Bot function $|\symbf{H}_2|^2$).
-Thus we may assume that $b$ lies somewhere on that line. For illustration purposes only we assume that $b_1> |a_d|^{1/p}$, that is $b$ lies to the right of any nodes in $B$. and then compressing the part of the ray that is to the right of all the critical points.
-\todo{Das ist etwas dumm formuliert, lohnt es sich das besser zu formulieren?}
+\begin{lemma}
+  We have
+  \begin{align*}
+    H_0(B_{dpq}) &≅ ℤ & H_1(B_{dpq}) &≅ ℤ_p & H_2(B_{dpq}) &≅ ℤ^{d-1} \\
+                 &    &              &      & H_2(B_{dpq},T(b)) &≅ ℤ^{d+1}
+  \end{align*}
+\end{lemma}
+
+\begin{proof}
+  Since all $T(b)$ are homotopic, we may assume that $b_2=0$ and $b_1 > a_d^{2/p}$ as in \cref{fig:branch_cut_retraction}.
+  $B_{dpq}$ deformation retracts to $\symbf{H}^{-1}(ℓ)$ where $ℓ = [0,b_2]$: We first vertically retract the space onto the preimage under $\symbf{H}$ of the ray $[0,∞) × \{0\}$ (for example by flowing along the gradient of the Morse-Bot function $|\symbf{H}_2|^2$). For all $x ∈ B_{dpq}$ with $\symbf{H}_1(x)>b_2$, we can flow along the gradient of the Morse function $\symbf{H}_1$ until they are in $\symbf{H}^{-1}(ℓ)$.
 
 The preimage $\symbf{H}^{-1}(ℓ)$ can be understood as follows: If there were no critical points on the line, this would be a solid torus $\hat{T} = S¹×D²$ with $∂ \hat{T} = T(b)$.
 We pick $(1,0),(0,1) ∈ H₁(∂ \hat{T})$ to be the classes generated by the orbits of Hamiltonian flows of $μ_1$ and $μ_2$ respectively.
-For each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop along the homology class $(-q,p)$, as in \cref{fig:collapse_cycles}.
+For each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop along the homology class $(-q,p)$, as in \cref{fig:collapse_cycles}.\todo{why?}
 Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
 Again up to homotopy we can also require that the $d$ discs $D_1,…,D_d$ are attached along $∂ \hat{T}$.
-Let us call the resulting space $S$.
+Let us call the resulting space (solid torus $\hat{T}$ with disks $D_i$ attached) $S$.
 
 \begin{figure}
   \centering
@@ -420,7 +437,7 @@ Let us call the resulting space $S$.
   \caption{Calculation of the homology of $B_{dpq}$}
 \end{figure}
 
-Let us look at the long exact sequence of homology for the pair $\qty(B_{dpq},T(x_1,x_2))$. This pair is homotopy equivalent to $(S,∂ \hat{T})$.
+Behold the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
 
 \[
 \begin{tikzcd}
@@ -438,13 +455,15 @@ Let us look at the long exact sequence of homology for the pair $\qty(B_{dpq},T(
 \end{tikzcd}
 \]
 
-The first horizontal map is zero since $∂ \hat{T}$ retracts to a circle in $S$.
-The homology $H_2(S)$ can be seen as follows: By contracting the solid torus $\hat{T}$ in $S$ to a circle, we see that $S$ is homotopic to a circle with $d$ discs glued to its boundary by a degree $p$ map.
-So $H_2(S)$ is generated by spheres $\qty{S_2,…,S_d}$, $S_k = D_{k-1}-D_{k}$.
-$H_2(S,∂ \hat{T})$ is generated by the discs $D_0 = \text{pt}×D²,D₁,…,D_d$. In $B_{dpq}$, these discs can be seen, where the disc intersecting the toric boundary collapses the $(0,1)$ cycle in the toric fibre $T(x_1,x_2)$ and the discs intersecting the critical points collapse the $(-q,p)$ cycle (see \cref{fig:homology_generating_discs}).
-The elements $S_2,\ldots,S_d \in H_2(B_{dpq})$ can be realized by embedded Lagragian spheres fibering over the segments between the nodes in the ATF -- these are so-called \emph{visible Lagrangians}, see \cite[Section 7.4]{evans2021atfs}.
-The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given by $\partial D_0 = (0,1),\, \partial D_i = (-q,p)$, meaning that the last horizontal map $H_1(∂ \hat{T}) → H_1(S)$ maps $(0,1)$ to the generator of $ℤ_p$.
+The first horizontal map is zero since $∂ \hat{T}$ is homotopic to a circle in $S$.
 
+The homology $H_2(S)$ can be seen as follows: By contracting the solid torus $\hat{T}$ in $S$ to a circle, we see that $S$ is homotopic to a circle with $d$ discs glued to its boundary by a degree $p$ map.
+So $H_2(S)$ is generated by the visible Lagrangian spheres $\qty{S_2,…,S_d}$ mentioned in \cref{sec:Bdpqatfs}, since $S_k ≃ D_{k-1}-D_{k}$.
+
+$H_2(S,∂ \hat{T})$ is generated by the discs $D_0 = \text{pt}×D²,D₁,…,D_d$. In $B_{dpq}$, these discs can be seen, where the disc intersecting the toric boundary collapses the $(0,1)$ cycle in the toric fibre $T(x_1,x_2)$ and the discs intersecting the critical points collapse the $(-q,p)$ cycle (see \cref{fig:homology_generating_discs}).
+
+The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given by $\partial D_0 = (0,1),\, \partial D_i = (-q,p)$, meaning that the last horizontal map $H_1(∂ \hat{T}) → H_1(S)$ maps $(0,1)$ to the generator of $ℤ_p$.
+\end{proof}
 
 \begin{figure}
   \centering
