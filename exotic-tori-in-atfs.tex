@@ -158,6 +158,7 @@
 \DeclareMathOperator{\Ext}{Ext}
 \DeclareMathOperator{\Tor}{Tor}
 \DeclareMathOperator{\Flux}{Flux}
+\DeclareMathOperator{\Crit}{Crit}
 
 \begin{document}
 \title{Semi-Local Lagrangian Tori in Dimension Four}
@@ -167,18 +168,9 @@
 
 \section{Introduction}
 
-\begin{definition}
-  Let $k ∈ ℕ$ such that $0<k≤d$ and $a ∈ (0,∞)$. Through nodal slides we can arrange the ATF on $B_{dpq}$ such that the line $x₂=a$ intersects the branch cut line between the $(k-1)$-th and $k$-th degenerated fibre. $T_k(a)$ is defined to be the fibre over the intersection point of these two lines.
-\end{definition}
+\section{Fun facts über ATFs by Joé}
 
-\begin{restatable}{theorem}{thmbdpqexotic}
-    \label{thm:bdpqexotic}
-  Let $U ⊂ H¹(T_k(a);ℝ) ∖ \{\text{branch cut line}\}$.
-  Up to a change of basis, the restriction of the displacement energy germ to $U$ is given by
-  \[ \eval{\symcal{E}_{T_k(a)}}_U (x,y) = a+\min\{x,x(1-kpq)+ykp²\} \]
-\end{restatable}
-
-\section{Fun facts über ATFS by Joé}
+Was ist die brach cut line?
 
 \begin{lemma}
   \label{thm:nodal_slide}
@@ -189,14 +181,14 @@
 \section{Construction of the Local Model}
 \label{sec:construction}
 
-Let $d,p,q$ integers such that $d≥1$ and $p,q$ coprime\footnote{We consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
+In this section, we closely follow \cite[Sections 7.3,7.4]{evans2021atfs}. Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
 Let $P ∈ ℂ[z]$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
 Define the complex manifold $M_P$ by
 \begin{equation}
   \label{eqn:MP}
-M_P = \qty{(z_1,z_2,z_3) ∈ ℂ³ \mid z₁z₂ + P(z₃)=0 } \; ,
+M_P = \qty{(z_1,z_2,z_3) ∈ ℂ³ \mid z₁z₂ + P(z₃)=0 }\subset \mathbb{C}^3 \; ,
 \end{equation}
-with the natural symplectic and complex structure inherited from $ℂ³$.
+with the natural symplectic and complex structures inherited from $ℂ³$.
 
 We define the pair of Poisson commuting Hamiltonian functions $\symbf{H} \colon ℂ^3 → ℝ^2$
 \begin{equation}
@@ -206,12 +198,12 @@ We define the pair of Poisson commuting Hamiltonian functions $\symbf{H} \colon 
 
 Let $G_p$ be the group of $p$-th roots of unity acting on $M_P$ by
 \[g \cdot (z₁,z₂,z₃) = \qty(gz₁,g^{-1}z₂,g^q z₃), \quad g ∈ G_p \; .\]
-This is a free  action, so the quotient $B_{P,q} = M_P/G_p$ is a smooth complex and symplectic manifold.
-$\symbf{H}$ is invariant under the action, so $\symbf{H}$ descends to a well defined pair of Poisson commuting Hamiltonians on $B_{P,q}$, giving us the fibration (by abuse of notation also called $\symbf{H}$) $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$.
-Up to symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independent of the choice of $P$. This follows either for standard Moser-type arguments, or from \cref{thm:nodal_slide} using the almost toric fibration on $B_{P,q}$ which will be constructed in \cref{sec:Bdpqatfs}. So unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
+This is a free  action, so the quotient $B_{P,q} = M_P/G_p$ is a smooth manifold, that inherits a complex and a symplectic structure.
+The restriction of $\symbf{H}$ to $M_P$ is invariant under the $G_p$-action, so it descends to a map which we also denote, by abuse of notation, as $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$. Its components also Poisson-commute, meaning that $\symbf{H}$ defines an integrable system.
+Up to a symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independent of the choice of $P$. This follows either by standard Moser-type arguments, or from \cref{thm:nodal_slide} using the almost toric fibration on $B_{P,q}$ which will be constructed in \cref{sec:Bdpqatfs}. Unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
 
 \begin{remark}
-  Was ist der raum $B_dpq$? $ℚ$-gorenstein smoothing of cyclic quotient T-singularity $\frac{1}{dp^2}(1,dpq-1)$… Referenzen?
+    Both $M_P$, as well as $B_{dpq}$, can be viewed as Milnor fibres of certain surface singularities. Whereas $M_P$ is a smoothing of the $A_{dp-1}$-singularity, its quotient is a smoothing of cyclic quotient singularity of type $\frac{1}{dp^2}(1,dpq-1)$. We refer to \cite[Section 7.4]{evans2021atfs}, in particular Remark 7.9.
 \end{remark}
 
 \begin{figure}
@@ -299,15 +291,14 @@ Up to symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independen
 \subsection{Almost toric fibrations}
 \label{sec:Bdpqatfs}
 
-Let us further inspect the fibration $\symbf{H} \colon B_{dpq} → B$. To this end, we look at the projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
-The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$, so if $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$ (as seen in \cref{fig:conic_fibration} (b)), and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes (as seen in \cref{fig:conic_fibration} (a)).
-Fix $b = (b_1,b_2) ∈ B$. For $b_1 ≠ 0$, the set $\symbf{H}_1^{-1}(b_1)$ gives us a circle in the $z_3$ plane, and the intersection with $\symbf{H}_2^{-1}(b_2)$ fixes a "height" in the cylinders.
-Thus if $b$ is a regular value, $\symbf{H}^{-1}(b)$ is a torus, as in \cref{fig:conic_fibration} (b).
-There are two kinds of degenerate values: The elliptic-regular with $b_1=0$, where $\symbf{H}^{-1}(0,b_2)$ is a circle, and focus-focus with $b = ({a_k}^{2/p},0)$ where $\symbf{H}^{-1}(b)$ is a torus with $p$ pinched circles, as in \cref{fig:conic_fibration} (a). \todo{Warum ist $\symbf{H}$ eine almost toric fibration?}
+Before further inspecting the fibration $\symbf{H} \colon B_{dpq} → B$, let us return to $M_P$. Consider the holomorphic projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
+The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$. If $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$ (as seen in \cref{fig:conic_fibration} (b)), and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes (as seen in \cref{fig:conic_fibration} (a)).
 
-Note that the intersection $\hat{S}_k = ⋃_{ρ ∈ ρ_p} π_3^{-1}([ρ a_k^{2/p},ρ a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian
-\footnote{They are contained in the fixed point set of an (anti-)symplectic involution, see \cite[Remark 7.10]{evans2021atfs} for details.}
-disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see \cref{fig:conic_fibration} (c).
+The map $\mathbf{H}$ defines an integrable system on $M_P$. Since it is proper, all of its regular fibres are Lagrangian tori. The fibres of $\mathbf{H}$ can be visualized with respect to $π_3$ as follows. Fix $b = (b_1,b_2) ∈ B$. For $b_1 ≠ 0$, the set $\symbf{H}_1^{-1}(b_1)$ projects to a circle in the $z_3$-plane. Interpreting $\symbf{H}_2$ as a height function on the fibres of $π_3$, fibres of $\mathbf{H}$ can be visualized as in \cref{fig:conic_fibration} (a),(b). More specifically, \cref{fig:conic_fibration} (b) depicts a regular fibre. There are two kinds of singular values of $\symbf{H}$. The first are values of the type $b_1 = 0$, whose fibres are circles consisting of elliptic-regular singularities. The second type of singular values are of the form $b = ({a_k}^{2/p},0)$, whose fibres contain $p$ singularities of focus-focus type. Topologically, a fibre of the second type of singular value is given by a Lagrangian torus pinched along $p$ circles, as depicted in \cref{fig:conic_fibration} (a). 
+
+Note that the intersection $\hat{S}_k = ⋃_{g ∈ G_p} π_3^{-1}([g a_k^{2/p},g a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian
+\footnote{They are contained in the fixed point set of an antisymplectic involution, see \cite[Remark 7.10]{evans2021atfs} for details.}
+disks for $k=0$ and of $p$ Lagrangian spheres for $0<k<d$. The disks intersect on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see \cref{fig:conic_fibration} (c).
 
 \begin{figure}
   \centering
@@ -331,30 +322,25 @@ disks for $k=0$ and spheres for $0<k<d$, with the disks intersecting on their bo
   \label{fig:conic_fibration_fundamental_domain}
 \end{figure}
 
-Under the reduction $M_P/G_p$, a conic fibre $π_3^{-1}(z_3)$ will be identified with the fibre $π_3^{-1}(g^q z_3)$ under the map $(z_1,z_2) ↦ (gz_1,g^{-1}z_2)$.
+In the quotient $B_{dpq} = M_P/G_p$, a conic fibre $π_3^{-1}(z_3)$ will be identified with the fibre $π_3^{-1}(g^q z_3)$ under the map $(z_1,z_2) ↦ (gz_1,g^{-1}z_2)$.
 Consider the fundamental domain in \cref{fig:conic_fibration_fundamental_domain} of this action obtained by restricting $z_3 = re^{iθ} ∈ M_P$ to $θ \in [-\frac{π}{p},\frac{π}{p}]$, and $π_3^{-1}(0) ∋ (z_1,z_2)$ to $\frac{1}{2}\arg\qty(\frac{z_1}{z_2}) ∈ [-\frac{π}{p},\frac{π}{p}]$.
 Let $g = e^{2πi/p}$ a generator of $G_p$.
 The cylinders $π_3^{-1}(z_3)$ with $θ=-\frac{π}{p}$ and $r>0$ are identified with the cylinders $π_3^{-1}(g z_3)$ by the map $(z_1,z_2) ↦ (g^{q'} z_1,g^{-q'} z_2)$, where $q'$ is chosen s.t.\ $qq' = 1 \mod p$.
 
-The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$, and a Lagrangian disk with its boundary identified by the map $z ↦ g^{q'} z$. $S_0$ is called a Lagrangian pinwheel and denoted $L_{p,q}$. On the fibre $π_3(0)$, there are $p$ flanges meeting, such that one turn around the circle shifts the identification of the flanges by $q'$ places. See \cref{fig:pinwheel}.
+The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$. For $k=0$, it is a certain non-smooth Lagrangian cell complex called Lagrangian pinwheel of type $(p,q)$, see \cite[Section 2.1]{EvaSmi18} or \cite[Section 5.3]{evans2021atfs}. Topologically, a pinwheel is obtained by dividing out the $G_p$-action generated by the map $z ↦ g^{q'} z$ on the boundary of the unit disk. For the precise definition of a Lagrangian $(p,q)$-pinwheel and a geometric interpretation of $q$, we refer to \cite[Section 2.1]{EvaSmi18}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{img/pinwheel2.pdf}
-  \caption{The "core" of the Lagrangian pinwheel $S_0 = L_{q,p}$. The pinwheel is obtained by glueing the boundary to a point. (Here $p=5,q=2$)}
-  \label{fig:pinwheel}
-\end{figure}
 
 \begin{lemma}
+  \label{thm:bdpq_moment_map}
   Let $ℓ = [a_1^{2/p},∞) × \{0\}$.
   Then there is a smooth map $τ: B ∖ ℓ → ℝ²$, such that $μ = τ ∘ \symbf{H} \colon B_{dpq} → ℝ²$ gives action coordinates on $B_{dpq} ∖ \symbf{H}^{-1}(ℓ)$.
-  Furthermore $τ$ continuously extends to $B$, and we may choose $\im(τ)=\{(u,v) \mid u>0\} = Δ$ with $τ(ℓ)$ being a ray in the direction $(p,q)$.
+  Furthermore, $τ$ continuously extends to $B$, and we may choose $\im(τ)=\{(u,v) \mid u>0\} = Δ$ with $τ(ℓ)$ being a ray in the direction $(p,q)$.
 \end{lemma}
 
 
 \begin{proof}
   $B ∖ ℓ$ is simply connected and contains only regular ($b ∈ B ∖ ℓ$ with $b_1>0$) and elliptic-regular points ($b ∈ B ∖ ℓ$ with $b_1 = 0$).
-By \todo{cite flux zeugs}, the flux map determines $τ$ locally up to a $\GL_2(ℤ)$ transform.
+By \cref{thm:flux_moment_map}, the flux map determines $τ$ locally up to a $\GL_2(ℤ)$ transform.
 Since $\symbf{H}_2$ already generates a $S¹$ action, we may choose $τ$ to be of the form $τ(b_1,b_2) = (τ_1(b_1,b_2), b_2)$.\todo{Präzisieren?}
 In particular the segment $[0,a_1^{2/p}] × \{0\}$ is mapped to $[0,τ_1(a_1^{2/p},0)] × \{0\}$. Even more particular $S_0$ is a Lagrangian over this segment, making it a so-called visible Lagrangian as described in \cite[Chapter 5]{evans2021atfs}.
 We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elliptic-regular singularities, is sent to a straight line $G$ in some rational direction $(n,m)$.\todo{why?}
@@ -372,9 +358,10 @@ Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for poin
       \fill[blue,opacity=0.2] (0,4) rectangle (8,-1);
 
       \draw (2,1.5) node[cross] {} (4,1.5) node[cross] {} (6,1.5) node[cross] {};
+      \draw[line width=0.08cm,red,opacity=0.4,text opacity=1] (2,1.5) -- node[pos=0.8, anchor=north] {$ℓ$} (8,1.5);
       \draw[thick] (0,4) -- (0,-1);
     \end{tikzpicture}
-    \caption{$\symbf{H}(X)$ with the focus-focus fibres marked by crosses.}
+    \caption{$\symbf{H}(X)$ with the nodal fibres marked by crosses.}
   \end{subfigure}%
   \begin{subfigure}[b]{0.45\textwidth}
     \centering
@@ -384,7 +371,7 @@ Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for poin
       \draw[thick,dotted,->] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (6,3) node[cross] {} -- (8,4) node[anchor=west] {$(p,q)$};
       \draw[thick] (0,4) -- (0,-1);
     \end{tikzpicture}
-    \caption{$μ(X)$ with the critical values marked by crosses, and the image of $ℓ$ by a dotted line.}
+    \caption{$μ(X)$ with the nodal points marked by crosses, and the image of $ℓ$ by a dotted line.}
   \end{subfigure}
   \caption{Moment image of $B_{dpq}$ under $μ$}
   \label{fig:Bdpq_moment_image}
@@ -394,7 +381,7 @@ Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for poin
 \subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
 \label{sec:homology}
 
-In order to calculate the lower bound for the displacement energy of a Lagrangian torus fibre $T(b) = μ^{-1}(\qty{b})$ for $b ∈ \im(\symbf{H})$, we will want to have calculated a basis of the homology $H_2\qty(B_{dpq},T(b))$.
+Let $T(b) = μ^{-1}(\qty{b})$ for $b ∈ \im(\symbf{H})$ be a Lagrangian torus fibre. In the computation of the displacement energy of $T(b)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(b))$. See also \cite[Lemma 7.11]{evans2021atfs} for the homology of $B_{dpq}$.
 
 \begin{lemma}
   We have
@@ -406,10 +393,10 @@ In order to calculate the lower bound for the displacement energy of a Lagrangia
 
 \begin{proof}
   Since all $T(b)$ are homotopic, we may assume that $b_2=0$ and $b_1 > a_d^{2/p}$ as in \cref{fig:branch_cut_retraction}.
-  $B_{dpq}$ deformation retracts to $\symbf{H}^{-1}(ℓ)$ where $ℓ = [0,b_2]$: We first vertically retract the space onto the preimage under $\symbf{H}$ of the ray $[0,∞) × \{0\}$ (for example by flowing along the gradient of the Morse-Bot function $|\symbf{H}_2|^2$). For all $x ∈ B_{dpq}$ with $\symbf{H}_1(x)>b_2$, we can flow along the gradient of the Morse function $\symbf{H}_1$ until they are in $\symbf{H}^{-1}(ℓ)$.
+  $B_{dpq}$ deformation retracts to $\symbf{H}^{-1}(ℓ)$ where $ℓ = [0,b_1]$: We first vertically retract the space onto the preimage under $\symbf{H}$ of the ray $[0,∞) × \{0\}$ (for example by flowing along the gradient of the Morse-Bot function $|\symbf{H}_2|^2$). For all $x ∈ B_{dpq}$ with $\symbf{H}_1(x)>b_1$, we can flow along the gradient of the Morse function $\symbf{H}_1$ until they are in $\symbf{H}^{-1}(ℓ)$.
 
 The preimage $\symbf{H}^{-1}(ℓ)$ can be understood as follows: If there were no critical points on the line, this would be a solid torus $\hat{T} = S¹×D²$ with $∂ \hat{T} = T(b)$.
-We pick $(1,0),(0,1) ∈ H₁(∂ \hat{T})$ to be the classes generated by the orbits of Hamiltonian flows of $μ_1$ and $μ_2$ respectively.
+We pick the basis $(1,0),(0,1) ∈ H₁(∂ \hat{T})$ consisting of the orbits of the Hamiltonian flows of $μ_1$ and $μ_2$ respectively.
 For each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop along the homology class $(-q,p)$, as in \cref{fig:collapse_cycles}.\todo{why?}
 Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
 Again up to homotopy we can also require that the $d$ discs $D_1,…,D_d$ are attached along $∂ \hat{T}$.
@@ -437,21 +424,23 @@ Let us call the resulting space (solid torus $\hat{T}$ with disks $D_i$ attached
   \caption{Calculation of the homology of $B_{dpq}$}
 \end{figure}
 
-Behold the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
+We consider the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
 
 \[
-\begin{tikzcd}
+\begin{tikzcd}[column sep=small]
   H_2(∂ \hat{T}) \ar[r,"0"] &
   H_2(S) \ar[r,hook]\ar[d,"≅"] &
   H_2(S,∂ \hat{T}) \ar[r]\ar[d,"≅"] &
-  H_1(∂ \hat{T}) \ar[r]\ar[d,"≅"] &
-  H_1(S) \ar[d,"≅"]
+  H_1(∂ \hat{T}) \ar[r,two heads]\ar[d,"≅"] &
+  H_1(S) \ar[r,"0"] \ar[d,"≅"] &
+  H_1(S, ∂ \hat{T}) \ar[d,"≅"]
   \\
   &
   ℤ^{d-1} &
   ℤ^{d+1} &
   ℤ² &
-  ℤ_p
+  ℤ_p &
+  0
 \end{tikzcd}
 \]
 
@@ -494,18 +483,79 @@ The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given b
 \section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
 \label{sec:lower_bound}
 
-We want to use the following theorem by Chekanov \cite{chekanov1998} for a lower bound of the displacement energy
+
+
+We use a classical theorem by Chekanov \cite{chekanov1998} for a lower bound on the displacement energy. To state the theorem we recall the central notions contained in the theorem.
+
+\begin{definition}
+    Let $(X,\omega)$ be a symplectic manifold. We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology. We do not use \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ such that 
+    \begin{enumerate}
+        \item $g$ is complete,
+        \item there are constants $c_1,c_2 > 0$ such that $\omega(JV,V) \geqslant c_1 \Vert V \Vert_g^2$ and $\vert \omega(V,W) \vert \leqslant c_2 \Vert V \Vert_g \Vert W \Vert_g$ for all tangent vectors $V,W$, and
+        \item the sectional curvature of $g$ is bounded from above and the injectivity radius is bounded from below.
+    \end{enumerate}
+    Denote the space of such almost complex structures by $\mathcal{J}_{\text{geo}}(X,\omega)$.
+    The symplectic manifold $(X,\omega)$ is called \textbf{geometrically bounded} if there is a geometrically bounded $J$. 
+\end{definition}
+
+See also \cite[Chapter X, Definition 2.2.1]{AudLaf94}.
+
+With these definition in place we define the two quantities that play a crucial role in Chekanov's theorem.
+
+\begin{definition}
+    Suppose that $L$ is a closed Lagrangian submanifold in a symplectic manifold $(X\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}$ be a geometrically bounded almost complex structure. Define
+    \[
+        \sigma_D(X,L,J)\vcentcolon=\text{inf}\left\{\int_{\mathbb{D}^2} u^*\omega \;\middle|\; u:(\mathbb{D}^2,\partial {\mathbb{D}^2}) \to (X,L) \text{ non-constant $J$-holomorphic disc}   \right\}
+    \]
+    and 
+    \[
+        \sigma_S(X,J)\vcentcolon=\text{inf}\left\{\int_{S^2} u^*\omega \;\middle|\; u:S^2 \to X \text{ non-constant $J$-holomorphic disc}   \right\}
+    \].
+    These two quantities may be equal to infinity, if the infimum is taken over an empty set.
+\end{definition}
 
 \begin{theorem}
   \label{thm:chekanov}
-  Let $(X,ω,J)$ be a geometrically bounded\todo{def.} symplectic manifold with $ω$-tame almost complex structure $J$\todo{Was sind die bedingungen an $J$}. Let $L ⊂ X$ be a compact Lagrangian submanifold. Then the displacement energy satisfies
-  \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}\]
+  Let $L$ be a compact Lagrangian submanifold of a geometrically bounded symplectic manifold $(X,ω)$. For every geometrically bounded almost complex structure $J$, the displacement energy satisfies
+  \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}.\]
 \end{theorem}
+
+For a model $X_{P} = M_P / G_p$, we obtain an integrable system $\mathbf{H}_P \colon X_P \rightarrow \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ from which we construct an almost toric projection $\pi_P \colon X_P \rightarrow \Delta_{\pi_P}$ almost toric base $\Delta_{\pi_P} = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$. For $x \in \Delta_{\pi_P}$, denote the corresponding fibre by $T(x) = \mu^{-1}_P(x)$. For every $x$ not contained in the nodal slide line $\ell \subset \Delta_{\pi_P}$, the fibre $T_P(x)$ is a Lagrangian torus.
+
+\begin{lemma}
+    Let $X_{P} = M_P / G_p$ and $X_{P'} = M_{P'} / G_p$ be two models for the space $B_{dpq}$. Furthermore, let $x \in \Delta_{\pi_P} \setminus \ell$. Then there is a symplectomorphism $\psi \colon X_P \rightarrow X_{P'}$ with $\psi(T_P(x)) = T_{P'}(x)$. 
+\end{lemma}
+
+\begin{proposition}
+    \[
+        e(T(x)) \geqslant x_1. 
+    \]
+\end{proposition}
+
+\begin{proof}
+     
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
 \todo{Why is $B_{dpq}$ geometrically bounded?}
+
+
+
+
+
 
 To use \cref{thm:chekanov}, we can choose a suitable almost complex structure on $B_{dpq}$.
 
-We do so in the following way: In the the construction of $B_{dpq}$ in \cref{sec:construction}, we defined $B_{dpq}$ as the quotient of $M_P$ under the free action of $ρ_p$. As a algebraic hypersurface $M_P$ naturally inherits the complex structure of $ℂ³$, and we use $J$ to denote this structure on $M_P$ as well as on its quotient $B_{dpq}$.
+We do so in the following way: In the construction of $B_{dpq}$ in \cref{sec:construction}, we defined $B_{dpq}$ as the quotient of $M_P$ under the free action of $G_p$. As a algebraic hypersurface $M_P$ naturally inherits the complex structure of $ℂ³$, and we use $J$ to denote this structure on $M_P$ as well as on its quotient $B_{dpq}$.
 
 \begin{definition}
   Let $(M,J)$ be a almost complex manifold.
@@ -543,7 +593,7 @@ For a torus $\symbf{H}^{-1}(b)$ with $b_2 ≠ 0$ we may therefore always change 
 
 \subsection{Embedded lower bound}
 
-Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-tame almost complex structure $J$, denote by $g$ the associated Riemannian metric, and let $u\colon Σ → M$ be a J-holomorphic curve.
+Let $(M,ω)$ be a geometrically bounded connected symplectic manifold with $ω$-tame almost complex structure $J$, denote by $g$ the associated Riemannian metric, and let $u\colon Σ → M$ be a J-holomorphic curve.
 
 Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
 
@@ -566,7 +616,8 @@ As a simple corollary we get:
 \end{proof}
 
 \begin{definition}
-A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^{-1}(ℓ)$, where $ℓ = [0,\symbf{H}(a_d)] × \{0\}$. \end{definition}
+A \textbf{milnor fibre}
+of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^{-1}(ℓ)$, where $ℓ = [0,\symbf{H}(a_d)] × \{0\}$. \end{definition}
 
 \begin{remark}
   This definition is a bit unusual but equivalent to the usual one.
@@ -597,51 +648,39 @@ A \textbf{milnor fibre} of $B_{dpq}$ is a open subset $U$ containing $\symbf{H}^
 \section{Upper bound on displacement energy: Probes}
 \label{sec:upper_bound}
 
-We want to use the method of probes to calculate an upper bound on the displacement energy of certain toric fibres $T(x,y)$. This is achieved by giving a Hamiltonian diffeomorphism that displaces the $T(x,y)$ from itself. By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(x,y)$.
-The method to construct such a Hamiltonian diffeomorphism is the method of probes, that was first introduced by McDuff \cite{mcduff2011displacing} for exactly the same purpose.
-Probes were originally introduced in the context of toric symplectic manifolds. However, they generalize to the case of almost toric fibrations and we will make a remark on what we mean by this later in this section. All the definitions and notions of the following paragraph are defined in McDuff's paper \cite{mcduff2011displacing}.
+To calculate an upper bound on the displacement energy of a toric fibre $T(x)$ of the almost toric fibration $\mu \colon B_{dpq}\to \mathbb{R}^2$, we can explicitly construct a Hamiltonian symplectomorphism that displaces the toric fibre from itself.
+By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(b)$.
 
-We quickly recall the main ideas of the method and then explain how they are applied in our situation.
-Assume that $(X^{4},\omega)$ is a toric symplectic manifold with moment map $μ \colon X → ℝ^2$ and associated moment polytope $\Delta\vcentcolon= \mu(X)$.
-A \textbf{probe} $p_\lambda(w)$ is a half open line segment contained in $\Delta$, starting at a point $w \in \Delta$, where $w$ contained in the interior of a facet of $\Delta$, pointing in the direction of $\lambda \in ℤ^2$, where the direction  $\lambda$ is integrally transverse to the facet and such that the line segment intersects the boundary of the polytope $\Delta$ only in the point $w$.
-
-In \cite[Lemma 2.4.]{mcduff2011displacing} it is shown that if a toric fibre $T(x,y)=\mu^{-1}(x,y)$ lies over a probe $p_\lambda(w)$, where $(x,y)\in \text{int}(\Delta)$ is strictly less than halfway along the probe, then it is displaceable.
-It is worthwhile to note that this Hamiltonian displacement is local in nature.
-To see this one realises that the definition probes implies that one can find an appropriate $Gl_2(\mathbb{Z})$ transformation of the $\mathbb{R^2}$ such that the facet $F$, from which the probe emanates, lies on the hyperplane $\{x=0\}$ and such that the direction of the probe is given by $\lambda=(1,0)$.
-Furthermore, there is a corresponding Darboux chart on $X$ with coordinates $(z_1,z_2)$ such that preimage of the probe under the moment map is in these coordinates given by
-\begin{equation*}
-  \mu^{-1}(p_\lambda(x,y))=\left\{(z_1,z_2)\in \mathbb{C}^2 \mid \abs{z_1}^2<2a, \abs{z_2}=\text{const.}\right\},
-\end{equation*}
-where $a \in \mathbb{R}$ is the affine length of the probe.
-By abuse of notation this information is condensed in the following diagram of symplectic reduction
-\[
-\begin{tikzcd}
-  \left(\mu^{-1}(p_\lambda(x,y)),\left.\omega\right|_{\mu^{-1}(p_\lambda(x,y))}\right)\ar[r,hook]\ar[d]&
-  \left(\mu^{-1}(U),\left.\omega\right|_U\right)
-  \\
-  \left(\mathbb{D}^2(a),\omega_0\right),
-\end{tikzcd}
-\]
-where $\mathbb{D}^2(a)\subseteq \mathbb{C}$ is the open disk of area $2\pi a$, $U$ is a small open neighborhood of the probe $p_\lambda(x,y)$ and $\omega_0$ is the standard symplectic structure on $\mathbb{C}^2$.
-Now a circle $S^1(b)\vcentcolon=\{z\in \mathbb{C}\mid \abs{z}^2=2b\} \subseteq \mathbb{D}^2(a)$ is displaceable by a Hamiltonian diffeomorphism of $\mathbb{D}^2(a)$ if and only if $b<\frac{a}{2}$.
-The Hamiltonian generating this diffeomorphism can be extended to all of $\mathbb{C}$ in such a way that it can be lifted to $\mu^{-1}(U)$ in a compactly supported manner.
-
-Note, that from the local nature around a probe of this construction clear that this discussion construction extends to the case of almost toric fibrations and does trivially so, if the probe does not intersect the branch cut line.
-
-Now assume that everything is arranged as in the assumptions and notations of \cref{thm:bdpqexotic}.
-In particular the moment image associated to this setup is shown in \cref{fig:Bdpq_moment_image}.
-Using the method of probes we show the upper bound on the displacement energy, i.e.
+For this we want to use probes, first introduced by McDuff \cite{mcduff2011displacing}. We refer the reader there for the definitions and statements (mainly \cite[Definition 2.3, Lemma 2.4]{mcduff2011displacing}).
 
 
 \begin{lemma}
     \label{thm:upper_bound}
-    Assume that $\mu: B_{dpq} \to \mathbb{R}$ is the moment map associated to the almost toric fibration defined on $B_{dpq}$ as shown in $\cref{fig:Bdpq_moment_image}$. 
-    Then for a toric fibre $T(x,y)=\mu^{-1}(x,y)$, such that $(x,y) \in \mathbb{R}^2$ does not lie not on the branch cut line, the displacement energy can be estimated from above by
-    \[ e(B_{dpq},T(x,y))\leq x \]
+    Assume that $\mu \colon B_{dpq} \to \mathbb{R}^2$ is the moment map associated to the almost toric fibration defined on $B_{dpq}$ as described in $\cref{thm:bdpq_moment_map}$. 
+    Then, for a toric fibre $T(x)=\mu^{-1}(x)$, such that $x \in \mathbb{R}^2$ does not lie on the branch cut line, the displacement energy can be estimated from above by
+    \[ e(B_{dpq},T(x))\leq x_1 = μ_1(T(x)). \]
 \end{lemma}
 
+
 \begin{proof}
-  Note, that after applying a nodal slide that is localized in a small neighbourhood of the branch cut, that can be made as small as we like.\footnote{In particular it can be chosen small enough, such that the neighbourhood doesn't contain the torus $T(x,y)$.} After applying this nodal slide, we can assume that the probe emanating horizontally from the toric boundary and on height $y \in \mathbb{R}$ doesn't intersect the branch cut.\todo{Include picture here.} Now the general theory on probes, as discussed in the beginning of \cref{sec:upper_bound}, implies that a probe of affine length bigger than $x$ suffices to displace the toric fibre $T(x,y)$. This implies $e(B_{dpq},T(x,y))\leq x$. 
+  Fix $T(x)$ as in the statement.
+  
+By \cref{thm:nodal_slide}, we can change the almost toric fibration in a neighbourhood containing the branch cut $ℓ$, and not containing $T(x)$, such that the horizontal line $P$ containing $x$ does not intersect\footnote{If $q=0$ (that means $p=1$) this may not work if $x_2=0$. In this case we may apply an integral shear to go to the case $q=1$.} $ℓ$.
+
+Removing $μ^{-1}(ℓ)$ we find ourselves in a toric fibration, where $P$ is an infinitely long probe. Now \cite[Lemma 2.4]{mcduff2011displacing} gives a Hamiltonian symplectomorphism with Hofer norm $x_1 = μ_1(T(x))$.
+\end{proof}
+
+\begin{proposition}
+\label{thm:upper_bound_embedded}
+  Let $φ:B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a symplectic manifold.
+  Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) \leq μ_1(T(b))$.
+\end{proposition}
+
+\begin{proof}
+    This is essentially the same as \cref{thm:upper_bound}, but the probe will no longer be infinitely long, so we only get a finite probes.
+    We may assume that for probes sufficiently close to $x_2=0$, they are at least $2δ$ long, so all fibres $T(x)$ with $x_2$ sufficiently small and $x_1<δ$ can be displaced with energy $μ_1(T(x))$.
+
+    Now applying the diffemorphism $τ^{-1}$, we get the result.
 \end{proof}
 
 \section{Versal Deformations \& Nearby Lagrangians}
@@ -797,15 +836,18 @@ By continuity of $v_{L_0}$, the neighbourhood $V$ can be chosen small enough for
   If $v_{L_0}, v_{L_0}'$ are two versal deformations, there is a neighbourhood $V ∈ H^1(L_0;ℝ)$ of $0$, s.t.\ $∀ α ∈ V, v_{L_0}(α) ≅ v_{L_0}'(α)$.
 \end{lemma}
 \begin{proof}
-  Let $\symcal{U}$ be evenly covered and $V$ such that $\Flux_{ \symcal{U}} ∘ v_{L_0}|_V = \Flux_{ \symcal{U}} ∘ v_{L_0}'|_V = \id$. Additionally restricting $V$ we may also assume that $\symcal{U}$ is also W-convex.
+  Let $\symcal{U}$ be simply connected and $V$ such that $\Flux_{ \symcal{U}} ∘ v_{L_0}|_V = \Flux_{ \symcal{U}} ∘ v_{L_0}'|_V = \id$.
+  Additionally restricting $V$ we may also assume that $\symcal{U}$ is also W-convex.
   Then for $α ∈ V$, by \cref{thm:local_classification} the result follows since $\Flux_{ \symcal{U}}(v_{L_0}(α)) = \Flux_{ \symcal{U}}(v_{L_0}'(α))$.
 \end{proof}
 
 We might say colloquially that a versal deformations parametrizes all nearby Lagrangians by a neighbourhood of zero in $H^1(L_0;ℝ)$ up to local Hamiltonian isotopy.
 
+As a reminder: $\overline{\symcal{L}}$ is the total space of Lagrangians, $\symcal{L}$ the path-connected component containing $L_0$.
+
 \begin{definition}
   \label{def:invariant_germs}
-  Suppose $I \colon \symcal{L} → A$ is some invariant of Lagrangians up to (Hamiltonian) symplectomorphism, and $v_{L_0}$ a versal deformation. Then the germ of $I ∘ v_{L_0}$ at $0$ is independent of the choice of versal deformation (by \cref{thm:vd_hamiltonian_isotopy}), and is called (by abuse of terminology) the \textbf{germ of $I$ at $L_0$} and denoted by
+  Suppose $I \colon \overline{\symcal{L}} → A$ is some invariant of Lagrangians up to (Hamiltonian) symplectomorphism, and $v_{L_0}$ a versal deformation. Then the germ of $I ∘ v_{L_0}$ at $0 ∈ H^1(L_0;ℝ)$ is independent of the choice of versal deformation (by \cref{thm:vd_hamiltonian_isotopy}), and is called (by abuse of terminology) the \textbf{germ of $I$ at $L_0$} and denoted by
   \[
     [I]_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow A \; .
   \]
@@ -828,101 +870,72 @@ We might say colloquially that a versal deformations parametrizes all nearby Lag
   We have the following commutative diagram:
   \[\begin{tikzcd}[column sep=tiny]
   H^1(L_0;ℝ) \dar{v} & & H^1(φ(L_0);ℝ) \dar{v_φ} \ar[ll, swap, "φ^*"] \\
-  \symcal{L} \ar[rr, "φ"] \ar[dr, swap, "I"] & & \symcal{L} \ar[dl, "I"] \\
+  \overline{\symcal{L}} \ar[rr, "φ"] \ar[dr, swap, "I"] & & \overline{\symcal{L}} \ar[dl, "I"] \\
                                      & A &
     \end{tikzcd}\]
   where the top square commutes by definition of $v_φ$, and the bottom triangle commutes since $I$ is invariant under (Hamiltonian) symplectomorphism.
 \end{proof}
 
-\subsection{Versal Deformations of Arnold--Liouville tori}
+The invariant we will be interested in is the displacement energy:
+
+\begin{definition}
+    \label{def:displacement_energy}
+    The \textbf{Hofer norm} of a time dependant Hamiltonian $H\colon M × [0,1] → ℝ$ is given by
+    \[ \norm{H} = ∫_0^1 |\sup(H_t) - \inf(H_t)| dt \; .\]
+
+    The \textbf{displacement energy} of a subset $A ⊂ X$ is given by
+    \[ e(A) = \inf\{ \norm{H} \mid H \text{ generates the time-1 map } φ^1 \text{ s.t. } φ^1(A) ∩ A = ∅\} \; .\]
+\end{definition}
+
+\subsection{Versal Deformations of Arnold-Liouville tori}
 \label{sec:vd_AL}
 
 Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. Since the base $B$ is $n$-dimensional, a natural candidate for a versal deformation of $L_b$ is picking nearby fibres of $\symbf{H}$. Indeed, we will see that neighbouring fibres, when parametrized by their Lagrangian flux, yield a versal deformation. 
 
-Let $L_{b_0} = \pi^{-1}(b_0) \subset X$ be an Arnold--Liouville torus and let $\mathcal{U} \subset \mathcal{L}$ be a W-convex neighbourhood of $L_{b_0}$. Choose $V \subset B_0$ small enough so that $L_b \in \mathcal{U}$ for every $b \in V$. Then we can define the map $\phi_V \colon V \rightarrow H^1(L_{b_0};\mathbb{R})$ by $b \mapsto \Flux_{\mathcal{U}}(L_b)$. For a small enough $V$, this is a diffeomorphism onto its image. Now define
-\[
+Let $L_{b_0} = \pi^{-1}(b_0) \subset X$ be an Arnold--Liouville torus and let $\mathcal{U} \subset \mathcal{L}$ be a simply connected neighbourhood of $L_{b_0}$. Choose $V \subset B_0$ small enough so that $L_b \in \mathcal{U}$ for every $b \in V$. Then we can define the map $τ_V \colon V \rightarrow H^1(L_{b_0};\mathbb{R})$ by $b \mapsto \Flux_{\mathcal{U}}(L_b)$. For a small enough $V$, this is a diffeomorphism onto its image, see the proof of \cref{thm:ltfVD}. Now define
+\begin{equation}
     \label{eq:ltfVD}
     v_{L_b} \colon H^1(L_b;\mathbb{R}) \dashrightarrow \mathcal{L}, \quad
-    v_{L_b}(a) = L_{\phi_V^{-1}(a)}.
-\]
-By definition we have $\Flux_{\mathcal{U}} \circ v_{L_b} = \id$, and thus by \cref{rem:lazy_vd}, we have proved the following. 
+    v_{L_b}(a) = L_{τ_V^{-1}(a)}.
+\end{equation}
+By definition we have $\Flux_{\mathcal{U}} \circ v_{L_b} = \id$, and thus by \cref{rem:lazy_vd}, we obtain the following. 
 
 \begin{proposition}
+    \label{thm:ltfVD}
     The map \eqref{eq:ltfVD} is a versal deformation. 
 \end{proposition}
 
-Any identification $H_1(L_{b_0};\mathbb{Z}) \cong \mathbb{Z}^n$ induces a dual identification $H^1(L_{b_0};\mathbb{R}) \cong \mathbb{R}^n$ which is unique up to transformations in the group of integral affine transformations in $\GL(n;\mathbb{Z}) \ltimes \mathbb{R}^n$. Equipped with charts of the form $\phi_V$, the set $B_0$ inherits the structure of an integral affine manifold. Furthermore, every map $\phi_V \circ \mathbf{H} \colon \pi^{-1}(V) \rightarrow \mathbb{R}^n$ yields action coordinates, see \cite[Lemma 2.15]{evans2021atfs}. Equivalently $\phi_V \circ \mathbf{H}$ is the moment map of a Hamiltonian $T^n$-action. Using a $T^n$-equivariant Weinstein chart of the orbit $L_{b_0}$, one can check directly that any moment map of a Hamiltonian $T^n$-action yields a canonical versal deformation by taking its fibres.  
+\begin{proof}
+    It is left to show that the map $τ_V$ is a local diffeomorphism.
+    Let $Y \in T_{b_0}B$ and $\gamma \colon [0,1] \rightarrow V$ a curve with $\gamma(0) = b_0$ and $\dot{\gamma}(0) = Y$.
+    Then 
+    \[
+        \label{eq:Dphi}
+        Dτ_V(b_0) Y = \partial_t\vert_{t = 0} \Flux (\Lambda_s\vert_{s \in [0,t]}),
+    \]
+    where $\Lambda_s = \mathbf{H}^{-1}(\gamma(s))$.
+    As in the proof of \cref{thm:hamiltonian_flux}, we find that $Dτ_V(b_0) Y = [\iota_{\overline{Y}}\omega \vert_{L_{b_0}}] \in H^1(L_{b_0};\mathbb{R})$, where $\overline{Y} = \partial_t \vert_{t=0} \Lambda_t \in \Gamma(TX\vert_{L_{b_0}} \rightarrow L_{b_0})$ is a vector field generating $\Lambda_s$, i.e.\ satisfying $D\mathbf{H}\vert_x \overline{Y} = Y$ for every $x \in L_{b_0}$.
+    If $Dτ_V(b_0) Y = 0$, then there is $f \in C^{\infty}(L_{b_0})$ with $df = \iota_{\overline{Y}}\omega \vert_{L_{b_0}}$.
+    Let $x_0 \in \Crit(f)$ (this set is not empty), then $\overline{Y}_{x_0} = 0$.
+    Since $D\mathbf{H} \vert_{x_0} \overline{Y}_{x_0} = Y$, this implies that $Y = 0$.
+    This proves that $Dτ_V(b_0)$ is injective and thus bijective. 
+\end{proof}
 
+Any identification $H_1(L_{b_0};\mathbb{Z}) \cong \mathbb{Z}^n$ (which is unique up to an element of $\GL(n;ℤ)$) induces a dual identification $H^1(L_{b_0};\mathbb{R}) \cong \mathbb{R}^n$.
+Equipped with charts of the form $τ_V$, the set $B_0$ inherits the structure of an integral affine manifold.
+Furthermore, every map $τ_V \circ \mathbf{H}\vert_{\mathbf{H}^{-1}(V)} \colon \mathbf{H}^{-1}(V) \rightarrow \mathbb{R}^n$ yields action coordinates of a completely integrable system, see \cite[Lemma 2.15]{evans2021atfs}.
+Equivalently $τ_V \circ \mathbf{H}\vert_{\mathbf{H}^{-1}(V)}$ is the moment map of a Hamiltonian $T^n$-action. Using a $T^n$-equivariant Weinstein chart of the orbit $L_{b_0}$, one can check directly that any moment map of a Hamiltonian $T^n$-action yields a canonical versal deformation by taking its fibres.
 
-
-
-
-
-
-The Arnold--Liouville theorem states that there are action-angle coordinates near $L_b$ and we shall see that this is intimately related to versal deformations of $L_b$. Indeed, recall from \cite[Section 2.4]{evans2021atfs} that action coordinates can be constructed from the Lagrangian flux as follows. Let $U \subset B_0$ be a simply connected subset, let $b_0 \in U$ and denote $L_0 = \pi^{-1}(b_0)$. Set
-\[
-    \mu_U \colon \pi^{-1}(\symbf{U}) \rightarrow H^1(L_0;\mathbb{R}) \cong \mathbb{R}^n, \quad
-    \mu_U(x) = \Flux(\Lambda_t),
-\]
-where $\Lambda_t = \pi^{-1}(\gamma(t))$ for $\gamma \colon [0,1] \rightarrow U$ a smooth path with $\gamma(0) = b_0$ and $\gamma(1) = \symbf{H}(x)$. Note that, since $U$ is simply connected and $\Flux$ is invariant under homotopies of Lagrangian isotopies, the map $\mu_U$ is well-defined. 
-
-\begin{proposition} (\cite[Lemma 2.15]{evans2021atfs})
-    The map $\mu_U \colon \symbf{H}^{-1}(U) \rightarrow \mathbb{R}^n$ generates a Hamiltonian $T^n$-action. 
-\end{proposition}
-
-The fibre $\mu_U^{-1}(b)$ is a disjoint union of Lagrangian tori. In what follows, we assume that it is connected. In case it is not, the arguments can be easily adapted to apply to one of its connected components. 
+In order to formulate this precisely, we introduce the following model. Let $T^*T^n \cong T^n \times \mathbb{R}^n$ be equipped with the standard symplectic form $\sum_{i=1}^n d\theta_i \wedge db_i$ and let $\mu_0 \colon T^*T^n = T^n \times \mathbb{R}^n \rightarrow \mathbb{R}^n$ be the natural projection. The map $\mu_0$ generates the standard Hamiltonian $T^n$-action on $T^*T^n$ given by rotation in the $T^n$-component. This action restricts to any set of the form $\mu_0^{-1}(A)$ for $A \subset \mathbb{R}^n$. Giving a symplectomorphism from $(X,\omega)$ to $\mu_0^{-1}(A)$ is equivalent to fixing action-angle coordinates on $X$. 
 
 \begin{proposition}
-    Let $L_b = \pi^{-1}(b) = \mu^{-1}_U(b')$ be an Arnold-Liouville torus. Then 
-    \[ 
-        v_{L_b} \colon H^1(L_b;\mathbb{R}) \dashrightarrow \mathcal{L}, \quad
-        v_{L_b}(a) = \mu^{-1}_U(b' + a)
-    \]
-    is a versal deformation.
-\end{proposition}
-
-\begin{proof}
-    Let $\mathcal{U}$ be a simply connected neighbourhood of $L_b$ in $\mathcal{L}$. Let $V \subset H^1(L_b;\mathbb{R})$ be simply connected neighbourhood of the origin such that $v_{L_b}(V) \subset \mathcal{U}$. Then 
+    \label{thm:flux_moment_map}
+    Let $V \subset B_0$ be simply connected. Then 
     \[
-        \Flux_{\mathcal{U}} (v_{L_b}(a))
-        = \Flux(\Lambda_t) 
-        = a,
+        \mu_V = τ_V \circ \mathbf{H} \colon \mathbf{H}^{-1}(V) \rightarrow H^1(L_{b_0};\mathbb{R}) \cong \mathbb{R}^n
     \]
-    where $\Lambda_t = \mu_U^{-1}(\gamma(t))$ for $\gamma \colon [0,1] \rightarrow V$ a smooth path with $\gamma(0) = b'$ and $\gamma(1) = b' + a$.   
-\end{proof}
-
-
-
-\subsection{Versal Deformations and Action Angle Coordinates}
-\label{sec:vd_action_angle}
-
-Let now $μ\colon M → Δ$ be the moment map of a surjective regular Lagrangian fibration with simply connected base $Δ ⊂ ℝ^n$, and $L_0 = μ^{-1}(a_0)$ for some $a_0 ∈ Δ$.
-Since $μ$ is a moment map, we also get that $M$ is symplectomorphic to $Δ × T^n$ with action angle coordinates $(a^i,θ_i)$, the elements $[d θ_i] ∈ H^1(μ^{-1}(a);ℝ)$ forming a basis. This gives an identification of $i\colon H^1(L_0;ℝ) → ℝ^n$.
-
-Let $\symcal{D} = \{ μ^{-1}(a) | a ∈ Δ \} ⊂ \symcal{L}_{L_0}$, since $Δ$ is simply connected, so is $\symcal{D}$, meaning $\symcal{D}$ is evenly covered (but not open), so we get the local flux map $\Flux_{ \symcal{D}}$.
-
-\begin{lemma}
-  \label{thm:moment_map_flux}
-  \[
-    \Flux_{ \symcal{D}}(μ^{-1}(a)) = i^{-1}(a - a_0 )\; .
-  \]
-  In particular $v_μ = μ^{-1} ∘ i$ is a versal deformation of $L_0$.
-\end{lemma}
-
-\begin{proof}
-  Since $M = Δ × T^n ⊂ T^* T^n$, $ω = d λ$ where $λ = b^i d θ_i$ is the tautological 1-form.
-  Let $L = μ^{-1}(a) = \{a\} × T^n$, $γ$ a path from $a_0$ to $a$ and $c^i$ 1-cycles dual to $d θ_i$ in $T^n$, $(γ(t),c^i(s))$ a parametrisation of a flux cylinder $C_{c^i}$. 
-  \[⟨\Flux_{ \symcal{D}}(L),[c^i]⟩ = ⟨\Flux(μ^{-1} ∘ γ),[c^i]⟩ = ∫_{C_{c^i}} \\d λ = ∫_{(a,c^i)} λ - ∫_{(a_0,c^i)} λ = a^i - a_0^i \; .\]
-\end{proof}
-
-\begin{corollary}
-  Let $\symbf{H} \colon X → B$ be a surjective regular Lagrangian fibration with simply connected image, $\symcal{B} = \{\symbf{H}^{-1}(b) \mid b ∈ B\} ⊂ \symcal{L}$, and $i \colon H^1(L_0;ℝ) → ℝ^n$ some isomorphism. Then the map $x ↦ i(\Flux_{ \symcal{B}}(\symbf{H}^{-1}(\symbf{H}(x))))$ gives action angle coordinates on $X$.
-\end{corollary}
-\begin{proof}
-  By Arnold-Liouville a moment map exists and \cref{thm:moment_map_flux} identifies the moment map up to choice of identification $i \colon H¹(L_0;ℝ) → ℝ^n$.
-\end{proof}
-
-Loosely speaking, in the context of a regular Lagrangian fibration we may think of $\Flux_{ \symcal{B}}$ as giving a coordinate free representation of a moment map $μ$, and the versal deformation $v_μ$ being an inverse to $\Flux_{ \symcal{B}}$.
+    generates a Hamiltonian $T^n$-action. If, additionally its image $\Omega = \im \mu_V = \im τ_V \subset \mathbb{R}^n$ is simply connected, then there is a symplectomorphism $\psi \colon \mathbf{H}^{-1}(V) \rightarrow \mu_0^{-1}(\Omega)$ with $\mu_V = \mu_0 \circ \psi$. In other words, the symplectomorphism is $T^n$-equivariant with respect to the standard Hamiltonian $T^n$-action on $\mu_0^{-1}(\Omega)$.
+\end{proposition}
 
 \section{Proof of Main Theorem}
 
@@ -986,7 +999,7 @@ Combining the "embedded" upper and lower bounds of \cref{thm:lower_bound_embedde
   where $A$ is given as the shear matrix
   \[\mqty(kpq+1 & -kp²\\ kq² & 1-kpq) = \qty(x ↦ x+k\det\mqty(x_1 & p\\ x_2 & q)(p,q)).\]
 
-Like in \cref{sec:vd_action_angle}, let $b_0 = \hat{μ}(T_{kpq}) = (a,aq/p)$, $B$ a simply connected neighbourhood of $b_0$, $\symcal{B} = \hat{μ}^{-1}(B) ⊂ \symcal{L}_{T_{kpq}}$, $i \colon H¹(T_{kpq};ℝ) → ℝ^2$ the identification given by the action angle coordinates of $\hat{μ}$ and choose the versal deformation $v_{\hat{μ}}$ of $T_{kpq}(a)$ as in \cref{thm:moment_map_flux} such that for $x ∈ H¹(T_{kpq};ℝ)$
+Like in \cref{sec:vd_action_angle}, let $b_0 = \hat{μ}(T_{kpq}(a)) = (a,aq/p)$, $B$ a simply connected neighbourhood of $b_0$, $\symcal{B} = \hat{μ}^{-1}(B) ⊂ \symcal{L}_{T_{kpq}}$, $i \colon H¹(T_{kpq};ℝ) → ℝ^2$ the identification given by the action angle coordinates of $\hat{μ}$ and choose the versal deformation $v_{\hat{μ}}$ of $T_{kpq}(a)$ as in \cref{thm:moment_map_flux} such that for $x ∈ H¹(T_{kpq};ℝ)$
   \[
     \hat{μ}(v_{ \hat{μ}}(x)) = i(\Flux_{ \symcal{B}}(v_{ \hat{μ}}(x))) = b_0 + i(x) \; .
   \]
