@@ -187,6 +187,7 @@ Note that the image $B = \im \mathbf{H} \subset \mathbb{R}^2$ itself contains ve
 
 
 \begin{lemma}
+    \label{lem:atfsclass}
     Let $\pi \colon X \rightarrow \Delta$ and $\pi \colon X \rightarrow \Delta'$ be two almost moment maps such that their ATF-base diagrams $\Delta$ and $\Delta'$ are related by a nodal slide\footnote{Note that this implies that $\Delta = \Delta'$ as sets.} supported in a segment $s \subset \Delta$. Let $x \in \Delta \setminus s$. Then there is a symplectomorphism $\psi \colon X \rightarrow X'$ satisfying $\psi(\pi^{-1}(x)) = (\pi')^{-1}(x)$.
 \end{lemma}
 
@@ -219,6 +220,8 @@ Was ist die branch cut line?
 \section{Construction of the Local Model}
 \label{sec:construction}
 
+\subsection{Lagrangian torus fibration}
+
 In this section, we closely follow \cite[Sections 7.3,7.4]{evans2021atfs}. Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
 Let $P ∈ ℂ[z]$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
 Define the complex manifold $M_P$ by
@@ -237,7 +240,7 @@ We define the pair of Poisson commuting Hamiltonian functions $\symbf{H} \colon 
 Let $G_p$ be the group of $p$-th roots of unity acting on $M_P$ by
 \[g \cdot (z₁,z₂,z₃) = \qty(gz₁,g^{-1}z₂,g^q z₃), \quad g ∈ G_p \; .\]
 This is a free  action, so the quotient $B_{P,q} = M_P/G_p$ is a smooth manifold, that inherits a complex and a symplectic structure.
-The restriction of $\symbf{H}$ to $M_P$ is invariant under the $G_p$-action, so it descends to a map which we also denote, by abuse of notation, as $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$. Its components also Poisson-commute, meaning that $\symbf{H}$ defines an integrable system.
+The restriction of $\symbf{H}$ to $M_P$ is invariant under the $G_p$-action, so it descends to a map which we also denote, by abuse of notation, as $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$. Its components also Poisson-commute, meaning that $\symbf{H}$ defines a Lagrangian torus fibration, or, equivalently, a completely integrable system\footnote{For our purposes, both terms can be used interchangeably.}.
 Up to a symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independent of the choice of $P$. This follows either by standard Moser-type arguments, or from \cref{thm:nodal_slide} using the almost toric fibration on $B_{P,q}$ which will be constructed in \cref{sec:Bdpqatfs}. Unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
 
 \begin{remark}
@@ -326,13 +329,11 @@ Up to a symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independ
   \label{fig:conic_fibration}
 \end{figure}
 
-\subsection{Almost toric fibrations}
-\label{sec:Bdpqatfs}
 
 Before further inspecting the fibration $\symbf{H} \colon B_{dpq} → B$, let us return to $M_P$. Consider the holomorphic projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
 The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$. If $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$ (as seen in \cref{fig:conic_fibration} (b)), and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes (as seen in \cref{fig:conic_fibration} (a)).
 
-The map $\mathbf{H}$ defines an integrable system on $M_P$. Since it is proper, all of its regular fibres are Lagrangian tori. The fibres of $\mathbf{H}$ can be visualized with respect to $π_3$ as follows. Fix $b = (b_1,b_2) ∈ B$. For $b_1 ≠ 0$, the set $\symbf{H}_1^{-1}(b_1)$ projects to a circle in the $z_3$-plane. Interpreting $\symbf{H}_2$ as a height function on the fibres of $π_3$, fibres of $\mathbf{H}$ can be visualized as in \cref{fig:conic_fibration} (a),(b). More specifically, \cref{fig:conic_fibration} (b) depicts a regular fibre. There are two kinds of singular values of $\symbf{H}$. The first are values of the type $b_1 = 0$, whose fibres are circles consisting of elliptic-regular singularities. The second type of singular values are of the form $b = ({a_k}^{2/p},0)$, whose fibres contain $p$ singularities of focus-focus type. Topologically, a fibre of the second type of singular value is given by a Lagrangian torus pinched along $p$ circles, as depicted in \cref{fig:conic_fibration} (a). 
+The map $\mathbf{H}$ defines a Lagrangian torus fibration on $M_P$. Since it is proper, all of its regular fibres are Lagrangian tori. The fibres of $\mathbf{H}$ can be visualized with respect to $π_3$ as follows. Fix $b = (b_1,b_2) ∈ B$. For $b_1 ≠ 0$, the set $\symbf{H}_1^{-1}(b_1)$ projects to a circle in the $z_3$-plane. Interpreting $\symbf{H}_2$ as a height function on the fibres of $π_3$, fibres of $\mathbf{H}$ can be visualized as in \cref{fig:conic_fibration} (a),(b). More specifically, \cref{fig:conic_fibration} (b) depicts a regular fibre. There are two kinds of singular values of $\symbf{H}$. The first are values of the type $b_1 = 0$, whose fibres are circles consisting of elliptic-regular singularities. The second type of singular values are of the form $b = ({a_k}^{2/p},0)$, whose fibres contain $p$ singularities of focus-focus type. Topologically, a fibre of the second type of singular value is given by a Lagrangian torus pinched along $p$ circles, as depicted in \cref{fig:conic_fibration} (a). 
 
 Note that the intersection $\hat{S}_k = ⋃_{g ∈ G_p} π_3^{-1}([g a_k^{2/p},g a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian
 \footnote{They are contained in the fixed point set of an antisymplectic involution, see \cite[Remark 7.10]{evans2021atfs} for details.}
@@ -360,12 +361,37 @@ disks for $k=0$ and of $p$ Lagrangian spheres for $0<k<d$. The disks intersect o
   \label{fig:conic_fibration_fundamental_domain}
 \end{figure}
 
-In the quotient $B_{dpq} = M_P/G_p$, a conic fibre $π_3^{-1}(z_3)$ will be identified with the fibre $π_3^{-1}(g^q z_3)$ under the map $(z_1,z_2) ↦ (gz_1,g^{-1}z_2)$.
+In the quotient $B_{dpq} = M_P/G_p$, a fibre $π_3^{-1}(z_3)$ is identified with the fibre $π_3^{-1}(g^q z_3)$ under the map $(z_1,z_2) ↦ (gz_1,g^{-1}z_2)$.
 Consider the fundamental domain in \cref{fig:conic_fibration_fundamental_domain} of this action obtained by restricting $z_3 = re^{iθ} ∈ M_P$ to $θ \in [-\frac{π}{p},\frac{π}{p}]$, and $π_3^{-1}(0) ∋ (z_1,z_2)$ to $\frac{1}{2}\arg\qty(\frac{z_1}{z_2}) ∈ [-\frac{π}{p},\frac{π}{p}]$.
 Let $g = e^{2πi/p}$ a generator of $G_p$.
 The cylinders $π_3^{-1}(z_3)$ with $θ=-\frac{π}{p}$ and $r>0$ are identified with the cylinders $π_3^{-1}(g z_3)$ by the map $(z_1,z_2) ↦ (g^{q'} z_1,g^{-q'} z_2)$, where $q'$ is chosen s.t.\ $qq' = 1 \mod p$.
 
 The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$. For $k=0$, it is a certain non-smooth Lagrangian cell complex called Lagrangian pinwheel of type $(p,q)$, see \cite[Section 2.1]{EvaSmi18} or \cite[Section 5.3]{evans2021atfs}. Topologically, a pinwheel is obtained by dividing out the $G_p$-action generated by the map $z ↦ g^{q'} z$ on the boundary of the unit disk. For the precise definition of a Lagrangian $(p,q)$-pinwheel and a geometric interpretation of $q$, we refer to \cite[Section 2.1]{EvaSmi18}.
+
+
+
+\subsection{Almost toric fibrations}
+\label{sec:Bdpqatfs}
+
+\begin{definition}
+    \label{def:atfs}
+    A Lagrangian torus fibration $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$ is called \emph{almost toric} if its singularities are of elliptic-regular, elliptic-elliptic or focus-focus type.
+\end{definition}
+
+For a thorough discussion of singularities of Lagrangian torus fibrations, we refer to \cite{Zun96,Zun97,Zun03}. Almost toric fibrations were introduced in \cite{symington2002FourDF}, see also \cite{evans2021atfs}. \cref{def:atfs} is not the most general definition, but is sufficient for our purposes. 
+
+\begin{proposition}
+    The Lagrangian torus fibration $\mathbf{H} \colon B_{dpq} \rightarrow B = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ is almost toric.
+\end{proposition}
+
+\begin{proof}
+    ????
+\end{proof}
+
+Recall that, by Delzant's theorem \cite{Del88}, toric manifolds are classified by their moment polytopes. We refer to \cite{Can03,Gui94} for more details on toric geometry and Delzant's theorem. A crucial feature of almost toric manifolds is that they are classified by their so-called \emph{almost toric base diagram}. Before discussing any generalities, we compute the almost toric base diagram in the case of the almost toric fibration $\mathbf{H} \colon B_{dpq} \rightarrow B$. 
+
+
+
 
 
 \begin{lemma}
@@ -422,6 +448,7 @@ Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for poin
 Let $T(b) = μ^{-1}(\qty{b})$ for $b ∈ \im(\symbf{H})$ be a Lagrangian torus fibre. In the computation of the displacement energy of $T(b)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(b))$. See also \cite[Lemma 7.11]{evans2021atfs} for the homology of $B_{dpq}$.
 
 \begin{lemma}
+  \label{thm:homology}
   We have
   \begin{align*}
     H_0(B_{dpq}) &≅ ℤ & H_1(B_{dpq}) &≅ ℤ_p & H_2(B_{dpq}) &≅ ℤ^{d-1} \\
@@ -554,7 +581,7 @@ Chekanov's theorem only holds for a specific class of symplectic manifolds, name
 \end{remark}
 \begin{remark}
   \label{rem:J_compactly_perturbed}
-  If $J_0$ on $(M,ω)$ is geometrically bounded, $K ⊂ M$ compact, and $J$ an almost complex structure such that $J = J_0$ on $M ∖ K$, then $J$ is also geometrically bounded.\todo{Stimmt das? Referenz für die beiden claims?}
+  If $J_0 \in \mathcal{J}_\text{geo}(X,ω)$ is a geometrically bounded almost complex structure, $K ⊂ M$ compact, and $J$ is a tame almost complex structure such that $J = J_0$ on $M ∖ K$, then $J$ is also geometrically bounded.
 \end{remark}
 
 With these definitions in place we define the two quantities that play a crucial role in Chekanov's theorem.
@@ -562,7 +589,7 @@ With these definitions in place we define the two quantities that play a crucial
 \begin{definition}
     Suppose that $L$ is a closed Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}$ be a geometrically bounded almost complex structure. Define
     \[
-        \sigma_D(X,L,J)\vcentcolon=\text{inf}\left\{\langle[\omega],[u]\rangle\middle|u:(\mathbb{D}^2,\partial {\mathbb{D}^2})\to(X,L) \text{ non-constant $J$-holomorphic disc}   \right\}
+        \sigma_D(X,L,J)\vcentcolon=\text{inf}\{\langle[\omega],[u]\rangle\mid u\colon(\mathbb{D}^2,\partial {\mathbb{D}^2})\to(X,L) \text{ non-constant $J$-holomorphic disc}   \}
     \]
     and 
     \[
@@ -585,35 +612,63 @@ For every $x$ not contained in the nodal slide line $\ell \subset \Delta_{\pi_P}
     Let $X_{P} = M_P / G_p$ and $X_{P'} = M_{P'} / G_p$ be two models for the space $B_{dpq}$. Furthermore, let $x \in \Delta_{\pi_P} \setminus \ell$. Then there is a symplectomorphism $\psi \colon X_P \rightarrow X_{P'}$ with $\psi(T_P(x)) = T_{P'}(x)$. 
 \end{lemma}
 
-\begin{proposition}
-    \[
-        e(T(x)) \geqslant x_1. 
-    \]
-\end{proposition}
+
+
+Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-compatible almost complex structure $J$, denote by $g$ the associated Riemannian metric, and let $u\colon Σ → M$ be a J-holomorphic curve.
+
+Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
+
+\begin{lemma}[Monotonicity]
+  \label{thm:monotonicity}
+  There exists a $C>0$ s.t.\ for all $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$ and $u(∂Σ) ⊂ M ∖ B_r(x)$, where $B_r(x)$ is the open ball w.r.t.\ $g$, we have
+  \[∫_u ω ≥ C r²\]
+\end{lemma}
+
+As a simple corollary we get:
+
+\begin{corollary}
+  \label{thm:small_buffer}
+  Suppose $A = A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A)$ $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
+  Then
+  \[∫_u ω ≥ \frac{C d(A^+,A^-)^2}{4} \; .\]
+\end{corollary}
 
 \begin{proof}
+  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),A^+) = d((u ∘ γ)(t), A^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(A^+,A^-)/2}(x) ⊂ M ∖ A $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.
+\end{proof}
+
+\begin{proposition}
+  \label{thm:lower_bound}
+    \[
+        e(T(x)) ≥ x_1. 
+    \]
+\end{proposition}
+\begin{proof}
   Looking at the almost moment image $\im μ$, we want to pretend for a moment that there are no nodes.
-  This gives us the toric manifold $μ_0 \colon ℂ × T^* S^1 → \{x ∈ ℝ² \mid x_1>=0\}$, with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the standard almost complex structure $J_0$, which is compatible with $ω_0$.
+  This gives us the toric manifold $μ_0 \colon ℂ × T^* S^1 → \{x ∈ ℝ² \mid x_1 ≥ 0\}$, with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the standard almost complex structure $J_0$, which is compatible with $ω_0$.
   In particular $( ℂ × T^* S^1, ω_0, J_0)$ is geometrically bounded.\todo{Why?}
   The induced Riemannian metric defines the metric
-  \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\} \; .\]
+  \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\}\]
+  for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$.
 
   Let $u,v ∈ \im μ_0$. Then we have
-  \[ d(μ^{-1}(u),μ^{-1}(v))^2 ≥ (\sqrt{v_1}-\sqrt{u_1})^2 + (v_2-u_2)^2 ≕ d_{μ_0}(u,v)^2 \; ,\]
+  \[ d(μ_0^{-1}(u),μ_0^{-1}(v))^2 ≥ (\sqrt{v_1}-\sqrt{u_1})^2 + (v_2-u_2)^2 ≕ d_{μ_0}(u,v)^2 \; ,\]
   defining us a metric on $\im μ_0$.
 
   Let $C$ be the constant in \cref{thm:monotonicity} for $( ℂ × T^* S¹, ω_0, J_0)$.
-  Set $A_0^- = x, A_0 = B^{d_{μ_0}}_{2\sqrt{\frac{x_1}{C}}}(x)$ and $A_0^+ = ∂A_0$, where $B_r^{d_{μ_0}}(x)$ denotes the metric ball with radius $r$ around $x$ with respect to $d_{μ_0}$.
+  Set $A_0^- = x, A_0 = \qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ 2 \sqrt{\frac{x_1}{C}} }$ and $A_0^+ =\qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = 2 \sqrt{\frac{x_1}{C}}}$.
 
-  Let us now return to $B_{dpq}$. Using a nodal slide we may assume that $A_0$ contains no nodes.
+  Let us now return to $B_{dpq}$. Using a nodal slide (\cref{thm:nodal_slide}) we may assume that $A_0 ⊂ \im μ$ contains no nodes.
   By the Delzant's classification of toric symplectic manifolds, we may identify $μ^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by a equivariant symplectomorphism.
-  Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$ (exists by \cref{rem:Bdpq_geometrically_bounded}).
-  Let $K$ be a compact set with its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded almost complex structure $J$ (by \cref{rem:J_compactly_perturbed}) on $B_{dqp}$ such that $J=J_{B_{dqp}}$ on $B_{dqp} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
+  Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$ (which exists by \cref{rem:Bdpq_geometrically_bounded}).
+  Let $K$ be a compact set with its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded (by \cref{rem:J_compactly_perturbed}) almost complex structure $J$ on $B_{dqp}$ such that $J=J_{B_{dqp}}$ on $B_{dqp} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
 
-  Using \cref{thm:small_buffer} with $A^± = μ^{-1}(A_0^±)$, we get that any $J$-holomorphic disk $u\colon (D,∂D) → (B_{dpq}, T(x))$ (after restricting to the part contained in $μ^{-1}(A_0)$) must have 
-  \[∫_u ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
+  Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
+  
+  If $u(D)$ is not contained in $A$, $u(D) ∩ A^+$ is non-empty. Using \cref{thm:small_buffer} with $A^±$ and $u|_{u^{-1}(A)}$, we get that $u$ must have 
+  \[∫_u ω ≥ ∫_{u|_{u^{-1}(A)}} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
 
-  Noting that there cannot be any $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians), and then using \cref{thm:chekanov} we conclude.
+  Noting that there cannot be any $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians, see \cref{thm:homology}), and then using \cref{thm:chekanov} we conclude.
 \end{proof}
 
 Gescheiterte Boxen:
@@ -690,34 +745,13 @@ Using a nodal slide on the moment image $μ$ as in \cref{thm:nodal_slide} we may
 For a torus $\symbf{H}^{-1}(b)$ with $b_2 ≠ 0$ we may therefore always change to a different polynomial $P_2$ where $b_1 < \symbf{H}_1(a_i)$, and choose the pullback of the natural almost complex structure of $B_{P_2,q}$. So we obtain:
 
 \begin{lemma}
-  \label{thm:lower_bound}
+  \label{thm:lower_bound_old}
   If $b_2 ≠ 0$ then $e(B_{dpq},T) ≥ σ_D(X,T,J) ≥ μ₁(T)$.
 \end{lemma}
 
 \subsection{Embedded lower bound}
 
-Let $(M,ω)$ be a geometrically bounded connected symplectic manifold with $ω$-tame almost complex structure $J$, denote by $g$ the associated Riemannian metric, and let $u\colon Σ → M$ be a J-holomorphic curve.
 
-Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
-
-\begin{lemma}[Monotonicity]
-  \label{thm:monotonicity}
-  There exists a $C>0$ s.t.\ for all $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$. If $u(∂Σ) ⊂ M ∖ B$ then we have
-  \[∫_u ω ≥ C r²\]
-\end{lemma}
-
-As a simple corollary we get:
-
-\begin{corollary}
-  \label{thm:small_buffer}
-  Suppose $A = A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A)$ J-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
-  Then
-  \[∫_u ω ≥ \frac{C d(A^+,A^-)^2}{4} \; .\]
-\end{corollary}
-
-\begin{proof}
-  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),A^+) = d((u ∘ γ)(t), A^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(A^+,A^-)/2}(x) ⊂ M ∖ A $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.
-\end{proof}
 
 \begin{definition}
 A \textbf{milnor fibre}
