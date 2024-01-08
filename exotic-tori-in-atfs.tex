@@ -168,6 +168,77 @@
 
 \section{Introduction}
 
+\section{Local model}
+
+\subsection{Some almost toric geometry}
+
+We use almost toric geometry to define the local model spaces. In the honest toric setting, every Delzant polytope defines a toric symplectic manifold which is unique up to equivariant symplectomorphisms. A similar result holds in almost toric geometry, where the role of the toric moment polytope is played by the so-called \emph{almost toric base diagram}. Every almost toric base diagram defines a unique symplectic manifold, see \cite[Theorems 8.5]{evans2021atfs}. 
+
+\begin{remark}
+    \label{rk:atfbasediagram}
+    The following lengthy remark is a rough description of the geometric significance of almost toric base diagrams. Except for \cref{rk:atffibres}, it will not be used anywhere else in the paper. Every almost toric fibration has an underlying completely integrable system whose singularities are of toric or of focus-focus type. If there is at least one focus-focus singularity, then the system does not admit global action coordinates in the sense of \cite{Dui80} (in contrast to the honest toric case) because of topological monodromy of the torus bundle over the regular locus. By removing certain curves from the base, one make it simply connected and obtain a toric moment map $\pi_0 \colon X_0 \rightarrow \Delta_0$ defined on an open dense subset $X_0$. The closure of $\Delta_0$ yields the underlying set $\Delta \subset \mathbb{R}^2$ of the ATF-base diagram. Its decorations are given by nodes (marking the position of focus-focus singularities) and dashed lines (corresponding to where curves were removed to compute action coordinates). One can always choose the set of curves such that $\Delta$ is a polytope and from every node, there emanates one straight ray. This ray (whose direction encodes information about the Eigenvector of the topological monodromy around the corresponding node) is called the \emph{Eigenray} of the node. In that case, the map $\pi_0$ extends to a continuous map $\pi \colon X \rightarrow \Delta$. We call $\pi$ the \emph{almost toric moment map}, as it is an analogue of the moment map in the toric case. In the context of this paper, we will only encounter almost toric fibrations having an almost toric moment map. 
+\end{remark}
+
+Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. Let $\Delta_{dpq}$ be the almost toric base diagram obtained by decorating the right half-plane
+$$\Delta_{dpq} = \{ (x,y) \in \mathbb{R}^2 \, \vert \, x \geqslant 0 \}$$
+with $d$ distinct nodes contained in the ray 
+$$R = \{\alpha (p,q) \in \Delta_{dpq} \, \vert \, \alpha > 0 \}$$
+and having a common Eigenvector $(p,q)$, see \cref{fig:Bdpq_moment_image}(a). 
+
+\begin{definition}
+    \label{def:bdpq}
+    Let $B_{dpq}$ be the symplectic manifold having $\Delta_{dpq}$ as almost toric base diagram. 
+\end{definition}
+
+\begin{remark}
+    The symplectic manifold $(B_{dpq}, \omega)$ is exact. Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient sigularities. For more details on this, see ...
+\end{remark}
+
+Note that $\Delta_{dpq}$ depends on $d$ parameters $x_1,\ldots,x_d > 0$ which correspond to the $x$-coordinate of the position of the nodes. The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $x_i$ in the notation. Indeed, any configuration of $d$ nodes on a common Eigenline is related to any other such configuration by a so-called \emph{nodal slide} and a nodal slide of the ATF-base diagram induces a symplectomorphism of the corresponding symplectic manifolds, see \cite[Theorems 8.10]{evans2021atfs}. This means that the space $B_{dpq}$ is well-defined up to symplectomorphisms.\\
+
+Let $\Delta$ be an ATF-base diagram of a symplectic manifold $X$. Then every $x \in \Delta$ defines a unique subset $T(x) \subset X$, which we call the \emph{ATF-fibre} over $x$. If $x \in \partial \Delta$, then $T(x)$ is a point or an isotropic circle. If $x$ is a node, then $T(x)$ is a Lagrangian Whitney sphere, i.e.\ a Lagrangian immersion of a $2$-sphere with one transverse self-intersection. If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagrangian torus and we call such a torus a \emph{regular ATF-fibre}.
+
+\begin{remark}
+    \label{rk:atffibres}
+    The ATF-fibre $T(x)$ can be defined as the fibre $T(x) = \pi^{-1}(x)$ of the almost toric moment map $\pi$, defined in \cref{rk:atfbasediagram}. Note however that the definition of $\pi$ is not straightforward. 
+\end{remark}
+
+\begin{remark}
+    \label{rk:pinchedtorus}
+    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres (i.e.\ Lagrangian tori) by viewing it as a Lagrangian torus which is \emph{pinched} along a curve on the torus. The homology class of this curve determines the topological monodromy of the torus bundle in a neighbourhood of the node and thus the Eigenvector of the node. 
+\end{remark}
+
+Almost toric fibres are left unaffected by nodal slides, provided they are not contained in the segment on which the nodal slide is supported\footnote{By this we mean the line segment obtained as the union of points across which the node moves during the nodal slide.}.
+
+\begin{lemma}
+    \label{lem:nodalslides}
+    Let $\Delta, \Delta'$ be two almost toric base diagrams which are related by nodal slides\footnote{This impies that the underlying sets $\Delta, \Delta' \subset \mathbb{R}^2$ coincide.} which are supported in the set $\Sigma$. Let $X,X'$ be symplectic manifolds corresponding to $\Delta,\Delta'$ and dentote by $T(x) \subset X$ and $T'(x) \subset X$ their respective ATF fibres. Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.
+\end{lemma}
+
+\begin{proof}
+    This follows from the proof of \cite[Theorem 8.10]{evans2021atfs}, by taking the set $K \subset \Delta$ therein small enough so that $x \notin K$.
+\end{proof}
+
+\begin{remark}
+    This fails for points which are contained in a segment on which a nodal slide is supported, even if both points correspond to regular almost toric fibres. In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other. This was pioneered by Vianna \cite{Via16,Via17}. This occurs for example in $\mathbb{R}^4 = \mathbb{C}^2$. Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus. It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$. To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure. By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
+\end{remark}
+
+Returning to the special case of $X = B_{dpq}$, let $R = \{\lambda(p,q) \vert \lambda > 0\} \subset \Delta_{dpq}$ be the half-line containing the Eigenray of the nodes in the base diagram $\Delta_{dpq}$. 
+
+\begin{definition}
+    For every $x \in \Delta_{dpq} \setminus R$, we denote the almost toric fibre over $x$ by $T_{dpq}(x) \subset B_{dpq}$. For every $x \in R$ and $k \in \{0,\ldots,d\}$, we denote by $T^k_{dpq}(x) \subset B_{dpq}$ the almost toric fibre over $x$ in an almost toric base diagram in which there are $k$ of the $d$ nodes to the left of $x$. 
+\end{definition}
+
+By \cref{lem:nodalslides}, these tori are well-defined, i.e.\ independent of the position of the nodes in $\Delta_{dpq}$. 
+
+\subsection{Symplectic embeddings}
+
+
+
+
+
+
+
 \section{Some almost toric geometry}
 
 Let $(X,\omega)$ be a four-dimensional symplectic manifold. A \emph{Lagrangian torus fibration on $X$} is a proper map $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$ whose components are functionally independent on an open and dense subset of $X$ and satisfy $\{\mathbf{H}_1, \mathbf{H}_2\} = 0$. For a more general definition, see \cite[Definition 2.2]{evans2021atfs}. In the context of the present paper, the above definition is sufficient. 
@@ -217,10 +288,15 @@ Was ist die branch cut line?
 \end{lemma}
 
 
-\section{Construction of the Local Model}
+\section{Local model}
 \label{sec:construction}
 
+Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. We define $B_{dpq}$ as the symplectic manifold having as almost toric base diagram the right half-plane with $d$ nodes lying on a line in direction $(p,q)$. See \cref{fig:Bdpq_moment_image}. By \cite[Theorems 8.5, 8.10]{evans2021atfs} this defines a unique symplectic manifold, independently of the position of the nodes. 
+
+We will 
+
 \subsection{Lagrangian torus fibration}
+\label{sec:LTF}
 
 In this section, we closely follow \cite[Sections 7.3,7.4]{evans2021atfs}. Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
 Let $P ∈ ℂ[z]$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
@@ -373,29 +449,35 @@ The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$. For $k=0$,
 \subsection{Almost toric fibrations}
 \label{sec:Bdpqatfs}
 
+Let us recall some generalities about Lagrangian torus fibrations and toric geometry before moving to the almost toric case. For us, a Lagrangian torus fibration on a symplectic manifold $(X^{2n},\omega)$ is a proper map $\mathbf{H} \colon X \rightarrow \mathbb{R}^n$, which is regular on an open dense subset of $X$ and such that $\{\mathbf{H}_i, \mathbf{H}_j\} = 0$ for all $i,j$. Near any regular fibre, there is a change of coordinates in the base $\mathbb{R}^n$ such that the resulting map generates a Hamiltonian $T^n$-action. In the language of completely integrable systems, these are called \emph{action coordinates}. Their local existence is a consequence of the classical Arnold--Liouville Theorem, see \cref{sec:vd_AL} for details and an explicit construction of these coordinates. For general Lagrangian torus fibrations, these coordinates do not extend globally to the locus of regular values $B_{\text{reg}} \subset \mathbb{R}^n$. See for example the foundational \cite{Dui80} for a topological study of this extension problem. However, let $\mu \colon X \rightarrow \Delta \subset \mathbb{R}^n$ be the moment map of a toric action. Then $B_{\text{reg}} = \operatorname{Int} \Delta$ and the components $\mu_i$ of the moment map are global action coordinates. Furthermore, all singularities (occuring over the boundary $\partial \Delta$) of $\mu$ are of elliptic type. 
+
+The almost toric case is a generalization in dimension four of the toric case. 
+
 \begin{definition}
     \label{def:atfs}
-    A Lagrangian torus fibration $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$ is called \emph{almost toric} if its singularities are of elliptic-regular, elliptic-elliptic or focus-focus type.
+    A Lagrangian torus fibration $\mathbf{H} \colon X^4 \rightarrow \mathbb{R}^2$ is called \emph{almost toric} if its singularities are of elliptic-regular, elliptic-elliptic or focus-focus type.
 \end{definition}
 
 For a thorough discussion of singularities of Lagrangian torus fibrations, we refer to \cite{Zun96,Zun97,Zun03}. Almost toric fibrations were introduced in \cite{symington2002FourDF}, see also \cite{evans2021atfs}. \cref{def:atfs} is not the most general definition, but is sufficient for our purposes. 
 
 \begin{proposition}
-    The Lagrangian torus fibration $\mathbf{H} \colon B_{dpq} \rightarrow B = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ is almost toric.
+    The Lagrangian torus fibration $\mathbf{H} \colon B_{dpq} \rightarrow B = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ defined in \cref{sec:LTF} is almost toric.
 \end{proposition}
 
 \begin{proof}
     ????
 \end{proof}
 
-Recall that, by Delzant's theorem \cite{Del88}, toric manifolds are classified by their moment polytopes. We refer to \cite{Can03,Gui94} for more details on toric geometry and Delzant's theorem. A crucial feature of almost toric manifolds is that they are classified by their so-called \emph{almost toric base diagram}. Before discussing any generalities, we compute the almost toric base diagram in the case of the almost toric fibration $\mathbf{H} \colon B_{dpq} \rightarrow B$. 
+Recall that, by Delzant's theorem \cite{Del88}, toric manifolds are classified by their moment polytopes. We refer to \cite{Can03,Gui94} for more details on toric geometry and Delzant's theorem. A crucial feature of almost toric manifolds is that they are classified by their so-called \emph{almost toric base diagram}, which is an analogue of the moment polytope in the toric case. See \cite[Theorem 8.5]{evans2021atfs}. Roughly speaking, the almost toric base diagram of an ATF $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$ is obtained by computing almost global action coordinates, i.e.\ action coordinates on an open dense subset of $X$ and adding certain decorations containing information about its focus-focus singularities. 
 
-
-
-
+Let $\symbf{H} \colon B_{dpq} \rightarrow B = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ be the Lagrangian torus fibration described in \cref{sec:LTF}. Then $B_{\text{reg}} = \mathbb{R}_{> 0} \times \mathbb{R} \setminus \{a_1^{2/p}, \ldots , a_d^{2/p} \}$. Let $R \subset [a_1^{2/p},∞) × \{0\} \subset B$. This ray contains the image of all focus-focus singularities, see \cref{fig:Bdpq_moment_image}(a). We can compute action coordinates on the set $B_{\text{reg}} \setminus R$. 
 
 \begin{lemma}
   \label{thm:bdpq_moment_map}
+    There is a smooth map $τ: B_{\text{reg}} ∖ R → ℝ²$ such that $τ ∘ \symbf{H} \colon \symbf{H}^{-1}(B_{\text{reg}} ∖ R) → ℝ²$ generates a Hamiltonian $T^2$-action. Furthermore, $τ$ continuously extends to $B$ such that $\im (\tau) = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ and $\tau(R)$ is a ray in the direction $(p,q)$. 
+
+
+  
   Let $ℓ = [a_1^{2/p},∞) × \{0\}$.
   Then there is a smooth map $τ: B ∖ ℓ → ℝ²$, such that $μ = τ ∘ \symbf{H} \colon B_{dpq} → ℝ²$ gives action coordinates on $B_{dpq} ∖ \symbf{H}^{-1}(ℓ)$.
   Furthermore, $τ$ continuously extends to $B$, and we may choose $\im(τ)=\{(u,v) \mid u>0\} = Δ$ with $τ(ℓ)$ being a ray in the direction $(p,q)$.
@@ -411,9 +493,29 @@ We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elli
 As we have the visible Lagrangian pinwheel $S_0 = L_{p,q}$ intersecting $G$, by \cite[Section 5.3]{evans2021atfs}, we must have $(n,m) = (q',p)$.
 After the affine linear transformation $\mqty(p & -q'\\q & p')$, with $p' = \frac{1-qq'}{p}$, the image of $τ$ is the right half plane, with the nodes sitting on a ray in direction $(p,q)$ as in \cref{fig:Bdpq_moment_image}.
 
-Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$. \todo{why?}
+
+
+
+
+
+Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$. \todo{why?} 
 \end{proof}
 
+\begin{remark}
+    The toric moment map
+\end{remark}
+
+
+
+
+
+
+
+
+\begin{remark}
+    \label{rem:Bdpq_lens_space}
+    \todo{Erwähnen, dass $B_dpq$ symplectomorph zu einem Teil der Sympelctization eines Lensspaces.}
+\end{remark}
 
 \begin{figure}
   \centering
@@ -558,26 +660,26 @@ This defines a semi-norm on $\mathcal{H}(X)$ and leads to the definition of the 
 
 \begin{definition}
     For a subset $A \subseteq X$ in a symplectic manifold $(X,\omega)$ define the \textbf{displacement energy} of $A$ to be 
-    \[e(L)\vcentcolon=\inf\left\{\lVert H\rVert \middle| H\in \mathcal{H}(X) \text{ such that } \phi^H_1(A) \cap A = \emptyset\right\},\]
+    \[e(A)\vcentcolon=\inf\left\{\lVert H\rVert \mid H\in \mathcal{H}(X) \text{ such that } \phi^H_1(A) \cap A = \emptyset\right\},\]
     where $\phi^H_1(A)$ denotes the Hamiltonian diffeomorphism generated by $H$ and the infimum over the empty set is defined to be infinity.
 \end{definition}
 
 Chekanov's theorem only holds for a specific class of symplectic manifolds, namely geometrically bounded ones.
 
 \begin{definition}
-    Let $(X,\omega)$ be a symplectic manifold. We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology. We do not use \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ such that 
+    Let $(X,\omega)$ be a symplectic manifold. We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology. We do not use the word \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ on $X$ such that 
     \begin{enumerate}
         \item $g$ is complete,
         \item there are constants $c_1,c_2 > 0$ such that $\omega(JV,V) \geqslant c_1 \Vert V \Vert_g^2$ and $\vert \omega(V,W) \vert \leqslant c_2 \Vert V \Vert_g \Vert W \Vert_g$ for all tangent vectors $V,W$, and
         \item the sectional curvature of $g$ is bounded from above and the injectivity radius is bounded from below.
     \end{enumerate}
     Denote the space of such almost complex structures by $\mathcal{J}_{\text{geo}}(X,\omega)$.
-    The symplectic manifold $(X,\omega)$ is called \textbf{geometrically bounded} if there is a geometrically bounded $J$. 
+    The symplectic manifold $(X,\omega)$ is called \textbf{geometrically bounded} if there exists a geometrically bounded $J$. 
 \end{definition}
 
 \begin{remark}
   \label{rem:Bdpq_geometrically_bounded}
-    Note, that this definition immediately implies that closed symplectic manifolds are geometrically bounded and the same holds for a large class of symplectic manifolds that look standard at infinity, i.e. cotangent bundles of compact manifolds and symplectizations. For more details on this notion see also \cite[Chapter X, Definition 2.2.1]{AudLaf94}. In particular $B_{dpq}$ is geometrically bounded.
+    Closed symplectic manifolds are geometrically bounded, and the same holds for a large class of symplectic manifolds that look standard at infinity, i.e. cotangent bundles of compact manifolds and symplectizations. For more details on this notion see also \cite[Chapter X, Definition 2.2.1]{AudLaf94}. In particular $B_{dpq}$ is geometrically bounded by \cref{rem:Bdpq_lens_space}.
 \end{remark}
 \begin{remark}
   \label{rem:J_compactly_perturbed}
@@ -587,40 +689,32 @@ Chekanov's theorem only holds for a specific class of symplectic manifolds, name
 With these definitions in place we define the two quantities that play a crucial role in Chekanov's theorem.
 
 \begin{definition}
-    Suppose that $L$ is a closed Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}$ be a geometrically bounded almost complex structure. Define
+    Suppose that $L$ is a compact Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}$ be a geometrically bounded almost complex structure. Define
     \[
-        \sigma_D(X,L,J)\vcentcolon=\text{inf}\{\langle[\omega],[u]\rangle\mid u\colon(\mathbb{D}^2,\partial {\mathbb{D}^2})\to(X,L) \text{ non-constant $J$-holomorphic disc}   \}
+        \sigma_D(X,L,J)\vcentcolon=\text{inf}\{\langle[\omega],[u]\rangle \mid u\colon(\mathbb{D}^2,\partial {\mathbb{D}^2})\to(X,L) \text{ non-constant $J$-holomorphic disc}   \}
     \]
     and 
     \[
-        \sigma_S(X,J)\vcentcolon=\text{inf}\left\{\langle[\omega],[u]\rangle \middle| u:S^2 \to X \text{ non-constant $J$-holomorphic disc}   \right\},
+        \sigma_S(X,J)\vcentcolon=\text{inf}\left\{\langle[\omega],[u]\rangle \mid u:S^2 \to X \text{ non-constant $J$-holomorphic sphere}   \right\},
     \]
     where $\langle\cdot{,}\cdot\rangle$ denotes the evaluation map, given my integration. These two quantities may be equal to infinity, if the infimum is taken over an empty set.
 \end{definition}
 
 \begin{theorem}[Chekanov 1998 \cite{chekanov1998}]
   \label{thm:chekanov}
-  Let $L$ be a closed Lagrangian submanifold of a geometrically bounded symplectic manifold $(X,ω)$. For every geometrically bounded almost complex structure $J$, the displacement energy satisfies
+  Let $L$ be a compact Lagrangian submanifold of a geometrically bounded symplectic manifold $(X,ω)$. For every geometrically bounded almost complex structure $J$, the displacement energy satisfies
   \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}.\]
 \end{theorem}
-
-For a model $X_{P} = M_P / G_p$, we obtain an integrable system $\mathbf{H}_P \colon X_P \rightarrow \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ from which we construct an almost toric projection $\pi_P \colon X_P \rightarrow \Delta_{\pi_P}$ almost toric base $\Delta_{\pi_P} = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$.
-For $x \in \Delta_{\pi_P}$, denote the corresponding fibre by $T(x) = \mu^{-1}_P(x)$.
-For every $x$ not contained in the nodal slide line $\ell \subset \Delta_{\pi_P}$ and $x_1>0$, the fibre $T_P(x)$ is a Lagrangian torus.
-
-\begin{lemma}
-    Let $X_{P} = M_P / G_p$ and $X_{P'} = M_{P'} / G_p$ be two models for the space $B_{dpq}$. Furthermore, let $x \in \Delta_{\pi_P} \setminus \ell$. Then there is a symplectomorphism $\psi \colon X_P \rightarrow X_{P'}$ with $\psi(T_P(x)) = T_{P'}(x)$. 
-\end{lemma}
 
 
 
 Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-compatible almost complex structure $J$, denote by $g$ the associated Riemannian metric, and let $u\colon Σ → M$ be a J-holomorphic curve.
 
-Then monotonicity (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
+Then Gromov's Monotonicity Lemma (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
 
 \begin{lemma}[Monotonicity]
   \label{thm:monotonicity}
-  There exists a $C>0$ s.t.\ for all $x ∈ \im(u)$ and $B = B_r(x)$ the open ball w.r.t.\ $g$ and $u(∂Σ) ⊂ M ∖ B_r(x)$, where $B_r(x)$ is the open ball w.r.t.\ $g$, we have
+  There exists a $C>0$ (depending only on $(M,ω,J)$) s.t.\ for all $x ∈ \im(u)$, $B_r(x)$ an open ball w.r.t.\ $g$ with $r > 0$ and $u(∂Σ) ⊂ M ∖ B_r(x)$, we have
   \[∫_u ω ≥ C r²\]
 \end{lemma}
 
@@ -628,13 +722,13 @@ As a simple corollary we get:
 
 \begin{corollary}
   \label{thm:small_buffer}
-  Suppose $A = A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A)$ $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
+  Suppose $A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A^+ ⊔ A^-)$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
   Then
   \[∫_u ω ≥ \frac{C d(A^+,A^-)^2}{4} \; .\]
 \end{corollary}
 
 \begin{proof}
-  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),A^+) = d((u ∘ γ)(t), A^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B = B_{d(A^+,A^-)/2}(x) ⊂ M ∖ A $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.
+  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),A^+) = d((u ∘ γ)(t), A^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B_{d(A^+,A^-)/2}(x) ⊂ M ∖ ( A^+ ⊔ A^-) $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.
 \end{proof}
 
 \begin{proposition}
@@ -645,8 +739,14 @@ As a simple corollary we get:
 \end{proposition}
 \begin{proof}
   Looking at the almost moment image $\im μ$, we want to pretend for a moment that there are no nodes.
-  This gives us the toric manifold $μ_0 \colon ℂ × T^* S^1 → \{x ∈ ℝ² \mid x_1 ≥ 0\}$, with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the standard almost complex structure $J_0$, which is compatible with $ω_0$.
-  In particular $( ℂ × T^* S^1, ω_0, J_0)$ is geometrically bounded.\todo{Why?}
+  This gives us the toric manifold
+  \begin{align*}
+    μ_0 \colon ℂ × T^* S^1 &→ \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
+    (z,q,θ) &↦ (\abs{z}^2, q) \; ,
+  \end{align*}
+  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the standard almost complex structure $J_0$, which is compatible with $ω_0$.
+  In particular $( ℂ × T^* S^1, ω_0, J_0)$ is geometrically bounded.\footnote{We may identify $ℂ × T^* S^1$ with $ℂ × (ℂ / ℤ)$, where $ℤ$ acts by the isometries of $ℤ$-translations along the real axis. Thus $(ℂ × T^* S^1, ω_0, J_0)$ is geometrically bounded as a quotient of $( ℂ^2, ω_ℂ ⊕ ω_ℂ, i ⊕ i)$ by isometries.}
+  
   The induced Riemannian metric defines the metric
   \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\}\]
   for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$.
@@ -659,16 +759,16 @@ As a simple corollary we get:
   Set $A_0^- = x, A_0 = \qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ 2 \sqrt{\frac{x_1}{C}} }$ and $A_0^+ =\qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = 2 \sqrt{\frac{x_1}{C}}}$.
 
   Let us now return to $B_{dpq}$. Using a nodal slide (\cref{thm:nodal_slide}) we may assume that $A_0 ⊂ \im μ$ contains no nodes.
-  By the Delzant's classification of toric symplectic manifolds, we may identify $μ^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by a equivariant symplectomorphism.
+  Using Delzant's classification of toric symplectic manifolds, we may identify $μ^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by an equivariant symplectomorphism.
   Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$ (which exists by \cref{rem:Bdpq_geometrically_bounded}).
-  Let $K$ be a compact set with its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded (by \cref{rem:J_compactly_perturbed}) almost complex structure $J$ on $B_{dqp}$ such that $J=J_{B_{dqp}}$ on $B_{dqp} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
+  Let $K$ be a compact set, its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded (by \cref{rem:J_compactly_perturbed}) almost complex structure $J$ on $B_{dpq}$ such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
 
   Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
   
-  If $u(D)$ is not contained in $A$, $u(D) ∩ A^+$ is non-empty. Using \cref{thm:small_buffer} with $A^±$ and $u|_{u^{-1}(A)}$, we get that $u$ must have 
-  \[∫_u ω ≥ ∫_{u|_{u^{-1}(A)}} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
+  If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty. Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, we get
+  \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
 
-  Noting that there cannot be any $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians, see \cref{thm:homology}), and then using \cref{thm:chekanov} we conclude.
+  Noting that there cannot be any non-constant $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians, see \cref{thm:homology}), and then using \cref{thm:chekanov} we conclude.
 \end{proof}
 
 Gescheiterte Boxen:
