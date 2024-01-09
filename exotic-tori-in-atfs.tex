@@ -195,7 +195,10 @@ We use almost toric geometry to define the local model spaces. In the honest tor
 Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. Let $\Delta_{dpq}$ be the almost toric base diagram obtained by decorating the right half-plane
 $$\Delta_{dpq} = \{ (x,y) \in \mathbb{R}^2 \, \vert \, x \geqslant 0 \}$$
 with $d$ distinct nodes contained in the ray 
-$$R = \{\alpha (p,q) \in \Delta_{dpq} \, \vert \, \alpha > 0 \}$$
+\begin{equation}
+  \label{eqn:eigenline}
+  R = \{\alpha (p,q) \in \Delta_{dpq} \, \vert \, \alpha > 0 \}
+\end{equation}
 and having a common eigenvector $(p,q)$, see \cref{fig:Bdpq_moment_image}(a). 
 
 \begin{definition}
@@ -224,7 +227,7 @@ Let $\Delta$ be an ATF-base diagram of a symplectic manifold $X$. Then every $x 
 Almost toric fibres are left unaffected by nodal slides, provided they are not contained in the segment on which the nodal slide is supported\footnote{By this we mean the line segment obtained as the union of points across which the node moves during the nodal slide.}.
 
 \begin{lemma}
-    \label{lem:nodalslides}
+    \label{thm:nodal_slide}
     Let $\Delta, \Delta'$ be two almost toric base diagrams which are related by nodal slides\footnote{This impies that the underlying sets $\Delta, \Delta' \subset \mathbb{R}^2$ coincide.} which are supported in the set $\Sigma$. Let $X,X'$ be symplectic manifolds corresponding to $\Delta,\Delta'$ and dentote by $T(x) \subset X$ and $T'(x) \subset X$ their respective ATF fibres. Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.\todo{definition nodal slide, und bild dazu.}
 \end{lemma}
 
@@ -242,325 +245,15 @@ Returning to the special case of $X = B_{dpq}$, let $R = \{\lambda(p,q) \vert \l
     For every $x \in \Delta_{dpq} \setminus R$, we denote the almost toric fibre over $x$ by $T_{dpq}(x) \subset B_{dpq}$. For every $x \in R$ and $k \in \{0,\ldots,d\}$, we denote by $T^k_{dpq}(x) \subset B_{dpq}$ the almost toric fibre over $x$ in an almost toric base diagram in which there are $k$ of the $d$ nodes to the left of $x$.\todo{image}
 \end{definition}
 
-By \cref{lem:nodalslides}, these tori are well-defined, i.e.\ independent of the position of the nodes in $\Delta_{dpq}$. 
+By \cref{thm:nodal_slide}, these tori are well-defined, i.e.\ independent of the position of the nodes in $\Delta_{dpq}$. 
 
 \subsection{Symplectic embeddings}
-
-
-
-
-
-
-
-\section{Some almost toric geometry}
-
-Let $(X,\omega)$ be a four-dimensional symplectic manifold. A \emph{Lagrangian torus fibration on $X$} is a proper map $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$ whose components are functionally independent on an open and dense subset of $X$ and satisfy $\{\mathbf{H}_1, \mathbf{H}_2\} = 0$. For a more general definition, see \cite[Definition 2.2]{evans2021atfs}. In the context of the present paper, the above definition is sufficient. 
-
-\begin{definition}
-    \label{def:atfs}
-    An Lagrangian torus fibration $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$ is called \emph{almost toric} if its singularities are of elliptic-regular, elliptic-elliptic or focus-focus type.
-\end{definition}
-
-For a thorough discussion of singularities of Lagrangian torus fibrations, we refer to \cite{Zun96,Zun97,Zun03}. Almost toric fibrations were introduced in \cite{symington2002FourDF}, see also \cite{evans2021atfs}. Again \cref{def:atfs} is not the most general definition, but is sufficient for our purposes.
-
-It is very useful to compare almost toric fibrations to toric ones. A toric moment map $\mu \colon X \rightarrow \mathbb{R}^2$ induces a Lagrangian torus fibration of $X$ over the moment polytope $\Delta \subset \mathbb{R}^2$ which has singularities of elliptic-regular type over the edges of $\Delta$ and of elliptic-elliptic type over the vertices of $\Delta$. As proved by Delzant \cite{Del88}, toric manifolds are classified by their moment polytopes and thus moment polytopes play a crucial role in the study of toric manifolds. One of the main ideas in almost toric geometry is to associate an analogue of the toric moment polytope to a given almost toric fibration $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$. This analogue is called almost toric base diagram and is roughly obtained as follows. 
-
-Note that the image $B = \im \mathbf{H} \subset \mathbb{R}^2$ itself contains very little geometric information. Indeed, it can be post-composed with any diffeomorphism of $\mathbb{R}^2$ without changing the structure of the fibration. However, there is a preferred set of coordinates on its base $\mathbb{R}^2$, namely its so-called action coordinates. In the neighbourhood of a regular fibre of $\mathbf{H}$, these are induced by the Arnold--Liouville Theorem. In the toric case, action coordinates extend globally and are given by the moment map. For general Lagrangian torus fibrations however, there are obstructions to extending action coordinates globally, see \cite{Dui80}. One obstruction is the fundamental group of the locus $B_{\text{reg}} \subset B$. In the almost toric case, the image of every focus-focus singularity lies in the interior of $B$ and hence the fundamental group of $B_{\text{reg}}$ is freely generated by the set of \emph{nodes}, i.e.\ the image of focus-focus singularities under $\symbf{H}$. In order to construct an analogue of the moment map, we remove a set of curves $C_i$ (one for each node) such that $B_{\text{reg}}$...
-
-
-
-
-\begin{lemma}
-    \label{lem:atfsclass}
-    Let $\pi \colon X \rightarrow \Delta$ and $\pi \colon X \rightarrow \Delta'$ be two almost moment maps such that their ATF-base diagrams $\Delta$ and $\Delta'$ are related by a nodal slide\footnote{Note that this implies that $\Delta = \Delta'$ as sets.} supported in a segment $s \subset \Delta$. Let $x \in \Delta \setminus s$. Then there is a symplectomorphism $\psi \colon X \rightarrow X'$ satisfying $\psi(\pi^{-1}(x)) = (\pi')^{-1}(x)$.
-\end{lemma}
-
-\begin{proof}
-    This follows from the proof of \cite[Theorem 8.10]{evans2021atfs}, by taking the set $K \subset \Delta$ therein small enough so that $x \notin K$.
-\end{proof}
-
-
-
-
-
-Almost toric geometry is a generalization in dimension four of toric geometry. It was introduced by Symington \cite{symington2002FourDF}. We refer to the book \cite{evans2021atfs} for a detailed introduction. 
-
-Toric geometry lies at the intersection of Hamiltonian group actions and Lagrangian torus fibrations (or, equivalently, completely integrable systems) in the sense that a toric moment map on $X^4$ induces a Lagrangian torus fibration of $X$ over a so-called Delzant polytope $\Delta \subset \mathbb{R}^2$. Its singularities are all of elliptic-regular or elliptic-elliptic type. In almost toric fibrations, one allows for one more type of singularity, namely focus-focus singularities, ...
-
-
-
-
-
-
-
-Was ist die branch cut line?
-
-\begin{lemma}
-  \label{thm:nodal_slide}
-  Nodal slides geben symplektomorphismus supported auf umgebung von geslideten nodes.
-\end{lemma}
-
-
-\section{Local model}
-\label{sec:construction}
-
-Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. We define $B_{dpq}$ as the symplectic manifold having as almost toric base diagram the right half-plane with $d$ nodes lying on a line in direction $(p,q)$. See \cref{fig:Bdpq_moment_image}. By \cite[Theorems 8.5, 8.10]{evans2021atfs} this defines a unique symplectic manifold, independently of the position of the nodes. 
-
-We will 
-
-\subsection{Lagrangian torus fibration}
-\label{sec:LTF}
-
-In this section, we closely follow \cite[Sections 7.3,7.4]{evans2021atfs}. Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} with $p>q≥0$, and $0<a_1<…<a_d ∈ ℝ$.
-Let $P ∈ ℂ[z]$ be the polynomial $P(z) = \prod_{i=1}^d (z^p-a_i)$.
-Define the complex manifold $M_P$ by
-\begin{equation}
-  \label{eqn:MP}
-M_P = \qty{(z_1,z_2,z_3) ∈ ℂ³ \mid z₁z₂ + P(z₃)=0 }\subset \mathbb{C}^3 \; ,
-\end{equation}
-with the natural symplectic and complex structures inherited from $ℂ³$.
-
-We define the pair of Poisson commuting Hamiltonian functions $\symbf{H} \colon ℂ^3 → ℝ^2$
-\begin{equation}
-  \label{eqn:non-toric-system}
-  \symbf{H}(z_1,z_2,z_3) = \qty(\abs{z_3}^2, \frac{1}{2}\qty(\abs{z_1}^2-\abs{z_2}^2)) \; .
-\end{equation}
-
-Let $G_p$ be the group of $p$-th roots of unity acting on $M_P$ by
-\[g \cdot (z₁,z₂,z₃) = \qty(gz₁,g^{-1}z₂,g^q z₃), \quad g ∈ G_p \; .\]
-This is a free  action, so the quotient $B_{P,q} = M_P/G_p$ is a smooth manifold, that inherits a complex and a symplectic structure.
-The restriction of $\symbf{H}$ to $M_P$ is invariant under the $G_p$-action, so it descends to a map which we also denote, by abuse of notation, as $\symbf{H} \colon B_{P,q} → B = \im(\symbf{H}) ⊂ ℝ^2$. Its components also Poisson-commute, meaning that $\symbf{H}$ defines a Lagrangian torus fibration, or, equivalently, a completely integrable system\footnote{For our purposes, both terms can be used interchangeably.}.
-Up to a symplectomorphism, the space $M_P$ (and thus also $B_{P,q}$) is independent of the choice of $P$. This follows either by standard Moser-type arguments, or from \cref{thm:nodal_slide} using the almost toric fibration on $B_{P,q}$ which will be constructed in \cref{sec:Bdpqatfs}. Unless necessary we will denote $B_{P,q}$ by $B_{dpq}$.
-
-\begin{remark}
-    Both $M_P$, as well as $B_{dpq}$, can be viewed as Milnor fibres of certain surface singularities. Whereas $M_P$ is a smoothing of the $A_{dp-1}$-singularity, its quotient is a smoothing of cyclic quotient singularity of type $\frac{1}{dp^2}(1,dpq-1)$. We refer to \cite[Section 7.4]{evans2021atfs}, in particular Remark 7.9.
-\end{remark}
-
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=0.7]
-    \begin{scope}[shift={(-4.25cm,0)}]
-      \begin{scope}[canvas is xz plane at y=0]
-        \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
-        \clip (-4,-4) rectangle (4,4);
-        \foreach \φ in {0,72,144,216,288} {
-          \draw[opacity=0.4] (0,0) -- (\φ:6);
-          \foreach \x in {1,2,3} \draw (\φ:\x) circle [radius=1pt];
-        }
-        \draw[very thin] (0,0) circle [radius=3];
-      \end{scope}
-      \begin{scope}[canvas is xz plane at y=2]
-        \foreach \φ in {0,72,144,216,288} {
-          \draw[purple] (\φ:3) .. controls (\φ+36:3+0.3) .. (\φ+72:3) .. controls (\φ+36:3-0.3) .. (\φ:3);
-        }
-      \end{scope}
-      \foreach \φ in {0,72,144,216,288} {
-        \begin{scope}[rotate around y=\φ]
-          \draw (3,2,0) pic[scale=0.5, transform shape, rotate around y=-\φ]{degenerate conic};
-          \draw[very thin] (3,1.3,0) -- (3,0,0);
-        \end{scope}
-      }
-      \node[align=center] at (-1,-2.25) {(a) A degenerate "pinched torus"\\fibre of $\symbf{H} \colon M_P → B$};
-    \end{scope}
-    \begin{scope}[shift={(4.25cm,0)}]
-          \begin{scope}[canvas is xz plane at y=0]
-          \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
-          \clip (-4,-4) rectangle (4,4);
-          \foreach \φ in {0,72,144,216,288} {
-            \draw[opacity=0.4] (0,0) -- (\φ:6);
-            \foreach \x in {1,2,3} \draw (\φ:\x) circle [radius=1pt];
-          }
-          \draw[very thin] (0,0) circle [radius=3.5];
-        \end{scope}
-        \begin{scope}[canvas is xz plane at y=2]
-          \draw[purple] (0,0) circle [radius=3.5+0.2] circle [radius=3.5-0.2];
-        \end{scope}
-        \foreach \φ in {0,72,144,216,288} {
-          \begin{scope}[rotate around y=\φ]
-            \draw (3.5,2,0) pic[scale=0.4, transform shape, rotate around y=-\φ]{conic};
-            \draw[very thin] (3.5,1.3,0) -- (3.5,0,0);
-          \end{scope}
-        }
-        \node at (-1,-2.25) {(b) A regular fibre of $\symbf{H} \colon M_P → B$.};
-    \end{scope}
-    \begin{scope}[shift={(0,-6cm)}]
-      \begin{scope}[canvas is xz plane at y=0]
-        \fill[green,opacity=0.2] (-4,-4) rectangle (4,4);
-        \clip (-4,-4) rectangle (4,4);
-        \foreach \φ in {0,72,144,216,288} {
-          \draw[opacity=0.4] (0,0) -- (\φ:6);
-          \foreach \x in {1,2,3} \draw (\φ:\x) circle [radius=1pt];
-        }
-      \end{scope}
-      \draw (0,2,0) pic[scale=0.3] {conic};
-      \foreach \φ in {0,72,144,216,288} {
-        \begin{scope}[rotate around y=\φ]
-          \foreach \x in {1,2,3}
-          \draw[very thin, opacity = 0.5] (\x,0,0) -- (\x,2,0);
-        \end{scope}
-      }
-      \begin{scope}[canvas is xz plane at y=2]
-        \foreach \φ in {0,72,144,216,288} {
-          \begin{scope}[rotate=\φ]
-            \foreach \d in {-0.2,0.2} {
-              \draw[red] (0,\d) .. controls +(0.5,0) and +(0,0) .. (1,0);
-              \draw[purple] (1,0) .. controls +(.5,1.5*\d) .. (2,0);
-              \draw[blue] (2,0) .. controls +(.5,1.5*\d) .. (3,0);
-%              \draw (0,\d) -- (3,\d);
-            }
-          \end{scope}
-        }
-      \end{scope}
-      \node at (-1,-2.25) {(c) The Lagrangians $\hat{S}_k ⊂ M_P$};
-    \end{scope}
-\end{tikzpicture}
-  \caption{The projection $M_P ∋ z ↦ z_3$ for $p=5$, $d=3$.}
-  \label{fig:conic_fibration}
-\end{figure}
-
-
-Before further inspecting the fibration $\symbf{H} \colon B_{dpq} → B$, let us return to $M_P$. Consider the holomorphic projection $π_3 \colon M_P → ℂ$ onto the $z_3$ coordinate, see \cref{fig:conic_fibration} (a) and (b).
-The fibre over a point $z_3$ is given by $z_1 z_2 - P(z_3) = 0$. If $P(z_3) ≠ 0$ this is a cylinder in $ℂ^2 × \{z_3\}$ (as seen in \cref{fig:conic_fibration} (b)), and if $P(z_3) = 0$, this is $(ℂ × \{0\} ∪ \{0\} × ℂ) × \{z_3\}$, i.e.\ the transverse intersection of the $z_1$ and $z_2$ planes (as seen in \cref{fig:conic_fibration} (a)).
-
-The map $\mathbf{H}$ defines a Lagrangian torus fibration on $M_P$. Since it is proper, all of its regular fibres are Lagrangian tori. The fibres of $\mathbf{H}$ can be visualized with respect to $π_3$ as follows. Fix $b = (b_1,b_2) ∈ B$. For $b_1 ≠ 0$, the set $\symbf{H}_1^{-1}(b_1)$ projects to a circle in the $z_3$-plane. Interpreting $\symbf{H}_2$ as a height function on the fibres of $π_3$, fibres of $\mathbf{H}$ can be visualized as in \cref{fig:conic_fibration} (a),(b). More specifically, \cref{fig:conic_fibration} (b) depicts a regular fibre. There are two kinds of singular values of $\symbf{H}$. The first are values of the type $b_1 = 0$, whose fibres are circles consisting of elliptic-regular singularities. The second type of singular values are of the form $b = ({a_k}^{2/p},0)$, whose fibres contain $p$ singularities of focus-focus type. Topologically, a fibre of the second type of singular value is given by a Lagrangian torus pinched along $p$ circles, as depicted in \cref{fig:conic_fibration} (a). 
-
-Note that the intersection $\hat{S}_k = ⋃_{g ∈ G_p} π_3^{-1}([g a_k^{2/p},g a_{k+1}^{2/p}]) ∩ \symbf{H}_2^{-1}(0)$ forms a collection of $p$ Lagrangian
-\footnote{They are contained in the fixed point set of an antisymplectic involution, see \cite[Remark 7.10]{evans2021atfs} for details.}
-disks for $k=0$ and of $p$ Lagrangian spheres for $0<k<d$. The disks intersect on their boundary $\{z_3=0,\symbf{H}_2=0\}$, see \cref{fig:conic_fibration} (c).
-
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=1.5]
-    \begin{scope}[canvas is xz plane at y=0]
-      \fill[green,opacity=0.2] (0,0) -- (32:4) arc[start angle=32,end angle=-32,radius=4] -- (0,0);
-      \draw[opacity=0.4] (0,0) -- (4,0);
-      \draw[very thin] (32:3) arc[start angle=32,end angle=-32,radius=3];
-      \draw (0,0) node[cross] {} \foreach \x in {1,2,3} {(\x,0) circle[radius=1pt]};
-    \end{scope}
-    \begin{scope}[canvas is xz plane at y=2]
-      \foreach \d in {0.2,-0.2}
-      \draw[purple] (-32:3+\d) .. controls (-16:3+\d) .. (0:3) .. controls (16:3+\d) .. (32:3+\d);
-    \end{scope}
-    \draw (0,2,0) pic[scale=0.4,transform shape] {reduced conic};
-    \draw (3,2,0) pic[scale=0.4,transform shape] {degenerate conic};
-    \draw[very thin] (0,0,0) -- (0,1.3,0);
-    \draw[very thin] (3,0,0) -- (3,1.3,0);
-  \end{tikzpicture}
-  \caption{A fundamental domain of the quotient $B_dpq$ of $M_P$ by $G_p$}
-  \label{fig:conic_fibration_fundamental_domain}
-\end{figure}
-
-In the quotient $B_{dpq} = M_P/G_p$, a fibre $π_3^{-1}(z_3)$ is identified with the fibre $π_3^{-1}(g^q z_3)$ under the map $(z_1,z_2) ↦ (gz_1,g^{-1}z_2)$.
-Consider the fundamental domain in \cref{fig:conic_fibration_fundamental_domain} of this action obtained by restricting $z_3 = re^{iθ} ∈ M_P$ to $θ \in [-\frac{π}{p},\frac{π}{p}]$, and $π_3^{-1}(0) ∋ (z_1,z_2)$ to $\frac{1}{2}\arg\qty(\frac{z_1}{z_2}) ∈ [-\frac{π}{p},\frac{π}{p}]$.
-Let $g = e^{2πi/p}$ a generator of $G_p$.
-The cylinders $π_3^{-1}(z_3)$ with $θ=-\frac{π}{p}$ and $r>0$ are identified with the cylinders $π_3^{-1}(g z_3)$ by the map $(z_1,z_2) ↦ (g^{q'} z_1,g^{-q'} z_2)$, where $q'$ is chosen s.t.\ $qq' = 1 \mod p$.
-
-The image $S_k = \hat{S}_k / G_p$ is a Lagrangian sphere for $0<k<d$. For $k=0$, it is a certain non-smooth Lagrangian cell complex called Lagrangian pinwheel of type $(p,q)$, see \cite[Section 2.1]{EvaSmi18} or \cite[Section 5.3]{evans2021atfs}. Topologically, a pinwheel is obtained by dividing out the $G_p$-action generated by the map $z ↦ g^{q'} z$ on the boundary of the unit disk. For the precise definition of a Lagrangian $(p,q)$-pinwheel and a geometric interpretation of $q$, we refer to \cite[Section 2.1]{EvaSmi18}.
-
-
-
-\subsection{Almost toric fibrations}
-\label{sec:Bdpqatfs}
-
-Let us recall some generalities about Lagrangian torus fibrations and toric geometry before moving to the almost toric case. For us, a Lagrangian torus fibration on a symplectic manifold $(X^{2n},\omega)$ is a proper map $\mathbf{H} \colon X \rightarrow \mathbb{R}^n$, which is regular on an open dense subset of $X$ and such that $\{\mathbf{H}_i, \mathbf{H}_j\} = 0$ for all $i,j$. Near any regular fibre, there is a change of coordinates in the base $\mathbb{R}^n$ such that the resulting map generates a Hamiltonian $T^n$-action. In the language of completely integrable systems, these are called \emph{action coordinates}. Their local existence is a consequence of the classical Arnold--Liouville Theorem, see \cref{sec:vd_AL} for details and an explicit construction of these coordinates. For general Lagrangian torus fibrations, these coordinates do not extend globally to the locus of regular values $B_{\text{reg}} \subset \mathbb{R}^n$. See for example the foundational \cite{Dui80} for a topological study of this extension problem. However, let $\mu \colon X \rightarrow \Delta \subset \mathbb{R}^n$ be the moment map of a toric action. Then $B_{\text{reg}} = \operatorname{Int} \Delta$ and the components $\mu_i$ of the moment map are global action coordinates. Furthermore, all singularities (occuring over the boundary $\partial \Delta$) of $\mu$ are of elliptic type. 
-
-The almost toric case is a generalization in dimension four of the toric case. 
-
-\begin{definition}
-    \label{def:atfs}
-    A Lagrangian torus fibration $\mathbf{H} \colon X^4 \rightarrow \mathbb{R}^2$ is called \emph{almost toric} if its singularities are of elliptic-regular, elliptic-elliptic or focus-focus type.
-\end{definition}
-
-For a thorough discussion of singularities of Lagrangian torus fibrations, we refer to \cite{Zun96,Zun97,Zun03}. Almost toric fibrations were introduced in \cite{symington2002FourDF}, see also \cite{evans2021atfs}. \cref{def:atfs} is not the most general definition, but is sufficient for our purposes. 
-
-\begin{proposition}
-    The Lagrangian torus fibration $\mathbf{H} \colon B_{dpq} \rightarrow B = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ defined in \cref{sec:LTF} is almost toric.
-\end{proposition}
-
-\begin{proof}
-    ????
-\end{proof}
-
-Recall that, by Delzant's theorem \cite{Del88}, toric manifolds are classified by their moment polytopes. We refer to \cite{Can03,Gui94} for more details on toric geometry and Delzant's theorem. A crucial feature of almost toric manifolds is that they are classified by their so-called \emph{almost toric base diagram}, which is an analogue of the moment polytope in the toric case. See \cite[Theorem 8.5]{evans2021atfs}. Roughly speaking, the almost toric base diagram of an ATF $\mathbf{H} \colon X \rightarrow \mathbb{R}^2$ is obtained by computing almost global action coordinates, i.e.\ action coordinates on an open dense subset of $X$ and adding certain decorations containing information about its focus-focus singularities. 
-
-Let $\symbf{H} \colon B_{dpq} \rightarrow B = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ be the Lagrangian torus fibration described in \cref{sec:LTF}. Then $B_{\text{reg}} = \mathbb{R}_{> 0} \times \mathbb{R} \setminus \{a_1^{2/p}, \ldots , a_d^{2/p} \}$. Let $R \subset [a_1^{2/p},∞) × \{0\} \subset B$. This ray contains the image of all focus-focus singularities, see \cref{fig:Bdpq_moment_image}(a). We can compute action coordinates on the set $B_{\text{reg}} \setminus R$. 
-
-\begin{lemma}
-  \label{thm:bdpq_moment_map}
-    There is a smooth map $τ: B_{\text{reg}} ∖ R → ℝ²$ such that $τ ∘ \symbf{H} \colon \symbf{H}^{-1}(B_{\text{reg}} ∖ R) → ℝ²$ generates a Hamiltonian $T^2$-action. Furthermore, $τ$ continuously extends to $B$ such that $\im (\tau) = \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ and $\tau(R)$ is a ray in the direction $(p,q)$. 
-
-
-  
-  Let $ℓ = [a_1^{2/p},∞) × \{0\}$.
-  Then there is a smooth map $τ: B ∖ ℓ → ℝ²$, such that $μ = τ ∘ \symbf{H} \colon B_{dpq} → ℝ²$ gives action coordinates on $B_{dpq} ∖ \symbf{H}^{-1}(ℓ)$.
-  Furthermore, $τ$ continuously extends to $B$, and we may choose $\im(τ)=\{(u,v) \mid u>0\} = Δ$ with $τ(ℓ)$ being a ray in the direction $(p,q)$.
-\end{lemma}
-
-
-\begin{proof}
-  $B ∖ ℓ$ is simply connected and contains only regular ($b ∈ B ∖ ℓ$ with $b_1>0$) and elliptic-regular points ($b ∈ B ∖ ℓ$ with $b_1 = 0$).
-By \cref{thm:flux_moment_map}, the flux map determines $τ$ locally up to a $\GL_2(ℤ)$ transform.
-Since $\symbf{H}_2$ already generates a $S¹$ action, we may choose $τ$ to be of the form $τ(b_1,b_2) = (τ_1(b_1,b_2), b_2)$.\todo{Präzisieren?}
-In particular the segment $[0,a_1^{2/p}] × \{0\}$ is mapped to $[0,τ_1(a_1^{2/p},0)] × \{0\}$. Even more particular $S_0$ is a Lagrangian over this segment, making it a so-called visible Lagrangian as described in \cite[Chapter 5]{evans2021atfs}.
-We also know that the line $\{0\} × ℝ ⊂ \im(\symbf{H})$, consisting of elliptic-regular singularities, is sent to a straight line $G$ in some rational direction $(n,m)$.\todo{why?}
-As we have the visible Lagrangian pinwheel $S_0 = L_{p,q}$ intersecting $G$, by \cite[Section 5.3]{evans2021atfs}, we must have $(n,m) = (q',p)$.
-After the affine linear transformation $\mqty(p & -q'\\q & p')$, with $p' = \frac{1-qq'}{p}$, the image of $τ$ is the right half plane, with the nodes sitting on a ray in direction $(p,q)$ as in \cref{fig:Bdpq_moment_image}.
-
-
-
-
-
-
-Note that $μ$ can be continuously extended over all of $B_{dpq}$, even for points in $\symbf{H}^{-1}(ℓ)$. \todo{why?} 
-\end{proof}
-
-\begin{remark}
-    The toric moment map
-\end{remark}
-
-
-
-
-
-
-
-
-\begin{remark}
-    \label{rem:Bdpq_lens_space}
-    \todo{Erwähnen, dass $B_dpq$ symplectomorph zu einem Teil der Sympelctization eines Lensspaces.}
-\end{remark}
-
-\begin{figure}
-  \centering
-  \begin{subfigure}[b]{0.45\textwidth}
-    \begin{tikzpicture}[scale=.6]
-      \fill[blue,opacity=0.2] (0,4) rectangle (8,-1);
-
-      \draw (2,1.5) node[cross] {} (4,1.5) node[cross] {} (6,1.5) node[cross] {};
-      \draw[line width=0.08cm,red,opacity=0.4,text opacity=1] (2,1.5) -- node[pos=0.8, anchor=north] {$ℓ$} (8,1.5);
-      \draw[thick] (0,4) -- (0,-1);
-    \end{tikzpicture}
-    \caption{$\symbf{H}(X)$ with the nodal fibres marked by crosses.}
-  \end{subfigure}%
-  \begin{subfigure}[b]{0.45\textwidth}
-    \centering
-    \begin{tikzpicture}[scale=.6]
-      \fill[opacity=0.1] (0,4) rectangle (8,-1);
-
-      \draw[thick,dotted,->] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (6,3) node[cross] {} -- (8,4) node[anchor=west] {$(p,q)$};
-      \draw[thick] (0,4) -- (0,-1);
-    \end{tikzpicture}
-    \caption{$μ(X)$ with the nodal points marked by crosses, and the image of $ℓ$ by a dotted line.}
-  \end{subfigure}
-  \caption{Moment image of $B_{dpq}$ under $μ$}
-  \label{fig:Bdpq_moment_image}
-\end{figure}
-
 
 \subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
 \label{sec:homology}
 
-Let $T(b) = μ^{-1}(\qty{b})$ for $b ∈ \im(\symbf{H})$ be a Lagrangian torus fibre. In the computation of the displacement energy of $T(b)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(b))$. See also \cite[Lemma 7.11]{evans2021atfs} for the homology of $B_{dpq}$.
+Let $T(x) = π^{-1}(\qty{x})$ for $x ∈ Δ_{dpq}$ be a Lagrangian torus fibre. In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
+See also \cite[Lemma 7.11]{evans2021atfs} for the homology of $B_{dpq}$.
 
 \begin{lemma}
   \label{thm:homology}
@@ -572,12 +265,15 @@ Let $T(b) = μ^{-1}(\qty{b})$ for $b ∈ \im(\symbf{H})$ be a Lagrangian torus f
 \end{lemma}
 
 \begin{proof}
-  Since all $T(b)$ are homotopic, we may assume that $b_2=0$ and $b_1 > a_d^{2/p}$ as in \cref{fig:branch_cut_retraction}.
-  $B_{dpq}$ deformation retracts to $\symbf{H}^{-1}(ℓ)$ where $ℓ = [0,b_1]$: We first vertically retract the space onto the preimage under $\symbf{H}$ of the ray $[0,∞) × \{0\}$ (for example by flowing along the gradient of the Morse-Bot function $|\symbf{H}_2|^2$). For all $x ∈ B_{dpq}$ with $\symbf{H}_1(x)>b_1$, we can flow along the gradient of the Morse function $\symbf{H}_1$ until they are in $\symbf{H}^{-1}(ℓ)$.
+  Here we follow very closely \cite[Lemma 7.11]{evans2021atfs}.
 
-The preimage $\symbf{H}^{-1}(ℓ)$ can be understood as follows: If there were no critical points on the line, this would be a solid torus $\hat{T} = S¹×D²$ with $∂ \hat{T} = T(b)$.
-We pick the basis $(1,0),(0,1) ∈ H₁(∂ \hat{T})$ consisting of the orbits of the Hamiltonian flows of $μ_1$ and $μ_2$ respectively.
-For each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop along the homology class $(-q,p)$, as in \cref{fig:collapse_cycles}.\todo{why?}
+  Since all $T(x) = π^{-1}(x)$ are homotopic, we may assume that $x = (x_1,x_2)$ is contained in the horizontal eigenline $R$ (see \cref{eqn:eigenline}) such that all the nodes are to the right of $x$ as in \cref{fig:branch_cut_retraction}.
+
+  As in \cite[Lemma 7.11]{evans2021atfs}, $B_dpq$ retracts onto $π^{-1}(ℓ)$, where $ℓ ⊂ R$ a line segment containing $(0,0)$ and all the nodes.
+The preimage $π^{-1}(ℓ)$ can be understood as follows:
+If there were no nodes on the line, this would be a solid torus $\hat{T} = S¹×D²$ with $∂ \hat{T}$  homotopy equivalent to $T(x)$.
+With an appropriate choice of basis $(1,0),(0,1) ∈ H₁(∂ \hat{T})$, for each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop along the homology class $(-q,p)$, as in \cref{fig:collapse_cycles}.
+
 Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
 Again up to homotopy we can also require that the $d$ discs $D_1,…,D_d$ are attached along $∂ \hat{T}$.
 Let us call the resulting space (solid torus $\hat{T}$ with disks $D_i$ attached) $S$.
