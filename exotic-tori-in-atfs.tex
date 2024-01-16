@@ -173,13 +173,14 @@
 \section{Local model}
 
 \subsection{Some almost toric geometry}
+\label{sec:atgeometry}
 
 We use almost toric geometry to define the local model spaces. In the honest toric setting, every Delzant polytope defines a toric symplectic manifold which is unique up to equivariant symplectomorphisms. A similar result holds in almost toric geometry, where the role of the toric moment polytope is played by the so-called \emph{almost toric base diagram}. Every almost toric base diagram defines a unique symplectic manifold, see \cite[Theorems 8.5]{evans2021atfs}. 
 
 \begin{remark}
     \label{rk:atfbasediagram}
     The following lengthy remark is a rough description of the geometric significance of almost toric base diagrams.
-    Except for \cref{rk:atffibres}, it will not be used anywhere else in the paper.
+    Except for \cref{rk:atffibres} and the proof of \cref{thm:sembedding}, it will not be used anywhere else in the paper.
     Every almost toric fibration has an underlying completely integrable system whose singularities are of toric or of focus-focus type.
     If there is at least one focus-focus singularity, then the system does not admit global action coordinates in the sense of \cite{Dui80} (in contrast to the honest toric case) because of topological monodromy of the torus bundle over the regular locus.
     By removing certain curves from the base, one make it simply connected and obtain a toric moment map $\pi_0 \colon X_0 \rightarrow \Delta_0$ defined on an open dense subset $X_0$.
@@ -207,7 +208,7 @@ and having a common eigenvector $(p,q)$, see \cref{fig:Bdpq_moment_image}(a).
 \end{definition}
 
 \begin{remark}
-    The symplectic manifold $(B_{dpq}, \omega)$ is exact. Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient sigularities. For more details on this, see ...
+    The symplectic manifold $(B_{dpq}, \omega)$ is exact. Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient singularities. For more details on this, see ...
 \end{remark}
 
 Note that $\Delta_{dpq}$ depends on $d$ parameters $x_1,\ldots,x_d > 0$ which correspond to the $x$-coordinate of the position of the nodes. The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $x_i$ in the notation. Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by a so-called \emph{nodal slide} and a nodal slide of the ATF-base diagram induces a symplectomorphism of the corresponding symplectic manifolds, see \cite[Theorems 8.10]{evans2021atfs}. This means that the space $B_{dpq}$ is well-defined up to symplectomorphisms.
@@ -242,6 +243,7 @@ Almost toric fibres are left unaffected by nodal slides, provided they are not c
 Returning to the special case of $X = B_{dpq}$, let $R = \{\lambda(p,q) \vert \lambda > 0\} \subset \Delta_{dpq}$ be the half-line containing the eigenray of the nodes in the base diagram $\Delta_{dpq}$. 
 
 \begin{definition}
+    \label{def:bdpqfibres}
     For every $x \in \Delta_{dpq} \setminus R$, we denote the almost toric fibre over $x$ by $T_{dpq}(x) \subset B_{dpq}$. For every $x \in R$ and $k \in \{0,\ldots,d\}$, we denote by $T^k_{dpq}(x) \subset B_{dpq}$ the almost toric fibre over $x$ in an almost toric base diagram in which there are $k$ of the $d$ nodes to the left of $x$.\todo{image}
 \end{definition}
 
@@ -252,12 +254,32 @@ By \cref{thm:nodal_slide}, these tori are well-defined, i.e.\ independent of the
   Skelleton of visible Lagrangians.\todo{ausführen.}
 \end{remark}
 
-\subsection{Symplectic embeddings}
+\subsection{Some symplectic embeddings}
+\label{ssec:sembeddings}
+
+Let $X = \mathbb{R} \times T^*S^1$ be the symplectic manifold equipped with the product symplectic form $\omega_{\mathbb{C}} \oplus \omega_{T^*S^1}$ equipped with the toric structure defined by the moment map
+\begin{align*}
+    μ_0 \colon ℂ × T^* S^1 &→ \Delta_0 = \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
+    (z,p,θ) &↦ (\pi \abs{z}^2, p) \; . 
+\end{align*}
+
+For every $x \in \operatorname{int} \Delta_0$, we denote the corresponding toric fibre by $T_0(x) = \mu_0^{-1}(x) \subset X$. Note that, up to the $d$ nodes, the almost toric base diagram $\Delta_{dpq}$ discussed in \cref{sec:atgeometry} agrees with $\Delta_0$. This leads to the following
+
+\begin{lemma}
+    \label{thm:sembedding}
+    Let $A \subset \Delta_0$ be subset contained in a compact subset. Then there is a symplectic embedding $\psi \colon \mu_0^{-1}(A) \hookrightarrow B_{dpq}$ with\footnote{By $T_{dpq}^{(0)}(x)$, we mean $T_{dpq}^0(x)$ if $x \in R$ and $T_{dpq}(x)$ if not. See \cref{def:bdpqfibres}.} $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
+\end{lemma}
+
+\begin{proof}
+    Since $\Delta_{dpq}$ and $\Delta_0$ agree as sets (i.e.\ ignoring almost toric decorations), we can view $A$ as a subset of $\Delta_{dpq}$. Since $A$ is contained in a compact subset, we can assume, by \cref{thm:nodal_slide}, that all nodes and Eigenrays of the ATF base diagram $\Delta_{dpq}$ of $B_{dpq}$ are disjoint from $A \subset \Delta_{dpq}$. On the complement of the nodes and their eigenrays, the almost toric moment map $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ restricts to an honest toric moment map, see \cref{rk:atfbasediagram}. Since toric manifolds are classified up to fibre-preserving symplectomorphisms by the image of their moment map, there is a symplectomorphism $\psi$ mapping $\mu_0^{-1}(A)$ to $\pi^{-1}(A) \subset \Delta_{dpq}$ which satisfies $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
+\end{proof}
+
+
 
 \subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
 \label{sec:homology}
 
-Let $T(x) = π^{-1}(\qty{x})$ for $x ∈ Δ_{dpq}$ be a Lagrangian torus fibre. In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
+Let $T(x) = π^{-1}(x)$ for $x ∈ Δ_{dpq}$ be a regular almost toric fibre. In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
 See also \cite[Lemma 7.11]{evans2021atfs} for the homology of $B_{dpq}$.
 
 \begin{lemma}
@@ -366,11 +388,11 @@ The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given b
 
 We want to use a classical theorem by Chekanov \cite{chekanov1998}, that gives a lower bound on the displacement energy of Lagrangian submanifolds in certain symplectic manifolds. To state the theorem we recall the central notions contained in the theorem.
 
-Suppose that $(X,\omega)$ is a symplectic manifold. Define $\mathcal{H}(X)\vcentcolon=\mathcal{C}^\infty_\text{c}(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$. For $H \in \mathcal{H}(X)$ set
+Suppose that $(X,\omega)$ is a symplectic manifold. Define $\mathcal{H}(X)\vcentcolon=\mathcal{C}^\infty_\text{c}(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$. For $H \in \mathcal{H}(X)$ let
 \[
-    \lVert H \rVert \vcentcolon= \int_0^1 \left(\sup_\text{x \in X} H_t(x) - \inf_\text{x \in X} H_t(x) \right) dt.
+    \lVert H \rVert \vcentcolon= \int_0^1 \left(\sup_\text{x \in X} H_t(x) - \inf_\text{x \in X} H_t(x) \right) dt
 \]
-This defines a semi-norm on $\mathcal{H}(X)$ and leads to the definition of the displacement energy.
+be the \textbf{Hofer norm of $H$}. 
 
 \begin{definition}
 \label{def:displacement_energy}
@@ -382,6 +404,7 @@ This defines a semi-norm on $\mathcal{H}(X)$ and leads to the definition of the 
 Chekanov's theorem only holds for a specific class of symplectic manifolds, namely geometrically bounded ones.
 
 \begin{definition}
+    \label{def:geobdd}
     Let $(X,\omega)$ be a symplectic manifold. We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology. We do not use the word \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ on $X$ such that 
     \begin{enumerate}
         \item $g$ is complete,
@@ -406,13 +429,13 @@ With these definitions in place we define the two quantities that play a crucial
 \begin{definition}
     Suppose that $L$ is a compact Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}(X,\omega)$ be a geometrically bounded almost complex structure. Define
     \[
-        \sigma_D(X,L,J)\vcentcolon=\text{inf}\{\langle[\omega],[u]\rangle \mid u\colon(\mathbb{D}^2,\partial {\mathbb{D}^2})\to(X,L) \text{ non-constant $J$-holomorphic disc}   \}
+        \sigma_D(X,L,J)\vcentcolon=\text{inf} \left\{  \int_{D} u^* \omega \mid u\colon(D,\partial D)\to(X,L) \text{ non-constant $J$-holomorphic disc}   \right\}
     \]
     and 
     \[
-        \sigma_S(X,J)\vcentcolon=\text{inf}\left\{\langle[\omega],[u]\rangle \mid u:S^2 \to X \text{ non-constant $J$-holomorphic sphere}   \right\},
+        \sigma_S(X,J)\vcentcolon=\text{inf}\left\{ \int_{S^2} u^* \omega \mid u:S^2 \to X \text{ non-constant $J$-holomorphic sphere}   \right\}.
     \]
-    where $\langle\cdot{,}\cdot\rangle$ denotes the evaluation map, given my integration. These two quantities may be equal to infinity, if the infimum is taken over an empty set.
+    These two quantities may be equal to infinity, if the infimum is taken over an empty set.
 \end{definition}
 
 \begin{theorem}[Chekanov 1998 \cite{chekanov1998}]
@@ -423,7 +446,7 @@ With these definitions in place we define the two quantities that play a crucial
 
 
 
-Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-compatible almost complex structure $J$, denote by $g$ the associated Riemannian metric, and let $u\colon Σ → M$ be a J-holomorphic curve.
+Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-compatible almost complex structure $J$, denote by $g$ a Riemannian metric as in \cref{def:geobdd}, and let $u\colon Σ → M$ be a J-holomorphic curve.
 
 Then Gromov's Monotonicity Lemma (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
 
@@ -439,7 +462,8 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
   \label{thm:small_buffer}
   Suppose $A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A^+ ⊔ A^-)$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
   Then
-  \[∫_u ω ≥ \frac{C d(A^+,A^-)^2}{4} \; .\]
+  \[∫_u ω ≥ \frac{C d_g(A^+,A^-)^2}{4} \; ,\]
+  where $d_g$ denotes the metric induced by $g$.
 \end{corollary}
 
 \begin{proof}
@@ -457,18 +481,15 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
   This gives us the toric manifold
   \begin{align*}
     μ_0 \colon ℂ × T^* S^1 &→ \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
-    (z,q,θ) &↦ (\abs{z}^2, q) \; ,
+    (z,p,θ) &↦ (\abs{z}^2, p) \; ,
   \end{align*}
-  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the standard almost complex structure $J_0$, which is compatible with $ω_0$.
-  In particular $( ℂ × T^* S^1, ω_0, J_0)$ is geometrically bounded.\footnote{We may identify $ℂ × T^* S^1$ with $ℂ × (ℂ / ℤ)$, where $ℤ$ acts by the isometries of $ℤ$-translations along the real axis. Thus $(ℂ × T^* S^1, ω_0, J_0)$ is geometrically bounded as a quotient of $( ℂ^2, ω_ℂ ⊕ ω_ℂ, i ⊕ i)$ by isometries.}
-  
-  The induced Riemannian metric defines the metric
+  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $ coming from the identification $T^*S^1 = \mathbb{C}/\mathbb{Z}$, where $\mathbb{Z}$ acts on $\mathbb{C}$ by translation along the real axis. This complex structrure is compatible with $\omega_0$ and geometrically bounded with respect to the induced metric, which is the Riemannian metric
   \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\}\]
   for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$.
 
   Let $u,v ∈ \im μ_0$. Then we have
   \[ d(μ_0^{-1}(u),μ_0^{-1}(v))^2 ≥ (\sqrt{v_1}-\sqrt{u_1})^2 + (v_2-u_2)^2 ≕ d_{μ_0}(u,v)^2 \; ,\]
-  defining us a metric on $\im μ_0$.
+  where $d_{\mu_0}$ defines a positive definite symmetric function on $\im μ_0$.
 
   Let $C$ be the constant in \cref{thm:monotonicity} for $( ℂ × T^* S¹, ω_0, J_0)$.
   Set $A_0^- = \{x\}, A_0 = \qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ 2 \sqrt{\frac{x_1}{C}} }$ and $A_0^+ =\qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = 2 \sqrt{\frac{x_1}{C}}}$.
@@ -737,6 +758,8 @@ As a reminder: $\overline{\symcal{L}}$ is the total space of Lagrangians, $\symc
 \subsection{Versal Deformations of Arnold-Liouville tori}
 \label{sec:vd_AL}
 
+\todo{Umschreiben. Wir brauchen nur noch das action coordinates versal deformations geben von fibres geben.}
+
 Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. Since the base $B$ is $n$-dimensional, a natural candidate for a versal deformation of $L_b$ is picking nearby fibres of $\symbf{H}$. Indeed, we will see that neighbouring fibres, when parametrized by their Lagrangian flux, yield a versal deformation. 
 \ref{}
 Let $L_{b_0} = \pi^{-1}(b_0) \subset X$ be an Arnold--Liouville torus and let $\mathcal{U} \subset \mathcal{L}$ be a simply connected neighbourhood of $L_{b_0}$. Choose $V \subset B_0$ small enough so that $L_b \in \mathcal{U}$ for every $b \in V$. Then we can define the map $τ_V \colon V \rightarrow H^1(L_{b_0};\mathbb{R})$ by $b \mapsto \Flux_{\mathcal{U}}(L_b)$. For a small enough $V$, this is a diffeomorphism onto its image, see the proof of \cref{thm:ltfVD}. Now define
@@ -783,6 +806,23 @@ In order to formulate this precisely, we introduce the following model. Let $T^*
     \]
     generates a Hamiltonian $T^n$-action. If, additionally its image $\Omega = \im \mu_V = \im τ_V \subset \mathbb{R}^n$ is simply connected, then there is a symplectomorphism $\psi \colon \mathbf{H}^{-1}(V) \rightarrow \mu_0^{-1}(\Omega)$ with $\mu_V = \mu_0 \circ \psi$. In other words, the symplectomorphism is $T^n$-equivariant with respect to the standard Hamiltonian $T^n$-action on $\mu_0^{-1}(\Omega)$.
 \end{proposition}
+
+\subsection{Some Examples of Exotic Tori using Versal Deformations}
+
+Using \cref{thm:invariant_germs} and \todo{Action coordinates geben veral deformation} we can quickly construct a few examples of exotic tori:
+
+Taking $ℂP²$, we may choose the standard toric structure, we may quickly calculate the displacement energy for all toric fibres: Except for the monotone fibre, which is undisplaceable, the displacement energy is always the affine distance to the border, see \todo{Image}.
+
+Using this toric diagram of $ℂP²$, we can distinguish 3 different types of tori: "Clifford" $T_{0}$, "Chekanov" $T_{1,1,0}$ and "monotone".\todo{image}
+
+Applying a mutation\todo{definieren} in one of the corners, we get a almost toric diagram for $ℂP²$, where we see two new types of tori: $T_{1,2,1}$ and the vianna-torus $V_{2,1,1}$.
+
+Note that although we don't need to know the displacement energy of these two new types of tori to conclude that there are exotic, since we know the displacement energy of nearby tori:
+When doing a mutation, and we know the displacement energy of all tori near the eigenline of that mutation, we can apply \cref{thm:nodal_slide} to all tori that are not on that eigenline to conclude that for these tori the displacement energy doesn't change.
+Thus under mutations, the displacement energy is preserved in the complement of the eigenline of that mutation.
+
+This is enough that the displacement energy germ can distinguish the types of tori. In this manner we recover the tori found in \cite{Via16} and also \cite{Via17}, 
+
 
 \section{Proof of Main Theorem}
 
