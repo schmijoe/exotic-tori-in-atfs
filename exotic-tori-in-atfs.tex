@@ -477,27 +477,19 @@ As a simple corollary we get:
     \]
 \end{proposition}
 \begin{proof}
-Let $r = $
-In the notation of \cref{ssec:sembeddings}, there is a symplectic embedding of $X_r$
-
-
-
   Looking at the almost moment image $\im μ$, we want to pretend for a moment that there are no nodes.
   This gives us the toric manifold
   \begin{align*}
     μ_0 \colon ℂ × T^* S^1 &→ \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
     (z,p,θ) &↦ (\abs{z}^2, p) \; ,
   \end{align*}
-  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $ coming from the identification $T^*S^1 = \mathbb{C}/\mathbb{Z}$, where $\mathbb{Z}$ acts on $\mathbb{C}$ by translation along the real axis. This complex structrure is compatible with $\omega_0$ and geometrically bounded. 
-  
-  The Riemannian metric
+  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $ coming from the identification $T^*S^1 = \mathbb{C}/\mathbb{Z}$, where $\mathbb{Z}$ acts on $\mathbb{C}$ by translation along the real axis. This complex structrure is compatible with $\omega_0$ and geometrically bounded with respect to the induced metric, which is the Riemannian metric
   \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\}\]
-  for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$
-  satisfies the conditions in \cref{def:geobdd}.
+  for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$.
 
   Let $u,v ∈ \im μ_0$. Then we have
   \[ d(μ_0^{-1}(u),μ_0^{-1}(v))^2 ≥ (\sqrt{v_1}-\sqrt{u_1})^2 + (v_2-u_2)^2 ≕ d_{μ_0}(u,v)^2 \; ,\]
-  where $d_{\mu_0}$ defines a metric on $\im μ_0$.
+  where $d_{\mu_0}$ defines a positive definite symmetric function on $\im μ_0$.
 
   Let $C$ be the constant in \cref{thm:monotonicity} for $( ℂ × T^* S¹, ω_0, J_0)$.
   Set $A_0^- = x, A_0 = \qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ 2 \sqrt{\frac{x_1}{C}} }$ and $A_0^+ =\qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = 2 \sqrt{\frac{x_1}{C}}}$.
