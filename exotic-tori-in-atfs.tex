@@ -187,9 +187,9 @@ We use almost toric geometry to define the local model spaces. In the honest tor
     The closure of $\Delta_0$ yields the underlying set $\Delta \subset \mathbb{R}^2$ of the ATF-base diagram.
     Its decorations are given by nodes (marking the position of focus-focus singularities) and dashed lines (corresponding to where curves were removed to compute action coordinates).
     One can always choose the set of curves such that $\Delta$ is a polytope and from every node, there emanates one straight ray.
-    This ray (whose direction encodes information about the eigenvector of the topological monodromy around the corresponding node) is called the \emph{eigenray} of the node.
+    This ray (whose direction encodes information about the eigenvector of the topological monodromy around the corresponding node) is called the \textbf{eigenray} of the node.
     In that case, the map $\pi_0$ extends to a continuous map $\pi \colon X \rightarrow \Delta$.
-    We call $\pi$ the \emph{almost toric moment map}, as it is an analogue of the moment map in the toric case.
+    We call $\pi$ the \textbf{almost toric moment map}, as it is an analogue of the moment map in the toric case.
     In the context of this paper, we will only encounter almost toric fibrations having an almost toric moment map. 
 \end{remark}
 
@@ -211,9 +211,9 @@ and having a common eigenvector $(p,q)$, see \cref{fig:Bdpq_moment_image}(a).
     The symplectic manifold $(B_{dpq}, \omega)$ is exact. Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient singularities. For more details on this, see ...
 \end{remark}
 
-Note that $\Delta_{dpq}$ depends on $d$ parameters $x_1,\ldots,x_d > 0$ which correspond to the $x$-coordinate of the position of the nodes. The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $x_i$ in the notation. Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by a so-called \emph{nodal slide} and a nodal slide of the ATF-base diagram induces a symplectomorphism of the corresponding symplectic manifolds, see \cite[Theorems 8.10]{evans2021atfs}. This means that the space $B_{dpq}$ is well-defined up to symplectomorphisms.
+Note that $\Delta_{dpq}$ depends on $d$ parameters $x_1,\ldots,x_d > 0$ which correspond to the $x$-coordinate of the position of the nodes. The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $x_i$ in the notation. Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by a so-called \textbf{nodal slide} and a nodal slide of the ATF-base diagram induces a symplectomorphism of the corresponding symplectic manifolds, see \cite[Theorems 8.10]{evans2021atfs}. This means that the space $B_{dpq}$ is well-defined up to symplectomorphisms.
 
-Let $\Delta$ be an ATF-base diagram of a symplectic manifold $X$. Then every $x \in \Delta$ defines a unique subset $T(x) \subset X$, which we call the \emph{ATF-fibre} over $x$. If $x \in \partial \Delta$, then $T(x)$ is a point or an isotropic circle. If $x$ is a node, then $T(x)$ is a Lagrangian Whitney sphere, i.e.\ a Lagrangian immersion of a $2$-sphere with one transverse self-intersection. If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagrangian torus and we call such a torus a \emph{regular ATF-fibre}.
+Let $\Delta$ be an ATF-base diagram of a symplectic manifold $X$. Then every $x \in \Delta$ defines a unique subset $T(x) \subset X$, which we call the \textbf{ATF-fibre} over $x$. If $x \in \partial \Delta$, then $T(x)$ is a point or an isotropic circle. If $x$ is a node, then $T(x)$ is a Lagrangian Whitney sphere, i.e.\ a Lagrangian immersion of a $2$-sphere with one transverse self-intersection. If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagrangian torus and we call such a torus a \textbf{regular ATF-fibre}.
 
 \begin{remark}
     \label{rk:atffibres}
@@ -222,7 +222,7 @@ Let $\Delta$ be an ATF-base diagram of a symplectic manifold $X$. Then every $x 
 
 \begin{remark}
     \label{rk:pinchedtorus}
-    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres (i.e.\ Lagrangian tori) by viewing it as a Lagrangian torus which is \emph{pinched} along a curve on the torus. The homology class of this curve determines the topological monodromy of the torus bundle in a neighbourhood of the node and thus the eigenvector of the node. 
+    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres (i.e.\ Lagrangian tori) by viewing it as a Lagrangian torus which is "pinched" along a curve on the torus. The homology class of this curve determines the topological monodromy of the torus bundle in a neighbourhood of the node and thus the eigenvector of the node. 
 \end{remark}
 
 Almost toric fibres are left unaffected by nodal slides, provided they are not contained in the segment on which the nodal slide is supported\footnote{By this we mean the line segment obtained as the union of points across which the node moves during the nodal slide.}.
@@ -499,9 +499,9 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
   Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$ (which exists by \cref{rem:Bdpq_geometrically_bounded}).
   Let $K$ be a compact set, its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded (by \cref{rem:J_compactly_perturbed}) almost complex structure $J$ on $B_{dpq}$ such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
 
-  Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
+  Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic curve always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is undisplaceable, which it isn't by \cref{thm:upper_bound}.}. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
   
-  If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty. Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, we get
+  If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty. Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, and choice of $A^±$, we get
   \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
 
   Noting that there cannot be any non-constant $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians, see \cref{thm:homology}), and then using \cref{thm:chekanov} we conclude.
@@ -760,7 +760,7 @@ As a reminder: $\overline{\symcal{L}}$ is the total space of Lagrangians, $\symc
 
 \todo{Umschreiben. Wir brauchen nur noch das action coordinates versal deformations geben von fibres geben.}
 
-Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \emph{Arnold--Liouville torus}. Since the base $B$ is $n$-dimensional, a natural candidate for a versal deformation of $L_b$ is picking nearby fibres of $\symbf{H}$. Indeed, we will see that neighbouring fibres, when parametrized by their Lagrangian flux, yield a versal deformation. 
+Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \textbf{Arnold--Liouville torus}. Since the base $B$ is $n$-dimensional, a natural candidate for a versal deformation of $L_b$ is picking nearby fibres of $\symbf{H}$. Indeed, we will see that neighbouring fibres, when parametrized by their Lagrangian flux, yield a versal deformation. 
 \ref{}
 Let $L_{b_0} = \pi^{-1}(b_0) \subset X$ be an Arnold--Liouville torus and let $\mathcal{U} \subset \mathcal{L}$ be a simply connected neighbourhood of $L_{b_0}$. Choose $V \subset B_0$ small enough so that $L_b \in \mathcal{U}$ for every $b \in V$. Then we can define the map $τ_V \colon V \rightarrow H^1(L_{b_0};\mathbb{R})$ by $b \mapsto \Flux_{\mathcal{U}}(L_b)$. For a small enough $V$, this is a diffeomorphism onto its image, see the proof of \cref{thm:ltfVD}. Now define
 \begin{equation}
