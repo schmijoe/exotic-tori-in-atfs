@@ -460,10 +460,10 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
 
 \begin{corollary}
   \label{thm:small_buffer}
-  Suppose $A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A^+ ⊔ A^-)$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
+  Suppose $A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is a connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A^+ ⊔ A^-)$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
   Then
-  \[∫_u ω ≥ \frac{C d_g(A^+,A^-)^2}{4} \; ,\]
-  where $d_g$ denotes the metric induced by $g$.
+  \[∫_u ω ≥ \frac{C d(A^+,A^-)^2}{4} \; ,\]
+  where $d$ denotes the metric induced by $g$.
 \end{corollary}
 
 \begin{proof}
@@ -477,8 +477,8 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
     \]
 \end{proposition}
 \begin{proof}
-  Looking at the almost moment image $\im μ$, we want to pretend for a moment that there are no nodes.
-  This gives us the toric manifold
+  Looking at the almost moment image $\im μ$, we want to pretend for a moment that there are no nodes:
+  Instead of $B_{dpq}$ this gives us the toric manifold
   \begin{align*}
     μ_0 \colon ℂ × T^* S^1 &→ \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
     (z,p,θ) &↦ (\abs{z}^2, p) \; ,
@@ -499,7 +499,7 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
   Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$ (which exists by \cref{rem:Bdpq_geometrically_bounded}).
   Let $K$ be a compact set, its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded (by \cref{rem:J_compactly_perturbed}) almost complex structure $J$ on $B_{dpq}$ such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
 
-  Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic curve always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is undisplaceable, which it isn't by \cref{thm:upper_bound}.}. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
+  Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, which it isn't by \cref{thm:upper_bound}.}. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a positive multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
   
   If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty. Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, and choice of $A^±$, we get
   \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
