@@ -170,28 +170,28 @@
 
 \section{Local model}
 
+We use almost toric geometry to define the local model spaces. In \cref{sec:atgeometry}, we give a short overview of almost toric geometry and its basic operations (nodal trades, nodal slides, mutations). The reader familiar with the ATF-framework can skip this section. In ... we ...
+
+
 \subsection{Some almost toric geometry}
 \label{sec:atgeometry}
 
-We use almost toric geometry to define the local model spaces. In the "honest" toric setting, every Delzant polytope defines a toric symplectic manifold which is unique up to equivariant symplectomorphisms.\cite{Del88}
-A similar result holds in almost toric geometry, where the role of the toric moment polytope is played by the so-called \emph{almost toric base diagram}.
-Every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
+Almost toric geometry is a generalization in dimension four of toric geometry. Let us briefly discuss the latter, before moving to the almost toric case. A symplectic toric four-manifold $(X,\omega,\mu)$ is a symplectic manifold $(X,\omega)$ equipped with a moment map $\mu \colon X \rightarrow \mathbb{R}^2$ generating an effective Hamiltonian $T^2$-action on $X$. The image $\mu(X) = \Delta \subset \mathbb{R}^2$ is a so called Delzant polytope and classifies $(X,\omega)$ up to $T^2$-equivariant symplectomorphisms, see \cite{Del88} or \cite{Can03} for more details. The moment map defines a Lagrangian torus fibration, or, equivalently\footnote{we use both terms interchangeably}, a completely integrable system on $X$. The Lagrangian torus fibration defined by a toric moment map has very special properties, namely (1) its singularities (located over the boundary of $\Delta$) are of elliptic-regular or of elliptic-elliptic type, and (2) the moment map defines action coordinates on the interior of the moment polytope. Note that every Lagrangian torus fibration admits local action coordinates in the neighbourhood of a regular fibre (this is the classical Arnold-Liouville Theorem), but that these do not necessarily extend globally, see for example \cite{Dui80} or \cite{Zun96,Zun03}.
 
-\begin{remark}
-    \label{rk:atfbasediagram}
-    The following lengthy remark is a rough description of the geometric significance of almost toric base diagrams.
-    Except for \cref{rk:atffibres} and the proof of \cref{thm:sembedding}, it will not be used anywhere else in the paper.
-    Every almost toric fibration has an underlying completely integrable system whose singularities are of toric or of focus-focus type.
-    If there is at least one focus-focus singularity, then the system does not admit global action coordinates in the sense of \cite{Dui80} (in contrast to the honest toric case) because of topological monodromy of the torus bundle over the regular locus.
-    By removing certain curves from the base, one make it simply connected and obtain a toric moment map $\pi_0 \colon X_0 \rightarrow \Delta_0$ defined on an open dense subset $X_0$.
-    The closure of $\Delta_0$ yields the underlying set $\Delta \subset \mathbb{R}^2$ of the ATF-base diagram.\footnote{In general we don't have $Δ ⊂ ℝ²$, instead being some 2-dimensional integral affine manifold. Here the more specific case is sufficient.}
-    Its decorations are given by nodes (marking the position of focus-focus singularities) and dashed lines (corresponding to where curves were removed to compute action coordinates).
-    One can always choose the set of curves such that $\Delta$ is a polytope and from every node, there emanates one straight ray.
-    This ray (whose direction encodes information about the eigenvector of the topological monodromy around the corresponding node) is called the \textbf{eigenray} of the node.
-    In that case, the map $\pi_0$ extends to a continuous map $\pi \colon X \rightarrow \Delta$.
-    We call $\pi$ the \textbf{almost toric moment map}, as it is an analogue of the moment map in the toric case.
-    In the context of this paper, we will only encounter almost toric fibrations with an almost toric moment map. 
-\end{remark}
+An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a four-dimensional symplectic manifold whose singularities are all of elliptic-regular, elliptic-elliptic or focus-focus type. Almost toric fibrations were introduced by Symington \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}. As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map. The analogue of the moment map image is given by the so-called \textbf{almost toric base diagram}. As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
+
+For us\footnote{The general almost toric framework allows for much more generality, e.g. base diagrams carrying topology, non-convexity etc. but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}. Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$. In the absence of focus-focus singularities (i.e. in the toric case), this succeeds, the action coordinates can be extended over the elliptic-type singularities and this procedure yields the moment map. However in the presence of focus-focus singularities, this fails. Indeed, a neighbourhood of a focus-focus singularity (whose image sits in the interior of $\im F$) carries topological monodromy, meaning that the torus bundle given by neighbouring regular fibres is non-trivial. See e.g.\ \cite{Zun97} for more details. This means that action coordinates are well-defined only on the universal cover of $B \setminus \{nodes\}$. An almost toric base diagram is obtained by computing action coordinates on a fundamental domain in the universal cover, see \cite[Definition 8.3]{evans2021atfs} for more details. The branch cut decorations of the almost toric base diagram indicate which choice of fundamental domain was made. Equivalently, one can think of the branch cuts as curves which were removed from the regular locus of $F$ in $B$ in order to make it simply connected. On a simply connected domain, one can compute unique (up to the usual action of $\operatorname{GL}(2;\mathbb{Z}) \ltimes \mathbb{R}^2$) action coordinates. The image of these action coordinates yields the interior of the almost toric base diagram. The full base diagram is obtained after adding the following decorations: edges and vertices on the boundary represent elliptic-type singularities (as in the toric case), dashed lines represent the image of the branch cuts in action coordinates and crosses represent nodes, i.e.\ fibres containing a focus-focus singularity. As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.
+
+In this paper, we will always make a special choice of almost toric base diagram. Every node in the almost toric base diagram has a unique \textbf{Eigendirection}, i.e. a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node. Equivalently, there is a subcircle of the nearby regular tori whose Hamiltonian $S^1$-action extends over the focus-focus singularity. Although the Eigendirection is not explicitely part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question. In the current paper, we always choose the branch cut to coincide with the Eigendirection. As a consequence, the almost toric base diagram "closes up" (we refer to the discussion in \cite[7.2]{evans2021atfs}) and thus yields a convex polytope. With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology}. Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts. Then $\pi$ has the property that its restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is an honest toric moment map. Roughly speaking, the almost toric moment map is obtained by picking action coordinates on $X_0$ (this is possible since it fibers over the simply-connected $\Delta_0$) and by (continuous) extension over the branch cuts. \\
+
+One of the main features of almost toric geometry is that, one can deform a given (almost) toric fibration $F \colon X \rightarrow \mathbb{R}^2$ to produce another one on the same symplectic manifold $X$. This freedom distinguishes the almost toric from the classical toric case. The main two main operations by which one can deform an almost toric fibration are the nodal trade and the nodal slide, both of which can be handily represented by simple operations on the corresponding ATF-base diagrams. Let us briefly discuss these operations, referring to \cite[Sections 8.2-8.3]{evans2021atfs} for details. The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one. In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut. The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its Eigendirection. The third operation is called \textbf{changing the branch cut}
+
+
+(Starting with a toric manifold and performing mutations...)
+
+
+
+\subsection{Model spaces}
 
 Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. Let $\Delta_{dpq}$ be the almost toric base diagram obtained by decorating the right half-plane
 $$\Delta_{dpq} = \{ (x,y) \in \mathbb{R}^2 \, \vert \, x \geqslant 0 \}$$
@@ -267,7 +267,7 @@ For every $x \in \operatorname{int} \Delta_0$, we denote the corresponding toric
 
 \begin{lemma}
     \label{thm:sembedding}
-    Let $A \subset \Delta_0$ be subset contained in a compact subset. Then there is a symplectic embedding $\psi \colon \mu_0^{-1}(A) \hookrightarrow B_{dpq}$ with\footnote{By $T_{dpq}^{(0)}(x)$, we mean $T_{dpq}^0(x)$ if $x \in R$ and $T_{dpq}(x)$ if not. See \cref{def:bdpqfibres}.} $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
+    Let $A \subset \Delta_0$ be a subset contained in a compact subset. Then there is a symplectic embedding $\psi \colon \mu_0^{-1}(A) \hookrightarrow B_{dpq}$ with\footnote{By $T_{dpq}^{(0)}(x)$, we mean $T_{dpq}^0(x)$ if $x \in R$ and $T_{dpq}(x)$ if not. See \cref{def:bdpqfibres}.} $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
 \end{lemma}
 
 \begin{proof}
@@ -383,184 +383,10 @@ The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given b
   \label{fig:homology_generating_discs}
 \end{figure}
 
-\section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
-\label{sec:lower_bound}
-
-We want to use a classical theorem by Chekanov \cite{chekanov1998}, that gives a lower bound on the displacement energy of Lagrangian submanifolds in certain symplectic manifolds. To state the theorem we recall the central notions contained in the theorem.
-
-Suppose that $(X,\omega)$ is a symplectic manifold. Define $\mathcal{H}(X)\vcentcolon=\mathcal{C}^\infty_\text{c}(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$. For $H \in \mathcal{H}(X)$ let
-\[
-    \lVert H \rVert \vcentcolon= \int_0^1 \left(\sup_\text{x \in X} H_t(x) - \inf_\text{x \in X} H_t(x) \right) dt
-\]
-be the \textbf{Hofer norm of $H$}. 
-
-\begin{definition}
-\label{def:displacement_energy}
-    For a subset $A \subseteq X$ in a symplectic manifold $(X,\omega)$ define the \textbf{displacement energy} of $A$ to be 
-    \[e(A)\vcentcolon=\inf\left\{\lVert H\rVert \mid H\in \mathcal{H}(X) \text{ such that } \varphi^H_1(A) \cap A = \emptyset\right\},\]
-    where $\varphi^H_1$ denotes the Hamiltonian diffeomorphism generated by $H$ and the infimum over the empty set is defined to be infinity.
-\end{definition}
-
-Chekanov's theorem only holds for a specific class of symplectic manifolds, namely geometrically bounded ones.
-
-\begin{definition}
-    \label{def:geobdd}
-    Let $(X,\omega)$ be a symplectic manifold. We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology. We do not use the word \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ on $X$ such that 
-    \begin{enumerate}
-        \item $g$ is complete,
-        \item there are constants $c_1,c_2 > 0$ such that $\omega(JV,V) \geqslant c_1 \Vert V \Vert_g^2$ and $\vert \omega(V,W) \vert \leqslant c_2 \Vert V \Vert_g \Vert W \Vert_g$ for all tangent vectors $V,W$, and
-        \item the sectional curvature of $g$ is bounded from above and the injectivity radius is bounded from below.
-    \end{enumerate}
-    Denote the space of such almost complex structures by $\mathcal{J}_{\text{geo}}(X,\omega)$.
-    The symplectic manifold $(X,\omega)$ is called \textbf{geometrically bounded} if there exists a geometrically bounded $J$. 
-\end{definition}
-
-\begin{remark}
-  \label{rem:Bdpq_geometrically_bounded}
-    Closed symplectic manifolds are geometrically bounded, and the same holds for a large class of symplectic manifolds that look standard at infinity, i.e. cotangent bundles of compact manifolds and symplectizations. For more details on this notion see also \cite[Chapter X, Definition 2.2.1]{AudLaf94}. In particular $B_{dpq}$ is geometrically bounded by \cref{rem:Bdpq_lens_space}.
-\end{remark}
-\begin{remark}
-  \label{rem:J_compactly_perturbed}
-  If $J_0 \in \mathcal{J}_\text{geo}(X,ω)$ is a geometrically bounded almost complex structure, $K ⊂ M$ compact, and $J$ is a tame almost complex structure such that $J = J_0$ on $M ∖ K$, then $J$ is also geometrically bounded.
-\end{remark}
-
-With these definitions in place we define the two quantities that play a crucial role in Chekanov's theorem.
-
-\begin{definition}
-    Suppose that $L$ is a compact Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}(X,\omega)$ be a geometrically bounded almost complex structure. Define
-    \[
-        \sigma_D(X,L,J)\vcentcolon=\text{inf} \left\{  \int_{D} u^* \omega \mid u\colon(D,\partial D)\to(X,L) \text{ non-constant $J$-holomorphic disc}   \right\}
-    \]
-    and 
-    \[
-        \sigma_S(X,J)\vcentcolon=\text{inf}\left\{ \int_{S^2} u^* \omega \mid u:S^2 \to X \text{ non-constant $J$-holomorphic sphere}   \right\}.
-    \]
-    These two quantities may be equal to infinity, if the infimum is taken over an empty set.
-\end{definition}
-
-\begin{theorem}[Chekanov 1998 \cite{chekanov1998}]
-  \label{thm:chekanov}
-  Let $L$ be a compact Lagrangian submanifold of a geometrically bounded symplectic manifold $(X,ω)$. For every geometrically bounded almost complex structure $J$, the displacement energy satisfies
-  \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}.\]
-\end{theorem}
 
 
 
-Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-compatible almost complex structure $J$, denote by $g$ a Riemannian metric as in \cref{def:geobdd}, and let $u\colon Σ → M$ be a J-holomorphic curve.
 
-Then Gromov's Monotonicity Lemma (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
-
-\begin{lemma}[Monotonicity]
-  \label{thm:monotonicity}
-  There exists a $C>0$ (depending only on $(M,ω,J)$) s.t.\ for all $x ∈ \im(u)$, $B_r(x)$ an open ball w.r.t.\ $g$ with $r > 0$ and $u(∂Σ) ⊂ M ∖ B_r(x)$, we have
-  \[∫_u ω ≥ C r²\]
-\end{lemma}
-
-As a simple corollary we get that a $J$-curve crossing a certain distance also must have a certain area:
-
-\begin{corollary}
-  \label{thm:small_buffer}
-  Suppose $A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is a connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A^+ ⊔ A^-)$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
-  Then
-  \[∫_u ω ≥ \frac{C d(A^+,A^-)^2}{4} \; ,\]
-  where $d$ denotes the metric induced by $g$.
-\end{corollary}
-
-\begin{proof}
-  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),A^+) = d((u ∘ γ)(t), A^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B_{d(A^+,A^-)/2}(x) ⊂ M ∖ ( A^+ ⊔ A^-) $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.
-\end{proof}
-
-\begin{proposition}
-  \label{thm:lower_bound}
-    \[
-        e(T(x)) ≥ x_1. 
-    \]
-\end{proposition}
-\begin{proof}
-  Looking at the almost moment image $\im μ$, we want to pretend for a moment that there are no nodes:
-  Instead of $B_{dpq}$ this gives us the toric manifold
-  \begin{align*}
-    μ_0 \colon ℂ × T^* S^1 &→ \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
-    (z,p,θ) &↦ (\abs{z}^2, p) \; ,
-  \end{align*}
-  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $ coming from the identification $T^*S^1 = \mathbb{C}/\mathbb{Z}$, where $\mathbb{Z}$ acts on $\mathbb{C}$ by translation along the real axis. This complex structrure is compatible with $\omega_0$ and geometrically bounded with respect to the induced metric, which is the Riemannian metric
-  \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\}\]
-  for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$.
-
-  Let $u,v ∈ \im μ_0$. Then we have
-  \[ d(μ_0^{-1}(u),μ_0^{-1}(v))^2 ≥ (\sqrt{v_1}-\sqrt{u_1})^2 + (v_2-u_2)^2 ≕ d_{μ_0}(u,v)^2 \; ,\]
-  where $d_{\mu_0}$ defines a positive definite symmetric function on $\im μ_0$.
-
-  Let $C$ be the constant in \cref{thm:monotonicity} for $( ℂ × T^* S¹, ω_0, J_0)$.
-  Set $A_0^- = \{x\}, A_0 = \qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ 2 \sqrt{\frac{x_1}{C}} }$ and $A_0^+ =\qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = 2 \sqrt{\frac{x_1}{C}}}$.
-
-  Let us now return to $B_{dpq}$. Using a nodal slide (\cref{thm:nodal_slide}), we may assume that $A_0 ⊂ \im μ$ contains no nodes.
-  Using Delzant's classification of toric symplectic manifolds, we may identify $μ^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by an equivariant symplectomorphism.
-  Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$ (which exists by \cref{rem:Bdpq_geometrically_bounded}).
-  Let $K$ be a compact set, its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded (by \cref{rem:J_compactly_perturbed}) almost complex structure $J$ on $B_{dpq}$ such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
-
-  Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, which it isn't by \cref{thm:upper_bound}.}. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a positive multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
-  
-  If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty. Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, and choice of $A^±$, we get
-  \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
-
-  Noting that there cannot be any non-constant $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians, see \cref{thm:homology}), and then using \cref{thm:chekanov} we conclude.
-\end{proof}
-
-\begin{proposition}
-  \label{thm:embedded_lower_bound}
-  Let $(X,ω)$ be a geometrically bounded manifold, and $φ \colon U ⊂ B_{dpq} → X$ be an embedding of a milnor fibre.\todo{Präzisieren}
-
-  Then there exists $ε>0$ such that for any $x$ with $T(x) ⊂ U$ and $x_1<ε$ and $x$ close enough to the eigenline of the monodromy\todo{präzisieren}, we have $e(φ(T(x))) ≥ x_1$.
-\end{proposition}
-
-\begin{proof}
-  The proof is essentially the same as in \cref{thm:lower_bound}, with two differences:
-
-  Firstly, for arbitrary $T(x) ⊂ U$, the preimage under $μ$ of the set $A_0 ⊂ Δ_{B_{dpq}}$ might not be contained in $U$.
-  Shrinking $ε$ and the allowed distance to the eigenline of the monodromy assures that $μ^{-1}(A_0) ⊂ U$.
-
-  Secondly, the ambient space $X$ might contain $J$-spheres. Restricting $x_1 ≤ ε ≤ σ_S(X,J)$, we still get the estimate $e(T(x)) ≥ x_1$.
-
-\end{proof}
-
-\section{Upper bound on displacement energy: Probes}
-\label{sec:upper_bound}
-
-To calculate an upper bound on the displacement energy of a toric fibre $T(x)$ of the almost toric fibration $\mu \colon B_{dpq}\to \mathbb{R}^2$, we can explicitly construct a Hamiltonian symplectomorphism that displaces the toric fibre from itself.
-By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(b)$.
-
-For this we want to use probes, first introduced by McDuff \cite{mcduff2011displacing}. We refer the reader there for the definitions and statements (mainly \cite[Definition 2.3, Lemma 2.4]{mcduff2011displacing}).
-
-
-\begin{lemma}
-    \label{thm:upper_bound}
-    Assume that $\mu \colon B_{dpq} \to \mathbb{R}^2$ is the moment map associated to the almost toric fibration defined on $B_{dpq}$ as described in $\cref{thm:bdpq_moment_map}$. 
-    Then, for a toric fibre $T(x)=\mu^{-1}(x)$, such that $x \in \mathbb{R}^2$ does not lie on the branch cut line, the displacement energy can be estimated from above by
-    \[ e(B_{dpq},T(x))\leq x_1 = μ_1(T(x)). \]
-\end{lemma}
-
-
-\begin{proof}
-  Fix $T(x)$ as in the statement.
-  
-By \cref{thm:nodal_slide}, we can change the almost toric fibration in a neighbourhood containing the branch cut $ℓ$, and not containing $T(x)$, such that the horizontal line $P$ containing $x$ does not intersect\footnote{If $q=0$ (that means $p=1$) this may not work if $x_2=0$. In this case we may apply an integral shear to go to the case $q=1$.} $ℓ$.
-
-Removing $μ^{-1}(ℓ)$ we find ourselves in a toric fibration, where $P$ is an infinitely long probe. Now \cite[Lemma 2.4]{mcduff2011displacing} gives a Hamiltonian symplectomorphism with Hofer norm $x_1 = μ_1(T(x))$.
-\end{proof}
-
-\begin{proposition}
-\label{thm:upper_bound_embedded}
-  Let $φ:B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a symplectic manifold.
-  Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) \leq μ_1(T(b))$.
-\end{proposition}
-
-\begin{proof}
-    This is essentially the same as \cref{thm:upper_bound}, but the probe will no longer be infinitely long, so we only get a finite probes.
-    We may assume that for probes sufficiently close to $x_2=0$, they are at least $2δ$ long, so all fibres $T(x)$ with $x_2$ sufficiently small and $x_1<δ$ can be displaced with energy $μ_1(T(x))$.
-
-    Now applying the diffemorphism $τ^{-1}$, we get the result.
-\end{proof}
 
 \section{Versal Deformations \& Nearby Lagrangians}
 
@@ -824,6 +650,187 @@ When doing a mutation, and we know the displacement energy of all tori near the 
 Thus under mutations, the displacement energy is preserved in the complement of the eigenline of that mutation.
 
 This is enough that the displacement energy germ can distinguish the types of tori. In this manner we may recover the tori found in \cite{Via16} and also \cite{Via17}. For further examples of distinguishing exotic tori using versal deformations see \cite{brendel2020real}, \cite{brendel2023hamiltonian}, \cite{brendel2023local}\todo{Sonst noch was hier? Es müssen schon \emph{alle} paper von Joé hin :)}.
+
+
+
+\section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
+\label{sec:lower_bound}
+
+We want to use a classical theorem by Chekanov \cite{chekanov1998}, that gives a lower bound on the displacement energy of Lagrangian submanifolds in certain symplectic manifolds. To state the theorem we recall the central notions contained in the theorem.
+
+Suppose that $(X,\omega)$ is a symplectic manifold. Define $\mathcal{H}(X)\vcentcolon=\mathcal{C}^\infty_\text{c}(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$. For $H \in \mathcal{H}(X)$ let
+\[
+    \lVert H \rVert \vcentcolon= \int_0^1 \left(\sup_\text{x \in X} H_t(x) - \inf_\text{x \in X} H_t(x) \right) dt
+\]
+be the \textbf{Hofer norm of $H$}. 
+
+\begin{definition}
+\label{def:displacement_energy}
+    For a subset $A \subseteq X$ in a symplectic manifold $(X,\omega)$ define the \textbf{displacement energy} of $A$ to be 
+    \[e(A)\vcentcolon=\inf\left\{\lVert H\rVert \mid H\in \mathcal{H}(X) \text{ such that } \varphi^H_1(A) \cap A = \emptyset\right\},\]
+    where $\varphi^H_1$ denotes the Hamiltonian diffeomorphism generated by $H$ and the infimum over the empty set is defined to be infinity.
+\end{definition}
+
+Chekanov's theorem only holds for a specific class of symplectic manifolds, namely geometrically bounded ones.
+
+\begin{definition}
+    \label{def:geobdd}
+    Let $(X,\omega)$ be a symplectic manifold. We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology. We do not use the word \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ on $X$ such that 
+    \begin{enumerate}
+        \item $g$ is complete,
+        \item there are constants $c_1,c_2 > 0$ such that $\omega(JV,V) \geqslant c_1 \Vert V \Vert_g^2$ and $\vert \omega(V,W) \vert \leqslant c_2 \Vert V \Vert_g \Vert W \Vert_g$ for all tangent vectors $V,W$, and
+        \item the sectional curvature of $g$ is bounded from above and the injectivity radius is bounded from below.
+    \end{enumerate}
+    Denote the space of such almost complex structures by $\mathcal{J}_{\text{geo}}(X,\omega)$.
+    The symplectic manifold $(X,\omega)$ is called \textbf{geometrically bounded} if there exists a geometrically bounded $J$. 
+\end{definition}
+
+\begin{remark}
+  \label{rem:Bdpq_geometrically_bounded}
+    Closed symplectic manifolds are geometrically bounded, and the same holds for a large class of symplectic manifolds that look standard at infinity, i.e. cotangent bundles of compact manifolds and symplectizations. For more details on this notion see also \cite[Chapter X, Definition 2.2.1]{AudLaf94}. In particular $B_{dpq}$ is geometrically bounded by \cref{rem:Bdpq_lens_space}.
+\end{remark}
+\begin{remark}
+  \label{rem:J_compactly_perturbed}
+  If $J_0 \in \mathcal{J}_\text{geo}(X,ω)$ is a geometrically bounded almost complex structure, $K ⊂ M$ compact, and $J$ is a tame almost complex structure such that $J = J_0$ on $M ∖ K$, then $J$ is also geometrically bounded.
+\end{remark}
+
+With these definitions in place we define the two quantities that play a crucial role in Chekanov's theorem.
+
+\begin{definition}
+    Suppose that $L$ is a compact Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}(X,\omega)$ be a geometrically bounded almost complex structure. Define
+    \[
+        \sigma_D(X,L,J)\vcentcolon=\text{inf} \left\{  \int_{D} u^* \omega \mid u\colon(D,\partial D)\to(X,L) \text{ non-constant $J$-holomorphic disc}   \right\}
+    \]
+    and 
+    \[
+        \sigma_S(X,J)\vcentcolon=\text{inf}\left\{ \int_{S^2} u^* \omega \mid u:S^2 \to X \text{ non-constant $J$-holomorphic sphere}   \right\}.
+    \]
+    These two quantities may be equal to infinity, if the infimum is taken over an empty set.
+\end{definition}
+
+\begin{theorem}[Chekanov 1998 \cite{chekanov1998}]
+  \label{thm:chekanov}
+  Let $L$ be a compact Lagrangian submanifold of a geometrically bounded symplectic manifold $(X,ω)$. For every geometrically bounded almost complex structure $J$, the displacement energy satisfies
+  \[e(L) ≥ \min\qty{σ_D(X,L,J),σ_S(X,J)}.\]
+\end{theorem}
+
+
+
+Let $(M,ω,J)$ be a geometrically bounded connected symplectic manifold with $ω$-compatible almost complex structure $J$, denote by $g$ a Riemannian metric as in \cref{def:geobdd}, and let $u\colon Σ → M$ be a J-holomorphic curve.
+
+Then Gromov's Monotonicity Lemma (e.g. \cite[Proposition 4.3.1 (ii)]{sikorav1994}) gives us the following statement:
+
+\begin{lemma}[Monotonicity]
+  \label{thm:monotonicity}
+  There exists a $C>0$ (depending only on $(M,ω,J)$) s.t.\ for all $x ∈ \im(u)$, $B_r(x)$ an open ball w.r.t.\ $g$ with $r > 0$ and $u(∂Σ) ⊂ M ∖ B_r(x)$, we have
+  \[∫_u ω ≥ C r²\]
+\end{lemma}
+
+As a simple corollary we get that a $J$-curve crossing a certain distance also must have a certain area:
+
+\begin{corollary}
+  \label{thm:small_buffer}
+  Suppose $A^+ ⊔ A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is a connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon (Σ,∂Σ) → (M,A^+ ⊔ A^-)$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
+  Then
+  \[∫_u ω ≥ \frac{C d(A^+,A^-)^2}{4} \; ,\]
+  where $d$ denotes the metric induced by $g$.
+\end{corollary}
+
+\begin{proof}
+  Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$. By the intermediate value theorem there is $t$ s.t.\ $d((u ∘ γ) (t),A^+) = d((u ∘ γ)(t), A^-)$. Picking $x = (u ∘ γ)(t)$ and using the triangle inequality we have that $B_{d(A^+,A^-)/2}(x) ⊂ M ∖ ( A^+ ⊔ A^-) $. Applying \cref{thm:monotonicity} to $B$ we get the desired result.
+\end{proof}
+
+\begin{proposition}
+  \label{thm:lower_bound}
+    \[
+        e(T(x)) ≥ x_1. 
+    \]
+\end{proposition}
+\begin{proof}
+  Looking at the almost moment image $\im μ$, we want to pretend for a moment that there are no nodes:
+  Instead of $B_{dpq}$ this gives us the toric manifold
+  \begin{align*}
+    μ_0 \colon ℂ × T^* S^1 &→ \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
+    (z,p,θ) &↦ (\abs{z}^2, p) \; ,
+  \end{align*}
+  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $ coming from the identification $T^*S^1 = \mathbb{C}/\mathbb{Z}$, where $\mathbb{Z}$ acts on $\mathbb{C}$ by translation along the real axis. This complex structrure is compatible with $\omega_0$ and geometrically bounded with respect to the induced metric, which is the Riemannian metric
+  \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\}\]
+  for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$.
+
+  Let $u,v ∈ \im μ_0$. Then we have
+  \[ d(μ_0^{-1}(u),μ_0^{-1}(v))^2 ≥ (\sqrt{v_1}-\sqrt{u_1})^2 + (v_2-u_2)^2 ≕ d_{μ_0}(u,v)^2 \; ,\]
+  where $d_{\mu_0}$ defines a positive definite symmetric function on $\im μ_0$.
+
+  Let $C$ be the constant in \cref{thm:monotonicity} for $( ℂ × T^* S¹, ω_0, J_0)$.
+  Set $A_0^- = \{x\}, A_0 = \qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ 2 \sqrt{\frac{x_1}{C}} }$ and $A_0^+ =\qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = 2 \sqrt{\frac{x_1}{C}}}$.
+
+  Let us now return to $B_{dpq}$. Using a nodal slide (\cref{thm:nodal_slide}), we may assume that $A_0 ⊂ \im μ$ contains no nodes.
+  Using Delzant's classification of toric symplectic manifolds, we may identify $μ^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by an equivariant symplectomorphism.
+  Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$ (which exists by \cref{rem:Bdpq_geometrically_bounded}).
+  Let $K$ be a compact set, its interior containing $μ^{-1}(A_0)$. Then there exists a geometrically bounded (by \cref{rem:J_compactly_perturbed}) almost complex structure $J$ on $B_{dpq}$ such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
+
+  Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, which it isn't by \cref{thm:upper_bound}.}. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a positive multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
+  
+  If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty. Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, and choice of $A^±$, we get
+  \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
+
+  Noting that there cannot be any non-constant $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians, see \cref{thm:homology}), and then using \cref{thm:chekanov} we conclude.
+\end{proof}
+
+\begin{proposition}
+  \label{thm:embedded_lower_bound}
+  Let $(X,ω)$ be a geometrically bounded manifold, and $φ \colon U ⊂ B_{dpq} → X$ be an embedding of a milnor fibre.\todo{Präzisieren}
+
+  Then there exists $ε>0$ such that for any $x$ with $T(x) ⊂ U$ and $x_1<ε$ and $x$ close enough to the eigenline of the monodromy\todo{präzisieren}, we have $e(φ(T(x))) ≥ x_1$.
+\end{proposition}
+
+\begin{proof}
+  The proof is essentially the same as in \cref{thm:lower_bound}, with two differences:
+
+  Firstly, for arbitrary $T(x) ⊂ U$, the preimage under $μ$ of the set $A_0 ⊂ Δ_{B_{dpq}}$ might not be contained in $U$.
+  Shrinking $ε$ and the allowed distance to the eigenline of the monodromy assures that $μ^{-1}(A_0) ⊂ U$.
+
+  Secondly, the ambient space $X$ might contain $J$-spheres. Restricting $x_1 ≤ ε ≤ σ_S(X,J)$, we still get the estimate $e(T(x)) ≥ x_1$.
+
+\end{proof}
+
+\section{Upper bound on displacement energy: Probes}
+\label{sec:upper_bound}
+
+To calculate an upper bound on the displacement energy of a toric fibre $T(x)$ of the almost toric fibration $\mu \colon B_{dpq}\to \mathbb{R}^2$, we can explicitly construct a Hamiltonian symplectomorphism that displaces the toric fibre from itself.
+By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(b)$.
+
+For this we want to use probes, first introduced by McDuff \cite{mcduff2011displacing}. We refer the reader there for the definitions and statements (mainly \cite[Definition 2.3, Lemma 2.4]{mcduff2011displacing}).
+
+
+\begin{lemma}
+    \label{thm:upper_bound}
+    Assume that $\mu \colon B_{dpq} \to \mathbb{R}^2$ is the moment map associated to the almost toric fibration defined on $B_{dpq}$ as described in $\cref{thm:bdpq_moment_map}$. 
+    Then, for a toric fibre $T(x)=\mu^{-1}(x)$, such that $x \in \mathbb{R}^2$ does not lie on the branch cut line, the displacement energy can be estimated from above by
+    \[ e(B_{dpq},T(x))\leq x_1 = μ_1(T(x)). \]
+\end{lemma}
+
+
+\begin{proof}
+  Fix $T(x)$ as in the statement.
+  
+By \cref{thm:nodal_slide}, we can change the almost toric fibration in a neighbourhood containing the branch cut $ℓ$, and not containing $T(x)$, such that the horizontal line $P$ containing $x$ does not intersect\footnote{If $q=0$ (that means $p=1$) this may not work if $x_2=0$. In this case we may apply an integral shear to go to the case $q=1$.} $ℓ$.
+
+Removing $μ^{-1}(ℓ)$ we find ourselves in a toric fibration, where $P$ is an infinitely long probe. Now \cite[Lemma 2.4]{mcduff2011displacing} gives a Hamiltonian symplectomorphism with Hofer norm $x_1 = μ_1(T(x))$.
+\end{proof}
+
+\begin{proposition}
+\label{thm:upper_bound_embedded}
+  Let $φ:B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a symplectic manifold.
+  Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) \leq μ_1(T(b))$.
+\end{proposition}
+
+\begin{proof}
+    This is essentially the same as \cref{thm:upper_bound}, but the probe will no longer be infinitely long, so we only get a finite probes.
+    We may assume that for probes sufficiently close to $x_2=0$, they are at least $2δ$ long, so all fibres $T(x)$ with $x_2$ sufficiently small and $x_1<δ$ can be displaced with energy $μ_1(T(x))$.
+
+    Now applying the diffemorphism $τ^{-1}$, we get the result.
+\end{proof}
 
 
 \section{Proof of Main Theorem}
