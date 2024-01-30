@@ -170,66 +170,48 @@
 
 \section{Local model}
 
-We use almost toric geometry to define the local model spaces. In \cref{sec:atgeometry}, we give a short overview of almost toric geometry and its basic operations (nodal trades, nodal slides, mutations). The reader familiar with the ATF-framework can skip this section. In ... we ...
+We use almost toric geometry to define the local model spaces. In Sections \ref{sec:atgeometry},\ref{sec:atfibres}, we give a short overview of almost toric geometry, its basic operations (nodal trades, nodal slides, mutations) and its fibres. The reader familiar with the ATF-framework can skip this section. In ... we ...
 
 
-\subsection{Some almost toric geometry}
+\subsection{Almost toric fibrations and their base diagrams}
 \label{sec:atgeometry}
 
 Almost toric geometry is a generalization in dimension four of toric geometry. Let us briefly discuss the latter, before moving to the almost toric case. A symplectic toric four-manifold $(X,\omega,\mu)$ is a symplectic manifold $(X,\omega)$ equipped with a moment map $\mu \colon X \rightarrow \mathbb{R}^2$ generating an effective Hamiltonian $T^2$-action on $X$. The image $\mu(X) = \Delta \subset \mathbb{R}^2$ is a so called Delzant polytope and classifies $(X,\omega)$ up to $T^2$-equivariant symplectomorphisms, see \cite{Del88} or \cite{Can03} for more details. The moment map defines a Lagrangian torus fibration, or, equivalently\footnote{we use both terms interchangeably}, a completely integrable system on $X$. The Lagrangian torus fibration defined by a toric moment map has very special properties, namely (1) its singularities (located over the boundary of $\Delta$) are of elliptic-regular or of elliptic-elliptic type, and (2) the moment map defines action coordinates on the interior of the moment polytope. Note that every Lagrangian torus fibration admits local action coordinates in the neighbourhood of a regular fibre (this is the classical Arnold-Liouville Theorem), but that these do not necessarily extend globally, see for example \cite{Dui80} or \cite{Zun96,Zun03}.
 
 An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a four-dimensional symplectic manifold whose singularities are all of elliptic-regular, elliptic-elliptic or focus-focus type. Almost toric fibrations were introduced by Symington \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}. As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map. The analogue of the moment map image is given by the so-called \textbf{almost toric base diagram}. As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
 
-For us\footnote{The general almost toric framework allows for much more generality, e.g. base diagrams carrying topology, non-convexity etc. but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}. Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$. In the absence of focus-focus singularities (i.e. in the toric case), this succeeds, the action coordinates can be extended over the elliptic-type singularities and this procedure yields the moment map. However in the presence of focus-focus singularities, this fails. Indeed, a neighbourhood of a focus-focus singularity (whose image sits in the interior of $\im F$) carries topological monodromy, meaning that the torus bundle given by neighbouring regular fibres is non-trivial. See e.g.\ \cite{Zun97} for more details. This means that action coordinates are well-defined only on the universal cover of $B \setminus \{nodes\}$. An almost toric base diagram is obtained by computing action coordinates on a fundamental domain in the universal cover, see \cite[Definition 8.3]{evans2021atfs} for more details. The branch cut decorations of the almost toric base diagram indicate which choice of fundamental domain was made. Equivalently, one can think of the branch cuts as curves which were removed from the regular locus of $F$ in $B$ in order to make it simply connected. On a simply connected domain, one can compute unique (up to the usual action of $\operatorname{GL}(2;\mathbb{Z}) \ltimes \mathbb{R}^2$) action coordinates. The image of these action coordinates yields the interior of the almost toric base diagram. The full base diagram is obtained after adding the following decorations: edges and vertices on the boundary represent elliptic-type singularities (as in the toric case), dashed lines represent the image of the branch cuts in action coordinates and crosses represent nodes, i.e.\ fibres containing a focus-focus singularity. As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.
+For us\footnote{The general almost toric framework allows for much more generality, e.g. base diagrams carrying topology, non-convexity etc. but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}. Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$. In the absence of focus-focus singularities (i.e. in the toric case), this succeeds, the action coordinates can be extended over the elliptic-type singularities and this procedure yields the moment map. However in the presence of focus-focus singularities, this fails. Indeed, a neighbourhood of a focus-focus singularity (whose image sits in the interior of $\im F$) carries topological monodromy, meaning that the torus bundle given by neighbouring regular fibres is non-trivial. See e.g.\ \cite{Zun97} for more details. This means that action coordinates are well-defined only on the universal cover of $B \setminus \{nodes\}$. An almost toric base diagram is obtained by computing action coordinates on a fundamental domain in the universal cover, see \cite[Definition 8.3]{evans2021atfs} for more details. The branch cut decorations (represented by dashed lines) of the almost toric base diagram indicate which choice of fundamental domain was made. Equivalently, one can think of the branch cuts as curves which were removed from the regular locus of $F$ in $B$ in order to make it simply connected. On a simply connected domain, one can compute unique (up to the usual action of $\operatorname{GL}(2;\mathbb{Z}) \ltimes \mathbb{R}^2$) action coordinates. The image of these action coordinates yields the interior of the almost toric base diagram. The full base diagram is obtained after adding the following decorations: edges and vertices on the boundary represent elliptic-type singularities (as in the toric case), dashed lines represent the image of the branch cuts in action coordinates and crosses represent nodes, i.e.\ fibres containing a focus-focus singularity. As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.
 
-In this paper, we will always make a special choice of almost toric base diagram. Every node in the almost toric base diagram has a unique \textbf{Eigendirection}, i.e. a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node. Equivalently, there is a subcircle of the nearby regular tori whose Hamiltonian $S^1$-action extends over the focus-focus singularity. Although the Eigendirection is not explicitely part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question. In the current paper, we always choose the branch cut to coincide with the Eigendirection. As a consequence, the almost toric base diagram "closes up" (we refer to the discussion in \cite[7.2]{evans2021atfs}) and thus yields a convex polytope. With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology}. Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts. Then $\pi$ has the property that its restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is an honest toric moment map. Roughly speaking, the almost toric moment map is obtained by picking action coordinates on $X_0$ (this is possible since it fibers over the simply-connected $\Delta_0$) and by (continuous) extension over the branch cuts. \\
+In this paper, we will always make a special choice of almost toric base diagram. Every node in the almost toric base diagram has a unique \textbf{eigendirection}, i.e. a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node. Equivalently, there is a subcircle of the nearby regular tori whose Hamiltonian $S^1$-action extends over the focus-focus singularity. Although the eigendirection is not explicitely part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question. In the current paper, we always choose the branch cut to coincide with the eigendirection. As a consequence, the almost toric base diagram "closes up" (we refer to the discussion in \cite[7.2]{evans2021atfs}) and thus yields a convex polytope. With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology}. We give a brief outline on how to construct $\pi$. Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts. Since $\Delta_0$ is simply connected, there are global action coordinates on its intersection with the regular locus, see \cite{Dui80}. Away from the branch cut and nodes, all singularities are of toric type (i.e.\ elliptic-regular or elliptic-elliptic), meaning that the map given by action coordinates can be smoothly extended over the singularities to yield a moment map $\pi\vert_{X_0} \colon X_0 \rightarrow \Delta_0$ of a Hamiltonian $T^2$-action. With our choice of branch cuts, this map has a continuous extension $\pi \colon X \rightarrow \Delta$. Let us formulate the following statement for future reference. 
 
-One of the main features of almost toric geometry is that, one can deform a given (almost) toric fibration $F \colon X \rightarrow \mathbb{R}^2$ to produce another one on the same symplectic manifold $X$. This freedom distinguishes the almost toric from the classical toric case. The main two main operations by which one can deform an almost toric fibration are the nodal trade and the nodal slide, both of which can be handily represented by simple operations on the corresponding ATF-base diagrams. Let us briefly discuss these operations, referring to \cite[Sections 8.2-8.3]{evans2021atfs} for details. The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one. In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut. The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its Eigendirection. The third operation is called \textbf{changing the branch cut}
+\begin{proposition}
+    \label{thm:toricmomentmap}
+    The restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is a toric moment map. 
+\end{proposition}
 
 
-(Starting with a toric manifold and performing mutations...)
 
+Then $\pi$ has the property that its restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is an honest toric moment map. Roughly speaking, the almost toric moment map is obtained by picking action coordinates on $X_0$ (this is possible since it fibers over the simply-connected $\Delta_0$) and by (continuous) extension over the branch cuts. \\
 
+One of the main features of almost toric geometry is that, one can deform a given (almost) toric fibration $F \colon X \rightarrow \mathbb{R}^2$ to produce another one on the same symplectic manifold $X$. This freedom distinguishes the almost toric from the classical toric case. The main two main operations by which one can deform an almost toric fibration are the nodal trade and the nodal slide, both of which can be handily represented by simple operations on the corresponding ATF-base diagrams. Let us briefly discuss these operations, referring to \cite[Sections 8.2-8.3]{evans2021atfs} for details. The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one. In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut. The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its eigendirection. The third operation is called \textbf{changing the branch cut}, see \cite[Sections 8.4]{evans2021atfs} for more details. It corresponds to making a different choice of branch cut to produce the almost toric base diagram. Since, in the context of the present paper, we only consider branch cuts which coincide with the Eigenline of a given node, there are only two choices of branch cuts and the \textit{change in branch cut}-operation is a switch from one to the other. Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and a integral shear preserving the eigenline to the other half. We refer to \cite[Example 8.15]{evans2021atfs} for an example. Note that there is a difference between nodal trade and nodal slide on one hand, and the change in branch cut operation on the other hand. The first two operations represent a change in the underlying almost toric fibration on $X$, whereas the change in branch cut does not. The change in branch cut merely corresponds to a different way of representing the almost toric fibration by a base diagram.
 
-\subsection{Model spaces}
+Together, these three operations add up to an easy-to-use visual calculus on almost toric base diagrams, all of which represent different almost toric fibrations on the same manifold. The combination of nodal slides and changes in branch cut is often called a \textbf{mutation}. For example, one can start with a toric manifold, apply nodal trades at its vertices and then perform a series of mutations. This was used in symplectic topology to great effect by Vianna~\cite{Via16} to exhibit infinitely many almost toric fibrations on $\mathbb{C}P^2$. The set of almost toric fibrations obtained in this way is in bijection with the set of Markov triples and each almost toric fibration has an exotic Lagrangian torus as monotone fibre.
 
-Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. Let $\Delta_{dpq}$ be the almost toric base diagram obtained by decorating the right half-plane
-$$\Delta_{dpq} = \{ (x,y) \in \mathbb{R}^2 \, \vert \, x \geqslant 0 \}$$
-with $d$ distinct nodes contained in the ray 
-\begin{equation}
-  \label{eqn:eigenline}
-  R = \{\alpha (p,q) \in \Delta_{dpq} \, \vert \, \alpha > 0 \}
-\end{equation}
-and having a common eigenvector $(p,q)$, see \cref{fig:Bdpq_moment_image}(a). 
+\subsection{Almost toric fibres}
+\label{sec:atfibres}
 
-\begin{definition}
-    \label{def:bdpq}
-    Let $B_{dpq}$ be the symplectic manifold having $\Delta_{dpq}$ as almost toric base diagram. 
-\end{definition}
-
-\begin{remark}
-    The symplectic manifold $(B_{dpq}, \omega)$ is exact. Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient singularities. For more details on this, see ...
-\end{remark}
-
-Note that $\Delta_{dpq}$ depends on $d$ parameters $x_1,\ldots,x_d > 0$ which correspond to the $x$-coordinate of the position of the nodes. The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $x_i$ in the notation. Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by a so-called \textbf{nodal slide} and a nodal slide of the ATF-base diagram induces a symplectomorphism of the corresponding symplectic manifolds, see \cite[Theorems 8.10]{evans2021atfs}. This means that the space $B_{dpq}$ is well-defined up to symplectomorphisms.
-
-Let $\Delta$ be an ATF-base diagram of a symplectic manifold $X$. Then every $x \in \Delta$ defines a unique subset $T(x) \subset X$, which we call the \textbf{ATF-fibre} over $x$. If $x \in \partial \Delta$, then $T(x)$ is a point or an isotropic circle. If $x$ is a node, then $T(x)$ is a Lagrangian Whitney sphere, i.e.\ a Lagrangian immersion of a $2$-sphere with one transverse self-intersection. If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagrangian torus and we call such a torus a \textbf{regular ATF-fibre}.
-
-\begin{remark}
-    \label{rk:atffibres}
-    The ATF-fibre $T(x)$ can be defined as the fibre $T(x) = \pi^{-1}(x)$ of the almost toric moment map $\pi$, defined in \cref{rk:atfbasediagram}. Note however that the definition of $\pi$ is not straightforward. 
-\end{remark}
+Let $F \colon X \rightarrow B \subset \mathbb{R}^2$ be an almost toric fibration with ATF-base diagram $\Delta$. A fibre of $F$ is called \textbf{almost toric fibre}. For every $x \in \Delta$, we denote by $T(x) \subset X$ the unique set in $X$ whose action coordinates are equal to $x$ with the chosen branch cuts. Recall that, in the context of this paper, there is an almost toric moment map $\pi \colon X \rightarrow \Delta$ and thus we have $T(x) = \pi^{-1}(x)$. If $x \in \partial \Delta$, then $T(x)$ is a point or an isotropic circle. If $x$ is a node, then $T(x)$ is a Lagrangian Whitney sphere, i.e.\ a Lagrangian immersion of a $2$-sphere with one transverse self-intersection. If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagrangian torus and we call such a torus a \textbf{regular ATF-fibre}.
 
 \begin{remark}
     \label{rk:pinchedtorus}
-    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres (i.e.\ Lagrangian tori) by viewing it as a Lagrangian torus which is "pinched" along a curve on the torus. The homology class of this curve determines the topological monodromy of the torus bundle in a neighbourhood of the node and thus the eigenvector of the node. 
+    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres (i.e.\ Lagrangian tori) by viewing it as a Lagrangian torus which is "pinched" along a curve on the torus. The homology class of this curve determines determines the topological monodromy of the torus bundle in a neighbourhood of the node.
 \end{remark}
 
 Almost toric fibres are left unaffected by nodal slides, provided they are not contained in the segment on which the nodal slide is supported\footnote{By this we mean the line segment obtained as the union of points across which the node moves during the nodal slide.}.
 
 \begin{lemma}
     \label{thm:nodal_slide}
-    Let $\Delta, \Delta'$ be two almost toric base diagrams which are related by nodal slides\footnote{This impies that the underlying sets $\Delta, \Delta' \subset \mathbb{R}^2$ coincide.} which are supported in the set $\Sigma$. Let $X,X'$ be symplectic manifolds corresponding to $\Delta,\Delta'$ and dentote by $T(x) \subset X$ and $T'(x) \subset X$ their respective ATF fibres. Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.\todo{definition nodal slide, und bild dazu.}
+    Let $\Delta, \Delta'$ be two almost toric base diagrams which are related by nodal slides\footnote{This impies that the underlying sets $\Delta, \Delta' \subset \mathbb{R}^2$ coincide.} that are supported in the set $\Sigma$. Let $X,X'$ be symplectic manifolds corresponding to $\Delta,\Delta'$ and dentote by $T(x) \subset X$ and $T'(x) \subset X$ their respective ATF fibres. Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.\todo{(definition nodal slide) und bild dazu.}
 \end{lemma}
 
 \begin{proof}
@@ -237,22 +219,44 @@ Almost toric fibres are left unaffected by nodal slides, provided they are not c
 \end{proof}
 
 \begin{remark}
-    This fails for points which are contained in a segment on which a nodal slide is supported, even if both points correspond to regular almost toric fibres. In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other. This was pioneered by Vianna \cite{Via16,Via17}. This occurs for example in $\mathbb{R}^4 = \mathbb{C}^2$. Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus. It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$. To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure. By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
+    \label{rk:slides_ray}
+    The claim of \cref{thm:nodal_slide} fails for points which are contained in a segment on which a nodal slide is supported, even if both points correspond to regular almost toric fibres. In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other. This approach was pioneered by Vianna \cite{Via16,Via17}. The simplest example in which this occurs is $\mathbb{R}^4 = \mathbb{C}^2$. Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus. It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$. To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure. By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
 \end{remark}
 
-Returning to the special case of $X = B_{dpq}$, let $R = \{\lambda(p,q) \vert \lambda > 0\} \subset \Delta_{dpq}$ be the half-line containing the eigenray of the nodes in the base diagram $\Delta_{dpq}$. 
+
+
+\subsection{Model spaces}
+
+Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. Let $\Delta_{dpq}$ be the almost toric base diagram obtained by decorating the right half-plane
+$$\Delta_{dpq} = \{ (x,y) \in \mathbb{R}^2 \, \vert \, x \geqslant 0 \}$$
+with $d$ distinct nodes contained in the ray,
+\begin{equation}
+  \label{eqn:eigenline}
+  R = \{\alpha (p,q) \in \Delta_{dpq} \, \vert \, \alpha > 0 \}
+\end{equation}
+and with eigendirection $(p,q)$. For a branch cut contained in $R$ and to the right of the nodes, this yields the almost toric base diagram depicted in \cref{fig:Bdpq_moment_image}(a). 
 
 \begin{definition}
-    \label{def:bdpqfibres}
-    For every $x \in \Delta_{dpq} \setminus R$, we denote the almost toric fibre over $x$ by $T_{dpq}(x) \subset B_{dpq}$. For every $x \in R$ and $k \in \{0,\ldots,d\}$, we denote by $T^k_{dpq}(x) \subset B_{dpq}$ the almost toric fibre over $x$ in an almost toric base diagram in which there are $k$ of the $d$ nodes to the left of $x$.\todo{image}
+    \label{def:bdpq}
+    Let $B_{dpq}$ be the symplectic manifold having $\Delta_{dpq}$ as almost toric base diagram. 
 \end{definition}
 
-By \cref{thm:nodal_slide}, these tori are well-defined, i.e.\ independent of the position of the nodes in $\Delta_{dpq}$. 
+Such a symplectic manifolds exists, see \cite[Section 7.4]{evans2021atfs} and is thus unique by \cite[Theorem 8.5]{evans2021atfs}. 
 
 \begin{remark}
-  \label{rem:B_dpq_skeleton}
-  Skelleton of visible Lagrangians.\todo{ausführen.}
+    The symplectic manifold $(B_{dpq}, \omega)$ is exact. Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient singularities. For more details on this, see \cite[Section 7.4]{evans2021atfs} or \cite{Eva19}.
 \end{remark}
+
+Note that $\Delta_{dpq}$ depends on $d$ parameters $n_1,\ldots,n_d > 0$ which correspond to the $x$-coordinate of the position of the nodes. The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $n_i$ in the notation. Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by nodal slide. By \cite[Theorem 8.10]{evans2021atfs}, this means that the space $B_{dpq}$ is well-defined up to symplectomorphism.
+
+We turn to the almost toric fibres of $B_{dpq}$. For every $x \notin R$, we denote the corresponding almost toric fibre by $T(x) \subset B_{dpq}$. This definition is independent of the position of the nodes in $\Delta_{dpq}$ by \cref{thm:nodal_slide}. In case $x \in R$, the definition depends on how many nodes are to the right and to the left of $x$. For every $a > 0$, let $x_a = \left( a,\frac{aq}{p} \right) \in R$. For every $k \in \{0,\ldots,d\}$, let $\Delta_{dpq}$ be an almost toric base diagram as above for which $k$ of the $d$ nodes are to the left of the point $x_a$. 
+
+\begin{definition}
+    Let $a>0$ and $k \in \{0,\ldots,d\}$. We denote by $T^k_{pq}(a) = T(x_a)$ the regular almost toric fibre of a fibration whose almost toric base diagram has $k$ of the $d$ nodes to the left of $x_a$. 
+\end{definition}
+
+Again, by \cref{thm:nodal_slide}, this definition does not depend on the precise position of the nodes, only on $k$, i.e.\ the number of nodes to the left of $x_a$. In ..., we show that there is no symplectomorphism of $B_{dpq}$ mapping $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ if $k \neq k'$.
+
 
 \subsection{Some symplectic embeddings}
 \label{ssec:sembeddings}
@@ -279,31 +283,27 @@ For every $x \in \operatorname{int} \Delta_0$, we denote the corresponding toric
 \subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
 \label{sec:homology}
 
-Let $T(x) = π^{-1}(x)$ for $x ∈ Δ_{dpq}$ be a regular almost toric fibre. In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
-See also \cite[Lemma 7.11]{evans2021atfs} for the homology of $B_{dpq}$.
+Let $T(x) = π^{-1}(x) \subset B_{dpq}$ for $x ∈ Δ_{dpq}$ be a regular almost toric fibre. In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
 
 \begin{lemma}
   \label{thm:homology}
   We have
   \begin{align*}
     H_0(B_{dpq}) &≅ ℤ & H_1(B_{dpq}) &≅ ℤ_p & H_2(B_{dpq}) &≅ ℤ^{d-1} \\
-                 &    &              &      & H_2(B_{dpq},T(b)) &≅ ℤ^{d+1}
+                 &    &              &      & H_2(B_{dpq},T(x)) &≅ ℤ^{d+1}
   \end{align*}
 \end{lemma}
 
 \begin{proof}
-  Here we follow very closely \cite[Lemma 7.11]{evans2021atfs}.
+    Here we follow very closely \cite[Lemma 7.11]{evans2021atfs}, but we additionally calculate the the relative second homology group. Since all $T(x) = π^{-1}(x)$ are homotopic, we may assume that $x = (x_1,x_2)$ is on the ray $R$ (see \eqref{eqn:eigenline}), such that all the nodes are to the right of $x$ as in \cref{fig:branch_cut_retraction}.
 
-  Since all $T(x) = π^{-1}(x)$ are homotopic, we may assume that $x = (x_1,x_2)$ is contained in the horizontal eigenline $R$ (see \cref{eqn:eigenline}) such that all the nodes are to the right of $x$ as in \cref{fig:branch_cut_retraction}.
+    As in \cite[Lemma 7.11]{evans2021atfs}, $B_{dpq}$ retracts onto $π^{-1}(ℓ)$, where $ℓ ⊂ R$ is a closed line segment containing $0, x$ and all the nodes (See \cref{fig:branch_cut_retraction} again).
+    We investigate the topology of the preimage $π^{-1}(ℓ)$ in two steps. If there were no nodes on the line, the preimage is a solid torus, denoted by $\hat{T}$, with boundary $∂ \hat{T}$ homotopy equivalent to $T(x)$. 
+    If there are nodes on the line $ℓ$, then the singular fibres play a role in the calculation of the homology groups as follows. In the basis of $H₁(∂ \hat{T})$, derived from the action coordinates defined away from the branch cut, such that for each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop representing the homology class $(-q,p) \in H₁(∂ \hat{T})$, as in \cref{fig:collapse_cycles}.\footnote{In this basis the class $(1,0)\in H_1(\partial \hat{T})$ corresponds to the class that bounds a disk in $\hat{T}$ and $(1,0)\in H_1(\partial \hat{T})$ is the class that is homotopic to the core circle of $\hat{T}$.}
 
-  As in \cite[Lemma 7.11]{evans2021atfs}, $B_{dpq}$ retracts onto $π^{-1}(ℓ)$, where $ℓ ⊂ R$ a line segment containing $(0,0)$ and all the nodes (See \cref{fig:branch_cut_retraction} again).
-The preimage $π^{-1}(ℓ)$ can be understood as follows:
-If there were no nodes on the line, this would be a solid torus $\hat{T} = S¹×D²$ with $∂ \hat{T}$  homotopy equivalent to $T(x)$.
-With an appropriate choice of basis $(1,0),(0,1) ∈ H₁(∂ \hat{T})$, for each critical fibre $k ∈ \qty{1,…,d}$ we collapse a loop along the homology class $(-q,p)$, as in \cref{fig:collapse_cycles}.\todo{Das ist alles etwas schwammig. Ist auch bei Evans so. Sollen wir das besser machen?}
-
-Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
-Again up to homotopy we can also require that the $d$ discs $D_1,…,D_d$ are attached along $∂ \hat{T}$.
-Let us call the resulting space (solid torus $\hat{T}$ with disks $D_i$ attached) $S$.
+    Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
+    Furthermore, up to homotopy we can also require that the $d$ discs $D_1,…,D_d$ are attached along $∂ \hat{T}$.
+    Denote the resulting space by $S$, which is a solid torus $\hat{T}$ with the disks $D_i$ attached.
 
 \begin{figure}
   \centering
@@ -327,7 +327,7 @@ Let us call the resulting space (solid torus $\hat{T}$ with disks $D_i$ attached
   \caption{Calculation of the homology of $B_{dpq}$}
 \end{figure}
 
-We consider the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
+Consider the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
 
 \[
 \begin{tikzcd}[column sep=small]
@@ -347,14 +347,13 @@ We consider the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
 \end{tikzcd}
 \]
 
-The first horizontal map is zero since $∂ \hat{T}$ is homotopic to a circle in $S$.
+The first horizontal map is trivial, since $∂ \hat{T}$ is homotopic to the core circle in $S$.
 
-The homology $H_2(S)$ can be seen as follows: By contracting the solid torus $\hat{T}$ in $S$ to a circle, we see that $S$ is homotopic to a circle with $d$ discs glued to its boundary by a degree $p$ map.
-So $H_2(S)$ is generated by the visible Lagrangian spheres $\qty{S_2,…,S_d}$ mentioned in \cref{rem:B_dpq_skeleton}, since $S_k ≃ D_{k-1}-D_{k}$.
+The homology $H_2(S)$ can be calculated by contracting the solid torus $\hat{T}$ in $S$ onto the core circle. Therefore, we see that $S$ is homotopic to a circle with $d$ discs glued to its boundary by a degree $p$ map. Hence, $H_2(S)$ is generated by the visible Lagrangian spheres $\qty{S_2,…,S_d}$ mentioned in \cref{rem:B_dpq_skeleton}, since $[S_k] = [D_{k-1}]-[D_k]$.
 
-$H_2(S,∂ \hat{T})$ is generated by the discs $D_0 = \text{pt}×D²,D₁,…,D_d$. In $B_{dpq}$ and for generic $x$, these discs can be seen, where the disc intersecting the toric boundary collapses the $(0,1)$ cycle in the toric fibre $T(x)$ and the discs intersecting the critical points collapse the $(-q,p)$ cycle (see \cref{fig:homology_generating_discs}).
+$H_2(S,∂ \hat{T})$ is generated by the discs $D_0,…,D_d$, where $D_0$ is given by a disc that retracts onto a point on the "core" circle of $S$. These discs can be seen schematically in \cref{fig:homology_generating_discs}, where the disc $D_0$ intersecting the toric boundary collapses the $(0,1)$ cycle in the toric fibre $T(x)$ and the discs intersecting the critical points collapse the $(-q,p)$ cycle (see \cref{fig:homology_generating_discs}).
 
-The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given by $\partial D_0 = (0,1),\, \partial D_i = (-q,p)$, meaning that the last horizontal map $H_1(∂ \hat{T}) → H_1(S)$ maps $(0,1)$ to the generator of $ℤ_p$.
+The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given by $\partial D_0 = (0,1)$ and $\partial D_i = (-q,p)$, for $k ∈ \qty{1,…,d}$, meaning that the map $H_1(∂ \hat{T}) → H_1(S)$ maps $(0,1)$ to the generator of $ℤ_p$.
 \end{proof}
 
 \begin{figure}
@@ -651,7 +650,53 @@ Thus under mutations, the displacement energy is preserved in the complement of 
 
 This is enough that the displacement energy germ can distinguish the types of tori. In this manner we may recover the tori found in \cite{Via16} and also \cite{Via17}. For further examples of distinguishing exotic tori using versal deformations see \cite{brendel2020real}, \cite{brendel2023hamiltonian}, \cite{brendel2023local}\todo{Sonst noch was hier? Es müssen schon \emph{alle} paper von Joé hin :)}.
 
+\section{Upper bound on displacement energy: Probes}
+\label{sec:upper_bound}
 
+Let $T(x)$ in $B_{dpq}$ be a regular almost toric fibre with $x \in \Delta_{dpq} \setminus R$, see \eqref{eqn:eigenline} for the definition of $R$. We use the method of probes to compute an upper bound on the displacement energy of $T(x)$. Probes were introduced by McDuff \cite{mcduff2011displacing} to prove the displaceability of toric fibres, see also \cite{AbrBorMcD14}. In \cite{brendel2020real}, they were used to compute an upper bound on the displacement energy of toric fibres.
+
+Our main observation is that, away from nodes and branch cuts, almost toric systems are toric (see \cref{thm:toricmomentmap}) and thus the method of probes applies. For basic definitions and statements about probes, we refer to \cite{mcduff2011displacing}, especially \cite[Definition 2.3, Lemma 2.4]{mcduff2011displacing}.
+
+
+\begin{lemma}
+    \label{thm:upper_bound}
+    Let $x \in \operatorname{int} \Delta_{dpq} \setminus R$. Then the displacement energy of the regular almost toric fibre $T(x)$ satisfies
+    \[ e(B_{dpq},T(x))\leq x_1, \]
+    where $x_1$ is the first component of $x \in \Delta_{dpq} \subset \mathbb{R}^2$.
+\end{lemma}
+
+
+\begin{proof}
+We will use the probe $P = \{(s,x_2) \, \vert \, s \geqslant 0\} \subset \Delta_{dpq}$, where $x_2$ is the second component of $x \in \Delta_{dpq}$. It intersects the boundary $\pp \Delta_{dpq}$ integrally transversally in the sense of \cite[Section 2.1]{mcduff2011displacing}. Note, however, that $P$ may intersect nodes or the branch cut, depending on the position of nodes in $\Delta_{dpq}$. Since $x \in R$, we can, by \cref{thm:nodal_slide}, carry out a nodal slide such that $P$ is disjoint from the nodes and the branch cut. By \cref{thm:toricmomentmap}, the almost toric moment map is toric on the preimage of a neighbourhood of $P$ and thus $P$ is a probe of infinite length. 
+
+By \cite[Lemma 2.4]{mcduff2011displacing}, the almost toric fibre $T(x)$ is displaceable. To compute the upper bound on displacement energy, we follow the same line of argument as in \cite[Proposition 3.4]{brendel2020real}. Indeed, on the preimage of a neighbourhood of $P$, we can carry out symplectic reduction 
+
+
+
+
+  Fix $T(x)$ as in the statement.
+  
+By \cref{thm:nodal_slide}, we can change the almost toric fibration in a neighbourhood containing the branch cut $ℓ$, and not containing $T(x)$, such that the horizontal line $P$ containing $x$ does not intersect\footnote{If $q=0$ (that means $p=1$) this may not work if $x_2=0$. In this case we may apply an integral shear to go to the case $q=1$.} $ℓ$.
+
+Removing $μ^{-1}(ℓ)$ we find ourselves in a toric fibration, where $P$ is an infinitely long probe. Now \cite[Lemma 2.4]{mcduff2011displacing} gives a Hamiltonian symplectomorphism with Hofer norm $x_1 = μ_1(T(x))$.
+\end{proof}
+
+\begin{remark}
+    Some of the $T^k_{pq}$ are actually non-displaceable! Albers--Frauenfelder, Lekili--Maydanskyi...
+\end{remark}
+
+\begin{proposition}
+\label{thm:upper_bound_embedded}
+  Let $φ:B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a symplectic manifold.
+  Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) \leq μ_1(T(b))$.
+\end{proposition}
+
+\begin{proof}
+    This is essentially the same as \cref{thm:upper_bound}, but the probe will no longer be infinitely long, so we only get a finite probes.
+    We may assume that for probes sufficiently close to $x_2=0$, they are at least $2δ$ long, so all fibres $T(x)$ with $x_2$ sufficiently small and $x_1<δ$ can be displaced with energy $μ_1(T(x))$.
+
+    Now applying the diffemorphism $τ^{-1}$, we get the result.
+\end{proof}
 
 \section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
 \label{sec:lower_bound}
@@ -794,43 +839,7 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
 
 \end{proof}
 
-\section{Upper bound on displacement energy: Probes}
-\label{sec:upper_bound}
 
-To calculate an upper bound on the displacement energy of a toric fibre $T(x)$ of the almost toric fibration $\mu \colon B_{dpq}\to \mathbb{R}^2$, we can explicitly construct a Hamiltonian symplectomorphism that displaces the toric fibre from itself.
-By the definition of the displacement energy this yields an upper bound on the displacement energy of $T(b)$.
-
-For this we want to use probes, first introduced by McDuff \cite{mcduff2011displacing}. We refer the reader there for the definitions and statements (mainly \cite[Definition 2.3, Lemma 2.4]{mcduff2011displacing}).
-
-
-\begin{lemma}
-    \label{thm:upper_bound}
-    Assume that $\mu \colon B_{dpq} \to \mathbb{R}^2$ is the moment map associated to the almost toric fibration defined on $B_{dpq}$ as described in $\cref{thm:bdpq_moment_map}$. 
-    Then, for a toric fibre $T(x)=\mu^{-1}(x)$, such that $x \in \mathbb{R}^2$ does not lie on the branch cut line, the displacement energy can be estimated from above by
-    \[ e(B_{dpq},T(x))\leq x_1 = μ_1(T(x)). \]
-\end{lemma}
-
-
-\begin{proof}
-  Fix $T(x)$ as in the statement.
-  
-By \cref{thm:nodal_slide}, we can change the almost toric fibration in a neighbourhood containing the branch cut $ℓ$, and not containing $T(x)$, such that the horizontal line $P$ containing $x$ does not intersect\footnote{If $q=0$ (that means $p=1$) this may not work if $x_2=0$. In this case we may apply an integral shear to go to the case $q=1$.} $ℓ$.
-
-Removing $μ^{-1}(ℓ)$ we find ourselves in a toric fibration, where $P$ is an infinitely long probe. Now \cite[Lemma 2.4]{mcduff2011displacing} gives a Hamiltonian symplectomorphism with Hofer norm $x_1 = μ_1(T(x))$.
-\end{proof}
-
-\begin{proposition}
-\label{thm:upper_bound_embedded}
-  Let $φ:B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a symplectic manifold.
-  Then there exists an $ε>0$, such that there exists a neighbourhood $V$ of $[0,ε) × \{0\} ⊂ \im{\symbf{H}}$ such that for all $b ∈ V$ with $b_2 ≠ 0$ we have $e(φ(T(b)),X) \leq μ_1(T(b))$.
-\end{proposition}
-
-\begin{proof}
-    This is essentially the same as \cref{thm:upper_bound}, but the probe will no longer be infinitely long, so we only get a finite probes.
-    We may assume that for probes sufficiently close to $x_2=0$, they are at least $2δ$ long, so all fibres $T(x)$ with $x_2$ sufficiently small and $x_1<δ$ can be displaced with energy $μ_1(T(x))$.
-
-    Now applying the diffemorphism $τ^{-1}$, we get the result.
-\end{proof}
 
 
 \section{Proof of Main Theorem}
