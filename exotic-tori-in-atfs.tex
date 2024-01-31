@@ -134,8 +134,8 @@ A symplectic toric four-manifold $(X,\omega,\mu)$ is a symplectic manifold $(X,\
 The moment map defines a Lagrangian torus fibration, or, equivalently\footnote{we use both terms interchangeably}, a completely integrable system on $X$. The Lagrangian torus fibration defined by a toric moment map has very special properties, namely (1) its singularities (located over the boundary of $\Delta$) are of elliptic-regular or of elliptic-elliptic type, and (2) the moment map defines action coordinates on the interior of the moment polytope.
 Note that every Lagrangian torus fibration admits local action coordinates in the neighbourhood of a regular fibre (this is the classical Arnold-Liouville Theorem), but that these do not necessarily extend globally, see for example \cite{Dui80} or \cite{Zun96,Zun03}.
 
-An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a four-dimensional symplectic manifold whose singularities are all of elliptic-regular, elliptic-elliptic or focus-focus type.
-Almost toric fibrations were introduced by Symington \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}. As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map.
+An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a four-dimensional symplectic manifold whose singularities are all of elliptic\-/regular, elliptic\-/elliptic or focus\-/focus type.
+Almost toric fibrations were introduced by Sy\-ming\-ton \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}. As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map.
 The analogue of the moment map image is given by the so-called \textbf{almost toric base diagram}. As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
 
 For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc.\ but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}.
@@ -144,31 +144,29 @@ In the absence of focus-focus singularities (i.e.\ in the toric case), this succ
 However in the presence of focus-focus singularities, this fails.
 Indeed, a neighbourhood of a focus-focus singularity (whose image sits in the interior of $\im F$) carries topological monodromy, meaning that the torus bundle given by neighbouring regular fibres is non-trivial.
 See e.g.\ \cite{Zun97} for more details.
-This means that action coordinates are well-defined only on the universal cover of $B \setminus \{nodes\}$. An almost toric base diagram is obtained by computing action coordinates on a fundamental domain in the universal cover, see \cite[Definition 8.3]{evans2021atfs} for more details.
+This means that action coordinates are well-defined only on the universal cover of $B \setminus \{\text{nodes}\}$. An almost toric base diagram is obtained by computing action coordinates on a fundamental domain in the universal cover, see \cite[Definition 8.3]{evans2021atfs} for more details.
 The branch cut decorations (represented by dashed lines) of the almost toric base diagram indicate which choice of fundamental domain was made.
 Equivalently, one can think of the branch cuts as curves which were removed from the regular locus of $F$ in $B$ in order to make it simply connected.
 On a simply connected domain, one can compute unique (up to the usual action of $\operatorname{GL}(2;\mathbb{Z}) \ltimes \mathbb{R}^2$) action coordinates.
 The image of these action coordinates yields the interior of the almost toric base diagram.
 The full base diagram is obtained after adding the following decorations: edges and vertices on the boundary represent elliptic-type singularities (as in the toric case), dashed lines represent the image of the branch cuts in action coordinates and crosses represent nodes, i.e.\ fibres containing a focus-focus singularity.
-As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.
+As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.\todo{Beispielbild von almost toric base diagram.}
 
 In this paper, we will always make a special choice of almost toric base diagram.
 Every node in the almost toric base diagram has a unique \textbf{eigendirection}, i.e.\ a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node.
 Equivalently, there is a subcircle of the nearby regular tori whose Hamiltonian $S^1$-action extends over the focus-focus singularity.
 Although the eigendirection is not explicitely part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question.
 In the current paper, we always choose the branch cut to coincide with the eigendirection.
-As a consequence, the almost toric base diagram "closes up" (we refer to the discussion in \cite[7.2]{evans2021atfs}) and thus yields a convex polytope.
-With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology}. We give a brief outline on how to construct $\pi$. Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts.
+As a consequence, the almost toric base diagram "closes up" (we refer to the discussion in \cite[Section 7.2]{evans2021atfs}) and thus yields a convex polytope.
+With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology}.
+Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts.
 Since $\Delta_0$ is simply connected, there are global action coordinates on its intersection with the regular locus, see \cite{Dui80}. Away from the branch cut and nodes, all singularities are of toric type (i.e.\ elliptic-regular or elliptic-elliptic), meaning that the map given by action coordinates can be smoothly extended over the singularities to yield a moment map $\pi\vert_{X_0} \colon X_0 \rightarrow \Delta_0$ of a Hamiltonian $T^2$-action.
 With our choice of branch cuts, this map has a continuous extension $\pi \colon X \rightarrow \Delta$. Let us formulate the following statement for future reference.
-
 
 \begin{proposition}
     \label{thm:toricmomentmap}
     The restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is a toric moment map.
 \end{proposition}
-
-
 
 Then $\pi$ has the property that its restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is an honest toric moment map.
 Roughly speaking, the almost toric moment map is obtained by picking action coordinates on $X_0$ (this is possible since it fibers over the simply-connected $\Delta_0$) and by (continuous) extension over the branch cuts.
@@ -176,14 +174,18 @@ Roughly speaking, the almost toric moment map is obtained by picking action coor
 One of the main features of almost toric geometry is that, one can deform a given (almost) toric fibration $F \colon X \rightarrow \mathbb{R}^2$ to produce another one on the same symplectic manifold $X$. This freedom distinguishes the almost toric from the classical toric case.
 The main two main operations by which one can deform an almost toric fibration are the nodal trade and the nodal slide, both of which can be handily represented by simple operations on the corresponding ATF-base diagrams.
 Let us briefly discuss these operations, referring to \cite[Sections 8.2-8.3]{evans2021atfs} for details.
+
 The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one.
 In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut.
+
 The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its eigendirection.
+
 The third operation is called \textbf{changing the branch cut}, see \cite[Sections 8.4]{evans2021atfs} for more details.
 It corresponds to making a different choice of branch cut to produce the almost toric base diagram.
 Since, in the context of the present paper, we only consider branch cuts which coincide with the Eigenline of a given node, there are only two choices of branch cuts and the \textit{change in branch cut}-operation is a switch from one to the other.
 Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and a integral shear preserving the eigenline to the other half.
-We refer to \cite[Example 8.15]{evans2021atfs} for an example.
+We refer to \cite[Example 8.15]{evans2021atfs} for an example.\todo{Bilder für die drei sachen.}
+
 Note that there is a difference between nodal trade and nodal slide on one hand, and the change in branch cut operation on the other hand.
 The first two operations represent a change in the underlying almost toric fibration on $X$, whereas the change in branch cut does not.
 The change in branch cut merely corresponds to a different way of representing the almost toric fibration by a base diagram.
@@ -206,12 +208,12 @@ If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagran
 The homology class of this curve determines determines the topological monodromy of the torus bundle in a neighbourhood of the node.
 \end{remark}
 
-Almost toric fibres are left unaffected by nodal slides, provided they are not contained in the segment on which the nodal slide is supported\footnote{By this we mean the line segment obtained as the union of points across which the node moves during the nodal slide.}.
+Almost toric fibres are left unaffected by nodal slides, provided they are not contained in the segment on which the nodal slide is supported\footnote{By this we mean the line segment obtained as the union of points across which the node moves during the nodal slide.}:
 
 \begin{lemma}
     \label{thm:nodal_slide}
     Let $\Delta, \Delta'$ be two almost toric base diagrams which are related by nodal slides\footnote{This impies that the underlying sets $\Delta, \Delta' \subset \mathbb{R}^2$ coincide.} that are supported in the set $\Sigma$. Let $X,X'$ be symplectic manifolds corresponding to $\Delta,\Delta'$ and dentote by $T(x) \subset X$ and $T'(x) \subset X$ their respective ATF fibres.
-Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.\todo{(definition nodal slide) und bild dazu.}
+Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.
 \end{lemma}
 
 \begin{proof}
@@ -224,14 +226,14 @@ Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\p
 In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other.
 This approach was pioneered by Vianna \cite{Via16,Via17}. The simplest example in which this occurs is $\mathbb{R}^4 = \mathbb{C}^2$. Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus.
 It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$. To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure.
-By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
+By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.\todo{image}
 \end{remark}
-
 
 
 \subsection{Model spaces}
 
-Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$,   $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} and with $p>q≥0$. Let $\Delta_{dpq}$ be the almost toric base diagram obtained by decorating the right half-plane
+Let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$ and $p,q$ are coprime\footnote{Here, we consider the pair $(1,0)$ as coprime.} with $p>q≥0$.
+Let $\Delta_{dpq}$ be the almost toric base diagram obtained by decorating the right half-plane
 $$\Delta_{dpq} = \{ (x,y) \in \mathbb{R}^2 \, \vert \, x \geqslant 0 \}$$
 with $d$ distinct nodes contained in the ray,
 \begin{equation}
@@ -243,7 +245,9 @@ and with eigendirection $(p,q)$. For a branch cut contained in $R$ and to the ri
 \begin{figure}
 \centering
 \begin{tikzpicture}
+  \clip (0,-1) rectangle (4,2);
   \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+  \draw[ultra thick,opacity=0.4,red] (0,0) -- node[pos=0.38,anchor=north] {$R$} (4,2);
   \draw[thick] (0,-1) -- (0,2);
   \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
 \end{tikzpicture}   
@@ -264,7 +268,7 @@ Indeed, we will see in \cref{sec:homology} that there is a set of generators of 
 For more details on this, see \cite[Section 7.4]{evans2021atfs} or \cite{Eva19}.
 \end{remark}
 
-Note that $\Delta_{dpq}$ depends on $d$ parameters $n_1,\ldots,n_d > 0$ which correspond to the $x$-coordinate of the position of the nodes.
+Note that $\Delta_{dpq}$ depends on $d$ parameters $n_1>\ldots>n_d > 0$ which correspond to the $x$-coordinate of the position of the nodes.
 The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $n_i$ in the notation.
 Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by nodal slide.
 By \cite[Theorem 8.10]{evans2021atfs}, this means that the space $B_{dpq}$ is well-defined up to symplectomorphism.
@@ -275,7 +279,8 @@ We turn to the almost toric fibres of $B_{dpq}$. For every $x \notin R$, we deno
     Let $a>0$ and $k \in \{0,\ldots,d\}$. We denote by $T^k_{pq}(a) = T(x_a)$ the regular almost toric fibre of a fibration whose almost toric base diagram has $k$ of the $d$ nodes to the left of $x_a$. 
 \end{definition}
 
-Again, by \cref{thm:nodal_slide}, this definition does not depend on the precise position of the nodes, only on $k$, i.e.\ the number of nodes to the left of $x_a$. In ..., we show that there is no symplectomorphism of $B_{dpq}$ mapping $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ if $k \neq k'$.
+Again, by \cref{thm:nodal_slide}, this definition does not depend on the precise position of the nodes, only on $k$, i.e.\ the number of nodes to the left of $x_a$.
+In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ mapping $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ if $k \neq k'$.
 
 
 \subsection{Some symplectic embeddings}
@@ -928,6 +933,7 @@ Restricting $x_1 ≤ ε ≤ σ_S(X,J)$, we still get the estimate $e(T(x)) ≥ x
 
 
 \section{Proof of Main Theorem}
+\label{sec:main_thm}
 
 Combining the "non-embedded" upper and lower bounds of \cref{thm:lower_bound} and \cref{thm:upper_bound}, we immediately get:
 
@@ -1259,8 +1265,6 @@ Taking $p_n=\det(s_1,u_n)$, in the almost toric corner of $N_1$, we can then emb
 Since $s_1$ is not a multiple of $B^{-1}v_λ$ (it is primitive), $p_n → ∞$.
 \end{proof}
 
-
-
-
+\printbibliography
 
 \end{document}
