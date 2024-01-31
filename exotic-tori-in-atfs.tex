@@ -170,48 +170,97 @@
 
 \section{Local model}
 
-We use almost toric geometry to define the local model spaces. In Sections \ref{sec:atgeometry},\ref{sec:atfibres}, we give a short overview of almost toric geometry, its basic operations (nodal trades, nodal slides, mutations) and its fibres. The reader familiar with the ATF-framework can skip this section. In ... we ...
+We use almost toric geometry to define the local model spaces.
+In Sections \ref{sec:atgeometry},\ref{sec:atfibres}, we give a short overview of almost toric geometry, its basic operations (nodal trades, nodal slides, mutations) and its fibres.
+The reader familiar with the ATF-framework can skip this section.
+In ... we ...
 
 
 \subsection{Almost toric fibrations and their base diagrams}
 \label{sec:atgeometry}
 
-Almost toric geometry is a generalization in dimension four of toric geometry. Let us briefly discuss the latter, before moving to the almost toric case. A symplectic toric four-manifold $(X,\omega,\mu)$ is a symplectic manifold $(X,\omega)$ equipped with a moment map $\mu \colon X \rightarrow \mathbb{R}^2$ generating an effective Hamiltonian $T^2$-action on $X$. The image $\mu(X) = \Delta \subset \mathbb{R}^2$ is a so called Delzant polytope and classifies $(X,\omega)$ up to $T^2$-equivariant symplectomorphisms, see \cite{Del88} or \cite{Can03} for more details. The moment map defines a Lagrangian torus fibration, or, equivalently\footnote{we use both terms interchangeably}, a completely integrable system on $X$. The Lagrangian torus fibration defined by a toric moment map has very special properties, namely (1) its singularities (located over the boundary of $\Delta$) are of elliptic-regular or of elliptic-elliptic type, and (2) the moment map defines action coordinates on the interior of the moment polytope. Note that every Lagrangian torus fibration admits local action coordinates in the neighbourhood of a regular fibre (this is the classical Arnold-Liouville Theorem), but that these do not necessarily extend globally, see for example \cite{Dui80} or \cite{Zun96,Zun03}.
+Almost toric geometry is a generalization in dimension four of toric geometry.
+Let us briefly discuss the latter, before moving to the almost toric case.
+A symplectic toric four-manifold $(X,\omega,\mu)$ is a symplectic manifold $(X,\omega)$ equipped with a moment map $\mu \colon X \rightarrow \mathbb{R}^2$ generating an effective Hamiltonian $T^2$-action on $X$. The image $\mu(X) = \Delta \subset \mathbb{R}^2$ is a so called Delzant polytope and classifies $(X,\omega)$ up to $T^2$-equivariant symplectomorphisms, see \cite{Del88} or \cite{Can03} for more details.
+The moment map defines a Lagrangian torus fibration, or, equivalently\footnote{we use both terms interchangeably}, a completely integrable system on $X$. The Lagrangian torus fibration defined by a toric moment map has very special properties, namely (1) its singularities (located over the boundary of $\Delta$) are of elliptic-regular or of elliptic-elliptic type, and (2) the moment map defines action coordinates on the interior of the moment polytope.
+Note that every Lagrangian torus fibration admits local action coordinates in the neighbourhood of a regular fibre (this is the classical Arnold-Liouville Theorem), but that these do not necessarily extend globally, see for example \cite{Dui80} or \cite{Zun96,Zun03}.
 
-An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a four-dimensional symplectic manifold whose singularities are all of elliptic-regular, elliptic-elliptic or focus-focus type. Almost toric fibrations were introduced by Symington \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}. As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map. The analogue of the moment map image is given by the so-called \textbf{almost toric base diagram}. As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
+An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a four-dimensional symplectic manifold whose singularities are all of elliptic-regular, elliptic-elliptic or focus-focus type.
+Almost toric fibrations were introduced by Symington \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}. As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map.
+The analogue of the moment map image is given by the so-called \textbf{almost toric base diagram}. As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
 
-For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc. but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}. Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$. In the absence of focus-focus singularities (i.e. in the toric case), this succeeds, the action coordinates can be extended over the elliptic-type singularities and this procedure yields the moment map. However in the presence of focus-focus singularities, this fails. Indeed, a neighbourhood of a focus-focus singularity (whose image sits in the interior of $\im F$) carries topological monodromy, meaning that the torus bundle given by neighbouring regular fibres is non-trivial. See e.g.\ \cite{Zun97} for more details. This means that action coordinates are well-defined only on the universal cover of $B \setminus \{nodes\}$. An almost toric base diagram is obtained by computing action coordinates on a fundamental domain in the universal cover, see \cite[Definition 8.3]{evans2021atfs} for more details. The branch cut decorations (represented by dashed lines) of the almost toric base diagram indicate which choice of fundamental domain was made. Equivalently, one can think of the branch cuts as curves which were removed from the regular locus of $F$ in $B$ in order to make it simply connected. On a simply connected domain, one can compute unique (up to the usual action of $\operatorname{GL}(2;\mathbb{Z}) \ltimes \mathbb{R}^2$) action coordinates. The image of these action coordinates yields the interior of the almost toric base diagram. The full base diagram is obtained after adding the following decorations: edges and vertices on the boundary represent elliptic-type singularities (as in the toric case), dashed lines represent the image of the branch cuts in action coordinates and crosses represent nodes, i.e.\ fibres containing a focus-focus singularity. As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.
+For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc.\ For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc.\ but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}. Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$. In the absence of focus-focus singularities (i.e.\ in the toric case), this succeeds, the action coordinates can be extended over the elliptic-type singularities and this procedure yields the moment map.
+However in the presence of focus-focus singularities, this fails.
+Indeed, a neighbourhood of a focus-focus singularity (whose image sits in the interior of $\im F$) carries topological monodromy, meaning that the torus bundle given by neighbouring regular fibres is non-trivial.
+See e.g.\ \cite{Zun97} for more details.
+This means that action coordinates are well-defined only on the universal cover of $B \setminus \{nodes\}$. An almost toric base diagram is obtained by computing action coordinates on a fundamental domain in the universal cover, see \cite[Definition 8.3]{evans2021atfs} for more details.
+The branch cut decorations (represented by dashed lines) of the almost toric base diagram indicate which choice of fundamental domain was made.
+Equivalently, one can think of the branch cuts as curves which were removed from the regular locus of $F$ in $B$ in order to make it simply connected.
+On a simply connected domain, one can compute unique (up to the usual action of $\operatorname{GL}(2;\mathbb{Z}) \ltimes \mathbb{R}^2$) action coordinates.
+The image of these action coordinates yields the interior of the almost toric base diagram.
+The full base diagram is obtained after adding the following decorations: edges and vertices on the boundary represent elliptic-type singularities (as in the toric case), dashed lines represent the image of the branch cuts in action coordinates and crosses represent nodes, i.e.\ fibres containing a focus-focus singularity.
+As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.
 
-In this paper, we will always make a special choice of almost toric base diagram. Every node in the almost toric base diagram has a unique \textbf{eigendirection}, i.e. a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node. Equivalently, there is a subcircle of the nearby regular tori whose Hamiltonian $S^1$-action extends over the focus-focus singularity. Although the eigendirection is not explicitely part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question. In the current paper, we always choose the branch cut to coincide with the eigendirection. As a consequence, the almost toric base diagram "closes up" (we refer to the discussion in \cite[7.2]{evans2021atfs}) and thus yields a convex polytope. With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology}. We give a brief outline on how to construct $\pi$. Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts. Since $\Delta_0$ is simply connected, there are global action coordinates on its intersection with the regular locus, see \cite{Dui80}. Away from the branch cut and nodes, all singularities are of toric type (i.e.\ elliptic-regular or elliptic-elliptic), meaning that the map given by action coordinates can be smoothly extended over the singularities to yield a moment map $\pi\vert_{X_0} \colon X_0 \rightarrow \Delta_0$ of a Hamiltonian $T^2$-action. With our choice of branch cuts, this map has a continuous extension $\pi \colon X \rightarrow \Delta$. Let us formulate the following statement for future reference. 
+In this paper, we will always make a special choice of almost toric base diagram.
+Every node in the almost toric base diagram has a unique \textbf{eigendirection}, i.e.\ a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node.
+Equivalently, there is a subcircle of the nearby regular tori whose Hamiltonian $S^1$-action extends over the focus-focus singularity.
+Although the eigendirection is not explicitely part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question.
+In the current paper, we always choose the branch cut to coincide with the eigendirection.
+As a consequence, the almost toric base diagram "closes up" (we refer to the discussion in \cite[7.2]{evans2021atfs}) and thus yields a convex polytope.
+With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology}. We give a brief outline on how to construct $\pi$. Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts.
+Since $\Delta_0$ is simply connected, there are global action coordinates on its intersection with the regular locus, see \cite{Dui80}. Away from the branch cut and nodes, all singularities are of toric type (i.e.\ elliptic-regular or elliptic-elliptic), meaning that the map given by action coordinates can be smoothly extended over the singularities to yield a moment map $\pi\vert_{X_0} \colon X_0 \rightarrow \Delta_0$ of a Hamiltonian $T^2$-action.
+With our choice of branch cuts, this map has a continuous extension $\pi \colon X \rightarrow \Delta$. Let us formulate the following statement for future reference.
+
 
 \begin{proposition}
     \label{thm:toricmomentmap}
-    The restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is a toric moment map. 
+    The restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is a toric moment map.
 \end{proposition}
 
 
 
-Then $\pi$ has the property that its restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is an honest toric moment map. Roughly speaking, the almost toric moment map is obtained by picking action coordinates on $X_0$ (this is possible since it fibers over the simply-connected $\Delta_0$) and by (continuous) extension over the branch cuts. \\
+Then $\pi$ has the property that its restriction $\pi\vert_{X_0} \colon X_0 = \pi^{-1}(\Delta_0) \rightarrow \Delta_0$ is an honest toric moment map.
+Roughly speaking, the almost toric moment map is obtained by picking action coordinates on $X_0$ (this is possible since it fibers over the simply-connected $\Delta_0$) and by (continuous) extension over the branch cuts.
 
-One of the main features of almost toric geometry is that, one can deform a given (almost) toric fibration $F \colon X \rightarrow \mathbb{R}^2$ to produce another one on the same symplectic manifold $X$. This freedom distinguishes the almost toric from the classical toric case. The main two main operations by which one can deform an almost toric fibration are the nodal trade and the nodal slide, both of which can be handily represented by simple operations on the corresponding ATF-base diagrams. Let us briefly discuss these operations, referring to \cite[Sections 8.2-8.3]{evans2021atfs} for details. The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one. In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut. The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its eigendirection. The third operation is called \textbf{changing the branch cut}, see \cite[Sections 8.4]{evans2021atfs} for more details. It corresponds to making a different choice of branch cut to produce the almost toric base diagram. Since, in the context of the present paper, we only consider branch cuts which coincide with the Eigenline of a given node, there are only two choices of branch cuts and the \textit{change in branch cut}-operation is a switch from one to the other. Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and a integral shear preserving the eigenline to the other half. We refer to \cite[Example 8.15]{evans2021atfs} for an example. Note that there is a difference between nodal trade and nodal slide on one hand, and the change in branch cut operation on the other hand. The first two operations represent a change in the underlying almost toric fibration on $X$, whereas the change in branch cut does not. The change in branch cut merely corresponds to a different way of representing the almost toric fibration by a base diagram.
+One of the main features of almost toric geometry is that, one can deform a given (almost) toric fibration $F \colon X \rightarrow \mathbb{R}^2$ to produce another one on the same symplectic manifold $X$. This freedom distinguishes the almost toric from the classical toric case.
+The main two main operations by which one can deform an almost toric fibration are the nodal trade and the nodal slide, both of which can be handily represented by simple operations on the corresponding ATF-base diagrams.
+Let us briefly discuss these operations, referring to \cite[Sections 8.2-8.3]{evans2021atfs} for details.
+The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one.
+In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut.
+The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its eigendirection.
+The third operation is called \textbf{changing the branch cut}, see \cite[Sections 8.4]{evans2021atfs} for more details.
+It corresponds to making a different choice of branch cut to produce the almost toric base diagram.
+Since, in the context of the present paper, we only consider branch cuts which coincide with the Eigenline of a given node, there are only two choices of branch cuts and the \textit{change in branch cut}-operation is a switch from one to the other.
+Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and a integral shear preserving the eigenline to the other half.
+We refer to \cite[Example 8.15]{evans2021atfs} for an example.
+Note that there is a difference between nodal trade and nodal slide on one hand, and the change in branch cut operation on the other hand.
+The first two operations represent a change in the underlying almost toric fibration on $X$, whereas the change in branch cut does not.
+The change in branch cut merely corresponds to a different way of representing the almost toric fibration by a base diagram.
 
-Together, these three operations add up to an easy-to-use visual calculus on almost toric base diagrams, all of which represent different almost toric fibrations on the same manifold. The combination of nodal slides and changes in branch cut is often called a \textbf{mutation}. For example, one can start with a toric manifold, apply nodal trades at its vertices and then perform a series of mutations. This was used in symplectic topology to great effect by Vianna~\cite{Via16} to exhibit infinitely many almost toric fibrations on $\mathbb{C}P^2$. The set of almost toric fibrations obtained in this way is in bijection with the set of Markov triples and each almost toric fibration has an exotic Lagrangian torus as monotone fibre.
+Together, these three operations add up to an easy-to-use visual calculus on almost toric base diagrams, all of which represent different almost toric fibrations on the same manifold.
+The combination of nodal slides and changes in branch cut is often called a \textbf{mutation}. For example, one can start with a toric manifold, apply nodal trades at its vertices and then perform a series of mutations.
+This was used in symplectic topology to great effect by Vianna~\cite{Via16} to exhibit infinitely many almost toric fibrations on $\mathbb{C}P^2$. The set of almost toric fibrations obtained in this way is in bijection with the set of Markov triples and each almost toric fibration has an exotic Lagrangian torus as monotone fibre.
 
 \subsection{Almost toric fibres}
 \label{sec:atfibres}
 
-Let $F \colon X \rightarrow B \subset \mathbb{R}^2$ be an almost toric fibration with ATF-base diagram $\Delta$. A fibre of $F$ is called \textbf{almost toric fibre}. For every $x \in \Delta$, we denote by $T(x) \subset X$ the unique set in $X$ whose action coordinates are equal to $x$ with the chosen branch cuts. Recall that, in the context of this paper, there is an almost toric moment map $\pi \colon X \rightarrow \Delta$ and thus we have $T(x) = \pi^{-1}(x)$. If $x \in \partial \Delta$, then $T(x)$ is a point or an isotropic circle. If $x$ is a node, then $T(x)$ is a Lagrangian Whitney sphere, i.e.\ a Lagrangian immersion of a $2$-sphere with one transverse self-intersection. If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagrangian torus and we call such a torus a \textbf{regular ATF-fibre}.
+Let $F \colon X \rightarrow B \subset \mathbb{R}^2$ be an almost toric fibration with ATF-base diagram $\Delta$. A fibre of $F$ is called \textbf{almost toric fibre}. For every $x \in \Delta$, we denote by $T(x) \subset X$ the unique set in $X$ whose action coordinates are equal to $x$ with the chosen branch cuts.
+Recall that, in the context of this paper, there is an almost toric moment map $\pi \colon X \rightarrow \Delta$ and thus we have $T(x) = \pi^{-1}(x)$. If $x \in \partial \Delta$, then $T(x)$ is a point or an isotropic circle.
+If $x$ is a node, then $T(x)$ is a Lagrangian Whitney sphere, i.e.\ a Lagrangian immersion of a $2$-sphere with one transverse self-intersection.
+If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagrangian torus and we call such a torus a \textbf{regular ATF-fibre}.
 
 \begin{remark}
     \label{rk:pinchedtorus}
-    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres (i.e.\ Lagrangian tori) by viewing it as a Lagrangian torus which is "pinched" along a curve on the torus. The homology class of this curve determines determines the topological monodromy of the torus bundle in a neighbourhood of the node.
+    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres (i.e.\ Lagrangian tori) by viewing it as a Lagrangian torus which is "pinched" along a curve on the torus.
+The homology class of this curve determines determines the topological monodromy of the torus bundle in a neighbourhood of the node.
 \end{remark}
 
 Almost toric fibres are left unaffected by nodal slides, provided they are not contained in the segment on which the nodal slide is supported\footnote{By this we mean the line segment obtained as the union of points across which the node moves during the nodal slide.}.
 
 \begin{lemma}
     \label{thm:nodal_slide}
-    Let $\Delta, \Delta'$ be two almost toric base diagrams which are related by nodal slides\footnote{This impies that the underlying sets $\Delta, \Delta' \subset \mathbb{R}^2$ coincide.} that are supported in the set $\Sigma$. Let $X,X'$ be symplectic manifolds corresponding to $\Delta,\Delta'$ and dentote by $T(x) \subset X$ and $T'(x) \subset X$ their respective ATF fibres. Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.\todo{(definition nodal slide) und bild dazu.}
+    Let $\Delta, \Delta'$ be two almost toric base diagrams which are related by nodal slides\footnote{This impies that the underlying sets $\Delta, \Delta' \subset \mathbb{R}^2$ coincide.} that are supported in the set $\Sigma$. Let $X,X'$ be symplectic manifolds corresponding to $\Delta,\Delta'$ and dentote by $T(x) \subset X$ and $T'(x) \subset X$ their respective ATF fibres.
+Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\psi \colon X \rightarrow X'$ with $\psi(T(x)) = T'(x)$.\todo{(definition nodal slide) und bild dazu.}
 \end{lemma}
 
 \begin{proof}
@@ -220,7 +269,11 @@ Almost toric fibres are left unaffected by nodal slides, provided they are not c
 
 \begin{remark}
     \label{rk:slides_ray}
-    The claim of \cref{thm:nodal_slide} fails for points which are contained in a segment on which a nodal slide is supported, even if both points correspond to regular almost toric fibres. In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other. This approach was pioneered by Vianna \cite{Via16,Via17}. The simplest example in which this occurs is $\mathbb{R}^4 = \mathbb{C}^2$. Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus. It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$. To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure. By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
+    The claim of \cref{thm:nodal_slide} fails for points which are contained in a segment on which a nodal slide is supported, even if both points correspond to regular almost toric fibres.
+In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other.
+This approach was pioneered by Vianna \cite{Via16,Via17}. The simplest example in which this occurs is $\mathbb{R}^4 = \mathbb{C}^2$. Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus.
+It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$. To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure.
+By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
 \end{remark}
 
 
@@ -238,16 +291,21 @@ and with eigendirection $(p,q)$. For a branch cut contained in $R$ and to the ri
 
 \begin{definition}
     \label{def:bdpq}
-    Let $B_{dpq}$ be the symplectic manifold having $\Delta_{dpq}$ as almost toric base diagram. 
+    Let $B_{dpq}$ be the symplectic manifold having $\Delta_{dpq}$ as almost toric base diagram.
 \end{definition}
 
 Such a symplectic manifolds exists, see \cite[Section 7.4]{evans2021atfs} and is thus unique by \cite[Theorem 8.5]{evans2021atfs}. 
 
 \begin{remark}
-    The symplectic manifold $(B_{dpq}, \omega)$ is exact. Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient singularities. For more details on this, see \cite[Section 7.4]{evans2021atfs} or \cite{Eva19}.
+    The symplectic manifold $(B_{dpq}, \omega)$ is exact.
+Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$. The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient singularities.
+For more details on this, see \cite[Section 7.4]{evans2021atfs} or \cite{Eva19}.
 \end{remark}
 
-Note that $\Delta_{dpq}$ depends on $d$ parameters $n_1,\ldots,n_d > 0$ which correspond to the $x$-coordinate of the position of the nodes. The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $n_i$ in the notation. Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by nodal slide. By \cite[Theorem 8.10]{evans2021atfs}, this means that the space $B_{dpq}$ is well-defined up to symplectomorphism.
+Note that $\Delta_{dpq}$ depends on $d$ parameters $n_1,\ldots,n_d > 0$ which correspond to the $x$-coordinate of the position of the nodes.
+The symplectic manifold in \cref{def:bdpq} is independent of the position of the nodes, which is why we suppress the dependency on the $n_i$ in the notation.
+Indeed, any configuration of $d$ nodes on a common eigenline is related to any other such configuration by nodal slide.
+By \cite[Theorem 8.10]{evans2021atfs}, this means that the space $B_{dpq}$ is well-defined up to symplectomorphism.
 
 We turn to the almost toric fibres of $B_{dpq}$. For every $x \notin R$, we denote the corresponding almost toric fibre by $T(x) \subset B_{dpq}$. This definition is independent of the position of the nodes in $\Delta_{dpq}$ by \cref{thm:nodal_slide}. In case $x \in R$, the definition depends on how many nodes are to the right and to the left of $x$. For every $a > 0$, let $x_a = \left( a,\frac{aq}{p} \right) \in R$. For every $k \in \{0,\ldots,d\}$, let $\Delta_{dpq}$ be an almost toric base diagram as above for which $k$ of the $d$ nodes are to the left of the point $x_a$. 
 
@@ -271,7 +329,9 @@ For every $x \in \operatorname{int} \Delta_0$, we denote the corresponding toric
 
 \begin{lemma}
     \label{thm:sembedding}
-    Let $A \subset \Delta_0$ be a subset contained in a compact subset. Then there is a symplectic embedding $\psi \colon \mu_0^{-1}(A) \hookrightarrow B_{dpq}$ with\footnote{By $T_{dpq}^{(0)}(x)$, we mean $T_{dpq}^0(x)$ if $x \in R$ and $T_{dpq}(x)$ if not. See \cref{def:bdpqfibres}.} $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
+    Let $A \subset \Delta_0$ be a subset contained in a compact subset.
+Then there is a symplectic embedding $\psi \colon \mu_0^{-1}(A) \hookrightarrow B_{dpq}$ with\footnote{By $T_{dpq}^{(0)}(x)$, we mean $T_{dpq}^0(x)$ if $x \in R$ and $T_{dpq}(x)$ if not.
+See \cref{def:bdpqfibres}.} $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
 \end{lemma}
 
 \begin{proof}
@@ -283,7 +343,8 @@ For every $x \in \operatorname{int} \Delta_0$, we denote the corresponding toric
 \subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
 \label{sec:homology}
 
-Let $T(x) = π^{-1}(x) \subset B_{dpq}$ for $x ∈ Δ_{dpq}$ be a regular almost toric fibre. In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
+Let $T(x) = π^{-1}(x) \subset B_{dpq}$ for $x ∈ Δ_{dpq}$ be a regular almost toric fibre.
+In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
 
 \begin{lemma}
   \label{thm:homology}
@@ -295,11 +356,14 @@ Let $T(x) = π^{-1}(x) \subset B_{dpq}$ for $x ∈ Δ_{dpq}$ be a regular almost
 \end{lemma}
 
 \begin{proof}
-    Here we follow very closely \cite[Lemma 7.11]{evans2021atfs}, but we additionally calculate the the relative second homology group. Since all $T(x) = π^{-1}(x)$ are homotopic, we may assume that $x = (x_1,x_2)$ is on the ray $R$ (see \eqref{eqn:eigenline}), such that all the nodes are to the right of $x$, as in \cref{fig:branch_cut_retraction}.
+    Here we follow very closely \cite[Lemma 7.11]{evans2021atfs}, but we additionally calculate the the relative second homology group.
+Since all $T(x) = π^{-1}(x)$ are homotopic, we may assume that $x = (x_1,x_2)$ is on the ray $R$ (see \eqref{eqn:eigenline}), such that all the nodes are to the right of $x$, as in \cref{fig:branch_cut_retraction}.
 
     As in \cite[Lemma 7.11]{evans2021atfs}, $B_{dpq}$ retracts onto $π^{-1}(ℓ)$, where $ℓ ⊂ R$ is a closed line segment containing $0, x$ and all the nodes (See \cref{fig:branch_cut_retraction} again).
-    We investigate the topology of the preimage $π^{-1}(ℓ)$ in two steps. If there were no nodes on the line, the preimage is a solid torus, denoted by $\hat{T}$, with boundary $∂ \hat{T}$ homotopy equivalent to $T(x)$. 
-    If there are nodes on the line $ℓ$, then the singular fibres play a role in the calculation of the homology groups as follows. In the basis of $H₁(∂ \hat{T})$, derived from the action coordinates defined away from the branch cut, for each critical fibre $k ∈ \qty{1,…,d}$ a loop representing the homology class $(-q,p) \in H₁(∂ \hat{T})$ is collapsed, as in \cref{fig:collapse_cycles}.\footnote{In this basis the class $(1,0)\in H_1(\partial \hat{T})$ corresponds to the class that bounds a disk in $\hat{T}$.}
+    We investigate the topology of the preimage $π^{-1}(ℓ)$ in two steps.
+If there were no nodes on the line, the preimage is a solid torus, denoted by $\hat{T}$, with boundary $∂ \hat{T}$ homotopy equivalent to $T(x)$. 
+    If there are nodes on the line $ℓ$, then the singular fibres play a role in the calculation of the homology groups as follows.
+In the basis of $H₁(∂ \hat{T})$, derived from the action coordinates defined away from the branch cut, for each critical fibre $k ∈ \qty{1,…,d}$ a loop representing the homology class $(-q,p) \in H₁(∂ \hat{T})$ is collapsed, as in \cref{fig:collapse_cycles}.\footnote{In this basis the class $(1,0)\in H_1(\partial \hat{T})$ corresponds to the class that bounds a disk in $\hat{T}$.}
 
     Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
     Furthermore, up to homotopy we can also require that the $d$ discs $D_1,…,D_d$ are attached along $∂ \hat{T}$.
@@ -349,7 +413,9 @@ Consider the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
 
 The first horizontal map is trivial, since $∂ \hat{T}$ is homotopic to the core circle in $S$.
 
-The homology $H_2(S)$ can be calculated by contracting the solid torus $\hat{T}$ in $S$ onto the core circle. Therefore, we see that $S$ is homotopic to a circle with $d$ discs glued to its boundary by a degree $p$ map. Hence, $H_2(S)$ is generated by the visible Lagrangian spheres $\qty{S_2,…,S_d}$, as described in  in \cite[Lemma 7.11]{evans2021atfs}, and we have $[S_k] = [D_{k-1}]-[D_k]$ for $k ∈ \qty{2,…,d}$.
+The homology $H_2(S)$ can be calculated by contracting the solid torus $\hat{T}$ in $S$ onto the core circle.
+Therefore, we see that $S$ is homotopic to a circle with $d$ discs glued to its boundary by a degree $p$ map.
+Hence, $H_2(S)$ is generated by the visible Lagrangian spheres $\qty{S_2,…,S_d}$, as described in  in \cite[Lemma 7.11]{evans2021atfs}, and we have $[S_k] = [D_{k-1}]-[D_k]$ for $k ∈ \qty{2,…,d}$.
 
 $H_2(S,∂ \hat{T})$ is generated by the disks $D_0,…,D_d$, where the boundary of $D_0$ represents the unique class that retracts onto a point on the core circle in $S$. These disks can be seen schematically in \cref{fig:homology_generating_discs}, where the disc $D_0$ intersecting the toric boundary collapses the $(0,1)$ cycle in the toric fibre $T(x)$ and the discs intersecting the critical points collapse the $(-q,p)$ cycle.
 
@@ -378,7 +444,8 @@ The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given b
     \draw[thick] (0,4) -- (0,-1);
   \end{tikzpicture}
 
-  \caption{The disks $D₀, …, D_d$ generating the homology $H₂\qty(B_{dpq}, T(x))$, presented schematically. Note, that the point $x$ was moved of the eigenray for better visibility.}
+  \caption{The disks $D₀, …, D_d$ generating the homology $H₂\qty(B_{dpq}, T(x))$, presented schematically.
+Note, that the point $x$ was moved of the eigenray for better visibility.}
   \label{fig:homology_generating_discs}
 \end{figure}
 
@@ -403,11 +470,13 @@ Let $L_0 ⊂ (X,ω)$ be a compact Lagrangian, and $\overline{\symcal{L}}$ the sp
 
 By $\symcal{L}_{L_0} ⊂ \overline{\symcal{L}}$ (or simply $\symcal{L}$), denote the set of Lagrangians which are Lagrangian isotopic to $L_0$.
 See \cite{ono2008LagrangianFlux} for more details on the $\symcal{C}^1$-topology on the space of Lagrangians.
-Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies of $L_0$ up to endpoint preserving isotopies. Using Weinstein's Lagrangian neighbourhood theorem, one can check that $\symcal{L}$ is locally simply connected, showing that $\tilde{\symcal{L}} \rightarrow \symcal{L}$ is indeed the universal cover.
+Denote by $\tilde{\symcal{L}}$ the universal cover of $\symcal{L}$, that is the space of Lagrangian isotopies of $L_0$ up to endpoint preserving isotopies.
+Using Weinstein's Lagrangian neighbourhood theorem, one can check that $\symcal{L}$ is locally simply connected, showing that $\tilde{\symcal{L}} \rightarrow \symcal{L}$ is indeed the universal cover.
 
 \begin{definition}
   \label{def:flux_map}
-  Let $Λ \colon ([0,1],0) → (\symcal{L},L_0)$ be a Lagrangian isotopy. Its \textbf{(Lagrangian) flux} is the map
+  Let $Λ \colon ([0,1],0) → (\symcal{L},L_0)$ be a Lagrangian isotopy.
+Its \textbf{(Lagrangian) flux} is the map
 $$    H_1(L_0) → ℝ, \quad    ξ ↦  ∫_{C_ξ} ω, $$
 where $C_ξ$ is a cylinder swept out under $\Lambda$ by a representative of $ξ$ in $L_0$. We call this a \textbf{flux cylinder of $ξ$ over $Λ$}.
   This map is well-defined (i.e.\ independent of the choice of $C_ξ$) and independent under endpoint preserving isotopies of $Λ$.\footnote{If $C_ξ ≅ C_ξ'$ by homotopy $H$, $0=∫_{∂H} ω = ∫_{C_ξ} ω - ∫_{C_ξ'} ω + ∫_A ω + ∫_B ω$, with $A,B$ contained in the endpoints of the isotopy, which are Lagrangian.}
@@ -443,7 +512,8 @@ by identifying $\symcal{V}$ with its lift $\symcal{V_0} ⊂ \tilde{\mathcal{L}}$
 
 \subsection{\texorpdfstring{$T^* L_0$}{T*L} and Graphs of 1-Forms} 
 
-Let us look at the case $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero section and $λ$ the tautological 1-form. We have the following statements:
+Let us look at the case $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero section and $λ$ the tautological 1-form.
+We have the following statements:
 
 \begin{lemma}
   \label{thm:graph_lagrangian}
@@ -458,13 +528,15 @@ Let us look at the case $(X,ω)=(T^* L_0,d λ)$ with $L_0 ⊂ T^* L_0$ the zero 
   Let $α ∈ Ω^1(L_0)$ closed and $Λ_t$ be a Lagrangian isotopy from the zero section $L_0$ to the graph $Γ_α$ of $α$. Then $\Flux(Λ_t) = [α]$.
 \end{lemma}
 \begin{proof}
-  Let $ξ$ be a 1-cycle in $L_0$, let $C_ξ$ the flux cylinder over $Λ$ and $\varphi_t \colon T^*L_0 \rightarrow T^*L_0$ an isotopy generating $\Lambda$. Then $∂C_ξ = (\varphi_1\vert_{L_0})_* ξ - ξ$. We show that the maps $(\varphi_1\vert_{L_0})_*, \alpha_* \colon H_1(L_0) \rightarrow H_1(\Gamma_{\alpha})$ agree. The bundle projection induces an isomorphism $\pi_* \colon H_1(T^*L_0) \rightarrow H_1(L_0)$ and $\alpha_* = (\pi_*)^{-1}$. Furthermore, the family of maps $\pi \circ \varphi_t\vert_{L_0}$ induces the identity on homology for every $t$, since it does at $t=0$. Therefore, we conclude that $(\varphi_1\vert_{L_0})_* = (\pi_*)^{-1}$. We conclude that $∂C_ξ = α_* ξ - ξ$ and compute
+  Let $ξ$ be a 1-cycle in $L_0$, let $C_ξ$ the flux cylinder over $Λ$ and $\varphi_t \colon T^*L_0 \rightarrow T^*L_0$ an isotopy generating $\Lambda$. Then $∂C_ξ = (\varphi_1\vert_{L_0})_* ξ - ξ$. We show that the maps $(\varphi_1\vert_{L_0})_*, \alpha_* \colon H_1(L_0) \rightarrow H_1(\Gamma_{\alpha})$ agree.
+The bundle projection induces an isomorphism $\pi_* \colon H_1(T^*L_0) \rightarrow H_1(L_0)$ and $\alpha_* = (\pi_*)^{-1}$. Furthermore, the family of maps $\pi \circ \varphi_t\vert_{L_0}$ induces the identity on homology for every $t$, since it does at $t=0$. Therefore, we conclude that $(\varphi_1\vert_{L_0})_* = (\pi_*)^{-1}$. We conclude that $∂C_ξ = α_* ξ - ξ$ and compute
   \[⟨\Flux(Λ_t),ξ ⟩ = ∫_{C_ξ} dλ = ∫_{∂C_ξ} λ = ∫_{α_* ξ}λ - ∫_{ξ} λ = ∫_{ξ} α^* λ = ∫_{ξ} α = ⟨α,ξ⟩ .\]
 \end{proof}
 
 \begin{lemma}
   \label{thm:graph_hamiltonian_isotopic}
-  Let $\alpha,\beta \in  \Omega^1(L_0)$ be closed $1$-forms. Their graphs $\Gamma_{\alpha}, \Gamma_{\beta}$ are Hamiltonian isotopic iff $[\alpha] = [\beta]$.
+  Let $\alpha,\beta \in  \Omega^1(L_0)$ be closed $1$-forms.
+Their graphs $\Gamma_{\alpha}, \Gamma_{\beta}$ are Hamiltonian isotopic iff $[\alpha] = [\beta]$.
 \end{lemma}
 \begin{proof}
 If $[\alpha] = [\beta]$, the linear isotopy $\Lambda_t = Γ_{(1-t)α + t β}$ is a Lagrangian isotopy with $\Flux(Λ_s|_{s ∈ [0,t]}) = 0$ for all $t \in [0,1]$. Therefore $\Lambda$ is generated by a Hamiltonian isotopy by \cref{thm:hamiltonian_flux}.
@@ -480,7 +552,8 @@ Recall also that, a priori, the flux map is defined on the universal cover of $\
   \label{thm:cotangent_classification}
   The subspace $\symcal{L}_Γ$ contains a neighbourhood of $L_0 \in \symcal{L}$ (by the definition of the $\symcal{C}^1$-topology) and $\Flux$ yields a well-defined (by \cref{thm:graph_flux}) map
 \[ \Flux_Γ \colon \symcal{L}_Γ → H^1(L_0;ℝ), \]
-which classifies elements in $\symcal{L}_Γ$ up to Hamiltonian isotopy\footnote{In fact Ono \cite[Proposition 2.3]{ono2008LagrangianFlux} allows to replace $\symcal{L}_Γ$ by $\symcal{L}$ in this statement in the case of the cotangent bundle. We do not need this stronger statement.} (by \cref{thm:graph_hamiltonian_isotopic}).
+which classifies elements in $\symcal{L}_Γ$ up to Hamiltonian isotopy\footnote{In fact Ono \cite[Proposition 2.3]{ono2008LagrangianFlux} allows to replace $\symcal{L}_Γ$ by $\symcal{L}$ in this statement in the case of the cotangent bundle.
+We do not need this stronger statement.} (by \cref{thm:graph_hamiltonian_isotopic}).
 \end{corollary}
 
 \subsection{Versal deformations}
@@ -556,7 +629,8 @@ Let $I \colon \overline{\symcal{L}} → A$ be a symplectic invariant of Lagrangi
 
 \begin{definition}
     \label{def:invariant_germs}
-    Let $L_0 \subset X$ be a compact Lagrangian, $\nu_{L_0}$ a versal deformation thereof and $I$ a symplectic invariant of Lagrangian submanifolds. The germ of function $I \circ \nu_{L_0}$ at $0 \in H^1(L_0;\mathbb{R})$ is called the \textbf{germ of $I$ at $L_0$}. It is denoted by 
+    Let $L_0 \subset X$ be a compact Lagrangian, $\nu_{L_0}$ a versal deformation thereof and $I$ a symplectic invariant of Lagrangian submanifolds.
+The germ of function $I \circ \nu_{L_0}$ at $0 \in H^1(L_0;\mathbb{R})$ is called the \textbf{germ of $I$ at $L_0$}. It is denoted by 
     \[
     [I]_{L_0} \colon H^1(L_0;ℝ) \dashrightarrow A \; .
   \]
@@ -588,7 +662,8 @@ Let $I \colon \overline{\symcal{L}} → A$ be a symplectic invariant of Lagrangi
 \subsection{Versal Deformations of (almost) toric fibres}
 \label{sec:vd_AL}
 
-\todo{Umschreiben. Wir brauchen nur noch das action coordinates versal deformations geben von fibres geben.}
+\todo{Umschreiben.
+Wir brauchen nur noch das action coordinates versal deformations geben von fibres geben.}
 
 
 
@@ -597,7 +672,8 @@ Let $I \colon \overline{\symcal{L}} → A$ be a symplectic invariant of Lagrangi
 
 
 
-Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus. For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \textbf{Arnold--Liouville torus}. Since the base $B$ is $n$-dimensional, a natural candidate for a versal deformation of $L_b$ is picking nearby fibres of $\symbf{H}$. Indeed, we will see that neighbouring fibres, when parametrized by their Lagrangian flux, yield a versal deformation. 
+Let $\symbf{H} \colon X \rightarrow B$ be a Lagrangian torus fibration as defined in \cite{evans2021atfs} and denote by $B_0 \subset B$ its regular locus.
+For every $b \in B_0$, the corresponding fibre $L_b = \pi^{-1}(b)$ is a Lagrangian torus, called \textbf{Arnold--Liouville torus}. Since the base $B$ is $n$-dimensional, a natural candidate for a versal deformation of $L_b$ is picking nearby fibres of $\symbf{H}$. Indeed, we will see that neighbouring fibres, when parametrized by their Lagrangian flux, yield a versal deformation.
 \ref{}
 Let $L_{b_0} = \pi^{-1}(b_0) \subset X$ be an Arnold--Liouville torus and let $\mathcal{U} \subset \mathcal{L}$ be a simply connected neighbourhood of $L_{b_0}$. Choose $V \subset B_0$ small enough so that $L_b \in \mathcal{U}$ for every $b \in V$. Then we can define the map $τ_V \colon V \rightarrow H^1(L_{b_0};\mathbb{R})$ by $b \mapsto \Flux_{\mathcal{U}}(L_b)$. For a small enough $V$, this is a diffeomorphism onto its image, see the proof of \cref{thm:ltfVD}. Now define
 \begin{equation}
@@ -605,11 +681,11 @@ Let $L_{b_0} = \pi^{-1}(b_0) \subset X$ be an Arnold--Liouville torus and let $\
     v_{L_b} \colon H^1(L_b;\mathbb{R}) \dashrightarrow \mathcal{L}, \quad
     v_{L_b}(a) = L_{τ_V^{-1}(a)}.
 \end{equation}
-By definition we have $\Flux_{\mathcal{U}} \circ v_{L_b} = \id$, and thus by \cref{rem:lazy_vd}, we obtain the following. 
+By definition we have $\Flux_{\mathcal{U}} \circ v_{L_b} = \id$, and thus by \cref{rem:lazy_vd}, we obtain the following.
 
 \begin{proposition}
     \label{thm:ltfVD}
-    The map \eqref{eq:ltfVD} is a versal deformation. 
+    The map \eqref{eq:ltfVD} is a versal deformation.
 \end{proposition}
 
 \begin{proof}
@@ -625,23 +701,29 @@ By definition we have $\Flux_{\mathcal{U}} \circ v_{L_b} = \id$, and thus by \cr
     If $Dτ_V(b_0) Y = 0$, then there is $f \in C^{\infty}(L_{b_0})$ with $df = \iota_{\overline{Y}}\omega \vert_{L_{b_0}}$.
     Let $x_0 \in \Crit(f)$ (this set is not empty), then $\overline{Y}_{x_0} = 0$.
     Since $D\mathbf{H} \vert_{x_0} \overline{Y}_{x_0} = Y$, this implies that $Y = 0$.
-    This proves that $Dτ_V(b_0)$ is injective and thus bijective. 
+    This proves that $Dτ_V(b_0)$ is injective and thus bijective.
 \end{proof}
 
 Any identification $H_1(L_{b_0};\mathbb{Z}) \cong \mathbb{Z}^n$ (which is unique up to an element of $\GL(n;ℤ)$) induces a dual identification $H^1(L_{b_0};\mathbb{R}) \cong \mathbb{R}^n$.
 Equipped with charts of the form $τ_V$, the set $B_0$ inherits the structure of an integral affine manifold.
 Furthermore, every map $τ_V \circ \mathbf{H}\vert_{\mathbf{H}^{-1}(V)} \colon \mathbf{H}^{-1}(V) \rightarrow \mathbb{R}^n$ yields action coordinates of a completely integrable system, see \cite[Lemma 2.15]{evans2021atfs}.
-Equivalently $τ_V \circ \mathbf{H}\vert_{\mathbf{H}^{-1}(V)}$ is the moment map of a Hamiltonian $T^n$-action. Using a $T^n$-equivariant Weinstein chart of the orbit $L_{b_0}$, one can check directly that any moment map of a Hamiltonian $T^n$-action yields a canonical versal deformation by taking its fibres.
+Equivalently $τ_V \circ \mathbf{H}\vert_{\mathbf{H}^{-1}(V)}$ is the moment map of a Hamiltonian $T^n$-action.
+Using a $T^n$-equivariant Weinstein chart of the orbit $L_{b_0}$, one can check directly that any moment map of a Hamiltonian $T^n$-action yields a canonical versal deformation by taking its fibres.
 
-In order to formulate this precisely, we introduce the following model. Let $T^*T^n \cong T^n \times \mathbb{R}^n$ be equipped with the standard symplectic form $\sum_{i=1}^n d\theta_i \wedge db_i$ and let $\mu_0 \colon T^*T^n = T^n \times \mathbb{R}^n \rightarrow \mathbb{R}^n$ be the natural projection. The map $\mu_0$ generates the standard Hamiltonian $T^n$-action on $T^*T^n$ given by rotation in the $T^n$-component. This action restricts to any set of the form $\mu_0^{-1}(A)$ for $A \subset \mathbb{R}^n$. Giving a symplectomorphism from $(X,\omega)$ to $\mu_0^{-1}(A)$ is equivalent to fixing action-angle coordinates on $X$. 
+In order to formulate this precisely, we introduce the following model.
+Let $T^*T^n \cong T^n \times \mathbb{R}^n$ be equipped with the standard symplectic form $\sum_{i=1}^n d\theta_i \wedge db_i$ and let $\mu_0 \colon T^*T^n = T^n \times \mathbb{R}^n \rightarrow \mathbb{R}^n$ be the natural projection.
+The map $\mu_0$ generates the standard Hamiltonian $T^n$-action on $T^*T^n$ given by rotation in the $T^n$-component.
+This action restricts to any set of the form $\mu_0^{-1}(A)$ for $A \subset \mathbb{R}^n$. Giving a symplectomorphism from $(X,\omega)$ to $\mu_0^{-1}(A)$ is equivalent to fixing action-angle coordinates on $X$. 
 
 \begin{proposition}
     \label{thm:flux_moment_map}
-    Let $V \subset B_0$ be simply connected. Then 
+    Let $V \subset B_0$ be simply connected.
+Then 
     \[
         \mu_V = τ_V \circ \mathbf{H} \colon \mathbf{H}^{-1}(V) \rightarrow H^1(L_{b_0};\mathbb{R}) \cong \mathbb{R}^n
     \]
-    generates a Hamiltonian $T^n$-action. If, additionally its image $\Omega = \im \mu_V = \im τ_V \subset \mathbb{R}^n$ is simply connected, then there is a symplectomorphism $\psi \colon \mathbf{H}^{-1}(V) \rightarrow \mu_0^{-1}(\Omega)$ with $\mu_V = \mu_0 \circ \psi$. In other words, the symplectomorphism is $T^n$-equivariant with respect to the standard Hamiltonian $T^n$-action on $\mu_0^{-1}(\Omega)$.
+    generates a Hamiltonian $T^n$-action.
+If, additionally its image $\Omega = \im \mu_V = \im τ_V \subset \mathbb{R}^n$ is simply connected, then there is a symplectomorphism $\psi \colon \mathbf{H}^{-1}(V) \rightarrow \mu_0^{-1}(\Omega)$ with $\mu_V = \mu_0 \circ \psi$. In other words, the symplectomorphism is $T^n$-equivariant with respect to the standard Hamiltonian $T^n$-action on $\mu_0^{-1}(\Omega)$.
 \end{proposition}
 
 \subsection{Some Examples of Exotic Tori using Versal Deformations}
@@ -660,14 +742,16 @@ Note that although we don't need to know the displacement energy of these two ne
 When doing a mutation, and we know the displacement energy of all tori near the eigenline of that mutation, we can apply \cref{thm:nodal_slide} to all tori that are not on that eigenline to conclude that for these tori the displacement energy doesn't change.
 Thus under mutations, the displacement energy is preserved in the complement of the eigenline of that mutation.
 
-This is enough that the displacement energy germ can distinguish the types of tori. In this manner we may recover the tori found in \cite{Via16} and also \cite{Via17}. For further examples of distinguishing exotic tori using versal deformations see \cite{brendel2020real}, \cite{brendel2023hamiltonian}, \cite{brendel2023local}\todo{Sonst noch was hier? Es müssen schon \emph{alle} paper von Joé hin :)}.
+This is enough that the displacement energy germ can distinguish the types of tori.
+In this manner we may recover the tori found in \cite{Via16} and also \cite{Via17}. For further examples of distinguishing exotic tori using versal deformations see \cite{brendel2020real}, \cite{brendel2023hamiltonian}, \cite{brendel2023local}\todo{Sonst noch was hier? Es müssen schon \emph{alle} paper von Joé hin :)}.
 
 \section{Upper bound on displacement energy: Probes}
 \label{sec:upper_bound}
 
 Let $T(x)$ in $B_{dpq}$ be a regular almost toric fibre with $x \in \Delta_{dpq} \setminus R$, see \eqref{eqn:eigenline} for the definition of $R$. We use the method of probes to compute an upper bound on the displacement energy of $T(x)$. Probes were introduced by McDuff \cite{mcduff2011displacing} to prove the displaceability of toric fibres, see also \cite{AbrBorMcD14}. In \cite{brendel2020real}, they were used to compute an upper bound on the displacement energy of toric fibres.
 
-Our main observation is that, away from nodes and branch cuts, almost toric systems are toric (see \cref{thm:toricmomentmap}) and thus the method of probes applies. For basic definitions and statements about probes, we refer to \cite{mcduff2011displacing}, especially \cite[Definition 2.3, Lemma 2.4]{mcduff2011displacing}.
+Our main observation is that, away from nodes and branch cuts, almost toric systems are toric (see \cref{thm:toricmomentmap}) and thus the method of probes applies.
+For basic definitions and statements about probes, we refer to \cite{mcduff2011displacing}, especially \cite[Definition 2.3, Lemma 2.4]{mcduff2011displacing}.
 
 
 \begin{lemma}
@@ -679,9 +763,15 @@ Our main observation is that, away from nodes and branch cuts, almost toric syst
 
 
 \begin{proof}
-We will use the probe $P = \{(s,x_2) \, \vert \, s ≥ 0\} \subset \Delta_{dpq}$, where $x_2$ is the second component of $x \in \Delta_{dpq}$. It intersects the boundary $∂ \Delta_{dpq}$ integrally transversally in the sense of \cite[Section 2.1]{mcduff2011displacing}. Note, however, that $P$ may intersect nodes or the branch cut, depending on the position of nodes in $\Delta_{dpq}$. Since $x \in R$, we can, by \cref{thm:nodal_slide}, carry out a nodal slide such that $P$ is disjoint from the nodes and the branch cut. By \cref{thm:toricmomentmap}, the almost toric moment map is toric on the preimage of a neighbourhood of $P$ and thus $P$ is a probe of infinite length. 
+We will use the probe $P = \{(s,x_2) \, \vert \, s ≥ 0\} \subset \Delta_{dpq}$, where $x_2$ is the second component of $x \in \Delta_{dpq}$. It intersects the boundary $∂ \Delta_{dpq}$ integrally transversally in the sense of \cite[Section 2.1]{mcduff2011displacing}. Note, however, that $P$ may intersect nodes or the branch cut, depending on the position of nodes in $\Delta_{dpq}$. Since $x \in R$, we can, by \cref{thm:nodal_slide}, carry out a nodal slide such that $P$ is disjoint from the nodes and the branch cut.
+By \cref{thm:toricmomentmap}, the almost toric moment map is toric on the preimage of a neighbourhood of $P$ and thus $P$ is a probe of infinite length.
 
-By \cite[Lemma 2.4]{mcduff2011displacing}, the almost toric fibre $T(x)$ is displaceable. To compute the upper bound on displacement energy, we follow the same line of argument as in \cite[Proposition 3.4]{brendel2020real}. Let us give a brief outline for the reader's convenience. We can view $\pi^{-1}(P)$ as the level set $\pi_2^{-1}(x_2)$ and note that $\pi_2$ generates a free Hamiltonian $S^1$-action on the preimage of a neighbourhood (which is disjoint from the nodes and branch cut) of $P$. Therefore, we can perform symplectic reduction to obtain a symplectic quotient $\pi_2^{-1}(x_2)/S^1$. This symplectic quotient is a copy of $\mathbb{R}^2$ equipped with the standard symplectic form. The Lagrangian torus $T(x)$ is contained in $\pi_2^{-1}(x_2)$ and invariant under the $S^1$-action by which we reduce. One can check that it projects to a circle $C \subset \pi_2^{-1}(x_2)/S^1$ which encloses symplectic area $x_1$ in the reduced space. This circle has displacement energy $e(C) = x_1$ and since any Hamiltonian diffeomorphism displacing $C$ with energy $e$ lifts to a Hamiltonian diffeomorphism displacing $T(x)$ with energy $e$ by \cite[Lemma 3.1]{brendel2020real}, we can conclude.
+By \cite[Lemma 2.4]{mcduff2011displacing}, the almost toric fibre $T(x)$ is displaceable.
+To compute the upper bound on displacement energy, we follow the same line of argument as in \cite[Proposition 3.4]{brendel2020real}. Let us give a brief outline for the reader's convenience.
+We can view $\pi^{-1}(P)$ as the level set $\pi_2^{-1}(x_2)$ and note that $\pi_2$ generates a free Hamiltonian $S^1$-action on the preimage of a neighbourhood (which is disjoint from the nodes and branch cut) of $P$. Therefore, we can perform symplectic reduction to obtain a symplectic quotient $\pi_2^{-1}(x_2)/S^1$. This symplectic quotient is a copy of $\mathbb{R}^2$ equipped with the standard symplectic form.
+The Lagrangian torus $T(x)$ is contained in $\pi_2^{-1}(x_2)$ and invariant under the $S^1$-action by which we reduce.
+One can check that it projects to a circle $C \subset \pi_2^{-1}(x_2)/S^1$ which encloses symplectic area $x_1$ in the reduced space.
+This circle has displacement energy $e(C) = x_1$ and since any Hamiltonian diffeomorphism displacing $C$ with energy $e$ lifts to a Hamiltonian diffeomorphism displacing $T(x)$ with energy $e$ by \cite[Lemma 3.1]{brendel2020real}, we can conclude.
 \end{proof}
 
 \begin{remark}
@@ -690,35 +780,45 @@ By \cite[Lemma 2.4]{mcduff2011displacing}, the almost toric fibre $T(x)$ is disp
         \item $p = q = 1$, arbitrary $d$, and $k > 1$;
         \item $d = 1$, arbitrary $p,q$, and $k = 1$.
     \end{enumerate}
-    Indeed, for the first claim, note that $B_{d,1,1}$ appears as Milnor fibre of the smoothing of the $A_{d-1}$-singularity and thus \cite[Proposition 2.20]{LekMay14} implies the claim. For the second claim, see \cite[Proposition 3.6]{LekMay14}. In the special case $B_{2,1,1} \cong T^*S^2$ of $(1)$, the torus $T_{1,1}^2(a)$ corresponds to the so-called \emph{Polterovich torus}, which was shown to be non-displaceable by Albers--Frauenfelder \cite{AlbFra08}. 
+    Indeed, for the first claim, note that $B_{d,1,1}$ appears as Milnor fibre of the smoothing of the $A_{d-1}$-singularity and thus \cite[Proposition 2.20]{LekMay14} implies the claim.
+For the second claim, see \cite[Proposition 3.6]{LekMay14}. In the special case $B_{2,1,1} \cong T^*S^2$ of $(1)$, the torus $T_{1,1}^2(a)$ corresponds to the so-called \emph{Polterovich torus}, which was shown to be non-displaceable by Albers--Frauenfelder \cite{AlbFra08}. 
 \end{remark}
 
-In light of this remark, it seems reasonable to conjecture that all $T^k_{pq}(a) \subset B_{dpq}$ with $k > 0$ (with the exception of $p=q=k=1$) are non-displaceable. 
+In light of this remark, it seems reasonable to conjecture that all $T^k_{pq}(a) \subset B_{dpq}$ with $k > 0$ (with the exception of $p=q=k=1$) are non-displaceable.
 
 \begin{definition}
     \label{def:partial_embedding}
     A \textbf{partial $B_{dpq}$-embedding} into a symplectic manifold $(X,\omega)$ is a symplectic embedding $φ:B_{dpq} ⊃ U → (X,ω)$, where $U$ 
     \begin{enumerate}
         \item is connected, 
-        \item contains a set of the form $\pi^{-1}(V)$, where $V \subset \Delta_{dpq}$ is a neighbourhood of a line segment containing the origin $(0,0) \in \Delta_{dpq}$ and all nodes.  See Figure ... .   
+        \item contains a set of the form $\pi^{-1}(V)$, where $V \subset \Delta_{dpq}$ is a neighbourhood of a line segment containing the origin $(0,0) \in \Delta_{dpq}$ and all nodes.
+ See Figure ... .   
     \end{enumerate}
 \end{definition}
 
 \begin{proposition}
 \label{thm:upper_bound_embedded}
-  Let $φ:B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$-embedding. Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such that for all $x \in V$, we have $e(φ(T(x))) \leq x_1$.
+  Let $φ:B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$-embedding.
+Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such that for all $x \in V$, we have $e(φ(T(x))) \leq x_1$.
 \end{proposition}
 
 \begin{proof}
-    We displace $T(x)$ by a Hamiltonian diffeomorphism with support in $U \subset B_{dpq}$. The proof is essentially the same as in \cref{thm:upper_bound}, with the exception that the probe is not infinitely long. By \cref{def:partial_embedding}, the set $U$ contains the preimage $\pi^{-1}(W)$ of a neighbourhood $W$ of the origin. We consider all horizontal probes contained in $W$ and let $V$ be the set of points which are displaceable by such probes. Recall from \cite[Section 2.1]{mcduff2011displacing} that this set consists of all points lying on the left half of a probe of this type. Thus $V$ is a non-empty neighbourhood of the origin. The displacement energy is estimated by the same argument as in the proof of \cref{thm:upper_bound}.
+    We displace $T(x)$ by a Hamiltonian diffeomorphism with support in $U \subset B_{dpq}$. The proof is essentially the same as in \cref{thm:upper_bound}, with the exception that the probe is not infinitely long.
+By \cref{def:partial_embedding}, the set $U$ contains the preimage $\pi^{-1}(W)$ of a neighbourhood $W$ of the origin.
+We consider all horizontal probes contained in $W$ and let $V$ be the set of points which are displaceable by such probes.
+Recall from \cite[Section 2.1]{mcduff2011displacing} that this set consists of all points lying on the left half of a probe of this type.
+Thus $V$ is a non-empty neighbourhood of the origin.
+The displacement energy is estimated by the same argument as in the proof of \cref{thm:upper_bound}.
 \end{proof}
 
 \section{Lower Bound on Displacement Energy: Minimal J-holomorphic Curves}
 \label{sec:lower_bound}
 
-We want to use a classical theorem by Chekanov \cite{chekanov1998}, that gives a lower bound on the displacement energy of Lagrangian submanifolds in certain symplectic manifolds. To state the theorem we recall the central notions contained in the theorem.
+We want to use a classical theorem by Chekanov \cite{chekanov1998}, that gives a lower bound on the displacement energy of Lagrangian submanifolds in certain symplectic manifolds.
+To state the theorem we recall the central notions contained in the theorem.
 
-Suppose that $(X,\omega)$ is a symplectic manifold. Define $\mathcal{H}(X)\vcentcolon=\mathcal{C}^\infty_\text{c}(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$. For $H \in \mathcal{H}(X)$ let
+Suppose that $(X,\omega)$ is a symplectic manifold.
+Define $\mathcal{H}(X)\vcentcolon=\mathcal{C}^\infty_\text{c}(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$. For $H \in \mathcal{H}(X)$ let
 \[
     \lVert H \rVert \vcentcolon= \int_0^1 \left(\sup_\text{x \in X} H_t(x) - \inf_\text{x \in X} H_t(x) \right) dt
 \]
@@ -735,7 +835,9 @@ Chekanov's theorem only holds for a specific class of symplectic manifolds, name
 
 \begin{definition}
     \label{def:geobdd}
-    Let $(X,\omega)$ be a symplectic manifold. We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology. We do not use the word \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ on $X$ such that 
+    Let $(X,\omega)$ be a symplectic manifold.
+We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{This is non-standard terminology.
+We do not use the word \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ on $X$ such that 
     \begin{enumerate}
         \item $g$ is complete,
         \item there are constants $c_1,c_2 > 0$ such that $\omega(JV,V) \geqslant c_1 \Vert V \Vert_g^2$ and $\vert \omega(V,W) \vert \leqslant c_2 \Vert V \Vert_g \Vert W \Vert_g$ for all tangent vectors $V,W$, and
@@ -747,7 +849,8 @@ Chekanov's theorem only holds for a specific class of symplectic manifolds, name
 
 \begin{remark}
   \label{rem:Bdpq_geometrically_bounded}
-    Closed symplectic manifolds are geometrically bounded, and the same holds for a large class of symplectic manifolds that look standard at infinity, i.e. cotangent bundles of compact manifolds and symplectizations. For more details on this notion see also \cite[Chapter X, Definition 2.2.1]{AudLaf94}. In particular $B_{dpq}$ is geometrically bounded by \cref{rem:Bdpq_lens_space}.
+    Closed symplectic manifolds are geometrically bounded, and the same holds for a large class of symplectic manifolds that look standard at infinity, i.e.\ cotangent bundles of compact manifolds and symplectizations.
+For more details on this notion see also \cite[Chapter X, Definition 2.2.1]{AudLaf94}. In particular $B_{dpq}$ is geometrically bounded by \cref{rem:Bdpq_lens_space}.
 \end{remark}
 \begin{remark}
   \label{rem:J_compactly_perturbed}
@@ -757,7 +860,9 @@ Chekanov's theorem only holds for a specific class of symplectic manifolds, name
 With these definitions in place we define the two quantities that play a crucial role in Chekanov's theorem.
 
 \begin{definition}
-    Suppose that $L$ is a compact Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded. Furthermore, let $J \in \mathcal{J}_{\text{geo}}(X,\omega)$ be a geometrically bounded almost complex structure. Define
+    Suppose that $L$ is a compact Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded.
+Furthermore, let $J \in \mathcal{J}_{\text{geo}}(X,\omega)$ be a geometrically bounded almost complex structure.
+Define
     \[
         \sigma_D(X,L,J)\vcentcolon=\text{inf} \left\{  \int_{D} u^* \omega \mid u\colon(D,\partial D)\to(X,L) \text{ non-constant $J$-holomorphic disc}   \right\}
     \]
@@ -803,7 +908,7 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
 \begin{proposition}
   \label{thm:lower_bound}
     \[
-        e(T(x)) ≥ x_1. 
+        e(T(x)) ≥ x_1.
     \]
 \end{proposition}
 \begin{proof}
@@ -813,7 +918,9 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
     μ_0 \colon ℂ × T^* S^1 &→ \{x ∈ ℝ² \mid x_1 ≥ 0\}\\
     (z,p,θ) &↦ (\abs{z}^2, p) \; ,
   \end{align*}
-  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively. We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $ coming from the identification $T^*S^1 = \mathbb{C}/\mathbb{Z}$, where $\mathbb{Z}$ acts on $\mathbb{C}$ by translation along the real axis. This complex structrure is compatible with $\omega_0$ and geometrically bounded with respect to the induced metric, which is the Riemannian metric
+  with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively.
+We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $ coming from the identification $T^*S^1 = \mathbb{C}/\mathbb{Z}$, where $\mathbb{Z}$ acts on $\mathbb{C}$ by translation along the real axis.
+This complex structrure is compatible with $\omega_0$ and geometrically bounded with respect to the induced metric, which is the Riemannian metric
   \[ d((z_1,p_1,θ_1), (z_2,p_2,θ_2))^2 = \abs{z_2 - z_1}^2 + (p_2 - p_1)^2 + \min_{k ∈ ℤ}\{(θ_2 - θ_1 + 2πk)^2\}\]
   for $(z_i,p_i,θ_i) ∈ ℂ × T^* S¹$.
 
@@ -831,7 +938,8 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
 
   Set $A^± = μ^{-1}(A_0^±), A = μ^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, which it isn't by \cref{thm:upper_bound}.}. If $u(D) ⊂ A$, the homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$ must be a positive multiple of the generator $D_0$ of this homology group, which has $∫_{D_0} ω_0 = x_1$.
   
-  If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty. Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, and choice of $A^±$, we get
+  If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty.
+Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} on $A^±$ and $u|_Σ$, and choice of $A^±$, we get
   \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
 
   Noting that there cannot be any non-constant $J$-holomorphic spheres (since $H_2(B_{dpq})$ is generated by Lagrangians, see \cref{thm:homology}), and then using \cref{thm:chekanov} we conclude.
@@ -850,7 +958,8 @@ As a simple corollary we get that a $J$-curve crossing a certain distance also m
   Firstly, for arbitrary $T(x) ⊂ U$, the preimage under $μ$ of the set $A_0 ⊂ Δ_{B_{dpq}}$ might not be contained in $U$.
   Shrinking $ε$ and the allowed distance to the eigenline of the monodromy assures that $μ^{-1}(A_0) ⊂ U$.
 
-  Secondly, the ambient space $X$ might contain $J$-spheres. Restricting $x_1 ≤ ε ≤ σ_S(X,J)$, we still get the estimate $e(T(x)) ≥ x_1$.
+  Secondly, the ambient space $X$ might contain $J$-spheres.
+Restricting $x_1 ≤ ε ≤ σ_S(X,J)$, we still get the estimate $e(T(x)) ≥ x_1$.
 
 \end{proof}
 
@@ -870,7 +979,8 @@ Combining the "embedded" upper and lower bounds of \cref{thm:lower_bound_embedde
 
 \begin{theorem}
   \label{thm:displacement_energy_embedded}
-  Let $φ \colon B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a geometrically bounded symplectic manifold. Then there is a neighbourhood $V$ of $[0,ε) × \{0\}$ such that for $b = (b_1,b_2) ∈ V$ with $b_2 ≠ 0$ we have $e(\symbf{H}^{-1}(b)) = μ_1(\symbf{H}^{-1}(b)) = τ_1(b)$.
+  Let $φ \colon B_{dpq} ⊃ U → (X,ω)$ be an embedding of a milnor fibre of $B_{dpq}$ into a geometrically bounded symplectic manifold.
+Then there is a neighbourhood $V$ of $[0,ε) × \{0\}$ such that for $b = (b_1,b_2) ∈ V$ with $b_2 ≠ 0$ we have $e(\symbf{H}^{-1}(b)) = μ_1(\symbf{H}^{-1}(b)) = τ_1(b)$.
 \end{theorem}
 
 \begin{figure}
@@ -905,7 +1015,8 @@ Combining the "embedded" upper and lower bounds of \cref{thm:lower_bound_embedde
 \end{figure}
 
 \begin{proof}
-  The proof of the embedded and non-embedded part are essentially the same. For simplicity we only give the non-embedded part.
+  The proof of the embedded and non-embedded part are essentially the same.
+  For simplicity we only give the non-embedded part.
 
   Change the branch cuts of $μ$ such that $T_{kpq}$ does not lie on a branch cut, giving a new moment map $\hat{μ}$ as in \cref{fig:mod_moment_map},
   giving the relation
@@ -923,7 +1034,7 @@ Like in \cref{sec:vd_action_angle}, let $b_0 = \hat{μ}(T_{kpq}(a)) = (a,aq/p)$,
   \[
     \hat{μ}(v_{ \hat{μ}}(x)) = i(\Flux_{ \symcal{B}}(v_{ \hat{μ}}(x))) = b_0 + i(x) \; .
   \]
-  Then we know from \cref{thm:displacement_energy} (resp. \cref{thm:displacement_energy_embedded}) that for $v_{ \hat{μ}}(x)$ not on the eigenline of the nodes, $e(v_{ \hat{μ}}(x)) = μ_1(v_{ \hat{μ}}(x))$.
+  Then we know from \cref{thm:displacement_energy} (resp.\ \cref{thm:displacement_energy_embedded}) that for $v_{ \hat{μ}}(x)$ not on the eigenline of the nodes, $e(v_{ \hat{μ}}(x)) = μ_1(v_{ \hat{μ}}(x))$.
 
   Applying \eqref{eq:mu_muhat_rel} and setting $i(x) = (x_1,x_2)$, we get
   \[e(v_{ \hat{μ}}(x)) = \begin{cases}
@@ -1021,7 +1132,9 @@ Then there are infinitely many $p_n,q_n$ such that there is an embedding of a Mi
         \draw[thick,gray] (1,2) +(190:0.5) -- +(10:0.5);
       \end{scope}
     \end{tikzpicture}
-    \caption{The "flip-flop-flup-flap" $τ = \overline{B} \overline{A} \underline{B} \underline{A}$, consisting of a series of 4 mutations. The edges involved in the upcoming mutation are drawn black, the edges involved in the previous mutation in gray. The mutations are always chosen to apply the shear transform to the half plane not containing the other node.}
+    \caption{The "flip-flop-flup-flap" $τ = \overline{B} \overline{A} \underline{B} \underline{A}$, consisting of a series of 4 mutations.
+The edges involved in the upcoming mutation are drawn black, the edges involved in the previous mutation in gray.
+The mutations are always chosen to apply the shear transform to the half plane not containing the other node.}
     \label{fig:flip-flop-flup-flap}
   \end{figure}
 
@@ -1122,7 +1235,8 @@ Note that $τ^{-1}(-s_1)$ and $τ^{-1}(-s_2)$ are in the region $\{x>y>0\}$, and
 Thus we can describe $τ$ as follows:
 The $ABA$ region is bijectively mapped onto the $BAB$ region, the $BA$ and $BAB$ regions is mapped into the $BABA$ region, and the image of the $BABA$ region is contained in the $BABA$, $ABA$ and $BA$ regions.
 
-Consider the natural projection $π \colon ℝ² ∖ \{0\} → S¹$ and the map $τ' \colon S¹ → S¹ = π ∘ τ|_{S^1}$. By the paragraph above, if $τ'$ has a fixed point, it must be in the $BABA$ region, since all other regions are disjoint from their image. In this region $τ$ is given by $BABA$, and a fixed point of $τ'$ corresponds to an eigenvector of $BABA$ lying in this region, specifically in the wedge $τ^{-1}(-s_2), τ(-s_1)$.
+Consider the natural projection $π \colon ℝ² ∖ \{0\} → S¹$ and the map $τ' \colon S¹ → S¹ = π ∘ τ|_{S^1}$. By the paragraph above, if $τ'$ has a fixed point, it must be in the $BABA$ region, since all other regions are disjoint from their image.
+In this region $τ$ is given by $BABA$, and a fixed point of $τ'$ corresponds to an eigenvector of $BABA$ lying in this region, specifically in the wedge $τ^{-1}(-s_2), τ(-s_1)$.
 
 Let $T$ be a $\GL(2;ℤ)$ transform.
 Suppose $T$ has eigenvalues $λ^{±1}$ with $λ>1$ with eigenvectors $v_{λ^{±1}}$.
