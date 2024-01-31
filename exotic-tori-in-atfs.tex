@@ -1142,20 +1142,20 @@ Since $τ^{-1}(-s_2)$ is also moved clockwise by $BABA$, somewhere in the wedge 
 Since $τ'$ has no fixed points in its other linear regions, $v_{λ^{±1}}$ are the only ones, and we can illustrate $τ'$ as follows:
 
 \begin{center}
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=0.7]
   \draw (0,0) circle[radius=4];
-  \draw[fill] (60:4) circle[radius=1pt] node[anchor=south west] {$v_λ$};
+  \draw[fill] (60:4) circle[radius=1pt] node[anchor=west,rotate=60] {$v_λ$};
   \draw[->] (45:4) -- +(135:0.01);
-  \draw[fill] (30:4) circle[radius=1pt] node[anchor=south west] {$v_{λ^{-1}}$};
+  \draw[fill] (30:4) circle[radius=1pt] node[anchor=west,rotate=30] {$v_{λ^{-1}}$};
   \draw[->] (-45:4) -- +(-135:0.01);
   \draw[->] (-135:4) -- +(135:0.01);
   \draw[->] (135:4) -- +(45:0.01);
   \draw[->,gray] (0,0) -- (-180:4) node[anchor=east] {$-s_1$};
   \draw[->,gray] (0,0) -- (-90:4) node[anchor=north] {$-s_2$};
-  \draw[->,gray] (0,0) -- (20:4) node[anchor=west] {$τ^{-1}(-s_2)$};
-  \draw[->,gray] (0,0) -- (5:4) node[anchor=west] {$τ^{-1}(-s_1)$};
-  \draw[->,gray] (0,0) -- (70:4) node[anchor=south] {$τ(-s_1)$};
-  \draw[->,gray] (0,0) -- (85:4) node[anchor=south] {$τ(-s_2)$};
+  \draw[->,gray] (0,0) -- (20:4) node[anchor=west,rotate=20] {$τ^{-1}(-s_2)$};
+  \draw[->,gray] (0,0) -- (5:4) node[anchor=west,rotate=5] {$τ^{-1}(-s_1)$};
+  \draw[->,gray] (0,0) -- (70:4) node[anchor=west,rotate=70] {$τ(-s_1)$};
+  \draw[->,gray] (0,0) -- (85:4) node[anchor=west,rotate=85] {$τ(-s_2)$};
 \end{tikzpicture}
 \end{center}
 
