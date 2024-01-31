@@ -67,58 +67,7 @@
     minimum size=2*(#1-\pgflinewidth), 
     inner sep=0pt, outer sep=0pt
   },
-  cross/.default={3},
-  conic/.pic={
-    \begin{scope}[canvas is xz plane at y=0]
-      \draw (0,0) circle [radius=0.5];
-    \end{scope}
-    \begin{scope}[canvas is xz plane at y=1]
-      \draw (0,0) circle [radius=0.8];
-    \end{scope}
-    \begin{scope}[canvas is xz plane at y=-1]
-      \draw (-20:.8) arc [start angle=-20,end angle=160,radius=.8];
-      \draw[dotted] (160:.8) arc [start angle=160,end angle=340,radius=.8];
-    \end{scope}
-    \begin{scope}[rotate around y=20]
-      \draw (.8,1) .. controls +(0,0) and +(0,.3) .. (0.5,0) .. controls +(0,-0.3) and +(0,0) .. (.8,-1);
-      \draw (-.8,1) .. controls +(0,0) and +(0,.3) .. (-0.5,0) .. controls +(0,-0.3) and +(0,0) .. (-.8,-1);
-    \end{scope}
-  },
-  degenerate conic/.pic={
-    \begin{scope}[canvas is xz plane at y=1]
-      \draw (0,0) circle [radius=.8];
-    \end{scope}
-    \begin{scope}[canvas is xz plane at y=-1]
-      \draw (-20:.8) arc [start angle=-20,end angle=160,radius=.8];
-      \draw[dotted] (160:.8) arc [start angle=160,end angle=340,radius=.8];
-    \end{scope}
-    \begin{scope}[rotate around y=20]
-      \draw (-.8,-1) -- (.8,1);
-      \draw (-.8,1) -- (.8,-1);
-    \end{scope}
-  },
-  reduced conic/.pic={
-    \begin{scope}[canvas is xz plane at y=1]
-      \draw[very thin, opacity=0.5] (0,0) circle [radius=.8];
-      \draw (-32:.8) arc [start angle=-32,end angle=32,radius=.8];
-    \end{scope}
-    \begin{scope}[canvas is xz plane at y=-1]
-      \draw[very thin, opacity=0.5] (0,0) circle [radius=.8];
-      \draw (-32:.8) arc [start angle=-32,end angle=32,radius=.8];
-    \end{scope}
-    \begin{scope}[canvas is xz plane at y=0]
-      \draw[very thin, opacity=0.5] (0,0) circle [radius=.5];
-      \draw (-32:.5) arc [start angle=-32,end angle=32,radius=.5];
-    \end{scope}
-    \foreach \φ in {32,-32} {
-      \begin{scope}[rotate around y=\φ]
-        \draw (.8,1) .. controls +(0,0) and +(0,.3) .. (0.5,0) .. controls +(0,-0.3) and +(0,0) .. (.8,-1);
-      \end{scope}
-    }
-    \begin{scope}[rotate around y=20]
-      \draw[very thin, opacity=0.5] (-.8,1) .. controls +(0,0) and +(0,.3) .. (-0.5,0) .. controls +(0,-0.3) and +(0,0) .. (-.8,-1);
-    \end{scope}
-  }
+  cross/.default={3}
 }
 
 % For lists
@@ -171,7 +120,7 @@
 \section{Local model}
 
 We use almost toric geometry to define the local model spaces.
-In Sections \ref{sec:atgeometry},\ref{sec:atfibres}, we give a short overview of almost toric geometry, its basic operations (nodal trades, nodal slides, mutations) and its fibres.
+In \cref{sec:atgeometry,sec:atfibres} we give a short overview of almost toric geometry, its basic operations (nodal trades, nodal slides, mutations) and its fibres.
 The reader familiar with the ATF-framework can skip this section.
 In ... we ...
 
@@ -189,7 +138,9 @@ An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a fo
 Almost toric fibrations were introduced by Symington \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}. As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map.
 The analogue of the moment map image is given by the so-called \textbf{almost toric base diagram}. As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
 
-For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc.\ For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc.\ but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}. Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$. In the absence of focus-focus singularities (i.e.\ in the toric case), this succeeds, the action coordinates can be extended over the elliptic-type singularities and this procedure yields the moment map.
+For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc.\ but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ (without decorations).}.
+Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$.
+In the absence of focus-focus singularities (i.e.\ in the toric case), this succeeds, the action coordinates can be extended over the elliptic-type singularities and this procedure yields the moment map.
 However in the presence of focus-focus singularities, this fails.
 Indeed, a neighbourhood of a focus-focus singularity (whose image sits in the interior of $\im F$) carries topological monodromy, meaning that the torus bundle given by neighbouring regular fibres is non-trivial.
 See e.g.\ \cite{Zun97} for more details.
@@ -287,7 +238,18 @@ with $d$ distinct nodes contained in the ray,
   \label{eqn:eigenline}
   R = \{\alpha (p,q) \in \Delta_{dpq} \, \vert \, \alpha > 0 \}
 \end{equation}
-and with eigendirection $(p,q)$. For a branch cut contained in $R$ and to the right of the nodes, this yields the almost toric base diagram depicted in \cref{fig:Bdpq_moment_image}(a). 
+and with eigendirection $(p,q)$. For a branch cut contained in $R$ and to the right of the nodes, this yields the almost toric base diagram depicted in \cref{fig:Bdpq_moment_image}.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+  \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+  \draw[thick] (0,-1) -- (0,2);
+  \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
+\end{tikzpicture}   
+\caption{The almost toric base diagram $Δ_{dpq}$ for $B_{dpq}$.}
+\label{fig:Bdpq_moment_image}
+\end{figure}
 
 \begin{definition}
     \label{def:bdpq}
@@ -330,8 +292,7 @@ For every $x \in \operatorname{int} \Delta_0$, we denote the corresponding toric
 \begin{lemma}
     \label{thm:sembedding}
     Let $A \subset \Delta_0$ be a subset contained in a compact subset.
-Then there is a symplectic embedding $\psi \colon \mu_0^{-1}(A) \hookrightarrow B_{dpq}$ with\footnote{By $T_{dpq}^{(0)}(x)$, we mean $T_{dpq}^0(x)$ if $x \in R$ and $T_{dpq}(x)$ if not.
-See \cref{def:bdpqfibres}.} $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
+Then there is a symplectic embedding $\psi \colon \mu_0^{-1}(A) \hookrightarrow B_{dpq}$ with\footnote{By $T_{dpq}^{(0)}(x)$, we mean $T_{dpq}^0(x)$ if $x \in R$ and $T_{dpq}(x)$ if not. See \cref{def:bdpqfibres}.} $\psi(T_0(x)) = T_{dpq}^{(0)}(x)$ for all $x \in A$.
 \end{lemma}
 
 \begin{proof}
