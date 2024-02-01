@@ -280,6 +280,7 @@ In case $x \in R$, the definition depends on how many nodes are to the right and
 For every $a > 0$ and $k \in \{0,\ldots,d\}$, let $x_a = \left( a,\frac{aq}{p} \right) \in R$ and $\Delta_{dpq}$ be an almost toric base diagram as above for which $k$ of the $d$ nodes are to the left of the point $x_a$. 
 
 \begin{definition}
+  \label{def:our_tori}
     Let $a>0$ and $k \in \{0,\ldots,d\}$. We denote by $T^k_{pq}(a) = T(x_a)$ the regular almost toric fibre of a fibration whose almost toric base diagram has $k$ of the $d$ nodes to the left of $x_a$. 
 \end{definition}
 
@@ -632,7 +633,7 @@ The germ of $I \circ v_{L_0}$ at $0 \in H^1(L_0;\mathbb{R})$ is called the \text
 \subsection{Versal Deformations of (almost) toric fibres}
 \label{sec:vd_AL}
 
-Let $\mu \colon U \rightarrow \mathbb{R}^n$ be the moment map of an effective Hamiltonian $T^n$-action defined on a subset $U \subset (X,\omega)$ of a symplectic manifold. Such a local moment map can be constructed, for example, in the neighbourhood $U$ of a regular fibre of a completely integrable system by the Arnold--Liouville theorem. In that case, $\mu$ corresponds to action coordinates. Let $L = \mu^{-1}(x_0)$ be a regular fibre of $\mu$. Since $L$ is diffeomorphic to a torus and $H^1(L;\mathbb{R}) \cong \mathbb{R}^n$, we expect an $n$-dimensional versal deformation. It is therefore natural to look at neighbouring fibres, i.e.\ Lagrangian tori of the form $\mu^{-1}(x_0 + b)$ for small $b \in \mathbb{R}^n$. Recall (\cref{def:versal_deformation}) that neighbouring Lagrangians in a versal deformation are parametrized by their Lagrangian flux. In fact, the local moment map coincides with the flux map, restricted to fibres $\mu^{-1}(x)$, see for example \cite[Lemma 2.15]{evans2021atfs}. In the language of versal deformations, this observation yields the following.
+Let $\mu \colon U \rightarrow \mathbb{R}^n$ be the moment map of an effective Hamiltonian $T^n$-action defined on a subset $U \subset (X,\omega)$ of a symplectic manifold. Such a local moment map can be constructed, for example, in the neighbourhood $U$ of a regular fibre of a completely integrable system by the Arnold--Liouville theorem. In that case, $\mu$ corresponds to action coordinates. Let $L = \mu^{-1}(x_0)$ be a regular fibre of $\mu$. Since $L$ is diffeomorphism to a torus and $H^1(L;\mathbb{R}) \cong \mathbb{R}^n$, we expect an $n$-dimensional versal deformation. It is therefore natural to look at neighbouring fibres, i.e.\ Lagrangian tori of the form $\mu^{-1}(x_0 + b)$ for small $b \in \mathbb{R}^n$. Recall (\cref{def:versal_deformation}) that neighbouring Lagrangians in a versal deformation are parametrized by their Lagrangian flux. In fact, the local moment map coincides with the flux map, restricted to fibres $\mu^{-1}(x)$, see for example \cite[Lemma 2.15]{evans2021atfs}. In the language of versal deformations, this observation yields the following.
 
 \begin{proposition}
 \label{thm:VDtoricfibre}
@@ -654,7 +655,7 @@ The components $\mu_i$ of the moment map $\mu$ generate $n$ closed orbits in $L$
         = \operatorname{Flux}_{\mathcal{U}} (\mu^{-1}(x_0 + a))
         = \operatorname{Flux} \{t \mapsto \mu^{-1}(x_0 + a) \}_{t \in [0,1]}.
     \end{equation}
-    The Lagrangian isotopy $\Lambda = \{t \mapsto \mu^{-1}(x_0 + a) \}_{t \in [0,1]}$ is contained in $\mathcal{U}$ by the convexity and the choice of $V \subset \operatorname{im} \mu$. The last inequality follows from the definition of $\operatorname{Flux}_{\mathcal{U}}$ (see \eqref{eq:localflux}) and the fact that we can homotope any given Lagrangian isotopy in $\mathcal{U}$ with endpoints $L$ and $\mu^{-1}(x_0 + a)$ to $\Lambda$ by the fact that $\mathcal{U}$ is simply connected. 
+    The Lagrangian isotopy $\Lambda = \{t \mapsto \mu^{-1}(x_0 + a) \}_{t \in [0,1]}$ is contained in $\mathcal{U}$ by the convexity and the choice of $V \subset \operatorname{im} \mu$. The last inequality follows from the definition of $\operatorname{Flux}_{\mathcal{U}}$ (see \eqref{eq:localflux}) and the fact that we can homotopy any given Lagrangian isotopy in $\mathcal{U}$ with endpoints $L$ and $\mu^{-1}(x_0 + a)$ to $\Lambda$ by the fact that $\mathcal{U}$ is simply connected. 
 
     Let $\xi \in H_1(L)$, then we define the following flux cylinder (see the discussion surrounding \cref{def:flux_map}) of $\xi$ over $\Lambda$, 
     \begin{equation}
@@ -680,9 +681,92 @@ In this paper we are mainly interested in the case where $\mu$ is obtained as th
 
 \subsection{How to distinguish Tori using the Displacement Energy Germ}
 
-Let us briefly give an example how we can use the displacement energy germ to distinguish tori. We will use the same technique for our main theorem \cref{thm:main}.
+Let us briefly give an example how we can use the displacement energy germ to distinguish tori.
+We will use the same technique for our main theorem \cref{thm:main}.
 
-Let $μ\colon ℂ² → $
+Let $μ\colon ℂ² → ℝ²$ be the usual moment map on $ℂ$ given by $μ(z_1,z_2)=( \abs{z_1}^2, \abs{z_2}^2)$, with the moment polytope $Δ ⊂ ℝ²$ being the upper right quadrant.
+Using similar techniques as in \cref{sec:upper_bound,sec:lower_bound} we can calculate the displacement energy of a toric fibre $T(x)$ with $x = (x_1,x_2) ∈ \int(Δ)$ to be $e(T(x)) = \max\{x_1,x_2\}$.
+
+Here we can already distinguish two cases (see \cref{fig:babys_first_vd}: if $x_1=x_2=a > 0$ we have the torus $T^1_{1,1}$ (this torus does indeed correspond the one in \cref{def:our_tori}, which will become apparent later.), if $x_1>x_2=a$, we have the torus $T$.
+Using \cref{thm:VDtoricfibre}, we can identify a small neighbourhood of $x ∈ Δ$ as a neighbourhood of $0$ in $H¹(T(x);ℝ)$.
+Inspecting the germs $[e]_{T^1_{1,1}}$ and $[e]_{T}$, we see that they are clearly distinct, i.e.\ not related by a integral linear transform.
+So even though $e(T^1_{1,0}) = e(T) = a$, the germ of the displacement energy distinguishes them.
+
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{scope}[shift={(-1.5,-1.5)}]
+      \fill[opacity=0.2] (0,3) rectangle (3,0);
+      \draw[thick] (0,3) -- (0,0) -- (3,0);
+      \fill (1,1) circle[radius=1pt] node[anchor=west] {$T^1_{1,1}$}
+        (1,2) circle[radius=1pt] node[anchor=south] {$T$};
+      \foreach \x in {0.2,0.4,...,3}
+        \draw[very thin] (\x,3) -- (\x,\x) -- (3,\x);
+    \end{scope}
+    \begin{scope}[shift={(3,0)}]
+      \draw (0,-1) node[anchor=north] {$[e]_{T}$};
+      \clip[draw] (0,0) circle[radius=1];
+      \foreach \x in {-1,-0.8,...,1}
+        \draw[very thin] (\x,1) -- (\x,-1);
+      \fill (0,0) circle[radius=1pt];
+    \end{scope}
+    \begin{scope}[shift={(6,0)}]
+      \draw (0,-1) node[anchor=north] {$[e]_{T^1_{1,1}}$};
+      \clip[draw] (0,0) circle[radius=1];
+      \foreach \x in {-1,-0.8,...,1}
+        \draw[very thin] (\x,1) -- (\x,\x) -- (1,\x);
+      \fill (0,0) circle[radius=1pt];
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Distinguishing the tori $T$ and $T^1_{1,1}$}
+  \label{fig:babys_first_vd}
+\end{figure}
+
+To introduce a third type of torus, we may perform a nodal trade, to get an almost toric base diagram $Δ'$ for $ℂ$.
+After changing the branch cut, we obtain the diagram $Δ_{1,1,1}$ as in \cref{def:bdpq}. (See \cref{fig:babys_second_vd})
+By a variant of \cref{thm:nodal_slide} for any $x ∈ Δ'$ not contained in the line segment $ℓ$ between $(0,0)$ and the node (drawn in white in \cref{fig:babys_second_vd}), the displacement energy stays the same. The displacement energy for the tori on \todo{fertig machen}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{scope}[shift={(-2,-1.5)}]
+      \fill[opacity=0.2] (0,3) rectangle (3,0);
+      \draw[thick] (0,3) -- (0,0) -- (3,0);
+      \foreach \x in {0.2,0.4,...,3}
+        \draw[very thin] (\x,3) -- (\x,\x) -- (3,\x);
+    \end{scope}
+    \draw[->] (1.5,0) -- node[anchor=south] {nodal} node[anchor=north] {trade} (2.5,0);
+    \begin{scope}[shift={(3,-1.5)}]
+      \fill[opacity=0.2] (0,3) rectangle (3,0);
+      \foreach \x in {0.2,0.4,...,3}
+        \draw[very thin] (\x,3) -- (\x,\x) -- (3,\x);
+      \draw[white,line width=3pt] (0,0) -- (2,2);
+      \draw[thick] (0,3) -- (0,0) -- (3,0);
+      \draw[dashed] (0,0) -- (2,2) node[cross] {};
+    \end{scope}
+    \draw[->] (6.5,0) -- node[anchor=south] {changing the} node[anchor=north] {branch cut} (8,0);
+    \begin{scope}[shift={(8.5,-1.5)}]
+      \fill[opacity=0.2] (0,3) rectangle (3,-1);
+      \foreach \x in {0.2,0.4,...,3}
+        \draw[very thin] (\x,3) -- (\x,-1);
+      \draw[white,line width=3pt] (0,0) -- (2,2);
+      \draw[thick] (0,3) -- (0,-1);
+      \draw[dashed] (2,2) node[cross] {} -- (3,3);
+      \fill (1,1) circle[radius=1pt] node[anchor=west] {$T^0_{1,1}$};
+    \end{scope}
+    \begin{scope}[shift={(4.75,-3)}]
+      \draw (0,-1) node[anchor=north] {$[e]_{T^0_{1,1}}$};
+      \clip[draw] (0,0) circle[radius=1];
+      \foreach \x in {-1,-0.8,...,1}
+        \draw[very thin] (\x,1) -- (\x,-1);
+      \draw[very thick,opacity=0.3] (-1,-1) -- (1,1);
+      \fill (0,0) circle[radius=1pt];
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Constructing the chekanov torus $T^0_{1,1}$.}
+  \label{fig:babys_second_vd}
+\end{figure}
 
 For further examples of distinguishing exotic tori using versal deformations see \cite{brendel2020real}, \cite{brendel2023hamiltonian}, \cite{brendel2023local}\todo{Sonst noch was hier? Es müssen schon \emph{alle} paper von Joé hin :)}.
 
