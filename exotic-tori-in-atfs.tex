@@ -685,13 +685,13 @@ Let us briefly give an example how we can use the displacement energy germ to di
 We will use the same technique for our main theorem \cref{thm:main}.
 
 Let $μ\colon ℂ² → ℝ²$ be the usual moment map on $ℂ$ given by $μ(z_1,z_2)=( \abs{z_1}^2, \abs{z_2}^2)$, with the moment polytope $Δ ⊂ ℝ²$ being the upper right quadrant.
+Fix some $a>0$. We want to construct three different (pairwise not related by symplectomorphism) tori in $ℂ²$.
 Using similar techniques as in \cref{sec:upper_bound,sec:lower_bound} we can calculate the displacement energy of a toric fibre $T(x)$ with $x = (x_1,x_2) ∈ \int(Δ)$ to be $e(T(x)) = \max\{x_1,x_2\}$.
 
 Here we can already distinguish two cases (see \cref{fig:babys_first_vd}: if $x_1=x_2=a > 0$ we have the torus $T^1_{1,1}$ (this torus does indeed correspond the one in \cref{def:our_tori}, which will become apparent later.), if $x_1>x_2=a$, we have the torus $T$.
 Using \cref{thm:VDtoricfibre}, we can identify a small neighbourhood of $x ∈ Δ$ as a neighbourhood of $0$ in $H¹(T(x);ℝ)$.
-Inspecting the germs $[e]_{T^1_{1,1}}$ and $[e]_{T}$, we see that they are clearly distinct, i.e.\ not related by a integral linear transform.
+Inspecting the germs $[e]_{T^1_{1,1}}$ and $[e]_{T}$, we see that they are clearly distinct, i.e.\ not related by a integral linear transform, so by \cref{thm:invariant_germs} the tori must be different.
 So even though $e(T^1_{1,0}) = e(T) = a$, the germ of the displacement energy distinguishes them.
-
 
 \begin{figure}
   \centering
@@ -702,20 +702,20 @@ So even though $e(T^1_{1,0}) = e(T) = a$, the germ of the displacement energy di
       \fill (1,1) circle[radius=1pt] node[anchor=west] {$T^1_{1,1}$}
         (1,2) circle[radius=1pt] node[anchor=south] {$T$};
       \foreach \x in {0.2,0.4,...,3}
-        \draw[very thin] (\x,3) -- (\x,\x) -- (3,\x);
+        \draw[ultra thin] (\x,3) -- (\x,\x) -- (3,\x);
     \end{scope}
     \begin{scope}[shift={(3,0)}]
       \draw (0,-1) node[anchor=north] {$[e]_{T}$};
       \clip[draw] (0,0) circle[radius=1];
       \foreach \x in {-1,-0.8,...,1}
-        \draw[very thin] (\x,1) -- (\x,-1);
+        \draw[ultra thin] (\x,1) -- (\x,-1);
       \fill (0,0) circle[radius=1pt];
     \end{scope}
     \begin{scope}[shift={(6,0)}]
       \draw (0,-1) node[anchor=north] {$[e]_{T^1_{1,1}}$};
       \clip[draw] (0,0) circle[radius=1];
       \foreach \x in {-1,-0.8,...,1}
-        \draw[very thin] (\x,1) -- (\x,\x) -- (1,\x);
+        \draw[ultra thin] (\x,1) -- (\x,\x) -- (1,\x);
       \fill (0,0) circle[radius=1pt];
     \end{scope}
   \end{tikzpicture}
@@ -723,9 +723,16 @@ So even though $e(T^1_{1,0}) = e(T) = a$, the germ of the displacement energy di
   \label{fig:babys_first_vd}
 \end{figure}
 
-To introduce a third type of torus, we may perform a nodal trade, to get an almost toric base diagram $Δ'$ for $ℂ$.
+To introduce a third type of torus, we may perform a nodal trade, to get an almost toric base diagram $Δ'$ with node at $(b,b)$ with $b>a$ for $ℂ$.
 After changing the branch cut, we obtain the diagram $Δ_{1,1,1}$ as in \cref{def:bdpq}. (See \cref{fig:babys_second_vd})
-By a variant of \cref{thm:nodal_slide} for any $x ∈ Δ'$ not contained in the line segment $ℓ$ between $(0,0)$ and the node (drawn in white in \cref{fig:babys_second_vd}), the displacement energy stays the same. The displacement energy for the tori on \todo{fertig machen}
+By a variant of \cref{thm:nodal_slide} for any $x ∈ Δ'$ not contained in the line segment $ℓ$ between $(0,0)$ and the node (drawn in white in \cref{fig:babys_second_vd}), the displacement energy stays the same.
+Note that we can't recover he displacement energy for the fibre tori on $ℓ$.
+We pick $T^0_{1,1}$ to be the fibre in $Δ_{1,1,1}$ at $(a,a)$.
+Even though we don't know the displacement energy of $T^0_{1,1}$ (although it can be calculated to be $a$), we still get a displacement energy germ with some unknown values.
+We can immediately distinguish it from $T¹_{1,1}$.
+Although the displacement energy germ of $T⁰_{1,1}$ looks the same as the one of $T$, we can distinguish the two by noticing that $T⁰_{1,1}$ is monotone and $T$ not.
+
+The torus $T^1_{1,1}$ is also called Clifford torus \todo{why?}, and $T⁰_{1,1}$ is called Chekanov torus \todo{ref}.
 
 \begin{figure}
   \centering
@@ -734,13 +741,13 @@ By a variant of \cref{thm:nodal_slide} for any $x ∈ Δ'$ not contained in the 
       \fill[opacity=0.2] (0,3) rectangle (3,0);
       \draw[thick] (0,3) -- (0,0) -- (3,0);
       \foreach \x in {0.2,0.4,...,3}
-        \draw[very thin] (\x,3) -- (\x,\x) -- (3,\x);
+        \draw[ultra thin] (\x,3) -- (\x,\x) -- (3,\x);
     \end{scope}
     \draw[->] (1.5,0) -- node[anchor=south] {nodal} node[anchor=north] {trade} (2.5,0);
     \begin{scope}[shift={(3,-1.5)}]
       \fill[opacity=0.2] (0,3) rectangle (3,0);
       \foreach \x in {0.2,0.4,...,3}
-        \draw[very thin] (\x,3) -- (\x,\x) -- (3,\x);
+        \draw[ultra thin] (\x,3) -- (\x,\x) -- (3,\x);
       \draw[white,line width=3pt] (0,0) -- (2,2);
       \draw[thick] (0,3) -- (0,0) -- (3,0);
       \draw[dashed] (0,0) -- (2,2) node[cross] {};
@@ -749,7 +756,7 @@ By a variant of \cref{thm:nodal_slide} for any $x ∈ Δ'$ not contained in the 
     \begin{scope}[shift={(8.5,-1.5)}]
       \fill[opacity=0.2] (0,3) rectangle (3,-1);
       \foreach \x in {0.2,0.4,...,3}
-        \draw[very thin] (\x,3) -- (\x,-1);
+        \draw[ultra thin] (\x,3) -- (\x,-1);
       \draw[white,line width=3pt] (0,0) -- (2,2);
       \draw[thick] (0,3) -- (0,-1);
       \draw[dashed] (2,2) node[cross] {} -- (3,3);
@@ -759,7 +766,7 @@ By a variant of \cref{thm:nodal_slide} for any $x ∈ Δ'$ not contained in the 
       \draw (0,-1) node[anchor=north] {$[e]_{T^0_{1,1}}$};
       \clip[draw] (0,0) circle[radius=1];
       \foreach \x in {-1,-0.8,...,1}
-        \draw[very thin] (\x,1) -- (\x,-1);
+        \draw[ultra thin] (\x,1) -- (\x,-1);
       \draw[very thick,opacity=0.3] (-1,-1) -- (1,1);
       \fill (0,0) circle[radius=1pt];
     \end{scope}
