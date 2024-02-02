@@ -150,7 +150,21 @@ Equivalently, one can think of the branch cuts as curves which were removed from
 On a simply connected domain, one can compute unique (up to the usual action of $\operatorname{GL}(2;\mathbb{Z}) \ltimes \mathbb{R}^2$) action coordinates.
 The image of these action coordinates yields the interior of the almost toric base diagram.
 The full base diagram is obtained after adding the following decorations: edges and vertices on the boundary represent elliptic-type singularities (as in the toric case), dashed lines represent the image of the branch cuts in action coordinates and crosses represent nodes, i.e.\ fibres containing a focus-focus singularity.
-As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.\todo{Beispielbild von almost toric base diagram.}
+As mentioned above, a fully decorated almost toric base diagram, defines a unique symplectic manifold.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \draw[very thin,gray] (-2,-2) grid (3,2);
+    \draw[thick,fill,fill opacity=0.2] (-2,0) -- (-1,-2) -- (3,-1) -- (3,1) -- (2,2) -- (-1,2) -- (-2,0);
+    \draw[dashed] (-2,0) -- +(1.2,0) node[cross] {};
+    \draw[dashed] (-1,-2) -- +(0.7,0.7) node[cross] {};
+    \draw[dashed] (3,-1) -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {};
+    \draw[dashed] (-1,2) -- ++(0,-0.7) node[cross] {} -- ++(0,-0.7) node[cross] {};
+  \end{tikzpicture}
+  \caption{An almost toric base diagram. Branch cuts are drawn with dashed lines, nodes marked with crosses.}
+  \label{fig:atf_example}
+\end{figure}
 
 In this paper, we will always make a special choice of almost toric base diagram.
 Every node in the almost toric base diagram has a unique \textbf{eigendirection}, i.e.\ a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node.
@@ -175,15 +189,74 @@ One of the main features of almost toric geometry is that, one can deform a give
 The main two main operations by which one can deform an almost toric fibration are the nodal trade and the nodal slide, both of which can be handily represented by simple operations on the corresponding ATF-base diagrams.
 Let us briefly discuss these operations, referring to \cite[Sections 8.2-8.3]{evans2021atfs} for details.
 
-The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one.
-In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{scope}[shift={(-3,0)}]
+      \begin{scope}[shift={(-1.6,0)}]
+        \fill[opacity=0.2] (-1,-1) rectangle (1,1);
+        \draw[thick] (-1,1) -- (-1,-1) -- (1,-1);
+      \end{scope}
+      \draw[<->] (-0.5,0) -- node[anchor=south] {nodal} node[anchor=north] {trade} (0.5,0);
+      \begin{scope}[shift={(1.6,0)}]
+        \fill[opacity=0.2] (-1,-1) rectangle (1,1);
+        \draw[thick] (-1,1) -- (-1,-1) -- (1,-1);
+        \draw[dashed] (-1,-1) -- (0,0) node[cross] {};
+      \end{scope}
+    \end{scope}
+    \begin{scope}[shift={(3,0)}]
+      \begin{scope}[shift={(-1.6,0)}]
+        \fill[opacity=0.2] (-1,-1) rectangle (1,1);
+        \draw[dashed] (-1,-0.5) -- (-0.5,-0.25) node[cross] {};
+      \end{scope}
+      \draw[<->] (-0.5,0) -- node[anchor=south] {nodal} node[anchor=north] {slide} (0.5,0);
+      \begin{scope}[shift={(1.6,0)}]
+        \fill[opacity=0.2] (-1,-1) rectangle (1,1);
+        \draw[dashed] (-1,-0.5) -- (0.5,0.25) node[cross] {};
+      \end{scope}
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Nodal trade and nodal slide.}
+  \label{fig:nodal_trade_and_slide}
+\end{figure}
 
-The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its eigendirection.
+The \textbf{nodal trade} takes an elliptic-elliptic singularity and transforms it into a focus-focus singularity, while merging the two families of elliptic-regular singularities into one.
+In terms of the almost toric base diagram, it corresponds to replacing toric vertex with a node and a branch cut. (See \cref{fig:nodal_trade_and_slide})
+
+The \textbf{nodal slide} consists of moving the focus-focus singularity in a non-trivial way (in terms of action coordinates) such that the node in the base diagram moves on a line in its eigendirection. (See \cref{fig:nodal_trade_and_slide})
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{scope}[shift={(-4,0)}]
+      \draw[very thin,gray] (-2,2) grid (3,-2);
+      \fill[blue, opacity=0.1] (-2,2) rectangle (3,0);
+      \draw[thick,fill,fill opacity=0.2] (-2,0) -- (-1,-2) -- (3,-1) -- (3,1) -- (2,2) -- (-1,2) -- (-2,0);
+      \draw[dashed] (-2,0) -- +(1.2,0) node[cross] {};
+      \draw[dashed] (-1,-2) -- +(0.7,0.7) node[cross] {};
+      \draw[dashed] (3,-1) -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {};
+      \draw[dashed] (-1,2) -- ++(0,-0.7) node[cross] {} -- ++(0,-0.7) node[cross] {};
+    \end{scope}
+    \draw[<->] (-0.5,0) -- (0.5,0);
+    \begin{scope}[shift={(4,0)}]
+      \draw[very thin,gray] (-3,-2) grid (3,2);
+      \fill[blue, opacity=0.1] (-3,2) rectangle (3,0);
+      \draw[thick,fill,fill opacity=0.2] (-1,-2) -- (3,-1) -- (3,0) -- (2,1) -- (0,2) -- (-3,2) -- (-1,-2);
+      \draw[dashed] (3,0) -- (-0.8,0) node[cross] {};
+      \draw[dashed] (-1,-2) -- +(0.7,0.7) node[cross] {};
+      \draw[dashed] (3,-1) -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {} -- ++(-0.4,0) node[cross] {};
+      \draw[dashed] (-3,2) -- ++(0.7,-0.7) node[cross] {} -- ++(0.7,-0.7) node[cross] {};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Changing the branch cut: Here we change the horizontal branch cut on the left, applying the corresponding shear transform (in this case $\smqty(1 & -1\\ 0 &1)$) to the top half of the plane.}
+  \label{fig:changing_the_branch_cut}
+\end{figure}
 
 The third operation is called \textbf{changing the branch cut}, see \cite[Sections 8.4]{evans2021atfs} for more details.
 It corresponds to making a different choice of branch cut to produce the almost toric base diagram.
 Since, in the context of the present paper, we only consider branch cuts which coincide with the Eigenline of a given node, there are only two choices of branch cuts and the \textit{change in branch cut}-operation is a switch from one to the other.
 Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and a integral shear preserving the eigenline to the other half.
+(See \cref{fig:changing_the_branch_cut})
 We refer to \cite[Example 8.15]{evans2021atfs} for an example.\todo{Bilder für die drei sachen.}
 
 Note that there is a difference between nodal trade and nodal slide on one hand, and the change in branch cut operation on the other hand.
