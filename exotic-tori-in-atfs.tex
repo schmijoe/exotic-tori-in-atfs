@@ -225,8 +225,10 @@ Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\p
     The claim of \cref{thm:nodal_slide} fails for points which are contained in a segment on which a nodal slide is supported, even if both points correspond to regular almost toric fibres.
 In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other.
 This approach was pioneered by Vianna \cite{Via16,Via17}. The simplest example in which this occurs is $\mathbb{R}^4 = \mathbb{C}^2$. Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus.
-It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$. To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure.
-By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.\todo{image}
+It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$.
+To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure.
+By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
+See \cref{sec:howto_exotic} for more details.
 \end{remark}
 
 
@@ -408,7 +410,7 @@ In the following section we give a self contained introduction to versal deforma
 
 \subsection{Lagrangian flux}
 
-The goal of this subsection is to introduce the Lagrangian flux. This was notion was previously introduced in \cite{evans2021atfs} and the proofs in this section are similar to the exposition in \cite{McDuffSalamonSympTop}, which introduces the notion of symplectic flux.
+The goal of this subsection is to introduce the Lagrangian flux. This was notion was previously introduced in \cite[Section 2.4]{evans2021atfs}, in the context of Lagrangian torus fibrations, and the proofs in this section are similar to the exposition in \cite[Section 10.2]{McDuffSalamonSympTop}, which introduces the notion of symplectic flux.
 
 Let $L_0 ⊂ (X,ω)$ be a compact Lagrangian, and $\overline{\symcal{L}}$ the space of Lagrangians in $X$ equipped with the $\symcal{C}^1$-topology. See \cite{ono2008LagrangianFlux} for more details on the $\symcal{C}^1$-topology on the space of Lagrangians. 
 
@@ -668,27 +670,28 @@ In this paper we are mainly interested in the case where $\mu$ is obtained as th
 
 
 \subsection{How to distinguish Tori using the Displacement Energy Germ}
+\label{sec:howto_exotic}
 
-   Let $L \subset (X,\omega)$ be a Lagrangian torus which we suspect to be exotic and $I(\cdot)$ a symplectic invariant of Lagrangian submanifolds as in the discussion surrounding \cref{def:invariant_germs}. All exotic tori known to the authors have the property that most neighbouring tori are themselves Hamiltonian isotopic to standard (non-exotic) tori, e.g.\ product tori in $\mathbb{R}^{2n}$, toric fibres in toric manifolds. Therefore, the germ $[I]_L$ can be computed on an open dense set of the origin of $H^1(L;\mathbb{R})$ in the following two steps: 
+Let $L \subset (X,\omega)$ be a Lagrangian torus which we suspect to be exotic and $I(\cdot)$ a symplectic invariant of Lagrangian submanifolds as in the discussion surrounding \cref{def:invariant_germs}.
+All exotic tori known to the authors have the property that most neighbouring tori are themselves Hamiltonian isotopic to standard (non-exotic) tori, e.g.\ product tori in $\mathbb{R}^{2n}$, toric fibres in toric manifolds.
+Therefore, the germ $[I]_L$ can be computed on an open dense set of the origin of $H^1(L;\mathbb{R})$ in the following two steps: 
 \begin{enumerate}
     \item compute $I(\cdot)$ on the standard tori of $X$, 
     \item identify which standard torus a given member $\nu_L(a)$ of the versal deformation is Hamiltonian isotopic to. 
 \end{enumerate}
-We called this property the \textit{instability of the exotic torus $L$} in \cite{brendel2023local} and refer to \cite[Sections 1.6, 5.1]{brendel2023local} for a further discussion of instability. In our case, we use the displacement energy $I(\cdot) = e(\cdot)$ as an invariant to distinguish Lagrangian tori, see \cref{sec:lower_bound} for a discussion of $e(\cdot)$.
+We called this property the \textit{instability of the exotic torus $L$} in \cite{brendel2023local} and refer to \cite[Sections 1.6, 5.1]{brendel2023local} for a further discussion of instability.
+In our case, we use the displacement energy $I(\cdot) = e(\cdot)$ as an invariant to distinguish Lagrangian tori, see \cref{sec:lower_bound} for a discussion of $e(\cdot)$.
 
-
-Using the simple example of the Chekanov torus in $\mathbb{R}^4 = \mathbb{C}^2$, we will illustrate how to compute the displacement energy germ (on an open dense subset) of almost toric fibres. The use of ATFs to construct exotic tori was pioneered by Vianna \cite{Via16,Via17}. It is particularly well adapted to computing the displacement energy germ as outlined in the above steps $(1)-(2)$, firstly because every regular almost toric fibre has a natural versal deformation by \cref{cor:VDatffibres} and secondly because having an almost toric fibration facilitates identifying which standard torus a given deformation is Hamiltonian isotopic to (step $(2)$ in the above outline).
-
-
-
-
+Using the simple example of the Chekanov torus in $\mathbb{R}^4 = \mathbb{C}^2$, we will illustrate how to compute the displacement energy germ (on an open dense subset) of almost toric fibres.
+The use of ATFs to construct exotic tori was pioneered by Vianna \cite{Via16,Via17}.
+It is particularly well adapted to computing the displacement energy germ as outlined in the above steps $(1)-(2)$, firstly because every regular almost toric fibre has a natural versal deformation by \cref{cor:VDatffibres} and secondly because having an almost toric fibration facilitates identifying which standard torus a given deformation is Hamiltonian isotopic to (step $(2)$ in the above outline).
 
 Let us briefly give an example how we can use the displacement energy germ to distinguish tori.
 We will use the same technique for our main theorem \cref{thm:main}.
 
 Let $μ\colon ℂ² → ℝ²$ be the usual moment map on $ℂ$ given by $μ(z_1,z_2)=( \abs{z_1}^2, \abs{z_2}^2)$, with the moment polytope $Δ ⊂ ℝ²$ being the upper right quadrant.
 Fix some $a>0$. We want to construct three different (pairwise not related by symplectomorphism) tori in $ℂ²$.
-Using similar techniques as in \cref{sec:upper_bound,sec:lower_bound} we can calculate the displacement energy of a toric fibre $T(x)$ with $x = (x_1,x_2) ∈ \int(Δ)$ to be $e(T(x)) = \max\{x_1,x_2\}$.
+Using similar techniques as in \cref{sec:upper_bound,sec:lower_bound} we can calculate the displacement energy of a toric fibre $T(x)$ with $x = (x_1,x_2) ∈ \text{int}(Δ)$ to be $e(T(x)) = \max\{x_1,x_2\}$.
 
 Here we can already distinguish two cases (see \cref{fig:babys_first_vd}: if $x_1=x_2=a > 0$ we have the torus $T^1_{1,1}$ (this torus does indeed correspond the one in \cref{def:our_tori}, which will become apparent later.), if $x_1>x_2=a$, we have the torus $T$.
 Using \cref{thm:VDtoricfibre}, we can identify a small neighbourhood of $x ∈ Δ$ as a neighbourhood of $0$ in $H¹(T(x);ℝ)$.
@@ -734,7 +737,6 @@ Even though we don't know the displacement energy of $T^0_{1,1}$ (although it ca
 We can immediately distinguish it from $T¹_{1,1}$.
 Although the displacement energy germ of $T⁰_{1,1}$ looks the same as the one of $T$, we can distinguish the two by noticing that $T⁰_{1,1}$ is monotone and $T$ not.
 
-The torus $T^1_{1,1}$ is also called Clifford torus \todo{why?}, and $T⁰_{1,1}$ is called Chekanov torus \todo{ref}.
 
 \begin{figure}
   \centering
@@ -1000,7 +1002,7 @@ Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Usin
 As for the upper bound \cref{thm:upper_bound_embedded}, there is an analoguous statement for small enough tori in partial $B_{dpq}$-embeddings\footnote{See \cref{def:partial_embedding}}.
 
 \begin{proposition}
-  \label{thm:embedded_lower_bound}
+  \label{thm:lower_bound_embedded}
     Let $φ:B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$-embedding into a geometrically bounded symplectic manifold $(X,\omega)$. Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such that for all $x \in V$, we have $e(φ(T(x))) \geq x_1$.
 \end{proposition}
 
