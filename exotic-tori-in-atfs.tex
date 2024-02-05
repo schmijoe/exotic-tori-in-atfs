@@ -1071,18 +1071,35 @@ As a simple corollary we get that a $J$-curve crossing a certain distance, measu
   \label{thm:small_buffer}
   Suppose $A^+, A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is a connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon Σ → M$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
   
-  Let $d=d(A⁺,A⁻)$, where $d$ denotes the metric induced by $g$, $N=\lfloor \frac{d}{2r_0}\rfloor$ and $d_r = d-2r_0 N$
+  Let $δ=d(A⁺,A⁻)$, where $d$ denotes the metric induced by $g$, $N=\lfloor \frac{δ}{2r_0}\rfloor$ and $δ_r = δ-2r_0 N$
   Then
-  \[∫_u ω ≥ C(Nr^2+\frac{d_r^2}{4}) \; .\]
+  \[∫_u ω ≥ C(Nr_0^2+\frac{δ_r^2}{4}) \; .\]
 \end{corollary}
 
 \begin{proof}
   Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$.
-  We have that $d((u ∘ γ) (1),A^-) ≥ d$, so by the intermediate value theorem for each $0 ≤ n < N$ there is a $t_n ∈ [0,1]$ s.t.\ $d((u ∘ γ) (t_n),A^-) = (2n+1)r_0$.
-  Also there is a $t_N$ s.t.\ $d((u ∘ γ) (t_n),A^-) = 2Nr_0 + d_r/2$.
+  We have that $d((u ∘ γ) (1),A^-) ≥ δ$, so by the intermediate value theorem for each $0 ≤ n < N$ there is a $t_n ∈ [0,1]$ s.t.\ $d((u ∘ γ) (t_n),A^-) = (2n+1)r_0$.
+  Also there is a $t_N$ s.t.\ $d((u ∘ γ) (t_N),A^-) = 2(N-1)r_0 + δ_r/2$.
   Picking $x_n = (u ∘ γ)(t_n)$ for $0 ≤ n ≤ N$ and using the triangle inequality we have that $B_{r_0}(x_n) ⊂ M ∖ ( A^+ ⊔ A^-)$ are pairwise disjoint.
+  See \cref{fig:small_buffer}.
   Applying \cref{thm:monotonicity} to each $B_r(x_n)$ we get the desired result.
 \end{proof}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \draw[thick] (-2,0) node[anchor=east] {$A⁻$} -- (2,0);
+    \draw (-2,0.5) -- (2,0.5) node[anchor=west] {$r_0$};
+    \draw (-2,1.5) -- (2,1.5) node[anchor=west] {$3r_0$};
+    \draw (-2,2.4) -- (2,2.4) node[anchor=170] {$3r_0 + δ_r/2$};
+    \draw[dashed] (-2,2.8) -- (2,2.8) node[anchor=-170] {$d(A⁻,A⁺)$};
+    \draw[thick] (-2,3) node[anchor=east] {$A⁺$} .. controls +(1,-0.86) and +(-1,0.4) .. coordinate[pos=0.7](A) (2,4);
+    \draw[purple] (-1,0) .. controls +(0.2,2) and +(0.4,-3) .. node[pos=0.93,anchor=west] {$γ$} (A);
+    \draw (-0.9,0.5) circle[radius=0.5] (0.1,1.5) circle[radius=0.5] (0.85,2.4) circle[radius=0.4];
+  \end{tikzpicture}
+  \caption{Packing disjoint balls onto $u$ between $A⁻,A⁺$}
+  \label{fig:small_buffer}
+\end{figure}
 
 \begin{proposition}
   \label{thm:lower_bound} 
@@ -1110,26 +1127,33 @@ This complex structrure is compatible with $\omega_0$ and geometrically bounded 
   \end{equation}
   where $d_{\mu_0}$ defines a metric on $\im μ_0$.
 
-  Let $C,r_0$ be the constants coming from \cref{thm:monotonicity} for $( ℂ × T^* S¹, ω_0, J_0)$.
+  Let $C,r_0$ be the constants coming from \cref{thm:monotonicity} for $( ℂ × T^* S¹, ω_0, J_0)$. Take $δ>0$ such that the expression $C(Nr_0^2 + δ_r^2/4)$ in \cref{thm:small_buffer} is greater than $x_1$.
   Set $A_0^- = \{x\}$, 
-  \begin{equation}
+  \begin{align}
         \label{eq:a0def}
-        A_0 = \qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ 2 \sqrt{\frac{x_1}{C}} }
-  \end{equation}
-  and $A_0^+ =\qty{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = 2 \sqrt{\frac{x_1}{C}}}$.
+        A_0 &= \{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ δ \} \; ,\\
+        A_0^+ &=\{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = δ \} \; .
+  \end{align}
 
-  Let us now return to $B_{dpq}$. Since $x \notin R$ and $A_0 \subset \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ is compact, we can perform a nodal slide whose support does not contain $x$ to remove all nodes and branch cuts from $A_0$, see also \cref{thm:nodal_slide}. Let $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ be the almost toric moment map associated to this almost toric fibration. Since $A_0$ does not contain any nodes or branch cuts, the restriction $\pi\vert_{\pi^{-1}(A_0)} \colon \pi^{-1}(A_0) \rightarrow A_0$ is a toric moment map and thus, by the classification of toric manifolds in terms of their moment map image, we identify $\pi^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by an equivariant symplectomorphism.
+  Let us now return to $B_{dpq}$.
+  Since $x \notin R$ and $A_0 \subset \mathbb{R}_{\geqslant 0} \times \mathbb{R}$ is compact, we can perform a nodal slide whose support does not contain $x$ to remove all nodes and branch cuts from $A_0$, see also \cref{thm:nodal_slide}.
+  Let $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ be the almost toric moment map associated to this almost toric fibration.
+  Since $A_0$ does not contain any nodes or branch cuts, the restriction $\pi\vert_{\pi^{-1}(A_0)} \colon \pi^{-1}(A_0) \rightarrow A_0$ is a toric moment map and thus, by the classification of toric manifolds in terms of their moment map image, we identify $\pi^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by an equivariant symplectomorphism.
   Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$, which exists by \cref{rem:Bdpq_geometrically_bounded}.
-  Let $K$ be a compact set whose interior contains $μ^{-1}(A_0)$. Then there exists a geometrically bounded almost complex structure $J$ on $B_{dpq}$, \cref{rem:J_compactly_perturbed}, such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$. Set $A^± = \pi^{-1}(A_0^±), A = \pi^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, since there are no $J$-holomorphic spheres. However, by \cref{thm:upper_bound} it is displaceable.}. 
+  Let $K$ be a compact set whose interior contains $μ^{-1}(A_0)$.
+  By \cref{rem:J_compactly_perturbed} there exists a geometrically bounded almost complex structure $J$ on $B_{dpq}$ such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
+  Set $A^± = \pi^{-1}(A_0^±), A = \pi^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, since there are no $J$-holomorphic spheres.
+  However, by \cref{thm:upper_bound} it is displaceable.}. 
   
-  If $u(D) ⊂ A$, then, under the identification $\pi^{-1}(A_0) ⊂ B_{dpq} \cong μ_0^{-1}(A_0) \subset \mathbb{C} \times T^*S^1$, it defines a relative homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$. Therefore $[u]$ is a positive multiple of the generator $D_0$ of $H_2(ℂ × T^*S¹, T(x))$, which satisfies $∫_{D_0} ω_0 = x_1$.
+  If $u(D) ⊂ A$, then, under the identification $\pi^{-1}(A_0) \cong μ_0^{-1}(A_0) \subset \mathbb{C} \times T^*S^1$, it defines a relative homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$. Therefore $[u]$ is a positive multiple of the generator $D_0$ of $H_2(ℂ × T^*S¹, T(x))$, which satisfies $∫_{D_0} ω_0 = x_1$.
   
   If $u(D)$ is not contained in $A$, then $u(D) ∩ A^+$ is non-empty.
 Let $Σ ⊂ D$ be the connected component of $u^{-1}(A)$ containing $∂D$. Using \cref{thm:small_buffer} and \eqref{eq:metricineq} for $A^±$ and $u|_Σ$, we get
-  \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ \frac{C}{4} d(A^+,A^-)^2 ≥ \frac{C}{4} \frac{4x_1}{C} = x_1 \;. \]
+  \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ C(Nr_0^2 + δ_r^2/4) ≥ x_1 \;. \]
 
-    In both cases, we conclude that $∫_{u} ω_0 \geqslant x_1$.
-    Since $H_2(B_{dpq})$ is generated by Lagrangian spheres, see \cref{thm:homology}, there are no non-constant $J$-holomorphic spheres. Therefore $\cref{thm:chekanov}$, together with \cref{thm:upper_bound} allows us to conclude the Theorem.
+    In both cases, we conclude that $∫_{u} ω_0 ≥ x_1$.
+    Since $H_2(B_{dpq})$ is generated by Lagrangian spheres, see \cref{thm:homology}, there are no non-constant $J$-holomorphic spheres.
+    Therefore \cref{thm:chekanov}, together with \cref{thm:upper_bound} allows us to conclude the Theorem.
 \end{proof}
 
 As for the upper bound \cref{thm:upper_bound_embedded}, there is an analoguous statement for small enough tori in partial $B_{dpq}$-embeddings\footnote{See \cref{def:partial_embedding}}.
