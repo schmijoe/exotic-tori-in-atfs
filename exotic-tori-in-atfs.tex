@@ -254,9 +254,23 @@ The \textbf{nodal slide} consists of moving the focus-focus singularity in a non
 The third operation is called \textbf{changing the branch cut}, see \cite[Sections 8.4]{evans2021atfs} for more details.
 It corresponds to making a different choice of branch cut to produce the almost toric base diagram.
 Since, in the context of the present paper, we only consider branch cuts which coincide with the Eigenline of a given node, there are only two choices of branch cuts and the \textit{change in branch cut}-operation is a switch from one to the other.
-Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and a integral shear preserving the eigenline to the other half.
-(See \cref{fig:changing_the_branch_cut})
-We refer to \cite[Example 8.15]{evans2021atfs} for an example.
+Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and an integral shear preserving the eigenline to the other half. The branch cut is still contained in the eigenline, but switches sides. 
+
+\begin{proposition}
+    Let $\Delta \subset \mathbb{R}^2$ be an almost toric base diagram containing a node $n \in \Delta$. Up to translation, we assume that $n = (0,0) \in \mathbb{R}^2$. Furthermore, let $v \in \mathbb{Z}^2$ be a primitive vector determining the eigenline of the node $n$. Then the almost toric base diagram after a change in branch cut at $n$ is obtained from $\Delta$ by applying the piece-wise linear map 
+    \begin{equation}
+    \label{eq:half-shear}
+        x \mapsto
+        \begin{cases}
+            S_v(x) = x + \operatorname{det}(x,v)v, & \text{if } \operatorname{det}(x,v) \geqslant 0, \\
+            x & \text{if } \operatorname{det}(x,v) < 0.
+        \end{cases}
+    \end{equation}
+\end{proposition}
+
+Since $v$ is an eigenvector of $S_v$, the map \eqref{eq:half-shear} is continuous. Note  
+
+See \cref{fig:changing_the_branch_cut} for an illustration or  \cite[Example 8.15]{evans2021atfs} for another example.
 
 Note that there is a difference between nodal trade and nodal slide on one hand, and the change in branch cut operation on the other hand.
 The first two operations represent a change in the underlying almost toric fibration on $X$, whereas the change in branch cut does not.
@@ -471,10 +485,6 @@ The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given b
 Note, that the point $x$ was moved of the eigenray for better visibility.}
   \label{fig:homology_generating_discs}
 \end{figure}
-
-
-
-
 
 
 \section{Versal Deformations \& Nearby Lagrangians}
@@ -778,19 +788,23 @@ In our case, we use the displacement energy $I(\cdot) = e(\cdot)$ as an invarian
 
 \begin{definition}
     \label{def:deg_equiv}
-    Let $L,L' \subset (X,\omega)$ Lagrangian tori. We say that their displacement energy germs $[e]_L,[e]_{L'}$ are \textbf{equivalent} if there is an automorphism 
+    Let $L,L' \subset (X,\omega)$ Lagrangian tori. We say that their displacement energy germs $[e]_L,[e]_{L'}$ are \textbf{equivalent}, written $[e]_L \cong [e]_{L'}$, if there is an isomorphism 
     \begin{equation}
-        \label{eq:phi_automorphism}
+        \label{eq:phi_isomorphism}
         \Phi \colon H^1(L';\mathbb{Z}) \rightarrow H^1(L;\mathbb{Z}),
     \end{equation}
-    such that $[e]_L \circ \Phi$ and $[e]_{L'}$ agree on an open and dense subset of $H^1(L';\mathbb{R})$. We write $[e]_L \sim [e]_{L'}$. We say that they are \textbf{inequivalent} and write $[e]_L \nsim [e]_{L'}$ if there is no such automorphism. 
+    such that $[e]_L \circ \Phi$ and $[e]_{L'}$ agree on an open neighbourhood of zero $H^1(L';\mathbb{R})$.
+    
+    If they only on an open dense set intersecting each neighbourbood of $0$, we say they are \textbf{roughly equivalent}, and write $[e]_L \sim [e]_{L'}$.
 \end{definition}
 
-In examples, we work with identifications $H^1(L';\mathbb{R}) \cong H^1(L;\mathbb{R})\cong \mathbb{R}^n$ induced by a choice of basis $H_1(L) \cong H_1(L') \cong \mathbb{Z}^n$, in which case the automorphism \eqref{eq:phi_automorphism} corresponds to an isomorphism $\phi \in \operatorname{GL}(n;\mathbb{Z})$. The following is an immediate consequence of \cref{thm:invariant_germs}.
+Note that $[e]_L \nsim [e]_{L'}$ implies $[e]_L \ncong [e]_{L'}$.
+
+In examples, we work with identifications $H^1(L';\mathbb{R}) \cong H^1(L;\mathbb{R})\cong \mathbb{R}^n$ induced by a choice of basis $H_1(L) \cong H_1(L') \cong \mathbb{Z}^n$, in which case the isomorphism \eqref{eq:phi_isomorphism} corresponds to an isomorphism $\phi \in \operatorname{GL}(n;\mathbb{Z})$. The following is an immediate consequence of \cref{thm:invariant_germs}.
 
 \begin{proposition}
     \label{thm:not_equiv}
-     Let $L,L' \subset X$ be Lagrangian tori with $[e]_L \nsim [e]_{L'}$. Then there is no symplectomorphism of $X$ mapping $L$ to $L'$. 
+     Let $L,L' \subset X$ be Lagrangian tori with $[e]_L \ncong [e]_{L'}$. Then there is no symplectomorphism of $X$ mapping $L$ to $L'$. 
 \end{proposition}
 
 The use of ATFs to construct exotic tori was pioneered by Vianna \cite{Via16,Via17}.
@@ -799,7 +813,7 @@ Firstly because every regular almost toric fibre has a natural versal deformatio
 Compare step (2) in the above outline.
 Let us illustrate this using the most basic example of the Chekanov torus in $\mathbb{R}^4 = \mathbb{C}^2$.
 
-Let $μ\colon ℂ² → ℝ²$ be the standard moment map on $ℂ$ given by $μ(z_1,z_2)=\qty( \pi\abs{z_1}^2, \pi\abs{z_2}^2)$, with the moment polytope $Δ ⊂ ℝ²$ being the upper right quadrant. Its toric fibres are the so-called product tori, meaning products of standard circles in the plane. Using similar techniques as in \cref{sec:upper_bound,sec:lower_bound} we find that the displacement energy of product tori is
+Let $μ\colon ℂ² → Δ ⊂ ℝ²$ be the standard moment map on $ℂ$ given by $μ(z_1,z_2)=\qty( \pi\abs{z_1}^2, \pi\abs{z_2}^2)$, with the moment polytope $Δ ⊂ ℝ²$ being the upper right quadrant. Its toric fibres are the so-called product tori, meaning products of standard circles in the plane. Using similar techniques as in \cref{sec:upper_bound,sec:lower_bound} we find that the displacement energy of product tori is
 \begin{equation}
     \label{eq:DE_prodtori}
         e(T(x)) = \max\{x_1,x_2\}, \quad
@@ -1183,7 +1197,7 @@ Let $x \in V$ and $u \colon (D,\partial D) \rightarrow (X,\varphi(T(x)))$ be a $
 Here we follow the proof of \cref{thm:upper_bound_embedded} and distinguish two cases.
 If the image of $u$ leaves $\varphi(K)$, then $\int_{u} \omega > x_1$.
 By 3.\ we find that if $u(D) \subset \varphi(A)$, then $\int_{u} \omega$ is a positive integer multiple of $x_1$.
-By 2.\ and \cref{thm:upper_bound_embedded} we find that $e(\varphi(T(x))) ≤ x_1$ and this implies, using 1.\ and \cref{thm:chekanov}, that there is a $J_X$-holomorphic disk $u_0 \colon (D,\partial D) \rightarrow (\varphi(A),\varphi(T(x)))$ with $\int_{u_0} \omega = x_1$.
+By 2.\ and \cref{thm:upper_bound_embedded} we find that $e(\varphi(T(x))) ≤ x_1$ and this implies, using 1.\ and \cref{thm:chekanov}, that there is a $J_X$-holomorphic disk $u_0 \colon (D,\partial D) \rightarrow (\varphi(A),\varphi(T(x)))$ with $\int_{u_0} \omega ≤ x_1$.
 Again using 1.\ and \cref{thm:chekanov}, this implies $e(\varphi(T(x))) ≥ x_1$ and thus we can conclude.
 \end{proof}
 
@@ -1193,7 +1207,7 @@ Again using 1.\ and \cref{thm:chekanov}, this implies $e(\varphi(T(x))) ≥ x_1$
 \section{Proof of Main Theorem}
 \label{sec:main_thm}
 
-Combining \cref{thm:upper_bound} and \cref{thm:lower_bound}, we find the following.
+ Let $d,p,q \in \mathbb{N}$ be integers such that $d \geqslant 1$ and $p,q$ coprime with $p > q \geqslant 0$. Combining \cref{thm:upper_bound} and \cref{thm:lower_bound}, we find the following.
 
 \begin{proposition}
     \label{thm:displacement_energy}
@@ -1203,14 +1217,15 @@ Combining \cref{thm:upper_bound} and \cref{thm:lower_bound}, we find the followi
     \end{equation}
 \end{proposition}
 
- As outlined in \cref{sec:howto_exotic}, combining almost toric fibrations with the displacement energy of its toric fibres allows us to compute the displacement energy germ $[e]_L$ for $L = T^k_{pq}(a)$ as in \cref{def:our_tori}.
+ As outlined in \cref{sec:howto_exotic}, combining almost toric fibrations with the displacement energy of its toric fibres allows us to compute the displacement energy germ $[e]_L$ for $L = T^k_{pq}(a)$ on an open dense subset as in \cref{def:our_tori}.
 
 \begin{theorem}
   \label{thm:main}
-  For $x ∈ H^1(T^k_{pq}(a); ℝ)$, the displacement energy germ at $T_{kpq}(a)$ is given by
-  \[ [e]_{T_{kpq}(a)} (x) \sim a + \min\qty{x_1, x_1 (1-kpq) + x_2 k p^2} \; , \]
-  for some identification of $H^1(T_{kpq}(a);ℝ)$ with $ℝ²$.
-  In particular, there is no symplectomorphism mapping $T_{kpq}(a)$ to $T_{k'p'q'}(a')$ if $(k,p,q,a) ≠ (k',p',q',a')$ (where equality in the $q$-coordinate is mod $p$).
+  The displacement energy germ of $T_{pq}^k(a) \subset B_{dpq}$ satisfies 
+  \begin{equation}
+      [e]_{T_{kpq}(a)} (b) \sim a + \min\qty{b_1, b_1 (1-kpq) + b_2 k p^2} \; ,
+  \end{equation}
+    for some identification $H^1(L;\mathbb{R}) \cong \mathbb{R}^2 = \{(b_1,b_2)\}$. In particular, if there is a symplectomorphism of $B_{dpq}$ mapping $T_{pq}^k(a)$ to $T_{pq}^{k'}(a')$, then $k = k'$ and $a = a'$, see \cref{thm:not_equiv}.
 \end{theorem}
 
 \begin{figure}
