@@ -257,20 +257,20 @@ Since, in the context of the present paper, we only consider branch cuts which c
 Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and an integral shear preserving the eigenline to the other half. The branch cut is still contained in the eigenline, but switches sides. 
 
 \begin{proposition}
-    Let $\Delta \subset \mathbb{R}^2$ be an almost toric base diagram containing a node $n \in \Delta$. Up to translation, we assume that $n = (0,0) \in \mathbb{R}^2$. Furthermore, let $v \in \mathbb{Z}^2$ be a primitive vector determining the eigenline of the node $n$. Then the almost toric base diagram after a change in branch cut at $n$ is obtained from $\Delta$ by applying the piece-wise linear map 
+    \label{thm:change_branchcut}
+    Let $\Delta \subset \mathbb{R}^2$ be an almost toric base diagram containing a node $n \in \Delta$. Up to translation, we assume that $n = (0,0) \in \mathbb{R}^2$. Furthermore, let $v \in \mathbb{Z}^2$ be the primitive vector determining the eigenline of the node $n$ and pointing away from the branch cut in $\Delta$. Then the almost toric base diagram $\Delta'$ after a change in branch cut at $n$ is obtained from $\Delta$ by applying the piece-wise linear map 
     \begin{equation}
     \label{eq:half-shear}
-        x \mapsto
+        \overline{S}_v(x) =
         \begin{cases}
-            S_v(x) = x + \operatorname{det}(x,v)v, & \text{if } \operatorname{det}(x,v) \geqslant 0, \\
-            x & \text{if } \operatorname{det}(x,v) < 0.
+            S_v(x) = x + \operatorname{det}(x,v)v, & \text{if } \operatorname{det}(v,x) \geqslant 0, \\
+            x & \text{if } \operatorname{det}(v,x) < 0.
         \end{cases}
     \end{equation}
+    Let $\pi$ be an almost toric moment map with image $\Delta$. Then $\pi' = \overline{S}_v \circ \pi$ is the corresponding almost toric moment map after changing the branch cut.
 \end{proposition}
 
-Since $v$ is an eigenvector of $S_v$, the map \eqref{eq:half-shear} is continuous. Note  
-
-See \cref{fig:changing_the_branch_cut} for an illustration or  \cite[Example 8.15]{evans2021atfs} for another example.
+The map $\overline{S}_v$ is linear on the two half-planes bounded by the eigenline of $n$ and since $v$ is an eigenvector of $S_v$, it is continuous. See \cref{fig:changing_the_branch_cut} for an illustration or \cite[Example 8.15]{evans2021atfs} for another example.
 
 Note that there is a difference between nodal trade and nodal slide on one hand, and the change in branch cut operation on the other hand.
 The first two operations represent a change in the underlying almost toric fibration on $X$, whereas the change in branch cut does not.
@@ -1223,7 +1223,7 @@ Again using 1.\ and \cref{thm:chekanov}, this implies $e(\varphi(T(x))) ≥ x_1$
   \label{thm:main}
   The displacement energy germ of $T_{pq}^k(a) \subset B_{dpq}$ satisfies 
   \begin{equation}
-      [e]_{T_{kpq}(a)} (b) \sim a + \min\qty{b_1, b_1 (1-kpq) + b_2 k p^2} \; ,
+      [e]_{T^k_{pq}(a)} (b) \sim a + \min\qty{b_1, b_1 (1-kpq) + b_2 k p^2} \; ,
   \end{equation}
     for some identification $H^1(L;\mathbb{R}) \cong \mathbb{R}^2 = \{(b_1,b_2)\}$. In particular, if there is a symplectomorphism of $B_{dpq}$ mapping $T_{pq}^k(a)$ to $T_{pq}^{k'}(a')$, then $k = k'$ and $a = a'$, see \cref{thm:not_equiv}.
 \end{theorem}
@@ -1236,6 +1236,10 @@ Again using 1.\ and \cref{thm:chekanov}, this implies $e(\varphi(T(x))) ≥ x_1$
 \end{figure}
 
 \begin{proof}
+    Let $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ be an almost toric moment map with $k$ nodes t
+
+
+
   The proof of the embedded and non-embedded part are essentially the same.
   For simplicity we only give the non-embedded part.
 
