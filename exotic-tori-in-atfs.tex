@@ -1199,7 +1199,7 @@ Combining \cref{thm:upper_bound} and \cref{thm:lower_bound}, we find the followi
     \label{thm:displacement_energy}
     Let $T(x) \subset B_{dpq}$ be an almost toric fibre with $x = (x_1,x_2) \notin R = \{(qx_1 = px_2)\}$. Then 
     \begin{equation}
-         e(T(x)) = x_1. 
+       e(T(x)) = x_1. 
     \end{equation}
 \end{proposition}
 
@@ -1215,8 +1215,21 @@ Combining \cref{thm:upper_bound} and \cref{thm:lower_bound}, we find the followi
 
 \begin{figure}
   \centering
-  \missingfigure{modified moment map}
-  \caption{Modifiying the moment map $μ$.}
+  \begin{tikzpicture}
+    \begin{scope}[shift={(-5,0)}]
+      \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+      \draw[thick] (0,-1) -- (0,2);
+      \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
+      \draw[fill] (2.5,1.25) circle[radius=1pt] node[anchor=south] {$T^k_{pq}$};
+    \end{scope}
+    \begin{scope}[shift={(1,0)}]
+      \draw[fill,opacity=0.2] (0,2) -- (0,0) -- (4,1.2) -- (4,2);
+      \draw[thick] (0,2) -- (0,0) -- (4,1.2);
+      \draw[dashed] (0,0) -- (1,0.5) node[cross] {} -- (2,1) node[cross] {} (3,1.5) node[cross] {} -- (4,2);
+      \draw[fill] (2.5,1.25) circle[radius=1pt] node[anchor=south] {$T^k_{pq}$};
+    \end{scope}
+  \end{tikzpicture}   
+  \caption{Modifiying the alsmot toric moment map $π$.}
   \label{fig:mod_moment_map}
 \end{figure}
 
