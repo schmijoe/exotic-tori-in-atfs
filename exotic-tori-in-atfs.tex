@@ -764,7 +764,7 @@ which proves the claim.
 In this paper we are mainly interested in the case where $\mu$ is obtained as the restriction of an almost toric moment map, see \cref{thm:toricmomentmap}. 
 
 \begin{corollary}
-    \label{cor:VDatffibres}
+    \label{thm:VDatffibres}
     Let $\pi \colon X \rightarrow \Delta$ be an almost toric moment map of an almost toric fibration.
     Let $x_0 \in \operatorname{int}\Delta$ be a point which is not a node, nor lies on a branch cut.
     Then $\nu_L(a) = \pi^{-1}(x_0 + a)$, which is defined for small enough $a$, is a versal deformation of the almost toric fibre $L = \pi^{-1}(x_0)$.
@@ -809,7 +809,7 @@ In examples, we work with identifications $H^1(L';\mathbb{R}) \cong H^1(L;\mathb
 
 The use of ATFs to construct exotic tori was pioneered by Vianna \cite{Via16,Via17}.
 Computing the displacement energy germ is particularly easy for almost toric fibres.
-Firstly because every regular almost toric fibre has a natural versal deformation by \cref{cor:VDatffibres} and secondly because in an almost toric fibration, it is particularly easy to identify which standard torus a versal deformation is Hamiltonian isotopic to.
+Firstly because every regular almost toric fibre has a natural versal deformation by \cref{thm:VDatffibres} and secondly because in an almost toric fibration, it is particularly easy to identify which standard torus a versal deformation is Hamiltonian isotopic to.
 Compare step (2) in the above outline.
 Let us illustrate this using the most basic example of the Chekanov torus in $\mathbb{R}^4 = \mathbb{C}^2$.
 
@@ -867,7 +867,7 @@ Therefore, we find $e(\pi^{-1}(x)) = \min \{x_1,x_2\}$ for such almost toric fib
 This corresponds to Step (2) in the outline we gave above to compute displacement energy germs.
 See the upper middle diagram in \cref{fig:babys_second_vd} for the level sets of $x \mapsto e(\pi^{-1}(x))$.
 The displacement energy of the Chekanov tori on the branch cut cannot be determined in this way, as they are not symplectomorphic to product tori.
-In order to apply \cref{cor:VDatffibres}, we change the branch cut in order for the Chekanov tori to not lie on the branch cut.
+In order to apply \cref{thm:VDatffibres}, we change the branch cut in order for the Chekanov tori to not lie on the branch cut.
 We find
 \begin{equation}
     \label{eq:babyDEG2}
@@ -1211,13 +1211,13 @@ Again using 1.\ and \cref{thm:chekanov}, this implies $e(\varphi(T(x))) ≥ x_1$
 
 \begin{proposition}
     \label{thm:displacement_energy}
-    Let $T(x) \subset B_{dpq}$ be an almost toric fibre with $x = (x_1,x_2) \notin R = \{(qx_1 = px_2)\}$. Then 
+    Let $T(x) \subset B_{dpq}$ be an almost toric fibre with $x = (x_1,x_2) \notin R = \{qx_1 = px_2\}$. Then 
     \begin{equation}
        e(T(x)) = x_1. 
     \end{equation}
 \end{proposition}
 
- As outlined in \cref{sec:howto_exotic}, combining almost toric fibrations with the displacement energy of its toric fibres allows us to compute the displacement energy germ $[e]_L$ for $L = T^k_{pq}(a)$ on an open dense subset as in \cref{def:our_tori}.
+ \cref{thm:displacement_energy} yields the first step of the outline given in \cref{sec:howto_exotic}. To compute the displacement energy germ $[e]_L$ of $L = T^k_{pq}(a)$ (see \cref{def:our_tori}) on an open dense subset, we adapt the method in \cref{thm:displacement_energy} to the case at hand.
 
 \begin{theorem}
   \label{thm:main}
@@ -1231,67 +1231,67 @@ Again using 1.\ and \cref{thm:chekanov}, this implies $e(\varphi(T(x))) ≥ x_1$
 \begin{figure}
   \centering
   \begin{tikzpicture}
-    \begin{scope}[shift={(-5,0)}]
-      \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+    \begin{scope}[shift={(-5,-0.5)}]
+      \draw[fill,opacity=0.1] (0,-1) rectangle (4,2);
+      \draw[very thin,gray] \foreach \x in {0.33,0.66,...,3.99} {(\x,-1) -- (\x,2)};
+      \draw[ultra thick,white] (0,0) -- (4,2);
       \draw[thick] (0,-1) -- (0,2);
       \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
-      \draw[fill] (2.5,1.25) circle[radius=1pt] node[anchor=south] {$T^k_{pq}$};
+      \draw[fill] (2.5,1.25) circle[radius=1pt] node[anchor=south] {$x_a$};
+      \draw (2,-1) node[anchor=north] {$π$};
     \end{scope}
-    \begin{scope}[shift={(1,0)}]
-      \draw[fill,opacity=0.2] (0,2) -- (0,0) -- (4,1.2) -- (4,2);
+    \draw[->] (-0.5,0) -- node[anchor=south] {$\overline{S}_{kv}$} (0.5,0);
+    \begin{scope}[shift={(1,-0.5)}]
+      \draw[fill,opacity=0.1] (0,2) -- (0,0) -- (4,1.2) -- (4,2);
+      \begin{scope}
+        \clip (0,2) -- (0,0) -- (4,1.2) -- (4,2);
+        \draw[very thin,gray] \foreach \x in {0.33,0.66,...,3.99} {(\x,2) -- (\x, 0.5*\x) -- (4,1.2+0.2*\x)};
+      \end{scope}
+      \draw[ultra thick,white] (0,0) -- (4,2);
       \draw[thick] (0,2) -- (0,0) -- (4,1.2);
       \draw[dashed] (0,0) -- (1,0.5) node[cross] {} -- (2,1) node[cross] {} (3,1.5) node[cross] {} -- (4,2);
-      \draw[fill] (2.5,1.25) circle[radius=1pt] node[anchor=south] {$T^k_{pq}$};
+      \draw[fill] (2.5,1.25) circle[radius=1pt] node[anchor=south] {$x_a$};
+      \draw (2,-1) node[anchor=north] {$π'$};
     \end{scope}
   \end{tikzpicture}   
-  \caption{Modifiying the alsmot toric moment map $π$.}
+  \caption{Image of the almost toric moment maps $\pi$ and $\pi'$, before and after changing the branch cut.}
   \label{fig:mod_moment_map}
 \end{figure}
 
 \begin{proof}
-    Let $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ be an almost toric moment map with $k$ nodes t
-
-
-
-  The proof of the embedded and non-embedded part are essentially the same.
-  For simplicity we only give the non-embedded part.
-
-  Change the branch cuts of $μ$ such that $T_{kpq}$ does not lie on a branch cut, giving a new moment map $\hat{μ}$ as in \cref{fig:mod_moment_map},
-  giving the relation
-  \begin{equation}
-    \label{eq:mu_muhat_rel}
-    \hat{μ}(z) = \begin{cases}
-      μ(z) & \text{if $μ(z)$ lies above the eigenline of $A$}\\
-      A μ(z) & \text{if $μ(z)$ lies below the eigenline of $A$}
-    \end{cases}
-  \end{equation}
-  where $A$ is given as the shear matrix
-  \[\mqty(kpq+1 & -kp²\\ kq² & 1-kpq) = \qty(x ↦ x+k\det\mqty(x_1 & p\\ x_2 & q)(p,q)).\]
-
-Like in \cref{sec:vd_action_angle}, let $b_0 = \hat{μ}(T_{kpq}(a)) = (a,aq/p)$, $B$ a simply connected neighbourhood of $b_0$, $\symcal{B} = \hat{μ}^{-1}(B) ⊂ \symcal{L}_{T_{kpq}}$, $i \colon H¹(T_{kpq};ℝ) → ℝ^2$ the identification given by the action angle coordinates of $\hat{μ}$ and choose the versal deformation $v_{\hat{μ}}$ of $T_{kpq}(a)$ as in \cref{thm:moment_map_flux} such that for $x ∈ H¹(T_{kpq};ℝ)$
-  \[
-    \hat{μ}(v_{ \hat{μ}}(x)) = i(\Flux_{ \symcal{B}}(v_{ \hat{μ}}(x))) = b_0 + i(x) \; .
-  \]
-  Then we know from \cref{thm:displacement_energy} (resp.\ \cref{thm:displacement_energy_embedded}) that for $v_{ \hat{μ}}(x)$ not on the eigenline of the nodes, $e(v_{ \hat{μ}}(x)) = μ_1(v_{ \hat{μ}}(x))$.
-
-  Applying \eqref{eq:mu_muhat_rel} and setting $i(x) = (x_1,x_2)$, we get
-  \[e(v_{ \hat{μ}}(x)) = \begin{cases}
-    μ_1(v_{ \hat{μ}}(x)) = a + x_1 & \text{$x$ lies above the eigenline of $A$}\\
-    A μ_1(v_{ \hat{μ}}(x)) = a + x_1(kpq+1) - x_2kp² & \text{$x$ lies below the eigenline of $A$}\\
-    \text{unknown} & \text{$x$ lies on the eigenline of $A$}
-  \end{cases}\]
-
-  Now we have that $kp⟨i(x),(q,-p)⟩ = x_1 kpq - x_2 kp^2 > 0$ iff $x$ lies above the eigenline of $A$, so we get
-  \[e(v(x)) = \begin{cases}
-    a + \min\qty{x_1,x_1(kpq+1) - x_2kp²} & \text{$x$ doesn't lie on the eigenline of $A$}\\
-    \text{unknown} & \text{$x$ lies on the eigenline of $A$}\\
-  \end{cases}\]
-
-  The fact that no symplectomorphism between two different $T_{kpq}(a), T_{k'p'q'}(a')$ exists follows now from \cref{thm:invariant_germs}.
+    Let $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ be an almost toric moment map with $k$ nodes to the left of the point $x_a =\left( a, \frac{aq}{p}\right)$. Then the almost toric fibre of $\pi$ over $x_a$ is $T^k_{pq}(a)$ by \cref{def:our_tori}. Note that if $k \neq 0$, then $x_a$ lies on a branch cut of $\Delta_{dpq}$, as on the left-hand side of \cref{fig:mod_moment_map}. To apply \cref{thm:VDatffibres} we perform changes in branch cut to the $k$ nodes to the left of $x_a$. As a result, we obtain a new almost toric moment map $\pi' \colon B_{dpq} \rightarrow \Delta'$, see the right-hand side of \cref{fig:mod_moment_map}. By \cref{thm:change_branchcut}, its image $\Delta'$ is given by $\overline{S}_v^k (\Delta) = \overline{S}_{kv}(\Delta)$ with $v = (-p,-q)$. Under matrix form, the corresponding shear map is given by 
+    \begin{equation}
+        S_{kv} = 
+        \mqty(kpq+1 & -kp²\\ kq² & 1-kpq), \quad
+        v = (-p,-q).
+    \end{equation}
+    Furthermore, the respective almost toric fibres are identified as follows,
+    \begin{equation}
+        \label{eq:ATF_fibres_switch}
+        (\pi')^{-1}(\overline{S}_{kv}(x)) = \pi^{-1}(x), \quad
+        x \in \operatorname{int} \Delta.
+    \end{equation}
+    By \cref{thm:VDatffibres}, we obtain a versal deformation of $L =T^k_{pq}(a)$ by setting
+    \begin{equation}
+        \label{eq:VD_piprime}
+        v_L(b) = (\pi')^{-1}(x_a + b), \quad
+        b \in V \subset H^1(L; \mathbb{R}) \cong \mathbb{R}^2,
+    \end{equation}
+    where $V$ is a small enough neighbourhood of the origin. As described in \cref{sec:vd_AL}, we chose the identification $H^1(L; \mathbb{R}) \cong \mathbb{R}^2$ induced by the identification $H_1(L) \cong \mathbb{Z}^2$ via the closed orbits of the local $T^2$-moment map defined by $\pi'$ in a neighbourhood of $x_a$. Using \eqref{eq:ATF_fibres_switch}, we can apply \cref{thm:displacement_energy} to determine the displacement energy of all fibres $(\pi')^{-1}(x)$ for all $x \in \Delta' \setminus \{qx_1 = px_2\}$. In light of the fact that \eqref{eq:VD_piprime} is a versal deformation, this proves the claim. 
+    
 \end{proof}
 
+Now let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $B_{dpq}$-embedding in the sense of \cref{def:partial_embedding}. In \cref{thm:lower_bound_embedded}, we have proved that $e(\varphi(T(x))) = e(T(x)) = x_1$ for small enough $x \in \Delta_{dpq}$. This means that the same method as in the proof of \cref{thm:main} can be used to determine the displacement energy germ of such $\varphi(T(x)) \subset X$. 
 
-In the case of a partial $B_{dpq}$-embedding into a geometrically bounded symplectic manifold $(X,\omega)$, we proved an analogous result to \cref{thm:displacement_energy} for small enough tori, see \cref{thm:lower_bound_embedded}.
+\begin{theorem}
+    \label{thm:main_embedded}
+    Let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $B_{dpq}$-embedding into a geometrically bounded symplectic manifold $(X,\omega)$. Then there exists $a_0 > 0$ such that for all $a < a_0$, the displacement energy germ of $\varphi(T^k_{pq}(a)) \subset X$ satisfies
+        \begin{equation}
+            \label{eq:main_germ_embedded}
+            [e]_{\varphi(T^k_{pq}(a))} (b) \sim a + \min\qty{b_1, b_1 (1-kpq) + b_2 k p^2}.
+        \end{equation}
+    Let $\varphi' \colon B_{d'p'q'} \supset U' \rightarrow (X,\omega)$ be another partial $B_{dpq}$-embedding for which \eqref{eq:main_germ_embedded} holds for all $a' < a_0'$. If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (for $a < a_0$) to $\varphi'(T^{k'}_{p'q'}(a'))$ (for $a' < a_0'$) then $(k,p,q,a) = (k',p',q',a')$. 
+\end{theorem}
 
 
 
