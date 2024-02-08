@@ -838,20 +838,20 @@ where $b \in H^1(T;\mathbb{R}) \cong H^1(T^1_{1,1};\mathbb{R}) \cong \mathbb{R}^
       \fill (1,1) circle[radius=1pt] node[anchor=west] {$T^1_{1,1}$}
         (1,2) circle[radius=1pt] node[anchor=south] {$T$};
       \foreach \x in {0.2,0.4,...,3}
-        \draw[ultra thin] (\x,3) -- (\x,\x) -- (3,\x);
+        \draw[very thin, gray] (\x,3) -- (\x,\x) -- (3,\x);
     \end{scope}
     \begin{scope}[shift={(3,0)}]
       \draw (0,-1) node[anchor=north] {$[e]_{T}$};
       \clip[draw] (0,0) circle[radius=1];
       \foreach \x in {-1,-0.8,...,1}
-        \draw[ultra thin] (\x,1) -- (\x,-1);
+        \draw[very thin, gray] (\x,1) -- (\x,-1);
       \fill (0,0) circle[radius=1pt];
     \end{scope}
     \begin{scope}[shift={(6,0)}]
       \draw (0,-1) node[anchor=north] {$[e]_{T^1_{1,1}}$};
       \clip[draw] (0,0) circle[radius=1];
       \foreach \x in {-1,-0.8,...,1}
-        \draw[ultra thin] (\x,1) -- (\x,\x) -- (1,\x);
+        \draw[very thin, gray] (\x,1) -- (\x,\x) -- (1,\x);
       \fill (0,0) circle[radius=1pt];
     \end{scope}
   \end{tikzpicture}
@@ -885,13 +885,13 @@ The displacement energy germs \eqref{eq:babyDEG1} and \eqref{eq:babyDEG2} togeth
       \fill[opacity=0.2] (0,3) rectangle (3,0);
       \draw[thick] (0,3) -- (0,0) -- (3,0);
       \foreach \x in {0.2,0.4,...,3}
-        \draw[ultra thin] (\x,3) -- (\x,\x) -- (3,\x);
+        \draw[very thin, gray] (\x,3) -- (\x,\x) -- (3,\x);
     \end{scope}
     \draw[->] (1.5,0) -- node[anchor=south] {nodal} node[anchor=north] {trade} (2.5,0);
     \begin{scope}[shift={(3,-1.5)}]
       \fill[opacity=0.2] (0,3) rectangle (3,0);
       \foreach \x in {0.2,0.4,...,3}
-        \draw[ultra thin] (\x,3) -- (\x,\x) -- (3,\x);
+        \draw[very thin, gray] (\x,3) -- (\x,\x) -- (3,\x);
       \draw[white,line width=3pt] (0,0) -- (2,2);
       \draw[thick] (0,3) -- (0,0) -- (3,0);
       \draw[dashed] (0,0) -- (2,2) node[cross] {};
@@ -900,7 +900,7 @@ The displacement energy germs \eqref{eq:babyDEG1} and \eqref{eq:babyDEG2} togeth
     \begin{scope}[shift={(8.5,-1.5)}]
       \fill[opacity=0.2] (0,3) rectangle (3,-1);
       \foreach \x in {0.2,0.4,...,3}
-        \draw[ultra thin] (\x,3) -- (\x,-1);
+        \draw[very thin, gray] (\x,3) -- (\x,-1);
       \draw[white,line width=3pt] (0,0) -- (2,2);
       \draw[thick] (0,3) -- (0,-1);
       \draw[dashed] (2,2) node[cross] {} -- (3,3);
@@ -910,7 +910,7 @@ The displacement energy germs \eqref{eq:babyDEG1} and \eqref{eq:babyDEG2} togeth
       \draw (0,-1) node[anchor=north] {$[e]_{T^0_{1,1}}$};
       \clip[draw] (0,0) circle[radius=1];
       \foreach \x in {-1,-0.8,...,1}
-        \draw[ultra thin] (\x,1) -- (\x,-1);
+        \draw[very thin, gray] (\x,1) -- (\x,-1);
       \draw[very thick,white!70!black] (-1,-1) -- (1,1);
       \fill (0,0) circle[radius=1pt];
     \end{scope}
@@ -1366,7 +1366,7 @@ Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the f
   Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to $π(v_i) = π(v_∞)$.
   As $v_∞$ is not parallel to $x_e$, $p_i = \det(x_e,v_i) → ∞$.
 
-  So in $Δ_{n_i}$ there is an ATF-corner of type $d_i,p_i,q_i$ for some $d_i,q_i$, and by \cref{atf_bdpq}, there is a partial $B_{d_i,p_i,q_i}$ embedding.
+  So in $Δ_{n_i}$ there is an ATF-corner of type $d_i,p_i,q_i$ for some $d_i,q_i$, and by \cref{thm:atf_bdpq}, there is a partial $B_{d_i,p_i,q_i}$ embedding.
 \end{proof}
 
 \end{document}
