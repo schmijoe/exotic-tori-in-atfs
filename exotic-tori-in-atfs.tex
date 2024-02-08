@@ -1306,6 +1306,7 @@ Now let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $
 \subsection{Stretching an Edge}
 
 \begin{proposition}
+  \label{thm:toric_embeddings}
   Let $Δ ⊂ ℝ²$ be a compact (almost) toric base diagram with finitely many nodes, and $(M,ω)$ the corresponding (almost) toric manifold.
   Then there are infinitely many $p_n,q_n$ such that there is a partial $B_{1,p_n,q_n}$-embedding into $M$.
 \end{proposition}
@@ -1315,19 +1316,27 @@ Note a corner of the polygon $Δ$ might have multiple branch cuts meeting in it.
 For our purposes we want to count all intersections of branch cuts with $∂Δ$ as separate corners (even if they are the same as points on $∂Δ$).
 
 \begin{definition}
-  An \textbf{ATF-corner} of $Δ$ is a pair $(x,kv)$ with $x ∈ ∂Δ$ a corner, $v ∈ ℤ²$ the primitive direction of a branch cut intersecting $∂Δ$ at $x$ pointing into $Δ$, and $k$ the number of nodes on that branch cut.
+  An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ with $x ∈ ∂Δ$ a corner, $v ∈ ℤ²$ the primitive direction of a branch cut intersecting $∂Δ$ at $x$ pointing into $Δ$, and $d$ the number of nodes on that branch cut. An ATF-corner $(x,dv)$ is \textbf{isolated} if $Δ$ contains no other ATF-corner at $x$.
 
-  The \textbf{mutation at $(x,kv)$} is given by the piecewise linear map $\overline{S}_{kv}$, also denoted by $\overline{S}_{(x,kv)}$, as in \cref{thm:change_branchcut} describing the change of branch cut, followed by a nodal slide to make the newly created branch cut negligibly small.
+  The \textbf{mutation at $(x,dv)$} is given by the piecewise linear map $\overline{S}_{dv}$, also denoted by $\overline{S}_{(x,dv)}$, as in \cref{thm:change_branchcut} describing the change of branch cut, followed by a nodal slide to make the newly created branch cut negligibly small.
+
+  We say an isolated ATF-corner $(x,dv)$ is of \textbf{type $d,p,q$}, where $p=\det(u_1,v)$ and $q=\det(u_2,v) \mod p$, where $u_1,u_2$ is a basis of $ℤ²$ with $u_1$ based at $x$ pointing along $∂Δ$ in the counter-clockwise direction.
+  A non-isolated ATF-corner $(x,dv)$ can be isolated by mutating at all other ATF-corners at $x$. It is then assigned the type of that isolated ATF-corner.
 \end{definition}
 
-\begin{proof}
+\begin{lemma}
+  \label{thm:atf_bdpq}
+  If $Δ$ has an ATF-corner of type $d,p,q$, then there is a partial $B_{dpq}$-embedding into $M$.
+\end{lemma}
+
+\begin{proof}[Proof of \cref{thm:toric_embeddings}]
   Set $Δ_0 = Δ$ and orient $∂Δ_0$ counter-clockwise and pick an edge $e_0$ of $Δ_0$. 
   Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
-  Let $Δ_{n+1} = \overline{S}_{u_i^n} Δ_n$ be the result of mutating $Δ_n$ at the left ATF-corner $u_{k_n}^n$ of $e_n$ (if $e_n$ has multiple ATF-corners at the left, we pick $(x,v)$ with the rightmost $v$).
-  Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and $u_{k_n}^{n+1}$ be the new corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose a corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another corner with the same eigenline. We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of corners for all $n ≥N$ for some $N ∈ ℤ$. We then take $Δ_0=Δ_N$.}
+  Let $Δ_{n+1} = \overline{S}_{u_{j_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the left ATF-corner $u_{k_n}^n$ of $e_n$ (if $e_n$ has multiple ATF-corners at the left, we pick $u_{k_n}^n = (x,v)$ with the rightmost $v$).
+  Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose a corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another corner with the same eigenline. We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of corners for all $n ≥N$ for some $N ∈ ℤ$. We then take $Δ_0=Δ_N$.}
 
   Note that by choice of $\overline{S}_{u_{k_n}^n}$, we have $e_n ⊂ e_{n+1}$.
-  If $u_i^n$ is a corner with multiple branch cut directions, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
+  If $u_{k_n}^n$ is a not isolated, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
   Since the first case can only appear finitely many times successively, the monotone sequence $ℓ(e_n)$ has a strictly monotone subsequence.
   It is also bounded from above by the affine length of $Δ_0$.
   Let $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$, and $ℓ_∞$ its limit.
@@ -1338,20 +1347,26 @@ For our purposes we want to count all intersections of branch cuts with $∂Δ$ 
 
   Note that the point $u_{k_0}^0 ∈ e_0$ is fixed by all subsequent $\overline{S}_{u_{k_n}}^n$, so it makes sense to speak of $u_{k_0}^0 ∈ ∂Δ_n$ for all $n$.
   Denote by $g_n(x)$ the affine distance between $u_{k_0}^0$ and $x ∈ ∂Δ_n$, measured along $∂Δ_n$ in the clockwise direction.
-  Let $a_n = \max_{1 ≤k ≤n_c'} \{g_n(u_k^n)\}$.
-  Clearly we have $a_n ≤ a_{n+1}$ (we have $g_n(u_k^n) = g_{n+1}(u_k^{n+1})$ if $k ≠ k_n$ and $g_n(u_{k_n}^n) < g_{n+1}(u_{k_n}^{n+1})$), $a_n > ℓ_n$ and also $a_n < ℓ_m$ for some $m>n$ (this is because each $1 ≤ k ≤ n_c'$ must appear in $k_{m}$ for $m>n$).
+  Let $a_n = \max_{k ∈\{1,…,n_c'\}} \{g_n(u_k^n)\}$.
+  We have $a_n ≤ a_{n+1}$, since $g_n(u_k^n) = g_{n+1}(u_k^{n+1})$ if $k ≠ k_n$ and $g_n(u_{k_n}^n) < g_{n+1}(u_{k_n}^{n+1})$. Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n < ℓ_m$ for some $m>n$ (this is because each $1 ≤ k ≤ n_c'$ must appear in $k_{m}$ for $m>n$).
   In particular $a_n → ℓ_∞$ and $a_n$ has a strictly monotone subsequence $a_{n_i}$.
   
-  Picking $w_i = u_k^{n_i}$ with $k=k_{n_i-1}$, we have $a_{n_i} = g_{n_i}(w_i)$ (realizing the maximum).
+  Picking $w_i = u_{k_{n_i -1}}^{n_i}$, we have $a_{n_i} = g_{n_i}(w_i)$, that is it realises the maximum in the definition of $a_{n_i}$.
   We have $w_i ∈ Δ_0$: All mutations $\overline{S}_{u_{k_n}^n}$ whose composition maps $Δ_0$ to $Δ_{n_i-1}$ had eigenlines passing through the points $u_{k_n}^n$ and $u_{k_n}^{n+1}$ with $n<n_i-1$.
-  Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, none of the half-planes where $\overline{S}_{u_{k_n}^n}$ is not the identity contain $w_i$ (by convexity of $Δ$).
+Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the fixed half plane  for all mutations $\overline{S}_{u_{k_n}}^n$ with $n< n_i-1$ by the convexity of the $Δ_n$.
 
-  Set $w'_i = u_k^{n_i}$ with $k=k_{n_i}$, and let $w_∞ ∈ ∂Δ_0$ be the limit point of $w_i$, and $w'_∞$ the limit point of $w'_i$, contained in the line spanned by $e_0$.
+  Set $w'_i = u_{k_{n_i}}^{n_i}$, and let $w_∞ ∈ ∂Δ_0$ be the limit point of $w_i$, and $w'_∞$ the limit point of $w'_i$, contained in the line spanned by $e_0$.
   Let $v_i$ be the primitive vector pointing along $w_i-w_i'$, and $v_∞ = w_∞ - w'_∞$.
-  Let $f$ be the edge of $Δ_0$ containing infinitely many $w_i$ (and $w_∞$), and $x_f$ the vector pointing along $f$ in the clockwise direction, and let $x_e$ be the vector pointing along $e_0$ in the clockwise direction.
-  Then $v_{i+1} = v_i + λx_f - μx_e$ for $λ,μ>0$.
-  We have that $\det(x_f,v_∞)>0$, and so for $i$ big enough also $\det(x_f,v_i)>0$, and also $\det(v_i, x_e)>0$.
-  So $\det(v_{i+1},v_i) > 0$. ANNNNND WE ARE DONE!
+  Let $f$ be the edge of $Δ_0$ containing infinitely many $w_i$ (and $w_∞$), and $x_f$ the primitive vector pointing along $f$ in the counter-clockwise direction, and let $x_e$ be the primitive vector pointing along $e_0$ in the counter-clockwise direction.
+  Then $v_{i+1} = v_i - λx_f + μx_e$ for $λ,μ>0$ and $i$ big enough.
+  We have that $\det(v_∞,x_f)>0$ (by convexity of the $Δ_n$), and so for $i$ big enough also $\det(v_i,x_f)>0$, and also $\det(v_i,x_e)>0$.
+  So $\det(v_{i+1},v_i) > 0$.
+  Let $π \colon ℝ² ∖\{0\} → S¹$ be the projection onto the circle.
+  Since $\det(v_i,x_e)>0$ the $v_i$ are all contained in the positive half plane of $x_e$, and the sequence $π(v_i)$ converges strictly monotonically to $π(v_∞)$.
+  Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to $π(v_i) = π(v_∞)$.
+  As $v_∞$ is not parallel to $x_e$, $p_i = \det(x_e,v_i) → ∞$.
+
+  So in $Δ_{n_i}$ there is an ATF-corner of type $d_i,p_i,q_i$ for some $d_i,q_i$, and by \cref{atf_bdpq}, there is a partial $B_{d_i,p_i,q_i}$ embedding.
 \end{proof}
 
 \end{document}
