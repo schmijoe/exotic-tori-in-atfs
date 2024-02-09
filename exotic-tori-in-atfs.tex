@@ -1270,14 +1270,15 @@ Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such th
 \end{proposition}
 
 \begin{proof}
-  Let $V' ⊂ U$ be a subset such that $e(φ(T(x))) ≤ x_1$ for all $x ∈ V'$ (\cref{thm:upper_bound_embedded}).
-  Proceed in a similar way as in \cref{thm:displacement_energy}: By restricting $V'$, we may assume that $A_0(x) = \{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ δ \}$ as defined in the proof of \cref{thm:displacement_energy} is contained in $U$ for all $x ∈ V$.
+  Let $V ⊂ U$ be a subset such that $e(φ(T(x))) ≤ x_1$ for all $x ∈ V$ (\cref{thm:upper_bound_embedded}).
+  Proceed in a similar way as in \cref{thm:displacement_energy}: By restricting $V$, we may assume that $A_0(x) = \{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ δ \}$ as defined in the proof of \cref{thm:displacement_energy} is contained in $U$ for all $x ∈ V$.
+  Assume additionally that $φ(π^{-1}(\symcal{A}_0))$, where $\symcal{A}_0 = ⋃_{x ∈ V} A_0(x)$, is contained in the interior of some compact set $K$. (This can be achieved by further restricting $V$)
 
-  Let $\hat{J}_X$ be a geometrically bounded almost complex structure on $X$, and $J_0$ the almost complex structure on $π^{-1}(⋃_{x ∈ V'} A_0(x))$ obtained by identifying $π^{-1}(⋃_{x ∈ V'} A_0(x))$ with $μ_0^{-1}(⋃_{x ∈ V'} A_0(x))$.
-  Let $K ⊂ X$ be some compact set with its interior containing $π^{-1}(⋃_{x ∈ V'} A_0(x))$, and $J$ a geometrically bounded almost complex structure on $X$ with $J = φ_* J_0$ on $π^{-1}(⋃_{x ∈ V'} A_0(x))$ and $J = \hat{J}_X$ on $X ∖ K$.
-  For any fixed $x ∈ V'$, we conclude as in \cref{thm:displacement_energy} that any $J$-disk $u \colon (D,∂D) → (X,φ(T(x)))$ must have at least area $x_1$.
+  Let $\hat{J}_X$ be a geometrically bounded almost complex structure on $X$, and $J_0$ the almost complex structure on $π^{-1}(\symcal{A}_0)$ obtained by identifying $π^{-1}(\symcal{A}_0)$ with $μ_0^{-1}(\symcal{A}_0)$.
+  Let $J$ a geometrically bounded almost complex structure on $X$ with $J = φ_* J_0$ on $φ(π^{-1}(\symcal{A}_0))$ and $J = \hat{J}_X$ on $X ∖ K$.
+  For any fixed $x ∈ V$, we conclude as in \cref{thm:displacement_energy} that any $J$-disk $u \colon (D,∂D) → (X,φ(T(x)))$ must have at least area $x_1$.
 
-  Since unlike $B_{dpq}$, $X$ might contain $J$-spheres, in order to get the desired result of \cref{thm:chekanov} we additionally require that $x_1 < σ_S(X,J)$, which is done by further restricting $V$.
+  Since unlike $B_{dpq}$, $X$ might contain $J$-spheres, in order to get the desired result out of \cref{thm:chekanov} we additionally require that $x_1 ≤ σ_S(X,J)$, which is done by further restricting $V$.
 \end{proof}
 
 \begin{proof}
@@ -1415,7 +1416,7 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
 \begin{proposition}
   \label{thm:toric_embeddings}
   Let $Δ ⊂ ℝ²$ be a compact (almost) toric base diagram with finitely many nodes, and $(M,ω)$ the corresponding (almost) toric manifold.
-  Then there are infinitely many $p_n,q_n$ such that there is a partial $B_{1,p_n,q_n}$-embedding into $M$.
+  Then there are infinitely many $d_i,p_i,q_i$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
 \end{proposition}
 
 By using nodal trades and nodal slides we can assume that every corner of $Δ$ has one or multiple corresponding nodes, and all the branch cuts are negligibly small.
@@ -1425,12 +1426,12 @@ For our purposes we want to count all intersections of branch cuts with $∂Δ$ 
 \begin{definition}
   \label{def:atf_corner}
   An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ with $x ∈ ∂Δ$ a corner, $v ∈ ℤ²$ the primitive direction of a branch cut intersecting $∂Δ$ at $x$ pointing into $Δ$, and $d$ the number of nodes on that branch cut.
-An ATF-corner $(x,dv)$ is \textbf{isolated} if $Δ$ contains no other ATF-corner at $x$.
+An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at $x$.
 \end{definition}
 
 \begin{definition}
   \label{def:mutation_at_atf_corner}
-  The \textbf{mutation at $(x,dv)$} is given by performing a change of branch cut at all nodes lying on the branch cut $v$ as in \cref{thm:change_branchcut} writing $\overline{S}_{(x,dv)}$ for the associated piecewise linear map, followed by a nodal slide to make the newly created branch cut negligibly small.
+  The \textbf{mutation at $(x,dv)$} is given by performing a change of branch cut at all nodes lying on the branch cut $v$ as in \cref{thm:change_branchcut} writing $\overline{S}_{(x,dv)}$ for the associated piecewise linear map, followed by nodal slides to make the newly created branch cut negligibly small.
 \end{definition}
 
 \begin{definition}
@@ -1445,19 +1446,47 @@ It is then assigned the type of that isolated ATF-corner.
   If $Δ$ has an ATF-corner of type $d,p,q$, then there is a partial $B_{dpq}$-embedding into $M$.
 \end{lemma}
 
+Like in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations in $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
+In order to avoid some cyclical behaviour of $d_i,p_i,q_i$, we fix an edge $e$ and perform mutations at one end of it, thus elongating it.
+
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
   Set $Δ_0 = Δ$ and orient $∂Δ_0$ counter-clockwise and pick an edge $e_0$ of $Δ_0$. 
   Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
-  Let $Δ_{n+1} = \overline{S}_{u_{j_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the left ATF-corner $u_{k_n}^n$ of $e_n$ (if $e_n$ has multiple ATF-corners at the left, we pick $u_{k_n}^n = (x,v)$ with the rightmost $v$).
-  Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose a corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another corner with the same eigenline.
+  Let $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the left ATF-corner $u_{k_n}^n$ of $e_n$ (if $e_n$ has multiple ATF-corners at the left, we pick $u_{k_n}^n = (x,v)$ with the rightmost $v$).
+  Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
 We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of corners for all $n ≥N$ for some $N ∈ ℤ$.
 We then take $Δ_0=Δ_N$.}
+See \cref{fig:stretch_iteration}.
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=\textwidth/15cm]
+    \begin{scope}[shift={(-6,0)}]
+      \draw[very thick,fill,fill opacity=0.2,text opacity=1] (5,0) -- node[anchor=north] {$e_n$} (0,0) coordinate(A) -- (-0.5,1.5) coordinate (B) -- (2,4) coordinate (C) -- (3.5,3.5) coordinate (A1) -- (5,3);
+      \draw[purple] (A) -- (A1);
+      \draw[dashed] (A) node[anchor=north east] {$u_{k_n}^n$} -- +(1,1) node[cross] {};
+      \draw[dashed] (B) node[anchor=east] {$u_1^n$} -- +(1,0.4) node[cross] {};
+      \draw[dashed] (C) node[anchor=south] {$u_2^n$} -- +(0.2,-1) node[cross] {};
+      \draw (0,4) node {$Δ_n$};
+    \end{scope}
+    \begin{scope}[shift={(2,0)}]
+      \draw[very thick,fill,fill opacity=0.2,text opacity=1] (5,0) -- node[anchor=north] {$e_{n+1}$} (0,0) coordinate (A1) -- (-1,0) coordinate (B) -- (0,2) coordinate (C) -- (3.5,3.5) coordinate (A) -- (5,3);
+      \draw[purple] (A) -- (A1);
+      \draw[dashed] (A) node[anchor=south] {$u_{k_n}^{n+1}$} -- +(-1,-1) node[cross] {};
+      \draw[dashed] (B) node[anchor=north] {$u_1^{n+1}$} -- +(0.8,1) node[cross] {};
+      \draw[dashed] (C) node[anchor=east] {$u_2^{n+1}$} -- +(1,-0.3) node[cross] {};
+      \draw (0,4) node {$Δ_{n+1}$};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Moving from $Δ_n$ to $Δ_{n+1}$ by performing a mutation at $u_{k_n}^n$.}
+  \label{fig:stretch_iteration}
+\end{figure}
 
   Note that by choice of $\overline{S}_{u_{k_n}^n}$, we have $e_n ⊂ e_{n+1}$.
   If $u_{k_n}^n$ is a not isolated, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
   Since the first case can only appear finitely many times successively, the monotone sequence $ℓ(e_n)$ has a strictly monotone subsequence.
-  It is also bounded from above by the affine length of $Δ_0$.
-  Let $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$, and $ℓ_∞$ its limit.
+  It is also bounded from above by the affine length of $∂Δ_0$.
+  Let $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$, and $ℓ_∞$ the limit $ℓ_n$ for $n → ∞$.
 
   By the pigeonhole principle, the sequence $k_n ∈ \{1,…,n_c\}$ must contain some elements of $\{1,…,n_c\}$ infinitely many times.
   We may assume wlog.\ that all the elements that appear, appear infinitely many times (If this is not the case we can choose a $N$ such that this holds for $k_n$ with $n≥N$, then setting $Δ_0=Δ_N$.), and that they are $\{1,…,n_c'≤n_c\}$ (this can be achieved by relabelling).
@@ -1465,27 +1494,47 @@ We then take $Δ_0=Δ_N$.}
 
   Note that the point $u_{k_0}^0 ∈ e_0$ is fixed by all subsequent $\overline{S}_{u_{k_n}}^n$, so it makes sense to speak of $u_{k_0}^0 ∈ ∂Δ_n$ for all $n$.
   Denote by $g_n(x)$ the affine distance between $u_{k_0}^0$ and $x ∈ ∂Δ_n$, measured along $∂Δ_n$ in the clockwise direction.
+  Note that we have $g_n(x) = g_{n+1}(\overline{S}_{u_{k_n}^n}x)$, since integral linear transformations preserve the affine length.
+
   Let $a_n = \max_{k ∈\{1,…,n_c'\}} \{g_n(u_k^n)\}$.
   We have $a_n ≤ a_{n+1}$, since $g_n(u_k^n) = g_{n+1}(u_k^{n+1})$ if $k ≠ k_n$ and $g_n(u_{k_n}^n) < g_{n+1}(u_{k_n}^{n+1})$.
-Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n < ℓ_m$ for some $m>n$ (this is because each $1 ≤ k ≤ n_c'$ must appear in $k_{m}$ for $m>n$).
+Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n ≤ ℓ_m$ for some $m>n$ (this is because each $1 ≤ k ≤ n_c'$ must appear in $k_{m}$ for $m>n$).
   In particular $a_n → ℓ_∞$ and $a_n$ has a strictly monotone subsequence $a_{n_i}$.
+
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \draw[very thick,fill,fill opacity=0.2,text opacity=1] (5,0) -- (0,0) coordinate(A) -- (-0.5,1.5) coordinate (B) -- (2,4) coordinate (C) --(5,3);
+      \draw[dashed] (A) -- +(1,1) node[cross] {};
+      \draw[dashed] (B) -- +(1,0.4) node[cross] {};
+      \draw[dashed] (C) -- +(0.2,-1) node[cross] {};
+      \draw[fill,green!80] \foreach \n in {1,...,7} { (4.5-1/\n,3.166+0.333/\n) circle[radius=1.5pt] };
+      \draw[->] (3.566,3.7) -- node[anchor=south] {$w_i$} +(1,-.333);
+      \draw[fill,green!80] \foreach \n in {1,...,7} { (-2+2/\n,0) circle[radius=1.5pt] };
+      \draw[->] (0,-.2) -- node[anchor=north] {$w'_i$} +(-2,0);
+      \draw (0,4) node {$Δ_0$};
+    \end{tikzpicture}
+    \caption{Artists impression of the convergence of $w_i$ and $w'_i$.}
+    \label{fig:stretch_wi}
+  \end{figure}
   
   Picking $w_i = u_{k_{n_i -1}}^{n_i}$, we have $a_{n_i} = g_{n_i}(w_i)$, that is it realises the maximum in the definition of $a_{n_i}$.
-  We have $w_i ∈ Δ_0$: All mutations $\overline{S}_{u_{k_n}^n}$ whose composition maps $Δ_0$ to $Δ_{n_i-1}$ had eigenlines passing through the points $u_{k_n}^n$ and $u_{k_n}^{n+1}$ with $n<n_i-1$.
+  We have $w_i ∈ ∂Δ_0$: All mutations $\overline{S}_{u_{k_n}^n}$ whose composition maps $Δ_0$ to $Δ_{n_i-1}$ had eigenlines passing through the points $u_{k_n}^n$ and $u_{k_n}^{n+1}$ with $n<n_i-1$.
 Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the fixed half plane  for all mutations $\overline{S}_{u_{k_n}}^n$ with $n< n_i-1$ by the convexity of the $Δ_n$.
 
   Set $w'_i = u_{k_{n_i}}^{n_i}$, and let $w_∞ ∈ ∂Δ_0$ be the limit point of $w_i$, and $w'_∞$ the limit point of $w'_i$, contained in the line spanned by $e_0$.
   Let $v_i$ be the primitive vector pointing along $w_i-w_i'$, and $v_∞ = w_∞ - w'_∞$.
   Let $f$ be the edge of $Δ_0$ containing infinitely many $w_i$ (and $w_∞$), and $x_f$ the primitive vector pointing along $f$ in the counter-clockwise direction, and let $x_e$ be the primitive vector pointing along $e_0$ in the counter-clockwise direction.
   Then $v_{i+1} = v_i - λx_f + μx_e$ for $λ,μ>0$ and $i$ big enough.
-  We have that $\det(v_∞,x_f)>0$ (by convexity of the $Δ_n$), and so for $i$ big enough also $\det(v_i,x_f)>0$, and also $\det(v_i,x_e)>0$.
+  We have that $\det(v_i,x_f)>0$ (by convexity of the $Δ_n$), and also $\det(v_i,x_e)<0$.
   So $\det(v_{i+1},v_i) > 0$.
   Let $π \colon ℝ² ∖\{0\} → S¹$ be the projection onto the circle.
-  Since $\det(v_i,x_e)>0$ the $v_i$ are all contained in the positive half plane of $x_e$, and the sequence $π(v_i)$ converges strictly monotonically to $π(v_∞)$.
-  Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to $π(v_i) = π(v_∞)$.
-  As $v_∞$ is not parallel to $x_e$, $p_i = \det(x_e,v_i) → ∞$.
+  Since $\det(v_i,x_e)<0$ the $v_i$ are all contained in the positive half plane of $x_e$, and the sequence $π(v_i)$ converges strictly monotonically to $π(v_∞)$.
+  Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to $π(v_i) → π(v_∞)$.
 
-  So in $Δ_{n_i}$ there is an ATF-corner of type $d_i,p_i,q_i$ for some $d_i,q_i$, and by \cref{thm:atf_bdpq}, there is a partial $B_{d_i,p_i,q_i}$ embedding.
+  $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, -v_i) → ∞$, so there is an ATF-corner of type $d_i,p_i,q_i$ at $w_i$ in $Δ_{n_i}$, with $p_i → ∞$.
+
+  In any case, using \cref{thm:toric_embeddings} we get partial $B_{d_i,p_i,q_i}$-embedding for all $i ∈ ℤ$.
 \end{proof}
 
 \end{document}
