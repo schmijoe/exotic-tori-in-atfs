@@ -117,6 +117,9 @@
 
 \section{Introduction}
 
+Every ATF-vertex yields a partial $B_{dpq}$-embedding.
+
+
 \section{Local model}
 
 We use almost toric geometry to define the local model spaces.
@@ -268,9 +271,9 @@ The branch cut is still contained in the eigenline, but switches sides. See \cre
 
 \begin{proposition}
     \label{thm:change_branchcut}
-    Let $\Delta \subset \mathbb{R}^2$ be an almost toric base diagram containing a node $n \in \Delta$.
+    Let $\Delta \subset \mathbb{R}^2$ be an almost toric base diagram containing a node $n \in \Delta$, lying at the end of a branch cut.
 Up to translation, we assume that $n = (0,0) \in \mathbb{R}^2$.
-Furthermore, let $v \in \mathbb{Z}^2$ be the primitive vector determining the eigenline of the node $n$ pointing from the intersection of the branch cut with $∂Δ$ to $n$.
+Furthermore, let $v \in \mathbb{Z}^2$ be the primitive vector determining the eigenline of the node $n$ pointing away from its branch cut at $n$.
 Then the almost toric base diagram $\Delta'$ after a change in branch cut at $n$ is obtained from $\Delta$ by applying the piece-wise linear map 
     \begin{equation}
     \label{eq:half-shear}
@@ -846,7 +849,7 @@ Therefore, we find $e(\pi^{-1}(x)) = \min \{x_1,x_2\}$ for such almost toric fib
 This corresponds to Step (2) in the outline we gave above to compute displacement energy germs.
 See the upper middle diagram in \cref{fig:babys_second_vd} for the level sets of $x \mapsto e(\pi^{-1}(x))$.
 The displacement energy of the Chekanov tori on the branch cut cannot be determined in this way, as they are not symplectomorphic to product tori.
-In order to apply \cref{thm:VDatffibres}, we change the branch cut in order for the Chekanov tori to not lie on the branch cut.
+In order to apply \cref{thm:VDatffibres}, we use \cref{thm:change_branchcut} to change the branch cut in order for the Chekanov tori to not lie on the branch cut.
 We find
 \begin{equation}
     \label{eq:babyDEG2}
@@ -1344,24 +1347,27 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
       \draw[dashed] (-1,1) -- +(0.66,-0.33) node[cross] {};
       \draw[dashed] (2,1) -- +(-1,-0.33) node[cross] {};
   \end{tikzpicture}
-  \caption{An almost toric base diagram with two non-isolated ATF-corners.}
+  \caption{An almost toric base diagram with two non-isolated ATF-corners associated to the same vertex.}
   \label{fig:atf_example2}
 \end{figure}
 
-By using nodal trades and nodal slides we can assume that every corner of $Δ$ has one or multiple corresponding nodes, and all the branch cuts are negligibly small.
-Note that a corner of the polygon $Δ$ might have multiple branch cuts meeting in it. (E.g.\ in \cref{fig:atf_example2}.)
-For our purposes we want to count all intersections of branch cuts with $∂Δ$ as separate corners, even if they are the same as points on $∂Δ$.
+We can assume, after performing a nodal trade, that every vertex of $Δ$ has one or multiple corresponding nodes, and, by nodal slides, that all the branch cuts are negligibly small.
+Note that there may be multiple branch cuts meeting at the same vertex of the polygon $Δ$, see e.g.\ \cref{fig:atf_example2}. It will be useful for us to distinguish between vertices of $\Delta$ and pairs consisting of a vertex and a branch cut. This motivates the following definition.
 
 \begin{definition}
   \label{def:atf_corner}
-  An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ with $x ∈ ∂Δ$ a corner, $v ∈ ℤ²$ the primitive direction of a branch cut intersecting $∂Δ$ at $x$ pointing into $Δ$, and $d$ the number of nodes on that branch cut.
-An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at $x$.
+  An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ consisting of a vertex $x$ and a branch cut intersecting $x$. By $v ∈ ℤ²$, we denote the primitive direction vector along the chosen branch cut which points from $x$ into the interior of $\Delta$. By $d \in \mathbb{N}$, we denote the number of nodes on that branch cut.
+An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at the vertex $x$. 
 \end{definition}
+
+In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three vertices, two isolated ATF-corners and two non-isolated ATF-corners (meeting at the lower vertex).
 
 \begin{definition}
   \label{def:mutation_at_atf_corner}
-  The \textbf{mutation at $(x,dv)$} is given by performing a change of branch cut at all nodes lying on the branch cut $v$ as in \cref{thm:change_branchcut} writing $\overline{S}_{(x,dv)}$ for the associated piecewise linear map, followed by nodal slides to make the newly created branch cut negligibly small.
+  The \textbf{mutation at $(x,dv)$} is given by performing a change of branch cut at all nodes lying on the branch cut $v$ as in \cref{thm:change_branchcut}, followed by nodal slides to make the newly created branch cut negligibly small.
 \end{definition}
+
+Recall that the piece-wise linear map associated to the change of branch cut is given by $\overline{S}_{(x,dv)}$, as defined in \eqref{eq:half-shear}.
 
 \begin{definition}
   \label{def:atf_corner_type}
@@ -1379,7 +1385,7 @@ Like in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is
 In order to avoid some cyclical behaviour of $d_i,p_i,q_i$, we fix an edge $e$ and perform mutations at one end of it, thus elongating it.
 
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
-  Set $Δ_0 = Δ$ and orient $∂Δ_0$ counter-clockwise and pick an edge $e_0$ of $Δ_0$. 
+  Set $Δ_0 = Δ$, orient $∂Δ_0$ counter-clockwise and pick an edge $e_0$ of $Δ_0$. 
   Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
   Let $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the left ATF-corner $u_{k_n}^n$ of $e_n$ (if $e_n$ has multiple ATF-corners at the left, we pick $u_{k_n}^n = (x,v)$ with the rightmost $v$).
   Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
@@ -1412,16 +1418,16 @@ See \cref{fig:stretch_iteration}.
 \end{figure}
 
   Note that by choice of $\overline{S}_{u_{k_n}^n}$, we have $e_n ⊂ e_{n+1}$.
-  If $u_{k_n}^n$ is a not isolated, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
+  If $u_{k_n}^n$ is not isolated, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
   Since the first case can only appear finitely many times successively, the monotone sequence $ℓ(e_n)$ has a strictly monotone subsequence.
   It is also bounded from above by the affine length of $∂Δ_0$.
-  Let $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$, and $ℓ_∞$ the limit $ℓ_n$ for $n → ∞$.
+  Let $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$, and $ℓ_∞$ the limit of $ℓ_n$ for $n → ∞$.
 
   By the pigeonhole principle, the sequence $k_n ∈ \{1,…,n_c\}$ must contain some elements of $\{1,…,n_c\}$ infinitely many times.
   We may assume wlog.\ that all the elements that appear, appear infinitely many times (If this is not the case we can choose a $N$ such that this holds for $k_n$ with $n≥N$, then setting $Δ_0=Δ_N$.), and that they are $\{1,…,n_c'≤n_c\}$ (this can be achieved by relabelling).
 
 
-  Note that the point $u_{k_0}^0 ∈ e_0$ is fixed by all subsequent $\overline{S}_{u_{k_n}}^n$, so it makes sense to speak of $u_{k_0}^0 ∈ ∂Δ_n$ for all $n$.
+  Note that the point $u_{k_0}^0 ∈ e_0$ is fixed by all subsequent $\overline{S}_{u_{k_n}^n}$, so it makes sense to speak of $u_{k_0}^0 ∈ ∂Δ_n$ for all $n$.
   Denote by $g_n(x)$ the affine distance between $u_{k_0}^0$ and $x ∈ ∂Δ_n$, measured along $∂Δ_n$ in the clockwise direction.
   Note that we have $g_n(x) = g_{n+1}(\overline{S}_{u_{k_n}^n}x)$, since integral linear transformations preserve the affine length.
 
@@ -1437,13 +1443,13 @@ Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n ≤ ℓ_m$ for some $m>n$ (this is 
       \draw[dashed] (A) -- +(1,1) node[cross] {};
       \draw[dashed] (B) -- +(1,0.4) node[cross] {};
       \draw[dashed] (C) -- +(0.2,-1) node[cross] {};
-      \draw[fill,green!80] \foreach \n in {1,...,7} { (4.5-1/\n,3.166+0.333/\n) circle[radius=1.5pt] };
+      \draw[fill,green!60!black] \foreach \n in {1,...,7} { (4.5-1/\n,3.166+0.333/\n) circle[radius=1.5pt] };
       \draw[->] (3.566,3.7) -- node[anchor=south] {$w_i$} +(1,-.333);
-      \draw[fill,green!80] \foreach \n in {1,...,7} { (-2+2/\n,0) circle[radius=1.5pt] };
+      \draw[fill,green!60!black] \foreach \n in {1,...,7} { (-2+2/\n,0) circle[radius=1.5pt] };
       \draw[->] (0,-.2) -- node[anchor=north] {$w'_i$} +(-2,0);
       \draw (0,4) node {$Δ_0$};
     \end{tikzpicture}
-    \caption{Artists impression of the convergence of $w_i$ and $w'_i$.}
+    \caption{Artist's impression of the convergence of $w_i$ and $w'_i$.}
     \label{fig:stretch_wi}
   \end{figure}
   
@@ -1461,10 +1467,10 @@ Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the f
   Since $\det(v_i,x_e)<0$ the $v_i$ are all contained in the positive half plane of $x_e$, and the sequence $π(v_i)$ converges strictly monotonically to $π(v_∞)$.
   Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to have $π(v_i) → π(v_∞)$.
 
-  $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, -v_i) → ∞$, so there is an ATF-corner of type $d_i,p_i,q_i$ at $w_i$ in $Δ_{n_i}$, with $p_i → ∞$.
+  $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, -v_i) → ∞$, so $w_i$ is an ATF-corner of type $d_i,p_i,q_i$ in $Δ_{n_i}$, and $p_i → ∞$.
 
-  In any case, using \cref{thm:toric_embeddings} we get partial $B_{d_i,p_i,q_i}$-embedding for all $i ∈ ℤ$.
+  Using \cref{thm:toric_embeddings} we get partial $B_{d_i,p_i,q_i}$-embedding for all $i ∈ ℤ$.
 \end{proof}
 
-\printbibliography
+%\printbibliography
 \end{document}
