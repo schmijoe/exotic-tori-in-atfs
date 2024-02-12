@@ -264,7 +264,7 @@ The third operation is called \textbf{changing the branch cut}, see \cite[Sectio
 It corresponds to making a different choice of branch cut to produce the almost toric base diagram.
 Since, in the context of the present paper, we only consider branch cuts which coincide with the Eigenline of a given node, there are only two choices of branch cuts and the \textit{change in branch cut}-operation is a switch from one to the other.
 Under such a switch, the almost toric base diagram undergoes a piece-wise linear transformation: apply the identity to one of the halves of the base diagram bounded by the eigenline and an integral shear preserving the eigenline to the other half.
-The branch cut is still contained in the eigenline, but switches sides. 
+The branch cut is still contained in the eigenline, but switches sides. See \cref{fig:changing_the_branch_cut}.
 
 \begin{proposition}
     \label{thm:change_branchcut}
@@ -296,6 +296,7 @@ The combination of nodal slides and changes in branch cut is often called a \tex
 For example, one can start with a toric manifold, apply nodal trades at its vertices and then perform a series of mutations.
 This was used in symplectic topology to great effect by Vianna~\cite{Via16} to exhibit infinitely many almost toric fibrations on $\mathbb{C}P^2$.
 The set of almost toric fibrations obtained in this way is in bijection with the set of Markov triples and each almost toric fibration has an exotic Lagrangian torus as monotone fibre.
+In \cref{sec:stretch_edge} we use mutations to show that any (almost) toric manifold with (almost) toric base diagram contained in $ℝ²$ exhibits infinitely many different almost toric fibrations.
 
 \subsection{Almost toric fibres}
 \label{sec:atfibres}
@@ -337,7 +338,7 @@ Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}
 It is the toric fibre over the base point $(a,a)$ in the standard toric structure on $\mathbb{R}^4$.
 To obtain an almost toric fibration with one focus-focus singularity on $\mathbb{R}^4$, perform a nodal trade at the vertex of the toric structure.
 By a nodal slide, move the node across $(a,a)$ to obtain the Chekanov torus $T_{\text Ch}(a)$ over the point $(a,a)$.
-See \cref{sec:howto_exotic} for more details.
+See \cref{sec:howto_exotic} for more details on the construction of the Chekanov torus, and a sketch how to distinguish it from the Clifford torus.
 \end{remark}
 
 
@@ -358,10 +359,9 @@ For a branch cut contained in $R$ and to the right of the nodes, this yields the
 \begin{figure}
 \centering
 \begin{tikzpicture}
-  \draw[ultra thick,opacity=0.4,red] (0,0) -- node[pos=0.38,anchor=north] {$R$} (4,2);
-  \clip (0,-1) rectangle (4,2);
-  \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+  \draw[ultra thick,opacity=0.4,text opacity=1,red] (0,0) -- node[pos=0.38,anchor=north] {$R$} (4,2);
   \draw[thick] (0,-1) -- (0,2);
+  \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
   \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
 \end{tikzpicture}   
 \caption{The almost toric base diagram $Δ_{dpq}$ for $B_{dpq}$.}
@@ -377,7 +377,7 @@ Such a symplectic manifolds exists, see \cite[Section 7.4]{evans2021atfs} and is
 
 \begin{remark}
     The symplectic manifold $(B_{dpq}, \omega)$ is exact.
-Indeed, we will see in \cref{sec:homology} that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$.
+    Indeed, \cite[Lemma 7.11]{evans2021atfs} shows that there is a set of generators of $H_2(B_{dpq})$ represented by Lagrangian spheres, meaning that $[\omega] = 0 \in H^2(B_{dpq};\mathbb{R})$.
 The space $B_{dpq}$ can be realized as the Milnor fibre of a smoothing of certain cyclic quotient singularities.
 For more details on this, see \cite[Section 7.4]{evans2021atfs} or \cite{Eva19}.
 \end{remark}
@@ -392,7 +392,31 @@ For every $x \notin R$, we denote the corresponding almost toric fibre by $T(x) 
 This definition is independent of the position of the nodes in $\Delta_{dpq}$ by \cref{thm:nodal_slide}.
 In case $x \in R$, the definition depends on how many nodes are to the right and to the left of $x$.
 
-For every $a > 0$ and $k \in \{0,\ldots,d\}$, let $x_a = \left( a,\frac{aq}{p} \right) \in R$ and $\Delta_{dpq}$ be an almost toric base diagram as above for which $k$ of the $d$ nodes are to the left of the point $x_a$. 
+For every $a > 0$ and $k \in \{0,\ldots,d\}$, let $x_a = \left( a,\frac{aq}{p} \right) \in R$ and $\Delta_{dpq}$ be an almost toric base diagram as above for which $k$ of the $d$ nodes are to the left of the point $x_a$ (As in \cref{fig:our_tori}).
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}
+    \begin{scope}[shift={(-5,0)}]
+      \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+      \draw[thick] (0,-1) -- (0,2);
+      \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
+      \draw[black!60,text=black] (1.5,-1) -- (1.5,2.1) node[anchor=south] {$x_1 = a$};
+      \draw[fill] (1.5,0.75) circle[radius=1pt] node[anchor=north west] {$x_a$};
+      \draw (2,-1) node[anchor=north] {$π^{-1}(x_a) = T^1_{pq}(a)$};
+    \end{scope}
+    \begin{scope}[shift={(0,0)}]
+      \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+      \draw[thick] (0,-1) -- (0,2);
+      \draw[dashed] (0.5,0.25) node[cross] {} -- (1,0.5) node[cross] {} -- (2.5,1.25) node[cross] {} -- (4,2);
+      \draw[black!60,text=black] (1.5,-1) -- (1.5,2.1) node[anchor=south] {$x_1 = a$};
+      \draw[fill] (1.5,0.75) circle[radius=1pt] node[anchor=north west] {$x_a$};
+      \draw (2,-1) node[anchor=north] {$π^{-1}(x_a) = T^2_{pq}(a)$};
+    \end{scope}
+  \end{tikzpicture}
+  \caption{Modifying $Δ_{dpq}$ by a nodal slide for \cref{def:our_tori}.}
+  \label{fig:our_tori}
+\end{figure}
 
 \begin{definition}
   \label{def:our_tori}
@@ -402,117 +426,6 @@ We denote by $T^k_{pq}(a) = T(x_a)$ the regular almost toric fibre of a fibratio
 
 Again, by \cref{thm:nodal_slide}, this definition does not depend on the precise position of the nodes, only on $k$, i.e.\ the number of nodes to the left of $x_a$.
 In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ mapping $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ if $k \neq k'$.
-
-
-\subsection{Homology of \texorpdfstring{$B_{dpq}$}{Bdpq}}
-\label{sec:homology}
-
-Let $T(x) = π^{-1}(x) \subset B_{dpq}$ for $x ∈ Δ_{dpq}$ be a regular almost toric fibre.
-In the computation of the displacement energy of $T(x)$, we rely on an explicit basis of the relative homology group $H_2\qty(B_{dpq},T(x))$.
-
-\begin{lemma}
-  \label{thm:homology}
-  We have
-  \begin{align*}
-    H_0(B_{dpq}) &≅ ℤ & H_1(B_{dpq}) &≅ ℤ_p & H_2(B_{dpq}) &≅ ℤ^{d-1} \\
-                 &    &              &      & H_2(B_{dpq},T(x)) &≅ ℤ^{d+1}
-  \end{align*}
-\end{lemma}
-
-\begin{proof}
-Here we follow very closely \cite[Lemma 7.11]{evans2021atfs}, but we additionally calculate the the relative second homology group.
-Since all $T(x) = π^{-1}(x)$ are homotopic, we may assume that $x = (x_1,x_2)$ is on the ray $R$ (see \eqref{eqn:eigenline}), such that all the nodes are to the right of $x$, as in \cref{fig:branch_cut_retraction}.
-
-As in \cite[Lemma 7.11]{evans2021atfs}, $B_{dpq}$ retracts onto $π^{-1}(ℓ)$, where $ℓ ⊂ R$ is a closed line segment containing $0, x$ and all the nodes (See \cref{fig:branch_cut_retraction} again).
-We investigate the topology of the preimage $π^{-1}(ℓ)$ in two steps.
-If there were no nodes on the line, the preimage is a solid torus, denoted by $\hat{T}$, with boundary $∂ \hat{T}$ homotopy equivalent to $T(x)$. 
-If there are nodes on the line $ℓ$, then the singular fibres play a role in the calculation of the homology groups as follows.
-In the basis of $H₁(∂ \hat{T})$, derived from the action coordinates defined away from the branch cut, for each critical fibre $k ∈ \qty{1,…,d}$ a loop representing the homology class $(-q,p) \in H₁(∂ \hat{T})$ is collapsed, as in \cref{fig:collapse_cycles}.\footnote{In this basis the class $(1,0)\in H_1(\partial \hat{T})$ corresponds to the class that bounds a disk in $\hat{T}$.}
-
-Up to homotopy this is the same as attaching a disk $D_k$ along $(-q,p)$.
-Furthermore, up to homotopy we can also require that the $d$ discs $D_1,…,D_d$ are attached along $∂ \hat{T}$.
-Denote the resulting space by $S$, which is a solid torus $\hat{T}$ with the disks $D_i$ attached.
-
-\begin{figure}
-  \centering
-  \begin{subfigure}{0.45\textwidth}
-    \centering
-    \begin{tikzpicture}
-      \fill[opacity=0.2] (0,3) rectangle (6,-1);
-      \draw[thick] (0,3) -- (0,-1);
-      \draw[line width=0.08cm,red,opacity=0.4,text opacity=1] (0,0) -- node[pos=0.75, anchor=north] {$ℓ$} (4,2);
-    \fill (1,0.5)  circle[radius=1pt] node[anchor=south] {$T(x)$};
-      \draw[dashed] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (6,3);
-    \end{tikzpicture}
-    \caption{Retraction to branch cut line}
-    \label{fig:branch_cut_retraction}
-  \end{subfigure}%
-  \begin{subfigure}{0.55\textwidth}
-    \includegraphics[width=\textwidth]{img/homology_collapse.pdf}
-    \caption{The two cycles marked in red and purple (here $p=2, q=1$) are collapsed to a point.}
-    \label{fig:collapse_cycles}
-  \end{subfigure}
-  \caption{Calculation of the homology of $B_{dpq}$}
-\end{figure}
-
-Consider the long exact sequence of homology for the pair $(S,∂ \hat{T})$:
-
-\[
-\begin{tikzcd}[column sep=small]
-  H_2(∂ \hat{T}) \ar[r,"0"] &
-  H_2(S) \ar[r,hook]\ar[d,"≅"] &
-  H_2(S,∂ \hat{T}) \ar[r]\ar[d,"≅"] &
-  H_1(∂ \hat{T}) \ar[r,two heads]\ar[d,"≅"] &
-  H_1(S) \ar[r,"0"] \ar[d,"≅"] &
-  H_1(S, ∂ \hat{T}) \ar[d,"≅"]
-  \\
-  &
-  ℤ^{d-1} &
-  ℤ^{d+1} &
-  ℤ² &
-  ℤ_p &
-  0
-\end{tikzcd}
-\]
-
-The first horizontal map is trivial, since $∂ \hat{T}$ is homotopic to the core circle in $S$.
-
-The homology $H_2(S)$ can be calculated by contracting the solid torus $\hat{T}$ in $S$ onto the core circle.
-Therefore, we see that $S$ is homotopic to a circle with $d$ discs $D_1,…,D_d$ glued to its boundary by a degree $p$ map.
-Hence, $H_2(S)$ is generated by the visible Lagrangian spheres $\qty{S_2,…,S_d}$, as described in  in \cite[Lemma 7.11]{evans2021atfs}, and we have $[S_k] = [D_{k-1}]-[D_k]$ for $k ∈ \qty{2,…,d}$.
-
-$H_2(S,∂ \hat{T})$ is generated by the disks $D_0,…,D_d$, where the boundary of $D_0$ represents the unique class that retracts onto a point on the core circle in $S$.
-These disks can be seen schematically in \cref{fig:homology_generating_discs}, where the disc $D_0$ intersecting the toric boundary collapses the $(0,1)$ cycle in the toric fibre $T(x)$ and the discs intersecting the critical points collapse the $(-q,p)$ cycle.
-
-The boundary map $∂ \colon H_2(S,∂ \hat{T}) → H_1(∂ \hat{T})$ is given by $\partial D_0 = (1,0)$ and $\partial D_i = (-q,p)$, for $k ∈ \qty{1,…,d}$, meaning that the map $H_1(∂ \hat{T}) → H_1(S)$ maps $(0,1)$ to the generator of $ℤ_p$.
-\end{proof}
-
-\begin{figure}
-  \centering
-  \begin{tikzpicture}
-    \fill[black!5] (0,4) rectangle (7,-1);
-
-    \coordinate (xy) at (2.7,3.5);
-    \node[anchor=south] at (xy) {$T(x)$};
-    \fill (xy) circle[radius=.05];
-    \draw (xy)
-           .. controls +(0,0) and +(-.5,1) .. node[anchor=east, near end] {$D₁$} (2,1)
-      (xy) .. controls +(0,0) and +(-.5,1) .. node[anchor=west, near end] {$D₂$} (4,2)
-      (xy) .. controls +(0,0) and +(-.5,1) .. node[anchor=west, near end] {$D₃$} (6,3)
-      (xy) .. controls +(0,0) and +(1,0) .. node[anchor=south, near end] {$D₀$} (0,2.5);
-
-    \draw[ultra thick, blue, draw opacity=.3] (2,1) -- node[anchor=north] {$S₂$} (4,2);
-    \draw[ultra thick, purple, draw opacity=.3] (4,2) -- node[anchor=north] {$S₃$} (6,3);
-
-    \draw[thick,dotted] (2,1) node[cross] {} -- (4,2) node[cross] {} -- (6,3) node[cross] {} -- (7,3.5);
-
-    \draw[thick] (0,4) -- (0,-1);
-  \end{tikzpicture}
-
-  \caption{The disks $D₀, …, D_d$ generating the homology $H₂\qty(B_{dpq}, T(x))$, presented schematically.
-Note, that the point $x$ was moved of the eigenray for better visibility.}
-  \label{fig:homology_generating_discs}
-\end{figure}
 
 
 \section{Versal Deformations \& Nearby Lagrangians}
@@ -557,16 +470,19 @@ We call $C_ξ$ a \textbf{flux cylinder of $ξ$ over $Λ$}.
   A Lagrangian isotopy $Λ$ is generated by a Hamiltonian isotopy if and only if  $\Flux(Λ_s|_{s ∈ [0,t]}) = 0$, $∀t ∈ [0,1]$.
 \end{lemma}
 \begin{proof}
-  Suppose that $\xi \in H_1(L_0)$ and let $γ:S¹ \to L_0$ be a parametrisation of $\xi$.
+  Suppose that $\xi \in H_1(L_0)$ and let $γ \colon S¹ \to L_0$ be a parametrisation of $\xi$.
 Let $φ_t \colon X → X$ be a smooth isotopy generating $Λ$ and $X_t$ a vector field generating the isotopy $φ_t$.
 Then $(t,\theta) \mapsto φ_t(γ(θ))$ is a parametrisation of the flux cylinder $C_γ$ over $Λ$ as in \cref{def:flux_map}.
-  \[ ∂_t \langle \Flux(Λ_s|_{s ∈ [0,t]}) , \xi \rangle = ∂_t ∫_0^t ∫_{φ_s ∘ γ} ι_{∂_s φ_s} ω ds = ∫_{φ_t ∘ γ} ι_{∂_t φ_t} ω
-  = ∫_{φ_t ∘ γ} ι_{X_t ∘ φ_t} ω = ∫_γ φ_t^* ι_{X_t ∘ φ_t} ω.\]
+  \begin{equation}
+    \label{eq:flux_derivative}
+    ∂_t \langle \Flux(Λ_s|_{s ∈ [0,t]}) , \xi \rangle = ∂_t ∫_0^t ∫_{φ_s ∘ γ} ι_{∂_s φ_s} ω ds = ∫_{φ_t ∘ γ} ι_{∂_t φ_t} ω
+  = ∫_{φ_t ∘ γ} ι_{X_t ∘ φ_t} ω = ∫_γ φ_t^* ι_{X_t ∘ φ_t} ω \; .
+\end{equation}
 
-  Now, if $X_t$ is generated by a Hamiltonian $H_t$, the last integral is equal to
+Now, if $X_t$ is generated by a Hamiltonian $H_t$, the last integral in \eqref{eq:flux_derivative} is equal to
   \[ ∫_γ φ_t^* dH_t = ∫_{∂γ} φ_t^* H_t = 0.\]
 
-  If the last integral is zero for all $γ$, the restriction of the 1-form $φ_t^* ι_{X_t ∘ φ_t} ω$ to $Ω^1(L_0)$ is exact, and we find a smooth family of primitives $\tilde{H}_t$ defined on $L_0$. $H_t = \tilde{H}_t ∘ φ_{-t}$ can then be extended smoothly to $X$ and $φ_t^* ι_{X_t ∘ φ_t} ω = φ_t^* d H_t$.
+  If the last integral in \eqref{eq:flux_derivative} is zero for all $γ$, the restriction of the 1-form $φ_t^* ι_{X_t ∘ φ_t} ω$ to $Ω^1(L_0)$ is exact, and we find a smooth family of primitives $\tilde{H}_t$ defined on $L_0$. $H_t = \tilde{H}_t ∘ φ_{-t}$ can then be extended smoothly to $X$ and $φ_t^* ι_{X_t ∘ φ_t} ω = φ_t^* d H_t$.
 \end{proof}
 
 Let $\mathcal{V} \subset \mathcal{L}$ be a simply-connected neighbourhood of $L_0$.
@@ -848,12 +764,12 @@ We say that their displacement energy germs $[e]_L,[e]_{L'}$ are \textbf{equival
     \end{equation}
     such that $[e]_L \circ \Phi$ and $[e]_{L'}$ agree on an open neighbourhood of zero $H^1(L';\mathbb{R})$.
     
-    If they only on an open dense set intersecting each neighbourbood of $0$, we say they are \textbf{roughly equivalent}, and write $[e]_L \sim [e]_{L'}$.
+    If they agree only on an open dense set intersecting each neighbourhood of $0$, we say they are \textbf{roughly equivalent}, and we write $[e]_L \sim [e]_{L'}$.
 \end{definition}
 
 Note that $[e]_L \nsim [e]_{L'}$ implies $[e]_L \ncong [e]_{L'}$.
 
-In examples, we work with identifications $H^1(L';\mathbb{R}) \cong H^1(L;\mathbb{R})\cong \mathbb{R}^n$ induced by a choice of basis $H_1(L) \cong H_1(L') \cong \mathbb{Z}^n$, in which case the isomorphism \eqref{eq:phi_isomorphism} corresponds to an isomorphism $\phi \in \operatorname{GL}(n;\mathbb{Z})$.
+In examples, we work with identifications $H^1(L';\mathbb{R}) \cong H^1(L;\mathbb{R})\cong \mathbb{R}^n$ induced by a choice of basis $H_1(L) \cong H_1(L') \cong \mathbb{Z}^n$, in which case the isomorphism \eqref{eq:phi_isomorphism} corresponds to an automorphism $\Phi \in \operatorname{GL}(n;\mathbb{Z})$.
 The following is an immediate consequence of \cref{thm:invariant_germs}.
 
 \begin{proposition}
@@ -983,7 +899,7 @@ The displacement energy germs \eqref{eq:babyDEG1} and \eqref{eq:babyDEG2} togeth
   \label{fig:babys_second_vd}
 \end{figure}
 
-For further examples of distinguishing Lagrangian tori using versal deformations see \cite{Che96}, \cite{CheSch10}, \cite{chekanovschlenk2015}, \cite{brendel2020real}, \cite{brendel2023hamiltonian}, \cite{brendel2023local}.
+For further examples of distinguishing Lagrangian tori using versal deformations see \cite{Che96,CheSch10,chekanovschlenk2015,brendel2020real,brendel2023hamiltonian,brendel2023local}.
 For a detailed expository introduction to the Chekanov torus, see \cite{Bre22}.
 
 \section{Upper bound on displacement energy: Probes}
@@ -1245,7 +1161,7 @@ Take $δ>0$ such that the expression $C(Nr_0^2 + δ_r^2/4)$ in \cref{thm:small_b
   Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$, which exists by \cref{rem:Bdpq_geometrically_bounded}.
   Let $K$ be a compact set whose interior contains $π^{-1}(A_0)$.
   By \cref{rem:J_compactly_perturbed} there exists a geometrically bounded almost complex structure $J$ on $B_{dpq}$ such that $J=J_{B_{dpq}}$ on $B_{dpq} ∖ K$ and $J=J_0$ on $μ^{-1}(A_0)$.
-  Set $A^± = \pi^{-1}(A_0^±), A = \pi^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, since there are no $J$-holomorphic spheres.
+  Set $A^± = \pi^{-1}(A_0^±), A = \pi^{-1}(A_0)$ and let $u\colon (D,∂D) → (B_{dpq}, T(x))$ be a $J$-holomorphic disk\footnote{A $J$-holomorphic disk always exists: If it didn't \cref{thm:chekanov} would show that $T(x)$ is non-displaceable, since there are no $J$-holomorphic spheres (\cite[Lemma 7.11]{evans2021atfs}).
   However, by \cref{thm:upper_bound} it is displaceable.}. 
   
   If $u(D) ⊂ A$, then, under the identification $\pi^{-1}(A_0) \cong μ_0^{-1}(A_0) \subset \mathbb{C} \times T^*S^1$, it defines a relative homology class $[u] ∈ H_2(ℂ × T^*S¹, T(x))$.
@@ -1257,7 +1173,7 @@ Using \cref{thm:small_buffer} and \eqref{eq:metricineq} for $A^±$ and $u|_Σ$, 
   \[∫_u ω ≥ ∫_{u|_Σ} ω ≥ C(Nr_0^2 + δ_r^2/4) ≥ x_1 \;. \]
 
     In both cases, we conclude that $∫_{u} ω_0 ≥ x_1$.
-    Since $H_2(B_{dpq})$ is generated by Lagrangian spheres (see \cref{thm:homology}) there are no non-constant $J$-holomorphic spheres.
+    Since $H_2(B_{dpq})$ is generated by Lagrangian spheres (by \cite[Lemma 7.11]{evans2021atfs}), there are no non-constant $J$-holomorphic spheres.
     Therefore \cref{thm:chekanov}, together with \cref{thm:upper_bound} allows us to conclude the Theorem.
 \end{proof}
 
@@ -1412,6 +1328,7 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
 \section{Examples}
 
 \subsection{Stretching an Edge}
+\label{sec:stretch_edge}
 
 \begin{proposition}
   \label{thm:toric_embeddings}
@@ -1419,8 +1336,20 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
   Then there are infinitely many $d_i,p_i,q_i$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
 \end{proposition}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=2]
+      \draw[fill,fill opacity=0.2,thick] (-1,1) -- (0,0) -- (2,1) -- (-1,1);
+      \draw[dashed] (0,0) -- +(0,0.33) node[cross] {} (0,0) -- +(0.33,0.33) node[cross] {};
+      \draw[dashed] (-1,1) -- +(0.66,-0.33) node[cross] {};
+      \draw[dashed] (2,1) -- +(-1,-0.33) node[cross] {};
+  \end{tikzpicture}
+  \caption{An almost toric base diagram with two non-isolated ATF-corners.}
+  \label{fig:atf_example2}
+\end{figure}
+
 By using nodal trades and nodal slides we can assume that every corner of $Δ$ has one or multiple corresponding nodes, and all the branch cuts are negligibly small.
-Note a corner of the polygon $Δ$ might have multiple branch cuts meeting in it.
+Note a corner of the polygon $Δ$ might have multiple branch cuts meeting in it. (E.g.\ in \cref{fig:atf_example2}.)
 For our purposes we want to count all intersections of branch cuts with $∂Δ$ as separate corners (even if they are the same as points on $∂Δ$).
 
 \begin{definition}
