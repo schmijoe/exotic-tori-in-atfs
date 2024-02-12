@@ -1416,12 +1416,12 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
 \begin{proposition}
   \label{thm:toric_embeddings}
   Let $Δ ⊂ ℝ²$ be a compact (almost) toric base diagram with finitely many nodes, and $(M,ω)$ the corresponding (almost) toric manifold.
-  Then there are infinitely many $d_i,p_i,q_i$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
+  Then there is a sequence $(d_i,p_i,q_i)$ with $p_i → ∞$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
 \end{proposition}
 
 By using nodal trades and nodal slides we can assume that every corner of $Δ$ has one or multiple corresponding nodes, and all the branch cuts are negligibly small.
-Note a corner of the polygon $Δ$ might have multiple branch cuts meeting in it.
-For our purposes we want to count all intersections of branch cuts with $∂Δ$ as separate corners (even if they are the same as points on $∂Δ$).
+Note that a corner of the polygon $Δ$ might have multiple branch cuts meeting in it.
+For our purposes we want to count all intersections of branch cuts with $∂Δ$ as separate corners, even if they are the same as points on $∂Δ$.
 
 \begin{definition}
   \label{def:atf_corner}
@@ -1530,7 +1530,7 @@ Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the f
   So $\det(v_{i+1},v_i) > 0$.
   Let $π \colon ℝ² ∖\{0\} → S¹$ be the projection onto the circle.
   Since $\det(v_i,x_e)<0$ the $v_i$ are all contained in the positive half plane of $x_e$, and the sequence $π(v_i)$ converges strictly monotonically to $π(v_∞)$.
-  Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to $π(v_i) → π(v_∞)$.
+  Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to have $π(v_i) → π(v_∞)$.
 
   $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, -v_i) → ∞$, so there is an ATF-corner of type $d_i,p_i,q_i$ at $w_i$ in $Δ_{n_i}$, with $p_i → ∞$.
 
