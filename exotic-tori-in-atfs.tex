@@ -1394,28 +1394,7 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
   Then there is a sequence $(d_i,p_i,q_i)$ with $p_i → ∞$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
 \end{proposition}
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=2]
-      \draw[fill,fill opacity=0.2,thick] (-1,1) -- (0,0) -- (2,1) -- (-1,1);
-      \draw[dashed] (0,0) -- +(0,0.33) node[cross] {} (0,0) -- +(0.33,0.33) node[cross] {};
-      \draw[dashed] (-1,1) -- +(0.66,-0.33) node[cross] {};
-      \draw[dashed] (2,1) -- +(-1,-0.33) node[cross] {};
-  \end{tikzpicture}
-  \caption{An almost toric base diagram with two non-isolated ATF-corners associated to the same vertex.}
-  \label{fig:atf_example2}
-\end{figure}
-
 We can assume, after performing a nodal trade, that every vertex of $Δ$ has one or multiple corresponding nodes, and, by nodal slides, that all the branch cuts are negligibly small.
-Note that there may be multiple branch cuts meeting at the same vertex of the polygon $Δ$, see e.g.\ \cref{fig:atf_example2}. It will be useful for us to distinguish between vertices of $\Delta$ and pairs consisting of a vertex and a branch cut. This motivates the following definition.
-
-\begin{definition}
-  \label{def:atf_corner}
-  An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ consisting of a vertex $x$ and a branch cut intersecting $x$. By $v ∈ ℤ²$, we denote the primitive direction vector along the chosen branch cut which points from $x$ into the interior of $\Delta$. By $d \in \mathbb{N}$, we denote the number of nodes on that branch cut.
-An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at the vertex $x$. 
-\end{definition}
-
-In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three vertices, two isolated ATF-corners and two non-isolated ATF-corners (meeting at the lower vertex).
 
 \begin{definition}
   \label{def:mutation_at_atf_corner}
@@ -1424,8 +1403,8 @@ In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three ve
 
 Recall that the piece-wise linear map associated to the change of branch cut is given by $\overline{S}_{(x,dv)}$, as defined in \eqref{eq:half-shear}.
 
-As in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations in $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
-In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fix an edge and perform mutations at an adjacent vertex, thus elongating the fixed edge.
+As in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations on $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
+In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fix an edge and perform iterated mutations at an adjacent vertex. Under this operation the integral affine length of the edge in question increases.
 
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
   Set $Δ_0 = Δ$, orient $∂Δ_0$ counter-clockwise and pick an edge $e_0$ of $Δ_0$. 
