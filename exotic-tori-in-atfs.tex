@@ -301,7 +301,6 @@ This was used in symplectic topology to great effect by Vianna~\cite{Via16} to e
 The set of almost toric fibrations obtained in this way is in bijection with the set of Markov triples and each almost toric fibration has an exotic Lagrangian torus as monotone fibre.
 In \cref{sec:stretch_edge} we use mutations to show that any (almost) toric manifold with (almost) toric base diagram contained in $ℝ²$ exhibits infinitely many different almost toric fibrations.
 
-
 \subsection{Almost toric fibres}
 \label{sec:atfibres}
 
@@ -1395,7 +1394,28 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
   Then there is a sequence $(d_i,p_i,q_i)$ with $p_i → ∞$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
 \end{proposition}
 
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=2]
+      \draw[fill,fill opacity=0.2,thick] (-1,1) -- (0,0) -- (2,1) -- (-1,1);
+      \draw[dashed] (0,0) -- +(0,0.33) node[cross] {} (0,0) -- +(0.33,0.33) node[cross] {};
+      \draw[dashed] (-1,1) -- +(0.66,-0.33) node[cross] {};
+      \draw[dashed] (2,1) -- +(-1,-0.33) node[cross] {};
+  \end{tikzpicture}
+  \caption{An almost toric base diagram with two non-isolated ATF-corners associated to the same vertex.}
+  \label{fig:atf_example2}
+\end{figure}
+
 We can assume, after performing a nodal trade, that every vertex of $Δ$ has one or multiple corresponding nodes, and, by nodal slides, that all the branch cuts are negligibly small.
+Note that there may be multiple branch cuts meeting at the same vertex of the polygon $Δ$, see e.g.\ \cref{fig:atf_example2}. It will be useful for us to distinguish between vertices of $\Delta$ and pairs consisting of a vertex and a branch cut. This motivates the following definition.
+
+\begin{definition}
+  \label{def:atf_corner}
+  An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ consisting of a vertex $x$ and a branch cut intersecting $x$. By $v ∈ ℤ²$, we denote the primitive direction vector along the chosen branch cut which points from $x$ into the interior of $\Delta$. By $d \in \mathbb{N}$, we denote the number of nodes on that branch cut.
+An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at the vertex $x$. 
+\end{definition}
+
+In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three vertices, two isolated ATF-corners and two non-isolated ATF-corners (meeting at the lower vertex).
 
 \begin{definition}
   \label{def:mutation_at_atf_corner}
@@ -1404,8 +1424,8 @@ We can assume, after performing a nodal trade, that every vertex of $Δ$ has one
 
 Recall that the piece-wise linear map associated to the change of branch cut is given by $\overline{S}_{(x,dv)}$, as defined in \eqref{eq:half-shear}.
 
-Like in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations in $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
-In order to avoid some cyclical behaviour of $d_i,p_i,q_i$, we fix an edge $e$ and perform mutations at one end of it, thus elongating it.
+As in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations in $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
+In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fix an edge and perform mutations at an adjacent vertex, thus elongating the fixed edge.
 
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
   Set $Δ_0 = Δ$, orient $∂Δ_0$ counter-clockwise and pick an edge $e_0$ of $Δ_0$. 
@@ -1452,8 +1472,8 @@ See \cref{fig:stretch_iteration}.
   It is also bounded from above by the affine length of $∂Δ_0$.
   Let $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$, and $ℓ_∞$ the limit of $ℓ_n$ for $n → ∞$.
 
-  By the pigeonhole principle, the sequence $k_n ∈ \{1,…,n_c\}$ must contain some elements of $\{1,…,n_c\}$ infinitely many times.
-  We may assume wlog.\ that all the elements that appear, appear infinitely many times (If this is not the case we can choose a $N$ such that this holds for $k_n$ with $n≥N$, then setting $Δ_0=Δ_N$.), and that they are $\{1,…,n_c'≤n_c\}$ (this can be achieved by relabelling).
+  The sequence $k_n ∈ \{1,…,n_c\}$ contains some elements of $\{1,…,n_c\}$ infinitely many times.
+  We may assume without loss of generality that all the elements which appear, appear infinitely many times (If this is not the case, we can choose a $N$ such that this holds for $k_n$ with $n≥N$, then setting $Δ_0=Δ_N$.), and that they are $\{1,…,n_c'≤n_c\}$ (this can be achieved by relabelling).
 
 
   Note that the point $u_{k_0}^0 ∈ e_0$ is fixed by all subsequent $\overline{S}_{u_{k_n}^n}$, so it makes sense to speak of $u_{k_0}^0 ∈ ∂Δ_n$ for all $n$.
@@ -1490,13 +1510,13 @@ Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the f
   Let $v_i$ be the primitive vector pointing along $w_i-w_i'$, and $v_∞ = w_∞ - w'_∞$.
   Let $f$ be the edge of $Δ_0$ containing infinitely many $w_i$ (and $w_∞$), and $x_f$ the primitive vector pointing along $f$ in the counter-clockwise direction, and let $x_e$ be the primitive vector pointing along $e_0$ in the counter-clockwise direction.
   Then $v_{i+1} = v_i - λx_f + μx_e$ for $λ,μ>0$ and $i$ big enough.
-  We have that $\det(v_i,x_f)>0$ (by convexity of the $Δ_n$), and also $\det(v_i,x_e)<0$.
+  We have that $\det(v_i,x_f)>0$ (by convexity of the ATF-base diagram $Δ_n$), and also $\det(v_i,x_e)<0$.
   So $\det(v_{i+1},v_i) > 0$.
   Let $π \colon ℝ² ∖\{0\} → S¹$ be the projection onto the circle.
-  Since $\det(v_i,x_e)<0$ the $v_i$ are all contained in the positive half plane of $x_e$, and the sequence $π(v_i)$ converges strictly monotonically to $π(v_∞)$.
-  Since $v_i$ is primitive, the euclidean length $\norm{v_i}$ must satisfy $\norm{v_i} → ∞$ in order to have $π(v_i) → π(v_∞)$.
+  Since $\det(v_i,x_e)<0$, the points $\pi(v_i)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
+  Since $v_i$ is primitive, the Euclidean length $\norm{v_i}$ satisfies $\norm{v_i} → ∞$.
 
-  $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, -v_i) → ∞$, so $w_i$ is an ATF-corner of type $d_i,p_i,q_i$ in $Δ_{n_i}$, and $p_i → ∞$.
+  The vector $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, -v_i) → ∞$, so $w_i$ is an ATF-corner of type $d_i,p_i,q_i$ in $Δ_{n_i}$, and $p_i → ∞$.
 
   Using \cref{thm:toric_embeddings} we get partial $B_{d_i,p_i,q_i}$-embedding for all $i ∈ ℤ$.
 \end{proof}
