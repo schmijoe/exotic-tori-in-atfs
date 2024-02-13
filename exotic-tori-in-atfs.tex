@@ -74,7 +74,7 @@
 \usepackage[shortlabels]{enumitem}
 
 % For better Tables
-\usepackage{tabularray}
+%\usepackage{tabularray}
 
 % For more fine grained typesetting in final mode.
 % Else set the tolerance for overfull warnings higher.
@@ -432,13 +432,25 @@ Again, by \cref{thm:nodal_slide}, this definition does not depend on the precise
 In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ mapping $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ if $k \neq k'$.
 
 
-\subsection{A closer look at almost toric base diagrams}
+\subsection{Almost Toric Base Diagrams Revisited}
 \label{sec:atf_base_diagrams}
 
 Let $π:X → Δ$ be an almost toric moment map. In \cref{sec:atgeometry} we required that the branch cut of a node in $Δ$ coincides with its eigendirection.
 This allows us to give a more detailed description of $Δ$.
 
-$Δ$ is a rational not necessarily compact polygon\footnote{That is an intersection of half-spaces of the form $H_{v,c} = \{x ∈ ℝ² | ⟨x,v⟩+c > 0\}$ with $v ∈ ℤ², c ∈ ℝ$.} with two types of vertices: Either a Delzant-vertex $x ∈ ∂Δ$ (i.e.\ the vectors $u_1,u_2$ pointing along the two edges emerging at the vertex form an $ℤ$-basis of $ℤ²$) with no branch cut intersecting $∂Δ$ at $x$.
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=2]
+      \draw[fill,fill opacity=0.2,thick] (-1,2) -- (-1,1) -- (0,0) -- (2,1) -- +(0.66,1);
+      \draw[dashed] (0,0) -- +(0,0.66) node[cross] {} (0,0) -- +(0.66,0.66) node[cross] {};
+%      \draw[dashed] (-1,1) -- +(0.5,0) node[cross] {};
+      \draw[dashed] (2,1) -- +(0,0.66) node[cross] {};
+  \end{tikzpicture}
+  \caption{In our terminology, this almost toric base diagram has three vertices, one Delzant-vertex, one isolated ATF-corner and two non-isolated ATF-corners (meeting at the lower vertex).}
+  \label{fig:atf_example2}
+\end{figure}
+
+$Δ$ is a rational not necessarily compact polygon\footnote{That is an intersection of half-spaces of the form $H_{v,c} = \{x ∈ ℝ² | ⟨x,v⟩+c > 0\}$ with $v ∈ ℤ², c ∈ ℝ$.} with two types of vertices: Either a Delzant-vertex $x ∈ ∂Δ$ (i.e.\ the vectors $u_1,u_2$ pointing along the two edges emerging at the vertex form an $ℤ$-basis of $ℤ²$) with no branch cut intersecting $∂Δ$ at $x$. See e.g.\ \cref{fig:atf_example2}.
 Or $x$ is the intersection of one or multiple branch cuts with $∂Δ$:
 
 \begin{definition}
@@ -457,7 +469,7 @@ By a nodal trade we can assume that the last case does not appear.
 The case for non-isolated ATF-corners at $x ∈ ∂Δ$ is similar, if we change the branch cut at all ATF-corners at $x$, we should map $u_1,u_2$ onto parallel vectors, such that the vertex $x ∈ ∂Δ$ is mapped to the interior of an edge.
 Note that we can always \textbf{isolate} an ATF-corner at $x$ by changing the branch cut for all other ATF-corners at $x$.
 
-Performing a change of branch cut for all nodes in $Δ_{dpq}$ we get a different almost toric base diagram $Δ'_{dpq}$ for $B_{dpq}$ with an ATF-corner $(0,d(p,q))$. See \cref{fig:Bdpq_moment_image_alt}.
+Performing a change of branch cut for all nodes in $Δ_{dpq}$ we get a different almost toric base diagram $Δ'_{dpq}$ for $B_{dpq}$ with an ATF-corner $(0,d(p,q))$, see \cref{fig:Bdpq_moment_image_alt}.
 By some change of basis, any isolated ATF-corner $(x,dv)$ can be locally mapped by an element of $\GL(2,ℤ)$ onto $Δ'_{dpq}$ for appropriate choice of $p,q$.
 
 \begin{figure}
@@ -482,29 +494,21 @@ By some change of basis, any isolated ATF-corner $(x,dv)$ can be locally mapped 
 
 \begin{definition}
   \label{def:atf_corner_type}
-  We say ATF-corner $(x,dv)$ is of \textbf{type $(d,p,q)$}, if (perhaps after isolating it) it locally maps via a $\GL(2,ℤ)$ transform onto $Δ'_{dpq}$.
+  We say ATF-corner $(x,dv)$ is of \textbf{type $(d,p,q)$}, if (perhaps after isolating it) it locally maps via a $\GL(2,ℤ)$ transform into $Δ'_{dpq}$. More precisely there is an integral affine bijection $A\colon U → V$ where $U ⊂ Δ$ is a neighbourhood of the branch cut of $(x,dv)$ and $V ⊂ Δ'_{dpq}$ is a neighbourhood of the branch cut of $(0,d(p,q))$.
 \end{definition}
 
-We can calculate $p,q$ for an ATF-corner $(x,dv)$ as follows: Take $u_1,u_2$ to be a $ℤ$-basis of $ℤ²$ with $u_1$ pointing from $x$ along $∂Δ$ in the counter-clockwise direction. Then $p=\det(u_1,v)$ and $q = \det(u_2,v)$.
+In this sense the spaces $B_{dpq}$ are the "local models" for any almost toric fibration, as we can obtain the total space $X$ by glueing together different $B_{dpq}$ models.
 
 \begin{lemma}
   \label{thm:atf_bdpq}
-  If $Δ$ has an ATF-corner of type $d,p,q$, then there is a partial $B_{dpq}$-embedding into $X$.
+  If $Δ$ has an ATF-corner of type $(d,p,q)$, then there is a partial $B_{dpq}$-embedding\todo{Kontrollieren ob partial $B_{dpq}$-embedding schon vorher definiert wurde} into $X$.
 \end{lemma}
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=2]
-      \draw[fill,fill opacity=0.2,thick] (-1,1) -- (0,0) -- (2,1) -- (-1,1);
-      \draw[dashed] (0,0) -- +(0,0.33) node[cross] {} (0,0) -- +(0.33,0.33) node[cross] {};
-      \draw[dashed] (-1,1) -- +(0.66,-0.33) node[cross] {};
-      \draw[dashed] (2,1) -- +(-1,-0.33) node[cross] {};
-  \end{tikzpicture}
-  \caption{An almost toric base diagram with two non-isolated ATF-corners associated to the same vertex.}
-  \label{fig:atf_example2}
-\end{figure}
+\begin{remark}
+  \label{rem:atf_corner_type_calc}
+  We can calculate the type of an ATF-corner $(x,dv)$ as follows: Take $u_1,u_2$ to be a $ℤ$-basis of $ℤ²$ with $u_1$ pointing from $x$ along $∂Δ$ in the counter-clockwise direction. Then $p=\det(u_1,v)$ and $q = \det(u_2,v)$.
+\end{remark}
 
-In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three vertices, two isolated ATF-corners and two non-isolated ATF-corners (meeting at the lower vertex).
 
 
 \section{Versal Deformations \& Nearby Lagrangians}
