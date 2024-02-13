@@ -98,6 +98,7 @@
 
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\interior}{int}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\Diff}{Diff}
 \DeclareMathOperator{\GL}{GL}
@@ -279,8 +280,8 @@ Then the almost toric base diagram $\Delta'$ after a change in branch cut at $n$
     \label{eq:half-shear}
         \overline{S}_v(x) =
         \begin{cases}
-            S_v(x) = x + \operatorname{det}(x,v)v, & \text{if } \operatorname{det}(v,x) \geqslant 0, \\
-            x & \text{if } \operatorname{det}(v,x) < 0.
+            S_v(x) = x + \det(x,v)v, & \text{if } \det(v,x) \geqslant 0, \\
+            x & \text{if } \det(v,x) < 0.
         \end{cases}
     \end{equation}
     Let $\pi$ be an almost toric moment map with image $\Delta$.
@@ -456,8 +457,28 @@ By a nodal trade we can assume that the last case does not appear.
 The case for non-isolated ATF-corners at $x ∈ ∂Δ$ is similar, if we change the branch cut at all ATF-corners at $x$, we should map $u_1,u_2$ onto parallel vectors, such that the vertex $x ∈ ∂Δ$ is mapped to the interior of an edge.
 Note that we can always \textbf{isolate} an ATF-corner at $x$ by changing the branch cut for all other ATF-corners at $x$.
 
-Performing a change of branch cut for all nodes in $Δ_{dpq}$ we get a different almost toric base diagram $Δ'_{dpq}$ for $B_{dpq}$ with an ATF-corner $(0,d(p,q))$.
+Performing a change of branch cut for all nodes in $Δ_{dpq}$ we get a different almost toric base diagram $Δ'_{dpq}$ for $B_{dpq}$ with an ATF-corner $(0,d(p,q))$. See \cref{fig:Bdpq_moment_image_alt}.
 By some change of basis, any isolated ATF-corner $(x,dv)$ can be locally mapped by an element of $\GL(2,ℤ)$ onto $Δ'_{dpq}$ for appropriate choice of $p,q$.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+  \begin{scope}[shift={(-5,0)}]
+    \draw[thick] (0,-1) -- (0,2);
+    \draw[fill,opacity=0.2] (0,-1) rectangle (4,2);
+    \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
+    \draw (2,-1) node[anchor=north] {$Δ_{dpq}$};
+  \end{scope}
+  \begin{scope}[shift={(0,0)}]
+    \fill[opacity=0.2] (0,2) -- (0,0) -- (4,1.3) -- (4,2);
+    \draw[thick] (0,2) -- (0,0) -- (4,1.3);
+    \draw[dashed] (0,0) -- (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {};
+    \draw (2,-1) node[anchor=north] {$Δ'_{dpq}$};
+  \end{scope}
+\end{tikzpicture}   
+\caption{Changing the branch cut in $Δ_{dpq}$ to get an ATF-corner.}
+\label{fig:Bdpq_moment_image_alt}
+\end{figure}
 
 \begin{definition}
   \label{def:atf_corner_type}
@@ -848,18 +869,18 @@ Using similar techniques as in \cref{sec:upper_bound,sec:lower_bound} we find th
 \begin{equation}
     \label{eq:DE_prodtori}
         e(T(x)) = \max\{x_1,x_2\}, \quad
-        x = (x_1,x_2) ∈ \text{int}(\Delta).
+        x = (x_1,x_2) ∈ \interior(\Delta).
 \end{equation}
 This yields the answer to Step (1) in the above outline.
 
 Let $x_0>0$.
 As a warm-up to the case of the Chekanov torus, let us compute the displacement energy germs of the product tori $T_{1,1}^1(x_0) = T(x_0,x_0)$ and $T = T(x_0,x_2)$ with $x_2 > x_0$.
 The former is the monotone Clifford torus, the notation $T^1_{1,1}$ of which is coherent with the one used in \cref{def:our_tori}, and the latter is a non-monotone product torus.
-We use \cref{thm:VDtoricfibre} to find that $b \mapsto T(x+b)$ is a versal deformation of $T(x)$ for any $x \in \text{int} \Delta$.
+We use \cref{thm:VDtoricfibre} to find that $b \mapsto T(x+b)$ is a versal deformation of $T(x)$ for any $x \in \interior \Delta$.
 Together with \eqref{eq:DE_prodtori}, this yields the displacement energy germs
 \begin{equation}
     \label{eq:babyDEG1}
-    [e]_{T^1_{1,1}}(b) = x_0 + \text{min}\{ b_1,b_2 \}, \quad
+    [e]_{T^1_{1,1}}(b) = x_0 + \min\{ b_1,b_2 \}, \quad
     [e]_{T}(b) = x_0 + b_1,
 \end{equation}
 where $b \in H^1(T;\mathbb{R}) \cong H^1(T^1_{1,1};\mathbb{R}) \cong \mathbb{R}^2$ using the obvious identifications.
@@ -899,7 +920,7 @@ See \cref{fig:babys_first_vd} for the level sets of $x \mapsto e(T(x))$ of the c
 Let $\pi \colon \mathbb{C}^2 \rightarrow \Delta$ be the almost toric moment map obtained from the toric case discussed above by performing a nodal trade at the vertex of $\Delta$.
 One way of defining the Chekanov torus $T^0_{1,1}(x_0) \subset \mathbb{C}^2$, where $x_0 > 0$ is the area parameter is as almost toric fibre $\pi^{-1}(x_0,x_0)$.
 Note that this definition works for any $x_0 >0$, as using a nodal slide one can arrange for the position of the node to be $(y,y)$ with $y > x_0$.
-Let $x \in \text{int}\Delta$ be a point not contained in the branch cut, then, by \cref{thm:nodal_slide}, we find that $\pi^{-1}(x)$ can be mapped by a symplectomorphism to $T(x)$.
+Let $x \in \interior\Delta$ be a point not contained in the branch cut, then, by \cref{thm:nodal_slide}, we find that $\pi^{-1}(x)$ can be mapped by a symplectomorphism to $T(x)$.
 Therefore, we find $e(\pi^{-1}(x)) = \min \{x_1,x_2\}$ for such almost toric fibres.
 This corresponds to Step (2) in the outline we gave above to compute displacement energy germs.
 See the upper middle diagram in \cref{fig:babys_second_vd} for the level sets of $x \mapsto e(\pi^{-1}(x))$.
@@ -1059,10 +1080,10 @@ We want to use a classical theorem by Chekanov \cite{chekanov1998}, that gives a
 To state the theorem we recall the central notions contained in the theorem.
 
 Let $(X,\omega)$ be a symplectic manifold.
-Define $\mathcal{H}(X) ≔ \mathcal{C}^\infty_\text{c}(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$.
+Define $\mathcal{H}(X) ≔ \mathcal{C}^\infty_c(X\times[0,1],\mathbb{R})$, the space of compactly supported, time-dependent Hamiltonian functions on $X$.
 For $H \in \mathcal{H}(X)$ let
 \[
-    \norm{H} ≔ \int_0^1 \left(\sup_\text{x \in X} H_t(x) - \inf_\text{x \in X} H_t(x) \right) dt
+    \norm{H} ≔ \int_0^1 \left(\sup_{x \in X} H_t(x) - \inf_{x \in X} H_t(x) \right) dt
 \]
 be the \textbf{Hofer norm of $H$}. 
 
@@ -1108,13 +1129,10 @@ With these definitions in place we define the two quantities that play a crucial
     Suppose that $L$ is a compact Lagrangian submanifold in a symplectic manifold $(X,\omega)$ that is geometrically bounded.
 Furthermore, let $J \in \mathcal{J}_{\text{geo}}(X,\omega)$ be a geometrically bounded almost complex structure.
 Define
-    \[
-        \sigma_D(X,L,J)≔\text{inf} \left\{  \int_{D} u^* \omega \mid u\colon(D,\partial D)\to(X,L) \text{ non-constant $J$-holomorphic disc}   \right\}
-    \]
-    and 
-    \[
-        \sigma_S(X,J)≔\text{inf}\left\{ \int_{S^2} u^* \omega \mid u:S^2 \to X \text{ non-constant $J$-holomorphic sphere}   \right\}.
-    \]
+    \begin{align*}
+      \sigma_D(X,L,J) &≔ \inf \qty{ \int_{D} u^* \omega \,\middle|\, \parbox{14em}{\centering $u\colon(D,\partial D)\to(X,L)$\\non-constant $J$-holomorphic disc} } \\
+      \sigma_S(X,J) &≔ \inf \qty{ \int_{S^2} u^* \omega \,\middle|\, \parbox{15em}{\centering $u\colon S^2 \to X$\\ non-constant $J$-holomorphic sphere}} \; .
+    \end{align*}
     These two quantities may be equal to infinity, if the infimum is taken over an empty set.
 By Gromov compactness, we have $\sigma_D, \sigma_S > 0$ in case $X$ is geometrically bounded.
 \end{definition}
