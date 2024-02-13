@@ -1403,13 +1403,16 @@ We can assume, after performing a nodal trade, that every vertex of $Δ$ has one
 
 Recall that the piece-wise linear map associated to the change of branch cut is given by $\overline{S}_{(x,dv)}$, as defined in \eqref{eq:half-shear}.
 
-As in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations on $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
+The idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations on $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
 In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fix an edge and perform iterated mutations at an adjacent vertex. Under this operation the integral affine length of the edge in question increases.
 
+\begin{remark}
+    Let us briefly describe what the algorithm in the proof of \cref{thm:toric_embeddings} yields for the case of $X = \mathbb{C}P^2$. Vianna \cite{Via16} proved that the set of ATF-base diagrams of $\mathbb{C}P^2$ obtained from the toric Delzant polytope by mutations is (up to nodal slides) in bijection with so-called Markov triples, i.e.\ solutions to the Markov equation. For more details on this, we refer to \cite[Section 8.4, Appendix I]{evans2021atfs}. ....
+\end{remark}
+
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
-  Set $Δ_0 = Δ$, orient $∂Δ_0$ counter-clockwise and pick an edge $e_0$ of $Δ_0$. 
-  Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
-  Let $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the left ATF-corner $u_{k_n}^n$ of $e_n$ (if $e_n$ has multiple ATF-corners at the left, we pick $u_{k_n}^n = (x,v)$ with the rightmost $v$).
+  Set $Δ_0 = Δ$ and pick an edge $e_0$ of $Δ_0$. This is the edge that will be elongated by iterated mutations at an adjacent vertex. In other words, we will define a sequence $\{\Delta_n\}_{n \in  \mathbb{N}}$ of almost toric base diagrams obtained by mutation from $\Delta_0$, which contain a distinguished edge $e_n \subset \Delta_n$ such that $e_0 \subset e_n$ as a set.
+  Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners. Let $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the ATF-corner $u_{k_n}^n$ next to $e_n$ in the clockwise direction (if $e_n$ has multiple ATF-corners at the left, we pick $u_{k_n}^n = (x,v)$ with the rightmost $v$).
   Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
 We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of corners for all $n ≥N$ for some $N ∈ ℤ$.
 We then take $Δ_0=Δ_N$.}
