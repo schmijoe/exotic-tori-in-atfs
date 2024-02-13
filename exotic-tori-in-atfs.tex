@@ -301,6 +301,7 @@ This was used in symplectic topology to great effect by Vianna~\cite{Via16} to e
 The set of almost toric fibrations obtained in this way is in bijection with the set of Markov triples and each almost toric fibration has an exotic Lagrangian torus as monotone fibre.
 In \cref{sec:stretch_edge} we use mutations to show that any (almost) toric manifold with (almost) toric base diagram contained in $ℝ²$ exhibits infinitely many different almost toric fibrations.
 
+
 \subsection{Almost toric fibres}
 \label{sec:atfibres}
 
@@ -429,6 +430,61 @@ We denote by $T^k_{pq}(a) = T(x_a)$ the regular almost toric fibre of a fibratio
 
 Again, by \cref{thm:nodal_slide}, this definition does not depend on the precise position of the nodes, only on $k$, i.e.\ the number of nodes to the left of $x_a$.
 In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ mapping $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ if $k \neq k'$.
+
+
+\subsection{A closer look at almost toric base diagrams}
+\label{sec:atf_base_diagrams}
+
+Let $π:X → Δ$ be an almost toric moment map. In \cref{sec:atgeometry} we required that the branch cut of a node in $Δ$ coincides with its eigendirection.
+This allows us to give a more detailed description of $Δ$.
+
+$Δ$ is a rational not necessarily compact polygon\footnote{That is an intersection of half-spaces of the form $H_{v,c} = \{x ∈ ℝ² | ⟨x,v⟩+c > 0\}$ with $v ∈ ℤ², c ∈ ℝ$.} with two types of vertices: Either a Delzant-vertex $x ∈ ∂Δ$ (i.e.\ the vectors $u_1,u_2$ pointing along the two edges emerging at the vertex form an $ℤ$-basis of $ℤ²$) with no branch cut intersecting $∂Δ$ at $x$.
+Or $x$ is the intersection of one or multiple branch cuts with $∂Δ$:
+
+\begin{definition}
+  \label{def:atf_corner}
+  An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ consisting of a vertex $x ∈ ∂Δ$ and a branch cut intersecting $x$.
+  By $v ∈ ℤ²$, we denote the primitive direction vector along the chosen branch cut which points from $x$ into the interior of $\Delta$.
+  By $d \in \mathbb{N}$, we denote the number of nodes on that branch cut.
+An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at the vertex $x$. 
+\end{definition}
+
+Let $(x,dv)$ be an ATF-corner of $Δ$ and $u_1,u_2$ be the primitive vectors pointing along the edges emerging from $x$.
+Using \cref{thm:change_branchcut}, we may perform a change of branch cut at each node belonging to an ATF-corner $(x,dv)$, thus obtaining the almost toric base diagram $Δ' = \overline{S}_{dv}Δ$.
+We may assume that $u_1$ lies in the fixed half plane of $\overline{S}_{dv}$.
+If $(x,dv)$ is isolated, then in $Δ'$ there is no branch cut intersection with $∂Δ'$ at $x$, so we have $u_1 = -S_{dv}u_2$ or $u_1$ and $S_{dv}u_2$ form a Delzant vertex.
+By a nodal trade we can assume that the last case does not appear.
+The case for non-isolated ATF-corners at $x ∈ ∂Δ$ is similar, if we change the branch cut at all ATF-corners at $x$, we should map $u_1,u_2$ onto parallel vectors, such that the vertex $x ∈ ∂Δ$ is mapped to the interior of an edge.
+Note that we can always \textbf{isolate} an ATF-corner at $x$ by changing the branch cut for all other ATF-corners at $x$.
+
+Performing a change of branch cut for all nodes in $Δ_{dpq}$ we get a different almost toric base diagram $Δ'_{dpq}$ for $B_{dpq}$ with an ATF-corner $(0,d(p,q))$.
+By some change of basis, any isolated ATF-corner $(x,dv)$ can be locally mapped by an element of $\GL(2,ℤ)$ onto $Δ'_{dpq}$ for appropriate choice of $p,q$.
+
+\begin{definition}
+  \label{def:atf_corner_type}
+  We say ATF-corner $(x,dv)$ is of \textbf{type $(d,p,q)$}, if (perhaps after isolating it) it locally maps via a $\GL(2,ℤ)$ transform onto $Δ'_{dpq}$.
+\end{definition}
+
+We can calculate $p,q$ for an ATF-corner $(x,dv)$ as follows: Take $u_1,u_2$ to be a $ℤ$-basis of $ℤ²$ with $u_1$ pointing from $x$ along $∂Δ$ in the counter-clockwise direction. Then $p=\det(u_1,v)$ and $q = \det(u_2,v)$.
+
+\begin{lemma}
+  \label{thm:atf_bdpq}
+  If $Δ$ has an ATF-corner of type $d,p,q$, then there is a partial $B_{dpq}$-embedding into $X$.
+\end{lemma}
+
+\begin{figure}
+  \centering
+  \begin{tikzpicture}[scale=2]
+      \draw[fill,fill opacity=0.2,thick] (-1,1) -- (0,0) -- (2,1) -- (-1,1);
+      \draw[dashed] (0,0) -- +(0,0.33) node[cross] {} (0,0) -- +(0.33,0.33) node[cross] {};
+      \draw[dashed] (-1,1) -- +(0.66,-0.33) node[cross] {};
+      \draw[dashed] (2,1) -- +(-1,-0.33) node[cross] {};
+  \end{tikzpicture}
+  \caption{An almost toric base diagram with two non-isolated ATF-corners associated to the same vertex.}
+  \label{fig:atf_example2}
+\end{figure}
+
+In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three vertices, two isolated ATF-corners and two non-isolated ATF-corners (meeting at the lower vertex).
 
 
 \section{Versal Deformations \& Nearby Lagrangians}
@@ -1339,28 +1395,7 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
   Then there is a sequence $(d_i,p_i,q_i)$ with $p_i → ∞$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
 \end{proposition}
 
-\begin{figure}
-  \centering
-  \begin{tikzpicture}[scale=2]
-      \draw[fill,fill opacity=0.2,thick] (-1,1) -- (0,0) -- (2,1) -- (-1,1);
-      \draw[dashed] (0,0) -- +(0,0.33) node[cross] {} (0,0) -- +(0.33,0.33) node[cross] {};
-      \draw[dashed] (-1,1) -- +(0.66,-0.33) node[cross] {};
-      \draw[dashed] (2,1) -- +(-1,-0.33) node[cross] {};
-  \end{tikzpicture}
-  \caption{An almost toric base diagram with two non-isolated ATF-corners associated to the same vertex.}
-  \label{fig:atf_example2}
-\end{figure}
-
 We can assume, after performing a nodal trade, that every vertex of $Δ$ has one or multiple corresponding nodes, and, by nodal slides, that all the branch cuts are negligibly small.
-Note that there may be multiple branch cuts meeting at the same vertex of the polygon $Δ$, see e.g.\ \cref{fig:atf_example2}. It will be useful for us to distinguish between vertices of $\Delta$ and pairs consisting of a vertex and a branch cut. This motivates the following definition.
-
-\begin{definition}
-  \label{def:atf_corner}
-  An \textbf{ATF-corner} of $Δ$ is a pair $(x,dv)$ consisting of a vertex $x$ and a branch cut intersecting $x$. By $v ∈ ℤ²$, we denote the primitive direction vector along the chosen branch cut which points from $x$ into the interior of $\Delta$. By $d \in \mathbb{N}$, we denote the number of nodes on that branch cut.
-An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at the vertex $x$. 
-\end{definition}
-
-In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three vertices, two isolated ATF-corners and two non-isolated ATF-corners (meeting at the lower vertex).
 
 \begin{definition}
   \label{def:mutation_at_atf_corner}
@@ -1368,18 +1403,6 @@ In our terminology, the ATF-base diagram in \cref{fig:atf_example2} has three ve
 \end{definition}
 
 Recall that the piece-wise linear map associated to the change of branch cut is given by $\overline{S}_{(x,dv)}$, as defined in \eqref{eq:half-shear}.
-
-\begin{definition}
-  \label{def:atf_corner_type}
-  We say an isolated ATF-corner $(x,dv)$ is of \textbf{type $d,p,q$}, where $p=\det(u_1,v)$ and $q=\det(u_2,v) \mod p$, where $u_1,u_2$ is a basis of $ℤ²$ with $u_1$ based at $x$ pointing along $∂Δ$ in the counter-clockwise direction.
-  A non-isolated ATF-corner $(x,dv)$ can be isolated by mutating at all other ATF-corners at $x$.
-It is then assigned the type of that isolated ATF-corner.
-\end{definition}
-
-\begin{lemma}
-  \label{thm:atf_bdpq}
-  If $Δ$ has an ATF-corner of type $d,p,q$, then there is a partial $B_{dpq}$-embedding into $M$.
-\end{lemma}
 
 Like in \cite{EvaUrz21}, the idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations in $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
 In order to avoid some cyclical behaviour of $d_i,p_i,q_i$, we fix an edge $e$ and perform mutations at one end of it, thus elongating it.
@@ -1402,6 +1425,9 @@ See \cref{fig:stretch_iteration}.
       \draw[dashed] (A) node[anchor=north east] {$u_{k_n}^n$} -- +(1,1) node[cross] {};
       \draw[dashed] (B) node[anchor=east] {$u_1^n$} -- +(1,0.4) node[cross] {};
       \draw[dashed] (C) node[anchor=south] {$u_2^n$} -- +(0.2,-1) node[cross] {};
+      \fill[purple] (A) circle[radius=2pt];
+      \fill[orange] (B) circle[radius=2pt];
+      \fill[blue] (C) circle[radius=2pt];
       \draw (0,4) node {$Δ_n$};
     \end{scope}
     \begin{scope}[shift={(2,0)}]
@@ -1410,6 +1436,9 @@ See \cref{fig:stretch_iteration}.
       \draw[dashed] (A) node[anchor=south] {$u_{k_n}^{n+1}$} -- +(-1,-1) node[cross] {};
       \draw[dashed] (B) node[anchor=north] {$u_1^{n+1}$} -- +(0.8,1) node[cross] {};
       \draw[dashed] (C) node[anchor=east] {$u_2^{n+1}$} -- +(1,-0.3) node[cross] {};
+      \fill[purple] (A) circle[radius=2pt];
+      \fill[orange] (B) circle[radius=2pt];
+      \fill[blue] (C) circle[radius=2pt];
       \draw (0,4) node {$Δ_{n+1}$};
     \end{scope}
   \end{tikzpicture}
