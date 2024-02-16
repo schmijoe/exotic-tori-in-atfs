@@ -52,7 +52,7 @@
 \usepackage{physics} % various shortcuts
 
 % Bibliography
-\usepackage{biblatex}
+\usepackage[style=numeric]{biblatex}
 \addbibresource{bibliography.bib}
 
 % For general figures
@@ -118,8 +118,17 @@
 
 \section{Introduction}
 
-Every ATF-vertex yields a partial $B_{dpq}$-embedding.
+Every ATF-vertex yields a partial $B_{dpq}$-embedding.\\
 
+
+In Evans' and Urzúa's paper \cite{EvaUrz21} they give a construction that yields four dimensional symplectic surfaces $(X,\omega)$, equipped with specific, non-standard symplectic forms, that admit unbounded sequences of partial $B_{pq}$ embeddings, or equivalently sequences of Lagrangian embeddings of pinwheels $L_{pq}$, in which $p$ goes to infinity. In their construction Mori's theory of flips is realized as a series of mutations and deformations of the symplectic form, that one can find in certain configurations of almost toric fibrations. In light of the main result obtained in this paper, namely \cref{thm:main_embedded}, their results yield the following. 
+
+\begin{theorem}
+    If $(X,\omega)$ is one of the symplectic manifolds discussed in \cite{EvaUrz21}, i.e. either a specific quintic surface or a Godeaux surface, in either case containing certain Mori sequences, then $(X,\omega)$ contains an infinite sequence of distinct exotic Lagrangian tori.
+    \begin{proof}
+        This follows immediately from the constructions in \cite{EvaUrz21} and the results obtained in \cref{thm:main_embedded}.
+    \end{proof}
+\end{theorem}
 
 \section{Local model}
 
@@ -1140,8 +1149,9 @@ Define
       \sigma_S(X,J) &≔ \inf \qty{ \int_{S^2} u^* \omega \,\middle|\, \parbox{15em}{\centering $u\colon S^2 \to X$\\ non-constant $J$-holomorphic sphere}} \; .
     \end{align*}
     These two quantities may be equal to infinity, if the infimum is taken over an empty set.
-By Gromov compactness, we have $\sigma_D, \sigma_S > 0$ in case $X$ is geometrically bounded.
+We have that $\sigma_D, \sigma_S > 0$ in the case that $X$ is geometrically bounded. This is proven, for example, in \cite[Proposition 4.3.1 (ii)]{sikorav1994}.
 \end{definition}
+
 
 \begin{theorem}[Chekanov 1998 \cite{chekanov1998}]
   \label{thm:chekanov}
@@ -1165,15 +1175,16 @@ As a simple corollary we get that a $J$-curve crossing a certain distance, measu
 
 \begin{corollary}
   \label{thm:small_buffer}
-  Suppose $A^+, A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is a connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon Σ → M$ a $J$-holomorphic with $u(∂Σ^±) ⊂ A^±$ respectively.
+  Suppose $A^+, A^- ⊂ M$, with both $A^±$ non-empty, $Σ$ is a connected Riemann surface with $∂Σ = ∂Σ^+ ⊔ ∂Σ^-$, with both $∂Σ^±$ non-empty and $u\colon Σ → M$ a $J$-holomorphic curve, with $u(∂Σ^±) ⊂ A^±$ respectively.
   
-  Let $δ=d(A⁺,A⁻)$, where $d$ denotes the metric induced by $g$, $N=\lfloor \frac{δ}{2r_0}\rfloor$ and $δ_r = δ-2r_0 N$
+  Let $δ=d(A⁺,A⁻)$, where $d$ denotes the metric induced by $g$, $N=\lfloor \frac{δ}{2r_0}\rfloor$ and $δ_r = δ-2r_0 N$.
   Then
   \[∫_u ω ≥ C(Nr_0^2+\frac{δ_r^2}{4}) \; .\]
 \end{corollary}
 
 \begin{proof}
   Pick a path $γ$ from $∂Σ^-$ to $∂Σ^+$.
+  We want to place pairwise disjoint balls onto $γ$, ther $N$
   We have that $d((u ∘ γ) (1),A^-) ≥ δ$, so by the intermediate value theorem for each $0 ≤ n < N$ there is a $t_n ∈ [0,1]$ s.t.\ $d((u ∘ γ) (t_n),A^-) = (2n+1)r_0$.
   Also there is a $t_N$ s.t.\ $d((u ∘ γ) (t_N),A^-) = 2(N-1)r_0 + δ_r/2$.
   Picking $x_n = (u ∘ γ)(t_n)$ for $0 ≤ n ≤ N$ and using the triangle inequality we have that $B_{r_0}(x_n) ⊂ M ∖ ( A^+ ⊔ A^-)$ are pairwise disjoint.
@@ -1264,45 +1275,20 @@ As for the upper bound \cref{thm:upper_bound_embedded}, there is an analoguous s
 \begin{proposition}
   \label{thm:displacement_energy_embedded}
     Let $φ \colon B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$-embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
-Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such that for all $x \in V$, we have $e(φ(T(x))) = x_1$.
+Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such that for all $x \in V \setminus R$, we have $e(φ(T(x))) = x_1$.
 \end{proposition}
 
 \begin{proof}
-  Let $V ⊂ U$ be a subset such that $e(φ(T(x))) ≤ x_1$ for all $x ∈ V$ (\cref{thm:upper_bound_embedded}).
-  Proceed in a similar way as in \cref{thm:displacement_energy}: By restricting $V$, we may assume that $A_0(x) = \{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ δ \}$ as defined in the proof of \cref{thm:displacement_energy} is contained in $U$ for all $x ∈ V$.
-  Assume additionally that $φ(π^{-1}(\symcal{A}_0))$, where $\symcal{A}_0 = ⋃_{x ∈ V} A_0(x)$, is contained in the interior of some compact set $K$. (This can be achieved by further restricting $V$)
+  Let $V \subset \Delta_{dpq}$ be a subset such that $e(φ(T(x))) ≤ x_1$ for all $x ∈ V$, as given by \cref{thm:upper_bound_embedded}.
+  Proceed in a similar way as in \cref{thm:displacement_energy}: By restricting $V$, we may assume that $A_0(x) = \{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ δ \}$ as defined in the proof of \cref{thm:displacement_energy} such that $\pi^{-1}(A_0(x))$ is contained in $U$ for all $x ∈ V$.
+  Assume additionally that $φ(π^{-1}(\symcal{A}_0))$, where $\symcal{A}_0 = ⋃_{x ∈ V} A_0(x)$, is contained in the interior of some compact set $K \subset X$. This can be achieved by further restricting $V$.
 
-  Let $\hat{J}_X$ be a geometrically bounded almost complex structure on $X$, and $J_0$ the almost complex structure on $π^{-1}(\symcal{A}_0)$ obtained by identifying $π^{-1}(\symcal{A}_0)$ with $μ_0^{-1}(\symcal{A}_0)$.
-  Let $J$ a geometrically bounded almost complex structure on $X$ with $J = φ_* J_0$ on $φ(π^{-1}(\symcal{A}_0))$ and $J = \hat{J}_X$ on $X ∖ K$.
-  For any fixed $x ∈ V$, we conclude as in \cref{thm:displacement_energy} that any $J$-disk $u \colon (D,∂D) → (X,φ(T(x)))$ must have at least area $x_1$.
+  Let $J_X$ be a geometrically bounded almost complex structure on $X$, and $J_0$ the almost complex structure on $π^{-1}(\symcal{A}_0)$ obtained by identifying $π^{-1}(\symcal{A}_0)$ with $μ_0^{-1}(\symcal{A}_0)$.
+  Let $J$ a geometrically bounded almost complex structure on $X$ with $J = φ_* J_0$ on $φ(π^{-1}(\symcal{A}_0))$ and $J = J_X$ on $X ∖ K$. See \cref{rem:J_compactly_perturbed}.
+  For any fixed $x ∈ V \setminus R$, we conclude as in \cref{thm:displacement_energy} that any $J$-disk $u \colon (D,∂D) → (X,φ(T(x)))$ has at least area $x_1$. 
 
-  Since unlike $B_{dpq}$, $X$ might contain $J$-spheres, in order to get the desired result out of \cref{thm:chekanov} we additionally require that $x_1 ≤ σ_S(X,J)$, which is done by further restricting $V$.
+  Unlike $B_{dpq}$, the space $X$ might contain $J$-spheres. In order to deduce the claim from \cref{thm:chekanov}, we additionally require that $x_1 < σ_S(X,J)$, which is done by further restricting $V$. Since $e(φ(T(x))) ≤ x_1$, we conclude from \cref{thm:chekanov} that there is a $J$-disk $u$ of area $x_1$ and hence the claim follows.
 \end{proof}
-
-\begin{proof}
-Let $W \subset \Delta_{dpq}$ be a neighbourhood of the origin such that $\pi^{-1}(W) \subset U$, see \cref{def:partial_embedding} and let $K_0 \subset W$ be a compact subset containing all nodes.
-Set $K = \pi^{-1}(K_0) \subset B_{dpq}$.
-Since the almost toric moment map $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ is proper, the set $K$ is compact.
-Let $\widehat{J}_X$ be a geometrically bounded almost complex structure on $X$.
-Let $J_X$ be an almost complex structure which is equal to $\varphi_* J$ on $\varphi(K)$ and equal to $\widehat{J}_X$ on the complement of a slightly larger compact subset.
-By $J$, we have denoted the almost complex structure on $B_{dpq}$ constructed in the proof of \cref{thm:displacement_energy}.
-The almost complex structure $J_X$ is geometrically bounded by \cref{rem:J_compactly_perturbed}.
-
-Let $V \subset \Delta_{dpq}$ be a small enough neighbourhood of the origin such that 
-\begin{enumerate}
-    \item $x_1 < \sigma_S(X,J_X)$ for all $x = (x_1,x_2) \in V$,
-    \item \cref{thm:upper_bound_embedded} applies to $V$,
-    \item For all $x \in V$, the set $A_0$ associated to $T(x)$ (see \eqref{eq:a0def}) is contained in $K_0$ and does not contain any of the nodes\footnote{Not containing any of the nodes is not a drastic condition, since all of them can be assumed to lie close to the boundary of $K_0$ by a nodal slide, see \cref{thm:nodal_slide}.}. 
-\end{enumerate}
-Let $x \in V$ and $u \colon (D,\partial D) \rightarrow (X,\varphi(T(x)))$ be a $J_X$-holomorphic disk with boundary on $\varphi(T(x))$.
-Here we follow the proof of \cref{thm:upper_bound_embedded} and distinguish two cases.
-If the image of $u$ leaves $\varphi(K)$, then $\int_{u} \omega > x_1$.
-By 3.\ we find that if $u(D) \subset \varphi(A)$, then $\int_{u} \omega$ is a positive integer multiple of $x_1$.
-By 2.\ and \cref{thm:upper_bound_embedded} we find that $e(\varphi(T(x))) ≤ x_1$ and this implies, using 1.\ and \cref{thm:chekanov}, that there is a $J_X$-holomorphic disk $u_0 \colon (D,\partial D) \rightarrow (\varphi(A),\varphi(T(x)))$ with $\int_{u_0} \omega ≤ x_1$.
-Again using 1.\ and \cref{thm:chekanov}, this implies $e(\varphi(T(x))) ≥ x_1$ and thus we can conclude.
-\end{proof}
-
-
 
 \section{Proof of Main Theorem}
 \label{sec:main_thm}
@@ -1359,7 +1345,7 @@ Note that if $k \neq 0$, then $x_a$ lies on a branch cut of $\Delta_{dpq}$, as o
 To apply \cref{thm:VDatffibres} we perform changes in branch cut to the $k$ nodes to the left of $x_a$.
 As a result, we obtain a new almost toric moment map $\pi' \colon B_{dpq} \rightarrow \Delta'$, see the right-hand side of \cref{fig:mod_moment_map}.
 By \cref{thm:change_branchcut}, its image $\Delta'$ is given by $\overline{S}_v^k (\Delta_{dpq}) = \overline{S}_{kv}(\Delta_{dpq})$ with $v = (-p,-q)$.
-Under matrix form, the corresponding shear map is given by 
+In matrix form, the corresponding shear map is given by 
     \begin{equation}
         S_{kv} = 
         \mqty(kpq+1 & -kp²\\ kq² & 1-kpq), \quad
@@ -1401,10 +1387,10 @@ If there is a symplectomorphism of $(X,\omega)$ mapping $\varphi(T^k_{pq}(a))$ (
 
 \begin{proof}
   Let $V ⊂ Δ_{dpq}$ be the subset given by \cref{thm:displacement_energy_embedded} such that $e(φ(T(x))) = x_1$ for $x ∈ V$.
-  Let $a_0$ be the supremum over all $a$ such that $x_a = \qty(a,\frac{aq}{p}) ∈ V$.
+  Let $a_0$ be the supremum over all $a$ such that $x_a = \qty(a,\frac{aq}{p}) ∈ V \setminus R$.
   Picking $a<a_0$ and setting $L = T^k_{pq}(a)$ we construct the versal deformation $v_L$ in the same manner as in \cref{thm:main}.
   Now $v_{φ(L)} = φ ∘ v_L ∘ φ^*$ is a versal deformation of $φ(L)$, here $φ^*$ is the induced map on cohomology.
-  As $φ$ preserves the displacement energy of $T(x)$ for $x ∈ V$, we have $[e]_L = [e]_{φ(L)} ∘ φ^*$.
+  As $φ$ preserves the displacement energy of $T(x)$ for $x ∈ V \setminus R$ by \cref{thm:displacement_energy,thm:displacement_energy_embedded}, we have $[e]_L \sim [e]_{φ(L)} ∘ φ^*$.
 \end{proof}
 
 \section{Examples}
@@ -1444,7 +1430,9 @@ To simplify, we slightly abuse notation in this proof and denote by $u$ the ATF-
 \emph{Step 1 : }
     We start by performing a nodal trade at every toric vertex of $\Delta$.
     We define a sequence of ATF-mutations of $\Delta$.
-    Fix an edge $e \subset \Delta$, which we call the \emph{distinguished edge}. For simplicity, assume that $e \subset O_x = \{(x,0)\}$ and that $\Delta$ is contained in the upper half plane $\{y \geqslant 0\}$. Let $\{\Delta_n\}_{n\in \mathbb{N}}$ be the sequence of ATF-base diagrams of $X$ obtained by successively mutating at the left vertex of $e$.
+    Fix an edge $e \subset \Delta$, which we call the \emph{distinguished edge}.
+    For simplicity, assume that $e \subset O_x = \{(x,0)\}$ and that $\Delta$ is contained in the upper half plane $\{y \geqslant 0\}$.
+    Let $\{\Delta_n\}_{n\in \mathbb{N}}$ be the sequence of ATF-base diagrams of $X$ obtained by successively mutating at the left vertex of $e$.
     Set $\Delta_0 = \Delta$ and let $z_0$ be the ATF-corner associated to the left vertex of the distinguished edge $e_0 = e$ in case that vertex is simple.
 In case that vertex is not simple, let $z_0$ be its ATF-corner containing the right-most node.
 Set $\Delta_1 = \overline{S}_{z_0} \Delta_0$. Note that $\Delta_1$ has a unique edge $e_1$ contained in $O_x$, satisfying $e_0 \subset e_1$. This inclusion is strict if and only if the vertex at which we mutated was simple.
@@ -1489,12 +1477,13 @@ Note that it is preserved by mutations and thus independent of $n$. Let
         \forall x \in \partial \Delta'_n.
     \end{equation}
     Define
-    \[
+    \begin{equation}
+        \label{eq:alphabeta}
         \alpha_n
         = \min_{1 \leqslant i \leqslant N'} g_n(v_i^n), \quad
         \beta_n
         = \max_{1 \leqslant i \leqslant N'} g_n(v_i^n).
-    \]
+    \end{equation}
     This are the sequences of minimal/maximal integral affine distances of $v_r$ to the vertices carrying labels which appear infinitely many times in the sequence \eqref{eq:ln} of labels at which mutations are performed. 
     
     \emph{Claim : } Both sequences $\{\alpha_n\}_{n \in \mathbb{N}}$ and $\{\beta_n\}_{n \in \mathbb{N}}$ are monotone increasing and have strictly increasing subsequences. 
@@ -1506,10 +1495,28 @@ The sequence $\{\beta_n \}$ is monotone increasing since we have $g_{n+1}(v_k^{n
 If it did not, then there would be an ATF-corner $v_0$ in all $\Delta_n'$ for $n \geqslant n_2$ for some large $n_2$ at which no more mutations are performed.
 However, this would mean that the label of $n_2$ would appear only a finite number of times in the sequence \eqref{eq:ln}. This is a contradiction with the definition of $\Delta_n'$ and hence we have proved the claim.
 
-    In particular, since both sequences are bounded, this means that they converge to $\alpha_{\infty}$ and $\beta_{\infty}$, respectively.\smallskip
+    In particular, since both sequences are bounded, this means that they converge to $\alpha_{\infty}$ and $\beta_{\infty}$, respectively. \smallskip
 
-\emph{Step 4 : }  
-    
+\emph{Step 4 : }
+    Let $\{\beta_{n_k}\}_{k \in \mathbb{N}}$ be a strictly increasing subsequence of the sequence $\{\beta_n\}$ defined in \eqref{eq:alphabeta}. Let $w_k \in \Delta_{n_k}$ be the ATF-corner at which the corresponding mutation has been performed and $w_k' \in \Delta_{n_k}$ the ATF-corner that has been created by the mutation. By construction, the corner $w_k'$ realizes the maximal integral affine distance along the boundary to $v_r$, i.e.\ $g_{n_k}(w_k') = \beta_{n_k}$.
+
+    \emph{Claim : } The sequences $\{w_k\}$ and $\{w_k'\}$ converge to points $w_{\infty} \in \mathbb{R}^2$ and $w_{\infty}' \in \mathbb{R}^2$, respectively. 
+
+    Let $v_r = (x_0,0)$ be the right vertex adjacent to the distinguished edges $e_{n_k}'$. Then $w_k = (x_0 - \alpha_{n_k-1},0)$ and since $\{\alpha_n\}$ converges, so does $w_k$. Note that the points $w_k$ are contained in the boundary of the initial ATF-base diagram $\Delta_0'$. Indeed, since $w_k'$ satisfies $g_{n_k}(w_k') = \beta_{n_k}$ and the sequence $\{\beta_n\}$ is monotone increasing, all of the mutations from $\Delta_0$ to $\Delta_{n_k}$ act by the identity on $w_k'$. Since furthermore $\{\beta_n\}$ converges, we find, by \eqref{eq:gn_invariance}, that $w_k'$ converges to the point $w_{\infty}'$ satisfying $g_0(w_{\infty}) = \beta_{\infty}$. This proves the claim.
+
+    Furthermore, note that all $w_k'$ for large enough $k$ and $w_{\infty}$ are contained in a fixed edge $f \subset \Delta_0$. Let $x_f$ be the primitive vector defining $f$ (and pointing in the counter-clockwise direction). Similarly, let $x_e = (1,0)$ be the primitive vector defining the distinguished edge.  
+    Let $v_k$ be the primitive vector pointing along $w_k'-w_k$, and $v_∞ = w_∞' - w_∞$.
+    Then $v_{k+1} = v_k - λx_f + μx_e$ for $λ,μ>0$ and $k$ big enough.
+     We have that $\det(v_k,x_f)>0$ (by convexity of the ATF-base diagram $Δ_n$), and also $\det(v_k,x_e)<0$.
+    So $\det(v_{k+1},v_k) > 0$.
+    Let $π \colon ℝ² ∖\{0\} → S¹$ be the projection onto the circle.
+     Since $\det(v_k,x_e)<0$, the points $\pi(v_k)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
+    Since $v_k$ is primitive, the Euclidean length $\norm{v_k}$ satisfies $\norm{v_k} → ∞$. The vector $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_k$), so $p_k = \det(x_f, -v_k) → ∞$, so $w_k$ is an ATF-corner of type $(d_k,p_k,q_k)$ for some $d_k,q_k$ in $Δ_{n_k}$, with $p_k → ∞$.
+
+    Using \cref{thm:toric_embeddings} we get partial $B_{d_k,p_k,q_k}$-embedding for all $k ∈ \mathbb{N}$.
+\end{proof}
+
+\begin{proof}
     Set $Δ_0 = Δ$ and pick an edge $e_0$ of $Δ_0$. This is the edge that will be elongated by iterated mutations at an adjacent vertex.
 In other words, we will define a sequence $\{\Delta_n\}_{n \in  \mathbb{N}}$ of almost toric base diagrams obtained by mutation from $\Delta_0$, which contain a distinguished edge $e_n \subset \Delta_n$ such that $e_0 \subset e_n$ as a set.
     Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
@@ -1608,7 +1615,8 @@ Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the f
 
 \begin{remark}
     Based on simulations\footnote{Done using \url{https://github.com/schmijoe/delzant}.}, the situation described in the proof is always very simple: 
+    
 \end{remark}
 
-%\printbibliography
+\printbibliography
 \end{document}
