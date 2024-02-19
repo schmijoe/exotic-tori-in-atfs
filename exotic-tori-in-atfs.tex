@@ -111,12 +111,81 @@
 \DeclareMathOperator{\Crit}{Crit}
 
 \begin{document}
-\title{Semi-Local Lagrangian Tori in Dimension Four}
+\title{Semi-Local exotic Lagrangian Tori in Dimension Four}
 \author{JoJoJo}
 
 \maketitle
 
 \section{Introduction}
+
+\subsection{Context}
+
+This paper is motivated by the symplectic classification question of Lagrangian submanifolds: For $L,L' \subset (X,\omega)$ Lagrangian submanifolds of a symplectic manifold, can $L$ be mapped to $L'$ by a symplectomorphism of $X$? We say that $L,L'$ are \emph{equivalent} and write $L \cong L'$ if such a symplectomorphism exists. 
+
+An obvious necessary condition for $L$ and $L'$ to be equivalent is that they are diffeomorphic as manifolds. In this paper, we only consider Lagrangian tori. They play a special role in symplectic geometry, since they are \emph{everywhere}. Indeed, Darboux theorem states that every symplectic manifold locally looks like a copy of the standard symplectic vector space and the latter contains arbitrarily Lagrangian tori. Furthermore, Lagrangian tori naturally appear in classical mechanics, and more specifically the study of completely integrable systems. In fact, in this paper we heavily rely on certain completely integrable systems (so-called almost toric fibrations) as an auxiliary tool to study the symplectic topology of their fibres.
+
+Recall that every Lagrangian submanifold $L \subset X$ has two characteristic classes; the \emph{area class} $a_L \colon H_2(X,L) \rightarrow \mathbb{R}$ and the \emph{Maslov class} $m_L \colon H_2(X,L) \rightarrow \mathbb{Z}$, which are preserved by symplectomorphisms in the sense that if there is $\phi \in \operatorname{Symp}(X,\omega)$ with $\phi(L) = L'$, then 
+\begin{equation}
+    \label{eq:softcond}
+    a_{L} = a_{L'} \circ \Phi, \quad
+    m_{L} = m_{L'} \circ \Phi, 
+\end{equation}
+where $\Phi = (\phi\vert_L)_* \colon H_2(X,L) \rightarrow H_2(X,L')$. Therefore, the existence of some $\Phi$ such that \eqref{eq:softcond} holds is a necessary condition for $L$ and $L'$ to be equivalent. If such a map $\Phi$ exists, we say that $L$ and $L'$ have the \emph{same classical invariants} and write $L \sim L'$.
+
+Finding Lagrangian tori which have the same classical invariants but are \emph{not} equivalent is a classical question in symplectic topology, which was initiated by \cite{Che96} and \cite{EliPol97} and has attracted much interest since.  see  (this is a non-exhaustive list)\cite{Aur15, brendel2020real, CheSch10, FOOO12, GalMik22, SheTonVia19, Via17, Via16}. Such Lagrangian tori are sometimes called \emph{exotic} or \emph{knotted}. 
+
+The first-named author has recently proved that in dimension six and higher, the existenc of exotic tori is generic and a purely local occurence. 
+\begin{theorem}\cite[Theorem D]{brendel2023local}
+    \label{thm:Bre23}
+    Let $(X,\omega)$ be a geometrically bounded\footnote{this is a mild condition, preventing the symplectic manifold from being too wild in terms of the $J$-holomorphic curves it can contain, see \cref{def:geobdd}} symplectic manifold of dimension greater than or equal to six. Then every open set of $X$ contains infinitely many tori which have the same classical invariants, but are two-by-two inequivalent up to symplectomorphisms of $(X,\omega)$.
+\end{theorem}
+
+The tori in \cref{thm:Bre23} are constructed by embedding exotic tori in $\mathbb{R}^{2n}$ via Darboux charts into $X$. The existence of infinitely many exotic Lagrangian tori in $\mathbb{R}^6$ is due to \cite{Aur15}. Note that the tori in \cite{Aur15} are monotone and are distinguished by the count of Maslov index two $J$-holomorphic disks. For non-monotone tori, this count is not well-defined because of bubbling. Since monotonicity is lost after embedding the tori into $X$, this method of distinguishing the corresponding Lagrangian tori in $X$ fails. In \cite{brendel2023local} and this paper, we instead rely on the so-called \emph{displacement energy germ} $[e]_L \colon H^1(L;\mathbb{R}) \rightarrow \mathbb{R} \cup \{+\infty\}$ to distinguish Lagrangian tori. This invariant is based on the approach of versal deformations, introduced in \cite{Che96}. Roughly speaking, $[e]_L$ measures how the displacement energy behaves as a function on tori in a neighbourhood of $L$, see \cref{sec:versal_deformations} for details. For our purposes, the two following properties of the displacement energy germ are crucial: 
+\begin{enumerate}
+    \item The displacement energy germ $[e]_L$ is well-defined, even if $L$ is not monotone, 
+    \item Let $\varphi \colon \mathbb{R}^{2n} \supset U \rightarrow X$ be a Darboux chart. Then for small enough tori $L \subset U$, the displacement energy germ is preserved by the Darboux embedding, 
+    \begin{equation}
+        \label{eq:locality}
+        [e]_L \circ (\varphi\vert_L)^* = [e]_{\varphi(L)}.
+    \end{equation}
+\end{enumerate}
+We call the latter property the \emph{locality of the displacement energy germ}. Note that this property is not trivial. Indeed, the germ $[e]_L$ is derived from the displacement energy of a family of tori in $\mathbb{R}^{2n}$, whereas $[e]_{\varphi(L)}$ is derived from the displacement energy of tori in $X$.
+
+\subsection{Dimension four}
+
+In this paper, we consider the case of $\operatorname{dim} X = 4$. The main difference with the case $\operatorname{dim} X \geqslant 6$ is the lack of exotic tori in $\mathbb{R}^4$: Besides product tori and the Chekanov torus \cite{Che96}, there are no other known tori in $\mathbb{R}^4$. In fact, a parial classification result by \cite{Riz19} suggests that there are no other Lagrangian tori in $\mathbb{R}^4$, although this is still open. This means that the approach of embedding Lagrangian tori via Darboux charts is inefficient in dimension four. Even embedding the Chekanov torus into some four-dimensional symplectic manifold $X$ by a Darboux chart does not yield a torus which is exotic in a robust sense:
+ 
+\begin{remark}
+    Let $X = S^2 \times S^2$ be equipped with a non-monotone symplectic form. Then there is a Darboux embedding $\varphi \colon \mathbb{R}^4 \supset U \rightarrow X$, a Chekanov torus $L \subset U$ and a product torus $L' \subset U$ such that $\varphi(L) \cong \varphi(L')$. See also \cite[Example 5.6]{brendel2023local}. 
+\end{remark}
+
+Thus the approach we use and the flavour of results we obtain are markedly different from \cite{brendel2023local}. Instead of constructing exotic tori in a Darboux chart, we construct exotic tori in certain, more complicated symplectic domains.
+
+
+
+$(B_{dpq}, \omega)$ and prove that the tori remain exotic under certain symplectic embeddings $\varphi \colon B_{dpq} \supset U \rightarrow X$ into a geometrically bounded symplectic manifold $X$. The spaces $B_{dpq}$ naturally appear as Milnor fibres of smoothings of certain cyclic quotient singularities. 
+
+Let us illustrate what happens in the simplest, non-trivial case. For $d = 2, p = q = 1$, we have $(B_{2,1,1}, \omega) \cong (T^*S^2, -d\lambda_{\operatorname{can}})$. For every $a > 0$, the space $T^*S^2$ contains a Clifford torus $T_{ \operatorname{Cl}}(a)$, a Chekanov torus $T_{\operatorname{Ch}}(a)$ and a so-called Polterovich torus $T_{\operatorname{Pol}}(a)$, all of which are monotone of monotonicity constant $a$. These tori satisfy $T_{ \operatorname{Cl}}(a) \sim T_{\operatorname{Ch}}(a) \sim T_{\operatorname{Pol}}(a)$, but they are two-by-two inequivalent up to symplectomorphisms of $T^*S^2$. Now let $\varphi \colon T^*S^2 \supset U \rightarrow X$ be a symplectic embedding of a neighbourhood $U$ of the zero-section. We prove (see \cref{thm:...}) that for small enough $a > 0$, the images $\varphi(T_{ \operatorname{Cl}}(a)), \varphi(T_{ \operatorname{Ch}}(a)), \varphi(T_{ \operatorname{Pol}}(a))$, though they have the same classical invariants, are still two-by-two inequivalent by symplectomorphisms of $X$. In particular, using Weinstein's neighbourhood theorem, we can prove the following.
+
+\begin{corollary}
+    Let $N \subset (X,\omega)$ be a Lagrangian sphere in a geometrically bounded symplectic four-manifold. Then every tubular neighbourhood of $N$ contains three Lagrangian tori $L_{ \operatorname{Cl}}, L_{ \operatorname{Ch}}, L_{\operatorname{Pol}}$ which have the same classical invariants but are two-by-two inequivalent up to symplectomorphisms of $X$. 
+\end{corollary}
+
+\subsection{Almost toric fibrations}
+
+\subsection{Examples}
+
+Which partial $B_{dpq}$-embeddings into $X$ are there? Note that \cite{EvaSmi18} proved that ... Thus this gives an additional motivation to study such embeddings. From the viewpoint of algebraic geometry, they come from degenerations of $X$ to singular varieties having certain cyclic quotient singularities.
+
+Contrary to the case treated in \cite{brendel2023local}, which relies on Darboux embeddings, the existence of partial $B_{dpq}$-embeddings into $X$ is not automatic. In fact, \cite{EvaSmi18} proved some stringent conditions
+
+
+One of the key differences between the purely local exotic Lagrangian tori constructed in \cite{brendel2023local} and the ones constructed in this paper is the fact 
+
+
+
+
+
 
 Every ATF-vertex yields a partial $B_{dpq}$-embedding.\\
 
@@ -427,7 +496,7 @@ For every $a > 0$ and $k \in \{0,\ldots,d\}$, let $x_a = \left( a,\frac{aq}{p} \
       \draw (2,-1) node[anchor=north] {$π^{-1}(x_a) = T^2_{pq}(a)$};
     \end{scope}
   \end{tikzpicture}
-  \caption{Modifying $Δ_{dpq}$ by a nodal slide for \cref{def:our_tori}.}
+  \caption{Modifying $Δ_{dpq}$ by a nodal slide for \cref{def:our_tori}. The type of the Lagrangian torus changes when moving the node across its base point.}
   \label{fig:our_tori}
 \end{figure}
 
@@ -1423,106 +1492,125 @@ For more details on this, we refer to \cite[Section 8.4, Appendix I]{evans2021at
 \end{remark}
 
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
-    Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(x,dv)$ given by a vertex $x$ and a multiple $dv$ of the branch cut direction.
+Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(x,dv)$ given by a vertex $x$ and a multiple $dv$ of the branch cut direction.
 To simplify, we slightly abuse notation in this proof and denote by $u$ the ATF-corner, as well as the corresponding vertex $x$. Throughout the proof, we assume, possibly after performing nodal slides, that all branch cuts are negligibly small.
 \smallskip
 
 \emph{Step 1 : }
-    We start by performing a nodal trade at every toric vertex of $\Delta$.
-    We define a sequence of ATF-mutations of $\Delta$.
-    Fix an edge $e \subset \Delta$, which we call the \emph{distinguished edge}.
-    For simplicity, assume that $e \subset O_x = \{(x,0)\}$ and that $\Delta$ is contained in the upper half plane $\{y \geqslant 0\}$.
-    Let $\{\Delta_n\}_{n\in \mathbb{N}}$ be the sequence of ATF-base diagrams of $X$ obtained by successively mutating at the left vertex of $e$.
-    Set $\Delta_0 = \Delta$ and let $z_0$ be the ATF-corner associated to the left vertex of the distinguished edge $e_0 = e$ in case that vertex is simple.
-In case that vertex is not simple, let $z_0$ be its ATF-corner containing the right-most node.
-Set $\Delta_1 = \overline{S}_{z_0} \Delta_0$. Note that $\Delta_1$ has a unique edge $e_1$ contained in $O_x$, satisfying $e_0 \subset e_1$. This inclusion is strict if and only if the vertex at which we mutated was simple.
+Start by performing a nodal trade at every toric vertex of $\Delta$. Now we define a sequence of ATF-mutations of $\Delta$.
+Fix an edge $e \subset \Delta$, which we call the \emph{distinguished edge}.
+For simplicity, assume that $e \subset O_x = \{(x,0)\}$ and that $\Delta$ is contained in the upper half plane $\{y \geqslant 0\}$.
+
+Let $\{\Delta_n\}_{n\in \mathbb{N}}$ be the sequence of ATF-base diagrams of $X$ obtained by successively mutating at the left vertex of $e$.
+More precisely, set $\Delta_0 = \Delta$ and let $z_0$ be the ATF-corner associated to the left vertex of the distinguished edge $e_0 = e$ in case that vertex is simple.
+In case that vertex is not simple, let $z_0$ be its ATF-corner with the smalles angle between branch cut an $e_0$.
+Now define $\Delta_1 = \overline{S}_{z_0} \Delta_0$.
+Note that $\Delta_1$ has a unique edge $e_1$ contained in $O_x$, satisfying $e_0 \subset e_1$.
+This inclusion is strict if and only if the vertex at which we mutated was simple.
 We call $e_1 \subset \Delta_1$ the \emph{distinguished edge}, as well.
-Let $z_1$ be the ATF-corner on the left vertex of $e_1$, defined similarly as $z_0 \in \Delta_0$. Iterating this construction, we obtain a sequence of ATF-base diagrams $\{\Delta_n\}_{n \in \mathbb{N}}$, distinguished edges $e_n \subset \Delta_n$ and adjacent ATF-corners $z_n \in e_n \subset \Delta_n$ such that $\Delta_{n+1} = \overline{S}_{z_n} \Delta_n$. See \cref{fig:stretch_iteration}.
-    The distinguished edges are nested, $e_n \subset e_{n+1}$ and this inclusion is strict whenever the left vertex of $e_n$ is simple.
+Let $z_1$ be the ATF-corner on the left vertex of $e_1$, defined similarly as $z_0 \in \Delta_0$. Iterating this construction, we obtain a sequence of ATF-base diagrams $\{\Delta_n\}_{n \in \mathbb{N}}$, distinguished edges $e_n \subset \Delta_n$ and adjacent ATF-corners $z_n \in e_n \subset \Delta_n$, such that $\Delta_{n+1} = \overline{S}_{z_n} \Delta_n$. See \cref{fig:stretch_iteration}.
+
+The distinguished edges are nested, meaning that $e_n \subset e_{n+1}$, where the inclusion is strict whenever the left vertex of $e_n$ is simple.
 Note that after a finite number of mutations at a non-simple vertex, it becomes simple and thus the sequence $\{e_n\}_{n \in \mathbb N}$ contains a subsequence of edges which becomes strictly longer.
 \smallskip
 
 \emph{Step 2 : }
-    Let $u^0_1, \ldots , u^0_N$ be the ATF-corners of $\Delta_0$. The set $\{1,\ldots,N\}$ will serve as labels for the ATF-corners throughout the mutations.
-The labelling for $n=0$ is arbitrary and labels for $n > 0$ are recursively assigned as follows.
-For every $k \in \{1,\ldots,N\}$ such that $u^n_k \neq z_n$ (i.e.\ for all vertices at which we do not mutate), set $u_k^{n+1} = \overline{S}_{z_n} u_k^n$. For $k$ with $u_k^n = z_n$ (this is the vertex at which we mutate), let $u_k^{n+1}$ be the vertex that is newly created by the mutation at $z_n$. 
-    In other words, every ATF-corner surviving mutation keeps its label and the ATF-corner at which we mutate cedes its label to the newly created ATF-corner.
+Let $u^0_1, \ldots , u^0_N$ be the ATF-corners of $\Delta_0$. The set $\{1,\ldots,N\}$ will serve as labels for the ATF-corners throughout the mutations.
+The labelling for $n=0$ is arbitrary and the labels for $n > 0$ are recursively assigned as follows:
+For every $k \in \{1,\ldots,N\}$ such that $u^n_k \neq z_n$, i.e.\ for all vertices at which we do not mutate, set $u_k^{n+1} = \overline{S}_{z_n} u_k^n$. For $k$ with $u_k^n = z_n$, i.e. the vertex at which we mutate, let $u_k^{n+1}$ be the vertex that is newly created by the mutation at $z_n$. 
+In other words, every ATF-corner surviving mutation keeps its label and the ATF-corner at which we mutate cedes its label to the newly created ATF-corner.
 See \cref{fig:stretch_iteration} for an illustration in which the labels are represented by colours.
-    Although the total number of ATF-nodes is constant throughout mutations, note that the number of ATF-corners may decrease if two opposite corner have the same eigenline\footnote{Consider for example any mutation of the square (the toric base of a monotone $S^2 \times S^2$) in the plane.}. This means that we may have $u_i^n = u_j^n$ for some $n$ and $i \neq j$, meaning that an ATF-corner carries a double label.
-Since this occurs at most a finite number of times, we can assume it does not occur at all by removing all redundant labels from $\Delta_{n_0}$ and setting $\Delta_0 = \Delta_{n_0}$ for some large enough $n_0$. 
-    Let 
-    \begin{equation}
-        \label{eq:ln}
-        l_n = \{ k \in \{1,\ldots,N\} \, \vert \, z_n = u_k^n\} 
-    \end{equation}
-    be the label of the ATF-corner at which the $n$-th mutation is performed.
-There are two types of labels - those appearing finitely many times in the sequence $\{l_n\}_{n \in \mathbb{N}}$ and those appearing infinitely many times.
-Up to relabelling, we can assume that the labels appearing infinitely many times are given by\footnote{Based on computer simulations, we suspect that $N'=2$. This means that our sequence of mutations $\{\Delta_n\}_{n \in \mathbb{N}}$ stabilizes to a sequence of mutations considered in \cite{EvaUrz21}.} $\{1,\ldots,N'\}$, for $N' < N$. 
-    Let $n_1 \in \mathbb{N}$ be large enough such that $l_n \in \{1, \ldots,N'\}$ for all $n \geqslant n_1$, i.e.\ none of the labels appearing finitely many times in $\{l_n\}_{n \in \mathbb{N}}$ appear after the $n_1$-th mutation.
+Although the total number of ATF-nodes is constant throughout mutations, note that the number of ATF-corners may decrease if two opposite corner have the same eigenline\footnote{Consider for example any mutation of the square (the toric base of a monotone $S^2 \times S^2$) in the plane.}. This means that we may have $u_i^n = u_j^n$ for some $n$ and $i \neq j$, meaning that an ATF-corner carries a double label.
+Since this occurs at most a finite number of times, we can assume it does not occur at all by choosing some $n_0$ large enough such that $Δ_{n_0}$ has the minimum number of ATF-corners in $\{Δ_n\}_n$ and setting $\Delta_0 ≔ \Delta_{n_0}$.
 
-    Let $\{\Delta_n' = \Delta_{n + n_1}\}_{n \in \mathbb{N}}$ be the shifted sequence of mutations, starting at $\Delta_0' = \Delta_{n_1}$. The corresponding distinguished edges are denoted by $e_n' = e_{n_1 + n}$ and the labelled ATF-corners by $v_k^n = u_k^{n_1 + n}$. By definition, only the labels $\{1,\ldots,N'\}$ appear in its sequence of mutations of $\Delta_n'$ and they all appear infinitely many times.
+Let 
+\begin{equation}
+    \label{eq:ln}
+    l_n = \{ k \in \{1,\ldots,N\} \, \vert \, z_n = u_k^n\} 
+\end{equation}
+be the label of the ATF-corner at which the $n$-th mutation is performed.
+There are two types of labels - those appearing finitely many times in the sequence $\{l_n\}_{n \in \mathbb{N}}$ and those appearing infinitely many times.
+Up to relabelling, we can assume that the labels appearing infinitely many times are given by\footnote{Based on computer simulations, we suspect that $N'=2$. This means that our sequence of mutations $\{\Delta_n\}_{n \in \mathbb{N}}$ stabilizes to a sequence of mutations considered in \cite{EvaUrz21}.} $\{1,\ldots,N'\}$, for $N' < N$.
+
+We assume without loss of generality that none of the labels appear only finitely many times:
+If this is not the case, let $n_1 \in \mathbb{N}$ be large enough such that $l_n \in \{1, \ldots,N'\}$ for all $n \geqslant n_1$, i.e.\ none of the labels appearing finitely many times in $\{l_n\}_{n \in \mathbb{N}}$ appear after the $n_1$-th mutation.
+Then set $Δ_0 ≔ Δ_{n_1}$.
 \smallskip
 
 \emph{Step 3 : } 
-    We parametrize points on the boundary of the ATF-base diagrams $\Delta_n'$ by their integral affine arc length as follows. 
-    Note that the right vertex $v_r$ of the distinguished edges $e_n'$ coincides for all $n$, since it lies in the half plane in which $\overline{S}_{z_n} = \id$ and hence $v_r \in \partial \Delta_n$ for all $n$. Let $P > 0$ be the integral affine perimeter of $\Delta_n'$, i.e.\ the sum of integral affine lengths of its edges.
+We parameterize points on the boundary of the ATF-base diagrams $\Delta_n$ by their integral affine arc length as follows. 
+Note that the right vertex $v_r$ of the distinguished edges $e_n$ coincides for all $n$, since it lies in the half plane in which $\overline{S}_{z_n} = \id$ and hence $v_r \in \partial \Delta_n$ for all $n$.
+Let $P > 0$ be the integral affine perimeter of $\Delta_n$, i.e.\ the sum of integral affine lengths of its edges.
 Note that it is preserved by mutations and thus independent of $n$. Let 
-    \[
-        g_n \colon \partial \Delta_n' \rightarrow [0,P)
-    \]
-    be the function such that $g_n(x)$ measures the integral affine length of the clockwise arc in $\partial \Delta_n$ between $v_r$ and $x \in \partial \Delta_n$. The function $g_n$ is a bijection and continuous away from $v_r$. Note that, for every ATF-corner $u \in \Delta_n$,
-    \begin{equation}
-        \label{eq:gn_invariance}
-        g_{n+1}(\overline{S}_{u}(x)) = g_n(x), \quad
-        \forall x \in \partial \Delta'_n.
-    \end{equation}
-    Define
-    \begin{equation}
-        \label{eq:alphabeta}
-        \alpha_n
-        = \min_{1 \leqslant i \leqslant N'} g_n(v_i^n), \quad
-        \beta_n
-        = \max_{1 \leqslant i \leqslant N'} g_n(v_i^n).
-    \end{equation}
-    This are the sequences of minimal/maximal integral affine distances of $v_r$ to the vertices carrying labels which appear infinitely many times in the sequence \eqref{eq:ln} of labels at which mutations are performed. 
-    
-    \emph{Claim : } Both sequences $\{\alpha_n\}_{n \in \mathbb{N}}$ and $\{\beta_n\}_{n \in \mathbb{N}}$ are monotone increasing and have strictly increasing subsequences. 
-    
-    Note that $\alpha_n = \ell(e_n')$ is equal to the integral affine length of the distinguished edge $e_n'$. Since $e_n' \subset e_{n+1}'$, the sequence $\{\alpha_n\}$ is monotone increasing.
-The inclusion $e_n' \subset e_{n+1}'$ is strict if and only if the the vertex at which the mutation was performed was simple.
-Since after a finite number of mutations, it is simple, the sequence $\{\alpha_n\}$ has a strictly increasing subsequence.
-The sequence $\{\beta_n \}$ is monotone increasing since we have $g_{n+1}(v_k^{n+1}) \geqslant g_n (v_k^n)$. Indeed, this follows from \eqref{eq:gn_invariance} together with the fact that, at the $n$-step, we mutate at the vertex realizing the minimum $\beta_n$, meaning that, when mutating, the minimal value in $\{g_n(v_i^n)\}_{1 \leqslant i \leqslant N'}$ is eliminated and all others preserved, see also \cref{fig:stretch_iteration}. The sequence $\{\beta_n \}$ has a strictly increasing subsequence.
+\[
+    g_n \colon \partial \Delta_n \rightarrow [0,P)
+\]
+be the function such that $g_n(x)$ measures the integral affine length of the clockwise arc in $\partial \Delta_n$ between $v_r$ and $x \in \partial \Delta_n$.
+The function $g_n$ is a bijection and continuous away from $v_r$.
+Note that
+\begin{equation}
+    \label{eq:gn_invariance}
+    g_{n+1}(\overline{S}_{z_n}(x)) = g_n(x), \quad
+    \forall x \in \partial \Delta_n.
+\end{equation}
+Define
+\begin{equation}
+    \label{eq:alphabeta}
+    \alpha_n
+    = \min_{1 \leqslant i \leqslant N'} g_n(u_i^n), \quad
+    \beta_n
+    = \max_{1 \leqslant i \leqslant N'} g_n(u_i^n).
+\end{equation}
+This are the sequences of minimal/maximal integral affine distances of $v_r$ to the vertices carrying labels which appear infinitely many times in the sequence \eqref{eq:ln} of labels at which mutations are performed. 
+
+\emph{Claim : } Both sequences $\{\alpha_n\}_{n \in \mathbb{N}}$ and $\{\beta_n\}_{n \in \mathbb{N}}$ are monotonically increasing and contain strictly increasing subsequences. 
+
+Note that $\alpha_n$ is equal to the integral affine length of the distinguished edge $e_n$. Since $e_n \subset e_{n+1}$, the sequence $\{\alpha_n\}_n$ is monotonically increasing.
+The inclusion $e_n \subset e_{n+1}$ is strict if and only if the ATF-corner at which the mutation was performed was isolated.
+After a finite number of mutations, we mutate at an isolated ATF-corner, so the sequence $\{\alpha_n\}_n$ has a strictly increasing subsequence.
+
+The sequence $\{\beta_n \}_n$ is monotonically increasing since we have $g_{n+1}(u_k^{n+1}) \geqslant g_n (u_k^n)$:
+If $u_k^n \neq z_n$, then $g_{n+1}(u_k^{n+1}) = g_n (u_k^n)$ by \eqref{eq:gn_invariance}, and if $u_k^n = z_n$ we have $g_{n+1}(u_k^{n+1}) > g_n (u_k^n)$.
+
+Indeed, this follows from \eqref{eq:gn_invariance} together with the fact that, at the $n$-th step, we mutate at the vertex realizing the minimum $β_n$, meaning that, when mutating, the minimal value in $\{g_n(u_i^n)\}_{1 \leqslant i \leqslant N'}$ is eliminated and all others preserved, see also \cref{fig:stretch_iteration}.
+Therefore, the sequence $\{\beta_n \}$ has a strictly increasing subsequence.
 If it did not, then there would be an ATF-corner $v_0$ in all $\Delta_n'$ for $n \geqslant n_2$ for some large $n_2$ at which no more mutations are performed.
 However, this would mean that the label of $n_2$ would appear only a finite number of times in the sequence \eqref{eq:ln}. This is a contradiction with the definition of $\Delta_n'$ and hence we have proved the claim.
 
-    In particular, since both sequences are bounded, this means that they converge to $\alpha_{\infty}$ and $\beta_{\infty}$, respectively. \smallskip
+In particular, since both sequences are bounded, this means that they converge to some real numbers $\alpha_{\infty}$ and $\beta_{\infty}$. \smallskip
 
 \emph{Step 4 : }
-    Let $\{\beta_{n_k}\}_{k \in \mathbb{N}}$ be a strictly increasing subsequence of the sequence $\{\beta_n\}$ defined in \eqref{eq:alphabeta}. Let $w_k \in \Delta_{n_k}$ be the ATF-corner at which the corresponding mutation has been performed and $w_k' \in \Delta_{n_k}$ the ATF-corner that has been created by the mutation. By construction, the corner $w_k'$ realizes the maximal integral affine distance along the boundary to $v_r$, i.e.\ $g_{n_k}(w_k') = \beta_{n_k}$.
+Let $\{\beta_{n_k}\}_{k \in \mathbb{N}}$ be a strictly increasing subsequence of the sequence $\{\beta_n\}$ defined in \eqref{eq:alphabeta}. Let $w_k \in \Delta_{n_k}$ be the ATF-corner at which the corresponding mutation has been performed and $w_k' \in \Delta_{n_k}$ the ATF-corner that has been created by the mutation. By construction, the corner $w_k'$ realizes the maximal integral affine distance along the boundary to $v_r$, i.e.\ $g_{n_k}(w_k') = \beta_{n_k}$.
 
-    \emph{Claim : } The sequences $\{w_k\}$ and $\{w_k'\}$ converge to points $w_{\infty} \in \mathbb{R}^2$ and $w_{\infty}' \in \mathbb{R}^2$, respectively. 
+\emph{Claim : } The sequences $\{w_k\}$ and $\{w_k'\}$ converge to points $w_{\infty} \in \mathbb{R}^2$ and $w_{\infty}' \in \mathbb{R}^2$, respectively. 
 
-    Let $v_r = (x_0,0)$ be the right vertex adjacent to the distinguished edges $e_{n_k}'$. Then $w_k = (x_0 - \alpha_{n_k-1},0)$ and since $\{\alpha_n\}$ converges, so does $w_k$. Note that the points $w_k$ are contained in the boundary of the initial ATF-base diagram $\Delta_0'$. Indeed, since $w_k'$ satisfies $g_{n_k}(w_k') = \beta_{n_k}$ and the sequence $\{\beta_n\}$ is monotone increasing, all of the mutations from $\Delta_0$ to $\Delta_{n_k}$ act by the identity on $w_k'$. Since furthermore $\{\beta_n\}$ converges, we find, by \eqref{eq:gn_invariance}, that $w_k'$ converges to the point $w_{\infty}'$ satisfying $g_0(w_{\infty}) = \beta_{\infty}$. This proves the claim.
+Let $v_r = (x_0,0)$ be the right vertex adjacent to the distinguished edges $e_{n_k}'$. Then $w_k = (x_0 - \alpha_{n_k-1},0)$ and since $\{\alpha_n\}$ converges, so does $w_k$. Note that the points $w_k$ are contained in the boundary of the initial ATF-base diagram $\Delta_0'$. Indeed, since $w_k'$ satisfies $g_{n_k}(w_k') = \beta_{n_k}$ and the sequence $\{\beta_n\}$ is monotone increasing, all of the mutations from $\Delta_0$ to $\Delta_{n_k}$ act by the identity on $w_k'$. Since furthermore $\{\beta_n\}$ converges, we find, by \eqref{eq:gn_invariance}, that $w_k'$ converges to the point $w_{\infty}'$ satisfying $g_0(w_{\infty}) = \beta_{\infty}$. This proves the claim.
 
-    Furthermore, note that all $w_k'$ for large enough $k$ and $w_{\infty}$ are contained in a fixed edge $f \subset \Delta_0$. Let $x_f$ be the primitive vector defining $f$ (and pointing in the counter-clockwise direction). Similarly, let $x_e = (1,0)$ be the primitive vector defining the distinguished edge.  
-    Let $v_k$ be the primitive vector pointing along $w_k'-w_k$, and $v_∞ = w_∞' - w_∞$.
-    Then $v_{k+1} = v_k - λx_f + μx_e$ for $λ,μ>0$ and $k$ big enough.
-     We have that $\det(v_k,x_f)>0$ (by convexity of the ATF-base diagram $Δ_n$), and also $\det(v_k,x_e)<0$.
-    So $\det(v_{k+1},v_k) > 0$.
-    Let $π \colon ℝ² ∖\{0\} → S¹$ be the projection onto the circle.
-     Since $\det(v_k,x_e)<0$, the points $\pi(v_k)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
-    Since $v_k$ is primitive, the Euclidean length $\norm{v_k}$ satisfies $\norm{v_k} → ∞$. The vector $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_k$), so $p_k = \det(x_f, -v_k) → ∞$, so $w_k$ is an ATF-corner of type $(d_k,p_k,q_k)$ for some $d_k,q_k$ in $Δ_{n_k}$, with $p_k → ∞$.
+Furthermore, note that all $w_k'$ for large enough $k$ and $w_{\infty}$ are contained in a fixed edge $f \subset \Delta_0$. Let $x_f$ be the primitive vector defining $f$, pointing in the counter-clockwise direction. Similarly, let $x_e = (1,0)$ be the primitive vector defining the distinguished edges.  
+Let $v_k$ be the primitive vector pointing along $w_k'-w_k$ and define $v_∞ = w_∞' - w_∞$.
+By definition we have $v_{k+1} = v_k - λx_f + μx_e$ for some $λ,μ>0$ and $k$ big enough.
+Furthermore, $\det(v_k,x_f)>0$ by convexity of the ATF-base diagram $Δ_n$ and also $\det(v_k,x_e)<0$.
+So $\det(v_{k+1},v_k) > 0$.
+Let $π \colon ℝ² ∖\{0\} → S¹$ be the radial projection onto the unit circle.
+ Since $\det(v_k,x_e)<0$, the points $\pi(v_k)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
+Since $v_k$ is primitive, the Euclidean length of the $v_k$'s satisfies $\norm{v_k} → ∞$. The vector $v_∞$ is not parallel to $x_f$, since this would contradict the convergence of $w_k$, so $p_k = \det(x_f, -v_k) → ∞$. Hence, $w_k$ is an ATF-corner of type $(d_k,p_k,q_k)$ for some $d_k,q_k$ in $Δ_{n_k}$, with $p_k → ∞$.
 
-    Using \cref{thm:toric_embeddings} we get partial $B_{d_k,p_k,q_k}$-embedding for all $k ∈ \mathbb{N}$.
+Using \cref{thm:toric_embeddings} we get a partial $B_{d_k,p_k,q_k}$-embedding for all $k ∈ \mathbb{N}$.
 \end{proof}
 
 \begin{proof}
-    Set $Δ_0 = Δ$ and pick an edge $e_0$ of $Δ_0$. This is the edge that will be elongated by iterated mutations at an adjacent vertex.
+Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(x,dv)$ given by a vertex $x$ and a multiple $dv$ of the branch cut direction.
+To simplify, we slightly abuse notation in this proof and denote by $u$ the ATF-corner, as well as the corresponding vertex $x$. Throughout the proof, we assume, possibly after performing nodal slides, that all branch cuts are negligibly small.
+
+\emph{Step 1}:
+Set $Δ_0 = Δ$ and pick an edge $e_0$ of $Δ_0$.
+This is the edge that will be elongated by iterated mutations at an adjacent vertex. We may assume $e_0 \subset $
 In other words, we will define a sequence $\{\Delta_n\}_{n \in  \mathbb{N}}$ of almost toric base diagrams obtained by mutation from $\Delta_0$, which contain a distinguished edge $e_n \subset \Delta_n$ such that $e_0 \subset e_n$ as a set.
-    Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
+
+Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
 Let $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the ATF-corner $u_{k_n}^n$ next to $e_n$ in the clockwise direction (if $e_n$ has multiple non-isolated ATF-corners there, we pick $u_{k_n}^n = (x,v)$ for which $v$ forms the smallest angle with $e_n$).
-    Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
-    We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of corners for all $n ≥N$ for some $N ∈ ℤ$.
+Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
+We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of corners for all $n ≥N$ for some $N ∈ ℤ$.
     We then take $Δ_0=Δ_N$.} In other words, the elements in the set $\{1,\ldots,n_c\}$ can be thought of as labels of ATF-corners, where every ATF-corner in $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ inherits the label of its preimage in $\Delta_n$, except for the newly created ATF-corner in $\Delta_{n+1}$, which inherits the label of the ATF-corner in $\Delta_n$ at which mutation was performed.
 
     See \cref{fig:stretch_iteration}, where we have indicated the labels by colours.
