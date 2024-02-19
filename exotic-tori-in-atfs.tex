@@ -1494,126 +1494,20 @@ For more details on this, we refer to \cite[Section 8.4, Appendix I]{evans2021at
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
 Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(x,dv)$ given by a vertex $x$ and a multiple $dv$ of the branch cut direction.
 To simplify, we slightly abuse notation in this proof and denote by $u$ the ATF-corner, as well as the corresponding vertex $x$. Throughout the proof, we assume, possibly after performing nodal slides, that all branch cuts are negligibly small.
-\smallskip
-
-\emph{Step 1 : }
-Start by performing a nodal trade at every toric vertex of $\Delta$. Now we define a sequence of ATF-mutations of $\Delta$.
-Fix an edge $e \subset \Delta$, which we call the \emph{distinguished edge}.
-For simplicity, assume that $e \subset O_x = \{(x,0)\}$ and that $\Delta$ is contained in the upper half plane $\{y \geqslant 0\}$.
-
-Let $\{\Delta_n\}_{n\in \mathbb{N}}$ be the sequence of ATF-base diagrams of $X$ obtained by successively mutating at the left vertex of $e$.
-More precisely, set $\Delta_0 = \Delta$ and let $z_0$ be the ATF-corner associated to the left vertex of the distinguished edge $e_0 = e$ in case that vertex is simple.
-In case that vertex is not simple, let $z_0$ be its ATF-corner with the smalles angle between branch cut an $e_0$.
-Now define $\Delta_1 = \overline{S}_{z_0} \Delta_0$.
-Note that $\Delta_1$ has a unique edge $e_1$ contained in $O_x$, satisfying $e_0 \subset e_1$.
-This inclusion is strict if and only if the vertex at which we mutated was simple.
-We call $e_1 \subset \Delta_1$ the \emph{distinguished edge}, as well.
-Let $z_1$ be the ATF-corner on the left vertex of $e_1$, defined similarly as $z_0 \in \Delta_0$. Iterating this construction, we obtain a sequence of ATF-base diagrams $\{\Delta_n\}_{n \in \mathbb{N}}$, distinguished edges $e_n \subset \Delta_n$ and adjacent ATF-corners $z_n \in e_n \subset \Delta_n$, such that $\Delta_{n+1} = \overline{S}_{z_n} \Delta_n$. See \cref{fig:stretch_iteration}.
-
-The distinguished edges are nested, meaning that $e_n \subset e_{n+1}$, where the inclusion is strict whenever the left vertex of $e_n$ is simple.
-Note that after a finite number of mutations at a non-simple vertex, it becomes simple and thus the sequence $\{e_n\}_{n \in \mathbb N}$ contains a subsequence of edges which becomes strictly longer.
-\smallskip
-
-\emph{Step 2 : }
-Let $u^0_1, \ldots , u^0_N$ be the ATF-corners of $\Delta_0$. The set $\{1,\ldots,N\}$ will serve as labels for the ATF-corners throughout the mutations.
-The labelling for $n=0$ is arbitrary and the labels for $n > 0$ are recursively assigned as follows:
-For every $k \in \{1,\ldots,N\}$ such that $u^n_k \neq z_n$, i.e.\ for all vertices at which we do not mutate, set $u_k^{n+1} = \overline{S}_{z_n} u_k^n$. For $k$ with $u_k^n = z_n$, i.e. the vertex at which we mutate, let $u_k^{n+1}$ be the vertex that is newly created by the mutation at $z_n$. 
-In other words, every ATF-corner surviving mutation keeps its label and the ATF-corner at which we mutate cedes its label to the newly created ATF-corner.
-See \cref{fig:stretch_iteration} for an illustration in which the labels are represented by colours.
-Although the total number of ATF-nodes is constant throughout mutations, note that the number of ATF-corners may decrease if two opposite corner have the same eigenline\footnote{Consider for example any mutation of the square (the toric base of a monotone $S^2 \times S^2$) in the plane.}. This means that we may have $u_i^n = u_j^n$ for some $n$ and $i \neq j$, meaning that an ATF-corner carries a double label.
-Since this occurs at most a finite number of times, we can assume it does not occur at all by choosing some $n_0$ large enough such that $Δ_{n_0}$ has the minimum number of ATF-corners in $\{Δ_n\}_n$ and setting $\Delta_0 ≔ \Delta_{n_0}$.
-
-Let 
-\begin{equation}
-    \label{eq:ln}
-    l_n = \{ k \in \{1,\ldots,N\} \, \vert \, z_n = u_k^n\} 
-\end{equation}
-be the label of the ATF-corner at which the $n$-th mutation is performed.
-There are two types of labels - those appearing finitely many times in the sequence $\{l_n\}_{n \in \mathbb{N}}$ and those appearing infinitely many times.
-Up to relabelling, we can assume that the labels appearing infinitely many times are given by\footnote{Based on computer simulations, we suspect that $N'=2$. This means that our sequence of mutations $\{\Delta_n\}_{n \in \mathbb{N}}$ stabilizes to a sequence of mutations considered in \cite{EvaUrz21}.} $\{1,\ldots,N'\}$, for $N' < N$.
-
-We assume without loss of generality that none of the labels appear only finitely many times:
-If this is not the case, let $n_1 \in \mathbb{N}$ be large enough such that $l_n \in \{1, \ldots,N'\}$ for all $n \geqslant n_1$, i.e.\ none of the labels appearing finitely many times in $\{l_n\}_{n \in \mathbb{N}}$ appear after the $n_1$-th mutation.
-Then set $Δ_0 ≔ Δ_{n_1}$.
-\smallskip
-
-\emph{Step 3 : } 
-We parameterize points on the boundary of the ATF-base diagrams $\Delta_n$ by their integral affine arc length as follows. 
-Note that the right vertex $v_r$ of the distinguished edges $e_n$ coincides for all $n$, since it lies in the half plane in which $\overline{S}_{z_n} = \id$ and hence $v_r \in \partial \Delta_n$ for all $n$.
-Let $P > 0$ be the integral affine perimeter of $\Delta_n$, i.e.\ the sum of integral affine lengths of its edges.
-Note that it is preserved by mutations and thus independent of $n$. Let 
-\[
-    g_n \colon \partial \Delta_n \rightarrow [0,P)
-\]
-be the function such that $g_n(x)$ measures the integral affine length of the clockwise arc in $\partial \Delta_n$ between $v_r$ and $x \in \partial \Delta_n$.
-The function $g_n$ is a bijection and continuous away from $v_r$.
-Note that
-\begin{equation}
-    \label{eq:gn_invariance}
-    g_{n+1}(\overline{S}_{z_n}(x)) = g_n(x), \quad
-    \forall x \in \partial \Delta_n.
-\end{equation}
-Define
-\begin{equation}
-    \label{eq:alphabeta}
-    \alpha_n
-    = \min_{1 \leqslant i \leqslant N'} g_n(u_i^n), \quad
-    \beta_n
-    = \max_{1 \leqslant i \leqslant N'} g_n(u_i^n).
-\end{equation}
-This are the sequences of minimal/maximal integral affine distances of $v_r$ to the vertices carrying labels which appear infinitely many times in the sequence \eqref{eq:ln} of labels at which mutations are performed. 
-
-\emph{Claim : } Both sequences $\{\alpha_n\}_{n \in \mathbb{N}}$ and $\{\beta_n\}_{n \in \mathbb{N}}$ are monotonically increasing and contain strictly increasing subsequences. 
-
-Note that $\alpha_n$ is equal to the integral affine length of the distinguished edge $e_n$. Since $e_n \subset e_{n+1}$, the sequence $\{\alpha_n\}_n$ is monotonically increasing.
-The inclusion $e_n \subset e_{n+1}$ is strict if and only if the ATF-corner at which the mutation was performed was isolated.
-After a finite number of mutations, we mutate at an isolated ATF-corner, so the sequence $\{\alpha_n\}_n$ has a strictly increasing subsequence.
-
-The sequence $\{\beta_n \}_n$ is monotonically increasing since we have $g_{n+1}(u_k^{n+1}) \geqslant g_n (u_k^n)$:
-If $u_k^n \neq z_n$, then $g_{n+1}(u_k^{n+1}) = g_n (u_k^n)$ by \eqref{eq:gn_invariance}, and if $u_k^n = z_n$ we have $g_{n+1}(u_k^{n+1}) > g_n (u_k^n)$.
-
-Indeed, this follows from \eqref{eq:gn_invariance} together with the fact that, at the $n$-th step, we mutate at the vertex realizing the minimum $β_n$, meaning that, when mutating, the minimal value in $\{g_n(u_i^n)\}_{1 \leqslant i \leqslant N'}$ is eliminated and all others preserved, see also \cref{fig:stretch_iteration}.
-Therefore, the sequence $\{\beta_n \}$ has a strictly increasing subsequence.
-If it did not, then there would be an ATF-corner $v_0$ in all $\Delta_n'$ for $n \geqslant n_2$ for some large $n_2$ at which no more mutations are performed.
-However, this would mean that the label of $n_2$ would appear only a finite number of times in the sequence \eqref{eq:ln}. This is a contradiction with the definition of $\Delta_n'$ and hence we have proved the claim.
-
-In particular, since both sequences are bounded, this means that they converge to some real numbers $\alpha_{\infty}$ and $\beta_{\infty}$. \smallskip
-
-\emph{Step 4 : }
-Let $\{\beta_{n_k}\}_{k \in \mathbb{N}}$ be a strictly increasing subsequence of the sequence $\{\beta_n\}$ defined in \eqref{eq:alphabeta}. Let $w_k \in \Delta_{n_k}$ be the ATF-corner at which the corresponding mutation has been performed and $w_k' \in \Delta_{n_k}$ the ATF-corner that has been created by the mutation. By construction, the corner $w_k'$ realizes the maximal integral affine distance along the boundary to $v_r$, i.e.\ $g_{n_k}(w_k') = \beta_{n_k}$.
-
-\emph{Claim : } The sequences $\{w_k\}$ and $\{w_k'\}$ converge to points $w_{\infty} \in \mathbb{R}^2$ and $w_{\infty}' \in \mathbb{R}^2$, respectively. 
-
-Let $v_r = (x_0,0)$ be the right vertex adjacent to the distinguished edges $e_{n_k}'$. Then $w_k = (x_0 - \alpha_{n_k-1},0)$ and since $\{\alpha_n\}$ converges, so does $w_k$. Note that the points $w_k$ are contained in the boundary of the initial ATF-base diagram $\Delta_0'$. Indeed, since $w_k'$ satisfies $g_{n_k}(w_k') = \beta_{n_k}$ and the sequence $\{\beta_n\}$ is monotone increasing, all of the mutations from $\Delta_0$ to $\Delta_{n_k}$ act by the identity on $w_k'$. Since furthermore $\{\beta_n\}$ converges, we find, by \eqref{eq:gn_invariance}, that $w_k'$ converges to the point $w_{\infty}'$ satisfying $g_0(w_{\infty}) = \beta_{\infty}$. This proves the claim.
-
-Furthermore, note that all $w_k'$ for large enough $k$ and $w_{\infty}$ are contained in a fixed edge $f \subset \Delta_0$. Let $x_f$ be the primitive vector defining $f$, pointing in the counter-clockwise direction. Similarly, let $x_e = (1,0)$ be the primitive vector defining the distinguished edges.  
-Let $v_k$ be the primitive vector pointing along $w_k'-w_k$ and define $v_∞ = w_∞' - w_∞$.
-By definition we have $v_{k+1} = v_k - λx_f + μx_e$ for some $λ,μ>0$ and $k$ big enough.
-Furthermore, $\det(v_k,x_f)>0$ by convexity of the ATF-base diagram $Δ_n$ and also $\det(v_k,x_e)<0$.
-So $\det(v_{k+1},v_k) > 0$.
-Let $π \colon ℝ² ∖\{0\} → S¹$ be the radial projection onto the unit circle.
- Since $\det(v_k,x_e)<0$, the points $\pi(v_k)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
-Since $v_k$ is primitive, the Euclidean length of the $v_k$'s satisfies $\norm{v_k} → ∞$. The vector $v_∞$ is not parallel to $x_f$, since this would contradict the convergence of $w_k$, so $p_k = \det(x_f, -v_k) → ∞$. Hence, $w_k$ is an ATF-corner of type $(d_k,p_k,q_k)$ for some $d_k,q_k$ in $Δ_{n_k}$, with $p_k → ∞$.
-
-Using \cref{thm:toric_embeddings} we get a partial $B_{d_k,p_k,q_k}$-embedding for all $k ∈ \mathbb{N}$.
-\end{proof}
-
-\begin{proof}
-Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(x,dv)$ given by a vertex $x$ and a multiple $dv$ of the branch cut direction.
-To simplify, we slightly abuse notation in this proof and denote by $u$ the ATF-corner, as well as the corresponding vertex $x$. Throughout the proof, we assume, possibly after performing nodal slides, that all branch cuts are negligibly small.
 
 \emph{Step 1}:
 Set $Δ_0 = Δ$ and pick an edge $e_0$ of $Δ_0$.
-This is the edge that will be elongated by iterated mutations at an adjacent vertex. We may assume $e_0 \subset $
+This is the edge that will be elongated by iterated mutations at an adjacent vertex.
+We may assume $e_0 ⊂ ℝ × \{0\}$ and $Δ_0 ⊂ ℝ × ℝ_{ ≥0}$.
 In other words, we will define a sequence $\{\Delta_n\}_{n \in  \mathbb{N}}$ of almost toric base diagrams obtained by mutation from $\Delta_0$, which contain a distinguished edge $e_n \subset \Delta_n$ such that $e_0 \subset e_n$ as a set.
 
 Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
 Let $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the ATF-corner $u_{k_n}^n$ next to $e_n$ in the clockwise direction (if $e_n$ has multiple non-isolated ATF-corners there, we pick $u_{k_n}^n = (x,v)$ for which $v$ forms the smallest angle with $e_n$).
 Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
-We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of corners for all $n ≥N$ for some $N ∈ ℤ$.
-    We then take $Δ_0=Δ_N$.} In other words, the elements in the set $\{1,\ldots,n_c\}$ can be thought of as labels of ATF-corners, where every ATF-corner in $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ inherits the label of its preimage in $\Delta_n$, except for the newly created ATF-corner in $\Delta_{n+1}$, which inherits the label of the ATF-corner in $\Delta_n$ at which mutation was performed.
-
-    See \cref{fig:stretch_iteration}, where we have indicated the labels by colours.
+We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain the minimum number of ATF-corners for all $n ≥N$ for some $N ∈ ℤ$.
+  We then take $Δ_0=Δ_N$.} In other words, the elements in the set $\{1,\ldots,n_c\}$ can be thought of as labels of ATF-corners, where every ATF-corner in $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ inherits the label of its preimage in $\Delta_n$, except for the newly created ATF-corner in $\Delta_{n+1}$, which inherits the label of the ATF-corner in $\Delta_n$ at which mutation was performed.
+See \cref{fig:stretch_iteration}, where we have indicated the labels by colours.
+Note that $e_n$ lies in the fixed half plane of $\overline{S}_{u_{k_n}^n}$, so we pick the edge $e_{n+1}$ of $Δ_{n+1}$ such that $e_{n+1} ⊃ e_n$.
 
 \begin{figure}
   \centering
@@ -1645,15 +1539,13 @@ We assume wlog.\ that this doesn't happen, as the sequence $Δ_n$ must attain th
   \label{fig:stretch_iteration}
 \end{figure}
 
-  Note that $e_n$ lies in the fixed half plane of $\overline{S}_{u_{k_n}^n}$, so we pick the edge $e_{n+1}$ of $Δ_{n+1}$ such that $e_n ⊂ e_{n+1}$.
-  If $u_{k_n}^n$ is not isolated, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
+  \emph{Step 2}: If $u_{k_n}^n$ is not isolated, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
   Since the first case can only appear finitely many times successively, the monotone sequence $ℓ(e_n)$ has a strictly monotone subsequence.
   It is also bounded from above by the affine length of $∂Δ_0$.
   Let $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$, and $ℓ_∞$ the limit of $ℓ_n$ for $n → ∞$.
 
-  The sequence $k_n ∈ \{1,…,n_c\}$ contains some elements of $\{1,…,n_c\}$ infinitely many times.
+  \emph{Step 3}: The sequence $k_n ∈ \{1,…,n_c\}$ of labels contains some elements of $\{1,…,n_c\}$ infinitely many times.
   We may assume without loss of generality that all the elements which appear, appear infinitely many times (If this is not the case, we can choose a $N$ such that this holds for $k_n$ with $n≥N$, then setting $Δ_0=Δ_N$.), and that they are $\{1,…,n_c'≤n_c\}$ (this can be achieved by relabelling).
-
 
   Note that the vertex $u_{k_0}^0 ∈ e_0$ at which we have performed the first mutation is fixed by all subsequent $\overline{S}_{u_{k_n}^n}$, so it makes sense to speak of $u_{k_0}^0 ∈ ∂Δ_n$ for all $n$.
   Denote by $g_n(x)$ the integral affine length of the portion of $\partial \Delta_n$ contained between $u_{k_0}^0$ and $x ∈ ∂Δ_n$ in the clockwise direction.
@@ -1662,8 +1554,8 @@ Note that we have $g_n(x) = g_{n+1}(\overline{S}_{u_{k_n}^n}x)$, since integral 
   Let $a_n = \max_{k ∈\{1,…,n_c'\}} \{g_n(u_k^n)\}$.
   This is the distance from $u_{k_0}^0$ to furthest away (in terms of $g_n(\cdot)$) ATF-corner appearing in infinitely many mutations.
 We have $a_n ≤ a_{n+1}$, since $g_n(u_k^n) = g_{n+1}(u_k^{n+1})$ if $k ≠ k_n$ and $g_n(u_{k_n}^n) < g_{n+1}(u_{k_n}^{n+1})$.
-Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n ≤ ℓ_m$ for some $m>n$. The latter claim follows from the fact that each $1 ≤ k ≤ n_c'$ must appear in $k_{m}$ for $m>n$ and thus there is a mutation at which the portion of $∂ \Delta_n$ of which $a_n$ measures the integral affine length is straightened out and absorbed into $e_{k_m}$.
-  In particular $a_n → ℓ_∞$ and $a_n$ has a strictly monotone subsequence $a_{n_i}$ such that $a_{n_i} > a_{n_i - 1}$.
+Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n ≤ ℓ_m$ for some $m>n$. The latter claim follows from the fact that for $k ∈ \{1, …, n_c'\}$ realizing the maximum in the definition of $a_n$, we must have $k = k_m$ for $m>n$ (as it appears infinitely many times in $k_n$) and thus $a_n ≤ g_m(u^m_{k}) = ℓ_m$.
+In particular $a_n → ℓ_∞$ and $a_n$ has a strictly monotone subsequence $a_{n_i}$ with $a_{n_i} > a_{n_i-1}$.
 
   \begin{figure}
     \centering
@@ -1682,21 +1574,25 @@ Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n ≤ ℓ_m$ for some $m>n$. The latt
     \label{fig:stretch_wi}
   \end{figure}
   
-  Picking $w_i = u_{k_{n_i -1}}^{n_i}$, we have $a_{n_i} = g_{n_i}(w_i)$, that is it realises the maximum in the definition of $a_{n_i}$.
+  \emph{Step 4}: Pick $w_i = u_{k}^{n_i}$, with $k$ realizing the maximum in the definition of $a_{n_i}$.
+  Actually $k = k_{n_i-1}$ since $a_{n_i}>a_{n_i-1}$ means that the maximum of $a_{n_i}$ must be created by the newly created ATF-corner in $Δ_{n_i}$.
   We have $w_i ∈ ∂Δ_0$: All mutations $\overline{S}_{u_{k_n}^n}$ whose composition maps $Δ_0$ to $Δ_{n_i-1}$ had eigenlines passing through the points $u_{k_n}^n$ and $u_{k_n}^{n+1}$ with $n<n_i-1$.
-Since $g_{n_i}(w_i) > g_n(u_{k_n}^{n+1})$ for all $n<n_i-1$, $w_i$ lies in the fixed half plane  for all mutations $\overline{S}_{u_{k_n}}^n$ with $n< n_i-1$ by the convexity of the $Δ_n$. See \cref{fig:stretch_wi}.
+  Since $a_{n_i} = g_{n_i}(w_i) ≥ g_n(u_{k_n}^{n+1})$ for all $n ≤ n_i$, $w_i$ lies in the fixed half plane for all mutations $\overline{S}_{u_{k_n}}^n$ with $n ≤ n_i$ by the convexity of the $Δ_n$. See \cref{fig:stretch_wi}.
 
-  Set $w'_i = u_{k_{n_i}}^{n_i}$, and let $w_∞ ∈ ∂Δ_0$ be the limit point of $w_i$, and $w'_∞$ the limit point of $w'_i$, contained in the line spanned by $e_0$.
-  Let $v_i$ be the primitive vector pointing along $w_i-w_i'$, and $v_∞ = w_∞ - w'_∞$.
+  Set $w_i' = u_{k_{n_i-1}}^{n_i-1}$ the ATF-corner at which we mutated to get to $Δ_{n_i}$, and let $w_∞ ∈ ∂Δ_0$ be the limit point of $w_i$, and $w'_∞$ the limit point of $w'_i$, contained in the line spanned by $e_0$.
+  Let $v_i$ be the primitive vector in the ATF-corner $w_i = (x,dv_i)$ pointing along $w_i'-w_i$, and $v_∞ = w_∞' - w_∞$.
   Let $f$ be the edge of $Δ_0$ containing infinitely many $w_i$ (and $w_∞$), and $x_f$ the primitive vector pointing along $f$ in the counter-clockwise direction, and let $x_e$ be the primitive vector pointing along $e_0$ in the counter-clockwise direction.
-  Then $v_{i+1} = v_i - λx_f + μx_e$ for $λ,μ>0$ and $i$ big enough.
-  We have that $\det(v_i,x_f)>0$ (by convexity of the ATF-base diagram $Δ_n$), and also $\det(v_i,x_e)<0$.
-  So $\det(v_{i+1},v_i) > 0$.
+  Then $v_{i+1} = v_i + λx_f - μx_e$ for $λ,μ>0$ and $i$ big enough.
+  We have that $\det(x_f,v_i)>0$ (by convexity of the ATF-base diagrams $Δ_n$), and also $\det(x_e,v_i)<0$.
+  So
+  \[
+    \det(v_{i+1},v_i) = λ\det(x_f,v_i) + μ\det(x_e,v_i) > 0 \; .
+  \]
   Let $π \colon ℝ² ∖\{0\} → S¹$ be the projection onto the circle.
-  Since $\det(v_i,x_e)<0$, the points $\pi(v_i)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
+  Since $\det(x_e,v_i)<0$, the points $\pi(v_i)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
   Since $v_i$ is primitive, the Euclidean length $\norm{v_i}$ satisfies $\norm{v_i} → ∞$.
 
-  The vector $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, -v_i) → ∞$, so $w_i$ is an ATF-corner of type $(d_i,p_i,q_i)$ in $Δ_{n_i}$, and $p_i → ∞$.
+  The vector $v_∞$ is not parallel to $x_f$ (it would contradict the convergence of $w_i$), so $p_i = \det(x_f, v_i) → ∞$, so $w_i$ is an ATF-corner of type $(d_i,p_i,q_i)$ in $Δ_{n_i}$, and $p_i → ∞$.
 
   Using \cref{thm:toric_embeddings} we get partial $B_{d_i,p_i,q_i}$-embedding for all $i ∈ ℤ$.
 \end{proof}
