@@ -95,7 +95,9 @@
 \declaretheorem[sibling=theorem]{lemma, proposition, corollary}
 \declaretheorem[sibling=theorem,style=definition]{definition, example}
 \declaretheorem[sibling=theorem,style=remark]{remark}
-\declaretheorem[name=Theorem]{maintheorem}
+\declaretheorem[name=Theorem,
+refname={Theorem,Theorems},
+Refname={Theorem,Theorems}]{maintheorem}
 \renewcommand{\themaintheorem}{\Alph{maintheorem}}
 
 
@@ -1624,7 +1626,8 @@ Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such th
 \begin{theorem}
   \label{thm:main}
   The displacement energy germ of $T_{pq}^k(a) \subset B_{dpq}$ satisfies 
-  \begin{equation}  
+  \begin{equation}
+    \label{eq:main_germ}
       [e]_{T^k_{pq}(a)} (b) \sim a + \min\qty{b_1, b_1 (1-kpq) + b_2 k p^2}
   \end{equation}
     for some identification $H^1(L;\mathbb{R}) \cong \mathbb{R}^2 = \{(b_1,b_2)\}$.
@@ -1701,33 +1704,6 @@ Using \eqref{eq:ATF_fibres_switch}, we can apply \cref{thm:displacement_energy} 
 In light of the fact that \eqref{eq:VD_piprime} is a versal deformation, this proves the claim.
 \end{proof}
 
-Using \cref{thm:main}, we can prove \cref{thm:A}. 
-
-\begin{proof}[Proof of \cref{thm:A}]
-    We show that if $[e]_{T^k_{pq}(a)} \circ Φ = [e]_{T^{k'}_{pq}(a')}$ for $Φ \in \operatorname{GL(2;\mathbb{Z})}$, then $a = a'$ and $k=k'$. Indeed, by \cref{thm:main}, ...
-
-    By \cref{thm:invariant_germs}, the claim of \cref{thm:A} follows.
-
-    We show that $T^k_{pq}(a) \sim T^{k'}_{pq}(a)$.
-    Denote by $π_k,π_{k'}$ the almost toric moment maps used in \cref{def:our_tori} for $T^k_{pq}(a), T^{k'}_{pq}(a)$ respectively. We have $T^k_{pq}(a) = π_k^{-1}(x_a)$ and $T^{k'}_{pq}(a) = π_{k'}^{-1}(x_a)$.
-    Let $ε>0$ and take the Lagrangian isotopies $Λ_t^k = π_k^{-1}(x_a+(0,tε))$ and $Λ_t^{k'} = π_{k'}^{-1}(x_a+(0,tε))$.
-    By \cref{thm:VDtoricfibre}, $\Flux(Λ^k) = \Flux(Λ^{k'}) = ε$.
-    Using a nodal slide as in \cref{thm:nodal_slide} we may identify $Λ_1^k$ and $Λ_1^{k'}$.
-    Concatenating $Λ^k$ and the inverse of $Λ^{k'}$ we get a Lagrangian isotopy $Λ$ from $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ with $\Flux(Λ) = \Flux(Λ^k) - \Flux(Λ^{k'}) = 0$.
-    The maslov class is preserved under Lagrangian isotopies, and $\Flux(Λ) = 0$ means that the area class is preserved as well.
-\end{proof}
-
-
-\begin{remark}
-    \label{rk:lekili2}
-    As mentioned in \cref{rk:lekili}, some special cases of \cref{thm:A} can be deduced from \cite{LekMay14}. Indeed, 
-    \begin{enumerate}
-        \item for $p = q = 1$ and arbitrary $d$, the space $B_{d,1,1}$ appears as Milnor fibre of the smoothing of the $A_{d-1}$-singularity (see also \cite[Section 7.3]{evans2021atfs}) and \cite[Lemma 2.19]{LekMay14} yields a count of Maslov index two $J$-holomorphic disks with boundary on the tori $T^k_{1,1}$. This count depends on $k$ and, by monotonicity of the tori, is a symplectic invariant, see \cite{EliPol97}. Thus \cite[Lemma 2.19]{LekMay14} distinguishes the tori.
-        \item for $d = 1$ and arbitrary $(p,q)$, the torus $T^1_{pq}(a)$ is non-displaceable by \cite[Proposition 3.6]{LekMay14}. Since $T^0_{pq}$ is displaceable by the methods used in \cref{sec:upper_bound}, we deduce $T^0_{pq} \ncong T^1_{pq}$.
-    \end{enumerate}
-    The special case of $d=2$ and $p=q=1$ corresponds to $B_{2,1,1} \cong T^*S^2$ and thus follows from earlier work \cite{AlbFra08}, see also the discussion in \cref{sec:intro_cotangent}. Our method of proof is different from the one used in \cite{LekMay14}. Instead of a count of Maslov index two $J$-holomorphic disks, we rely on the displacement energy germ to distinguish tori. The upshot of the method used in \cite{LekMay14} is that it yields non-displaceability results via computing the Floer homology. Our methods, on the other hand can be applied to non-monotone tori, which will be crucial in \cref{thm:B}. Because of bubbling, the count of Maslov index two $J$-holomorphic disks depends on the choice of $J$ and does not yield an invariant in that case.
-\end{remark}
-
 Now let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $B_{dpq}$-embedding in the sense of \cref{def:partial_embedding}.
 In \cref{thm:displacement_energy_embedded}, we have proved that $e(\varphi(T(x))) = e(T(x)) = x_1$ for small enough $x \in \Delta_{dpq}$.
 This means that the same method as in the proof of \cref{thm:main} can be used to determine the displacement energy germ of such $\varphi(T(x)) \subset X$. 
@@ -1750,7 +1726,39 @@ Then there exists $a_0 > 0$ such that for all $a < a_0$, the displacement energy
   As $φ$ preserves the displacement energy of $T(x)$ for $x ∈ V \setminus R$ by \cref{thm:displacement_energy,thm:displacement_energy_embedded}, we have $[e]_L \sim [e]_{φ(L)} ∘ φ^*$.
 \end{proof}
 
-Theorem \cref{thm:B} can be deduced from \cref{thm:main_embedded} in the same way as \cref{thm:A} from \cref{thm:main}.
+Using \cref{thm:main,thm:main_embedded}, we can prove \cref{thm:A,thm:B}: 
+
+\begin{proof}[Proof of \cref{thm:A,thm:B}]
+We show that if $[e]_{T^k_{pq}(a)} \circ Φ ~ [e]_{T^{k'}_{p'q'}(a')}$ for $Φ \in \GL(2;\mathbb{Z})$, then $a = a'$ and either $k=k' = 0$ or $(k,p,q) = (k',p',q')$.
+$a = a'$ is obvious.
+Equations \eqref{eq:main_germ} and \eqref{eq:main_germ_embedded} are both given as the minimum of two linear functions $α^k_{pq},β^k_{pq}$, where
+\[α^{ka}_{pq}(b) = a + \det(b,\mqty(0 \\ 1)) \quad β^k_pq(b) = a - \det(b,\mqty(kp² \\ kpq-1)) \; .\]
+The set $\{α^k_{pq} = β^k_{pq}\}$ is given by the space spanned by the vector $v=(p,q)$. Let $u_1 = \mqty(0 \\ 1)$ and $u_2 = \mqty(kp² \\ kpq -1)$ the vectors pointing along the level sets of $α^k_{pq}$ and $β^k_{pq}$ respectively, and define $v',u'_1,u'_2$ similarly.
+
+Suppose $\min\qty{α^k_{pq},β^k_{pq}} ∘ Φ \sim \min\qty{α^{k'}_{p'q'},β^{k'}_{p'q'}}$.
+Then $Φ(v') = v$ and $Φ(\{u'_1,u'_2\}) = \{u_1,u_2\}$.
+Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between $v$ and $u_1$ (or $u_2$) determines $(p,q) ∈ ℕ_{>0} × ℤ_p/{±1}$, and $u_1+u_2 = k(p,q)$, determining $k$.
+    By \cref{thm:invariant_germs}, the claim of \cref{thm:A} follows.
+
+    We show that $T^k_{pq}(a) \sim T^{k'}_{pq}(a)$.
+    Denote by $π_k,π_{k'}$ the almost toric moment maps used in \cref{def:our_tori} for $T^k_{pq}(a), T^{k'}_{pq}(a)$ respectively. We have $T^k_{pq}(a) = π_k^{-1}(x_a)$ and $T^{k'}_{pq}(a) = π_{k'}^{-1}(x_a)$.
+    Let $ε>0$ and take the Lagrangian isotopies $Λ_t^k = π_k^{-1}(x_a+(0,tε))$ and $Λ_t^{k'} = π_{k'}^{-1}(x_a+(0,tε))$.
+    By \cref{thm:VDtoricfibre}, $\Flux(Λ^k) = \Flux(Λ^{k'}) = ε$.
+    Using a nodal slide as in \cref{thm:nodal_slide} we may identify $Λ_1^k$ and $Λ_1^{k'}$.
+    Concatenating $Λ^k$ and the inverse of $Λ^{k'}$ we get a Lagrangian isotopy $Λ$ from $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ with $\Flux(Λ) = \Flux(Λ^k) - \Flux(Λ^{k'}) = 0$.
+    The maslov class is preserved under Lagrangian isotopies, and $\Flux(Λ) = 0$ means that the area class is preserved as well.
+\end{proof}
+
+
+\begin{remark}
+    \label{rk:lekili2}
+    As mentioned in \cref{rk:lekili}, some special cases of \cref{thm:A} can be deduced from \cite{LekMay14}. Indeed, 
+    \begin{enumerate}
+        \item for $p = q = 1$ and arbitrary $d$, the space $B_{d,1,1}$ appears as Milnor fibre of the smoothing of the $A_{d-1}$-singularity (see also \cite[Section 7.3]{evans2021atfs}) and \cite[Lemma 2.19]{LekMay14} yields a count of Maslov index two $J$-holomorphic disks with boundary on the tori $T^k_{1,1}$. This count depends on $k$ and, by monotonicity of the tori, is a symplectic invariant, see \cite{EliPol97}. Thus \cite[Lemma 2.19]{LekMay14} distinguishes the tori.
+        \item for $d = 1$ and arbitrary $(p,q)$, the torus $T^1_{pq}(a)$ is non-displaceable by \cite[Proposition 3.6]{LekMay14}. Since $T^0_{pq}$ is displaceable by the methods used in \cref{sec:upper_bound}, we deduce $T^0_{pq} \ncong T^1_{pq}$.
+    \end{enumerate}
+    The special case of $d=2$ and $p=q=1$ corresponds to $B_{2,1,1} \cong T^*S^2$ and thus follows from earlier work \cite{AlbFra08}, see also the discussion in \cref{sec:intro_cotangent}. Our method of proof is different from the one used in \cite{LekMay14}. Instead of a count of Maslov index two $J$-holomorphic disks, we rely on the displacement energy germ to distinguish tori. The upshot of the method used in \cite{LekMay14} is that it yields non-displaceability results via computing the Floer homology. Our methods, on the other hand can be applied to non-monotone tori, which will be crucial in \cref{thm:B}. Because of bubbling, the count of Maslov index two $J$-holomorphic disks depends on the choice of $J$ and does not yield an invariant in that case.
+\end{remark}
 
 \section{Examples}
 \label{sec:examples}
