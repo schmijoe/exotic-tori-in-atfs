@@ -1705,7 +1705,7 @@ This means that the same method as in the proof of \cref{thm:main} can be used t
 Then there exists $a_0 > 0$ such that for all $a < a_0$, the displacement energy germ of $\varphi(T^k_{pq}(a)) \subset X$ satisfies
         \begin{equation}
             \label{eq:main_germ_embedded}
-            [e]_{\varphi(T^k_{pq}(a))} (b) \sim a + \min\qty{b_1, b_1 (1-kpq) + b_2 k p^2}.
+            [e]_{\varphi(T^k_{pq}(a))} (b) \,\sim\, a + \min\qty{b_1, b_1 (1-kpq) + b_2 k p^2}.
         \end{equation}
 \end{theorem}
 
@@ -1713,7 +1713,7 @@ Then there exists $a_0 > 0$ such that for all $a < a_0$, the displacement energy
   Let $V ⊂ Δ_{dpq}$ be the subset given by \cref{thm:displacement_energy_embedded} such that $e(φ(T(x))) = x_1$ for $x ∈ V$.
   Let $a_0$ be the supremum over all $a$ such that $x_a = \qty(a,\frac{aq}{p}) ∈ V \setminus R$.
   Picking $a<a_0$ and setting $L = T^k_{pq}(a)$ we construct the versal deformation $v_L$ in the same manner as in \cref{thm:main}.
-  Now $v_{φ(L)} = φ ∘ v_L ∘ φ^*$ is a versal deformation of $φ(L)$, here $φ^*$ is the induced map on cohomology.
+  Now $v_{φ(L)} = φ ∘ v_L ∘ φ^*$ is a versal deformation of $φ(L)$, where $φ^*$ is the induced map on cohomology.
   As $φ$ preserves the displacement energy of $T(x)$ for $x ∈ V \setminus R$ by \cref{thm:displacement_energy,thm:displacement_energy_embedded}, we have $[e]_L \sim [e]_{φ(L)} ∘ φ^*$.
 \end{proof}
 
@@ -1738,7 +1738,7 @@ Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between 
     By \cref{thm:VDtoricfibre}, $\Flux(Λ^k) = \Flux(Λ^{k'}) = ε$.
     Using a nodal slide as in \cref{thm:nodal_slide} we may identify $Λ_1^k$ and $Λ_1^{k'}$.
     Concatenating $Λ^k$ and the inverse of $Λ^{k'}$ we get a Lagrangian isotopy $Λ$ from $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ with $\Flux(Λ) = \Flux(Λ^k) - \Flux(Λ^{k'}) = 0$.
-    The maslov class is preserved under Lagrangian isotopies, and $\Flux(Λ) = 0$ means that the area class is preserved as well.
+    The Maslov class is preserved under Lagrangian isotopies, and $\Flux(Λ) = 0$ means that the area class is preserved as well.
 \end{proof}
 
 
@@ -1755,10 +1755,10 @@ Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between 
 \section{Examples}
 \label{sec:examples}
 
-\paragraph{Polterovich tori in \texorpdfstring{$B_{dpq}$}{B_dpq}.}
+\subsection{Polterovich tori in \texorpdfstring{$B_{dpq}$}{B_dpq}.}
 As discussed in \cite[Remark 7.10]{evans2021atfs}, if $d>1$, the space $B_{dpq}$ contains a Lagrangian $S²$.
 Together with \cref{thm:lag_sphere}, this means every time we have a partial $B_{dpq}$-embedding with $d>1$, we also get a partial $B_{2,1,0}$-embedding "for free".
-In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any $B_{dpq}$-embedding with $d>1$.
+In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any partial $B_{dpq}$-embedding with $d>1$.
 
 \subsection{Stretching an Edge}
 \label{sec:stretch_edge}
@@ -1769,7 +1769,7 @@ In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any 
   Then there is a sequence $(d_i,p_i,q_i)$ with $p_i → ∞$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
 \end{proposition}
 
-We can assume, after performing a nodal trade, that every vertex of $Δ$ has one or multiple corresponding nodes, and, by nodal slides, that all the branch cuts are negligibly small.
+We can assume, after performing nodal trades, that every vertex of $Δ$ has one or multiple corresponding nodes and, by nodal slides, that all the branch cuts are negligibly small.
 
 Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(x,dv)$ given by a vertex $x$ and a multiple $dv$ of the branch cut direction.
 
@@ -1781,16 +1781,19 @@ Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(
 Also, recall that the piece-wise linear map associated to the change of branch cut is given by $\overline{S}_{(x,dv)}$, as defined in \eqref{eq:half-shear}.
 
 The idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations on $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
-In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fix an edge and perform iterated mutations at an adjacent vertex.
+In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fix an edge and perform iterated mutations at its left end.
 Under this operation the integral affine length of the edge in question increases.
 
 \begin{remark}
-    Let us briefly describe what the algorithm in the proof of \cref{thm:toric_embeddings} yields for the case of $X = \mathbb{C}P^2$. Vianna \cite{Via16} proved that the set of ATF-base diagrams of $\mathbb{C}P^2$ obtained from the toric Delzant polytope by mutations is, up to nodal slides, in bijection with so-called Markov triples, i.e.\ solutions to the Markov equation. It follows immediately from the definition of the series of mutations used in the proof of \cref{thm:toric_embeddings} that, in the case of $\mathbb{C}P^2$, starting from the standard toric structure, this series corresponds to the unique branch of Markov triples in the Markov tree that contains always contains $1$. If we start at another Markov triangle, it corresponds to ...
-For more details on this, and in particular the combinatorics of the sequences involved, we refer to \cite[Section 8.4, Appendix I]{evans2021atfs}.
+    Let us briefly describe what the algorithm in the proof of \cref{thm:toric_embeddings} yields for the case of $X = \mathbb{C}P^2$.
+    Vianna \cite{Via16} proved that the set of ATF-base diagrams of $\mathbb{C}P^2$ obtained from the toric Delzant polytope by mutations is, up to nodal slides, in bijection with so-called Markov triples, i.e.\ solutions to the Markov equation.
+  In the case of $\mathbb{C}P^2$ it follows immediately from the definition of the sequence of mutations used in the proof of \cref{thm:toric_embeddings} that, starting from the standard toric structure, this sequence corresponds to the unique branch of Markov triples in the Markov tree that contain a $1$.
+    If we start at another Markov triangle, it corresponds to the branch in the Markov tree obtained by fixing one number in the Markov triple.
+For more details on this, and in particular the combinatorics of the sequences involved, we refer to \cite[Section~8.4, Appendix~I]{evans2021atfs}.
 \end{remark}
 
 \begin{proof}[Proof of \cref{thm:toric_embeddings}]
-To simplify, we slightly abuse notation in this proof and denote by $u$ the ATF-corner, as well as the corresponding vertex $x$. Throughout the proof we assume, possibly after performing nodal slides, that all branch cuts are negligibly small.
+To simplify, we slightly abuse notation and denote by $u$ the ATF-corner as well as the corresponding vertex $x$. Throughout the proof we assume, possibly after performing nodal slides, that all branch cuts are negligibly small.
 
 \medskip
 
@@ -1798,14 +1801,15 @@ To simplify, we slightly abuse notation in this proof and denote by $u$ the ATF-
 Set $Δ_0 = Δ$ and pick an edge $e_0$ of $Δ_0$.
 We may assume $e_0 ⊂ ℝ × \{0\}$ and $Δ_0 ⊂ ℝ × ℝ_{ ≥0}$.
 We will elongate $e_0$ by repeated iterations at an adjacent ATF-corner.
-In other words, we will define a sequence $\{\Delta_n\}_{n \in  \mathbb{N}}$ of almost toric base diagrams obtained by mutation from $\Delta_0$, which contain a distinguished edge $e_n \subset \Delta_n$ such that $e_0 \subset e_n$ as a set.
+In other words, we will define a sequence $\{\Delta_n\}_{n \in  \mathbb{N}}$ of almost toric base diagrams obtained by mutation from $\Delta_0$, which contain a distinguished edge $e_n \subset \Delta_n$.
 
 Let $u_1^0,…,u_{n_c}^0$ be the ATF-corners of $Δ_0$, where $n_c$ is the number of ATF-corners.
 Let $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ be the result of mutating $Δ_n$ at the ATF-corner $u_{k_n}^n$ next to $e_n$ in the clockwise direction and if $e_n$ has multiple non-isolated ATF-corners at this vertex, we pick $u_{k_n}^n = (x,v)$ for which $v$ forms the smallest angle with $e_n$.
-Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and for $i=k_n$ choose $u_{k_n}^{n+1}$ to be the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
+Let $u_1^{n+1},…,u_{n_c}^{n+1}$ be the corners of $Δ_{n+1}$, such that for $i ≠ k_n$ we have $\overline{S}_{u_{k_n}^n} u_i^n = u_i^{n+1}$ and such that for $i=k_n$, $u_{k_n}^{n+1}$ is the new ATF-corner created by the mutation at $u_{k_n}^n$.\footnote{After a mutation we might loose an ATF-corner if the eigenline of $u_{k_n}^n$ intersects $∂Δ_n$ in another ATF-corner with the same eigenline.
 We can assume without loss of generality that this does not happen. Indeed, the sequence $Δ_n$ must attain its minimum number of ATF-corners, so it will be constant for all $n ≥N$ for some $N ∈ ℤ$ and we then take $Δ_0=Δ_N$.} In other words, the elements in the set $\{1,\ldots,n_c\}$ can be thought of as labels of ATF-corners, where every ATF-corner in $Δ_{n+1} = \overline{S}_{u_{k_n}^n} Δ_n$ inherits the label of its preimage in $\Delta_n$, except for the newly created ATF-corner in $\Delta_{n+1}$, which inherits the label of the ATF-corner in $\Delta_n$ at which mutation was performed.
 See \cref{fig:stretch_iteration}, where we have indicated the labels by colours.
-Note that $e_n$ lies in the fixed half plane of $\overline{S}_{u_{k_n}^n}$, so we pick the edge $e_{n+1}$ of $Δ_{n+1}$, such that $e_{n+1} ⊃ e_n$.
+Note that $e_n$ lies in the half plane fixed by $\overline{S}_{u_{k_n}^n}$.
+Take $e_{n+1}$ to be the edge of $Δ_{n+1}$ such that $e_{n+1} ⊃ e_n$.
 
 \begin{figure}
   \centering
@@ -1842,12 +1846,12 @@ Note that $e_n$ lies in the fixed half plane of $\overline{S}_{u_{k_n}^n}$, so w
   \emph{Step 2}: If $u_{k_n}^n$ is not isolated, we have $ℓ(e_{n+1}) = ℓ(e_n)$, where $ℓ(e)$ denotes the affine length of an edge $e$, otherwise $ℓ(e_{n+1}) > ℓ(e_n)$.
   Since the first case can only appear finitely many times successively, the monotone sequence $ℓ(e_n)$ has a strictly monotone subsequence.
   It is also bounded from above by the affine length of $∂Δ_0$.
-  Define $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$ and denote by $ℓ_∞$ the limit of $ℓ_n$ for $n → ∞$.
+  Define $ℓ_n = ℓ(e_{n}) - ℓ(e_0)$ and denote by $ℓ_∞$ the limit of $ℓ_n$ as $n → ∞$.
 
   \medskip
   
   \emph{Step 3}: The sequence $k_n ∈ \{1,…,n_c\}$ of labels contains some elements of $\{1,…,n_c\}$ infinitely many times.
-  We may assume without loss of generality that all the elements which appear, appear infinitely many times. If this is not the case, we can choose a $N$ such that this holds for $k_n$ with $n≥N$ and then set $Δ_0=Δ_N$. Furthermore, we can assume that the labels appearing infinitely many times are $\{1,…,n_c'≤n_c\}$, which can be achieved by relabelling.
+  We may assume without loss of generality that all the elements which appear, appear infinitely many times. If this is not the case, we can choose $N$ such that this holds for $k_n$ with $n≥N$ and then set $Δ_0=Δ_N$. Furthermore, we can assume that the labels appearing infinitely many times are $\{1,…,n_c'≤n_c\}$, which can be achieved by relabelling.
 
   Note that the vertex $u_{k_0}^0 ∈ e_0$ at which we have performed the first mutation is fixed by all subsequent $\overline{S}_{u_{k_n}^n}$, so it makes sense to speak of $u_{k_0}^0 ∈ ∂Δ_n$ for all $n$.
   Denote by $g_n(x)$ the integral affine length of the portion of $\partial \Delta_n$ contained between $u_{k_0}^0$ and $x ∈ ∂Δ_n$ in the clockwise direction.
@@ -1855,8 +1859,9 @@ Note that we have $g_n(x) = g_{n+1}(\overline{S}_{u_{k_n}^n}x)$, since integral 
 
   Define $a_n = \max_{k ∈\{1,…,n_c'\}} \{g_n(u_k^n)\}$, which is the distance from $u_{k_0}^0$ to the  ATF-corner furthest away in terms of $g_n(\cdot)$ appearing in infinitely many mutations.
 We have $a_n ≤ a_{n+1}$, since $g_n(u_k^n) = g_{n+1}(u_k^{n+1})$ if $k ≠ k_n$ and $g_n(u_{k_n}^n) < g_{n+1}(u_{k_n}^{n+1})$ otherwise.
-Also $a_n > ℓ_n = g_n(u_{k_n}^n)$ and $a_n ≤ ℓ_m$ for some $m>n$. The latter claim follows from the fact that for $k ∈ \{1, …, n_c'\}$, realizing the maximum in the definition of $a_n$, we must have $k = k_m$ for $m>n$, as it appears infinitely many times in $k_n$, and thus $a_n ≤ g_m(u^m_{k_m}) = ℓ_m$.
-In particular, $a_n → ℓ_∞$ and $a_n$ has a strictly monotone subsequence $a_{n_i}$ with $a_{n_i} > a_{n_i-1}$.
+Also $a_n ≥ ℓ_n = g_n(u_{k_n}^n)$ and $a_n ≤ ℓ_m$ for some $m>n$.
+The latter claim follows from the fact that for $k ∈ \{1, …, n_c'\}$ realizing the maximum in the definition of $a_n$ we must have $k = k_m$ for some $m>n$, as $k$ appears infinitely many times in $\{k_m\}_{m ∈ ℕ}$, and thus $a_n = g_n(u^n_{k_m}) ≤ g_m(u^m_{k_m}) = ℓ_m$.
+In particular, $a_n → ℓ_∞$ and we can choose a strictly monotone subsequence $a_{n_i}$ with $a_{n_i} > a_{n_i-1}$.
 
   \begin{figure}
     \centering
@@ -1879,8 +1884,8 @@ In particular, $a_n → ℓ_∞$ and $a_n$ has a strictly monotone subsequence $
   
   \emph{Step 4}: Now chose the natural number $k$ realizing the maximum in the definition of $a_{n_i}$ and define $w_i = u_{k}^{n_i}$.
   Actually it follows from the definitions that $k = k_{n_i-1}$, since $a_{n_i}>a_{n_i-1}$ means that the maximum of $a_{n_i}$ must be created by the newly created ATF-corner in $Δ_{n_i}$, which is $u_{k_{n_i-1}}^{n_i}$.
-  We have $w_i ∈ ∂Δ_0$. Indeed, the maps $\overline{S}_{u_{k_n}^n}\colon Δ_n \to Δ_{n+1}$ divide $∂Δ_n$ into two parts:
-  If $x∈∂Δ_n$ satisfies $g_n(x) ∈ [g_n(u_{k_n}^n),g_{n+1}(u_{k_n}^{n+1})]$, i.e. $x$ lies in the interval in $∂Δ_n$ from $u_{k_n}^n$ to $u_{k_n}^{n+1}$ in the clockwise direction, we have $\overline{S}_{u_{k_n}^n} x = S_{u_{k_n}^n} x$. Otherwise it is in the fixed half plane of $\overline{S}_{u_{k_n}^n}$.
+  We have $w_i ∈ ∂Δ_0$: Indeed, the maps $\overline{S}_{u_{k_n}^n}\colon Δ_n \to Δ_{n+1}$ divide $∂Δ_n$ into two parts:
+  If $x∈∂Δ_n$ satisfies $g_n(x) ∈ \qty[g_n(u_{k_n}^n),g_{n+1}(u_{k_n}^{n+1})]$, i.e. $x$ lies in the interval in $∂Δ_n$ from $u_{k_n}^n$ to $u_{k_n}^{n+1}$ in the clockwise direction, we have $\overline{S}_{u_{k_n}^n} x = S_{u_{k_n}^n} x$. Otherwise it is in the fixed half plane of $\overline{S}_{u_{k_n}^n}$.
   Since $g_{n_i}(w_i) > g_n(u_k^n)$ for all $k ∈ \{1,…,n_c\}$ and $n<n_i$ the point $w_i$ lies in the intersection of the half planes that are fixed by all the mutations that are applied in the sequence from $Δ_0$ to $Δ_{n_i}$.
 
   Define $w_i' = u_{k_{n_i-1}}^{n_i-1}$, which is the ATF-corner at which we mutated to get to $Δ_{n_i}$. Denote by $w_∞ ∈ ∂Δ_0$ the limit point of $w_i$ and denote by $w'_∞$ the limit point of $w'_i$, contained in the line spanned by $e_0$. See \cref{fig:stretch_wi}.
