@@ -1380,6 +1380,18 @@ In light of this remark it seems reasonable to conjecture that all $T^k_{pq}(a) 
     \end{enumerate}
 \end{definition}
 
+\begin{remark}
+  In the Introduction we used a slightly different definition of a partial $B_{dpq}$-embedding, namely being an embedding of a neighbourhood of the Lagrangian skeleton $S$ of $B_{dpq}$.
+
+  Indeed, the two are equivalent:
+  Obviously \cref{def:partial_embedding} gives a neighbourhood of the Lagrangian skeleton.
+  For the other direction, we need to construct a almost toric moment map satisfying 2.\ in \cref{def:partial_embedding}.
+  Let $L$ be the lens space $L(dp²,dpq-1)$, and $CL$ the cone over it.
+  $B_{dpq} ∖ S$ is symplectomorphic to $C L ∖ \{ ⋆\}$, where $⋆$ is the orbifold point in $CL$.
+  $CL$ has a toric moment map which is smooth except at $⋆$, which can be pulled back to $B_{dpq}$ and perturbed slightly to give an almost toric moment map with the desired properties.
+  See \cite{Eva19} for some more details.
+\end{remark}
+
 \begin{figure}
     \centering
     \begin{tikzpicture}
@@ -1733,7 +1745,8 @@ We show that if $[e]_{T^k_{pq}(a)} \circ Φ ~ [e]_{T^{k'}_{p'q'}(a')}$ for $Φ \
 $a = a'$ is obvious.
 Equations \eqref{eq:main_germ} and \eqref{eq:main_germ_embedded} are both given as the minimum of two linear functions $α^k_{pq},β^k_{pq}$, where
 \[α^{ka}_{pq}(b) = a + \det(b,\mqty(0 \\ 1)) \quad β^k_pq(b) = a - \det(b,\mqty(kp² \\ kpq-1)) \; .\]
-The set $\{α^k_{pq} = β^k_{pq}\}$ is given by the space spanned by the vector $v=(p,q)$. Let $u_1 = \mqty(0 \\ 1)$ and $u_2 = \mqty(kp² \\ kpq -1)$ the vectors pointing along the level sets of $α^k_{pq}$ and $β^k_{pq}$ respectively, and define $v',u'_1,u'_2$ similarly.
+The set $\{α^k_{pq} = β^k_{pq}\}$ is given by the space spanned by the vector $v=(p,q)$.
+Let $u_1 = \mqty(0 \\ 1)$ and $u_2 = \mqty(kp² \\ kpq -1)$ the vectors pointing along the level sets of $α^k_{pq}$ and $β^k_{pq}$ respectively, and define $v',u'_1,u'_2$ similarly.
 
 Suppose $\min\qty{α^k_{pq},β^k_{pq}} ∘ Φ \sim \min\qty{α^{k'}_{p'q'},β^{k'}_{p'q'}}$.
 Then $Φ(v') = v$ and $Φ(\{u'_1,u'_2\}) = \{u_1,u_2\}$.
