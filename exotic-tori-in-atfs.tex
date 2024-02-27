@@ -52,7 +52,7 @@
 \usepackage{physics} % various shortcuts
 
 % Bibliography
-\usepackage[style=numeric]{biblatex}
+\usepackage[style=numeric-comp,url=false,isbn=false]{biblatex}
 \addbibresource{bibliography.bib}
 
 % For general figures
@@ -116,8 +116,26 @@ Refname={Theorem,Theorems}]{maintheorem}
 \DeclareMathOperator{\Crit}{Crit}
 
 \begin{document}
-\title{Semi-Local exotic Lagrangian Tori in Dimension Four}
-\author{JoJoJo}
+\title{Semi-Local Exotic Lagrangian Tori in Dimension Four\\
+\bigskip
+\begin{tikzpicture}[scale=0.9]
+\foreach \y in {0,1,2,3} {
+  \begin{scope}[shift={(4*\y-1.5,0)}]
+    \fill[opacity=0.1] (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
+    \begin{scope}
+      \clip (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
+      \foreach \x in {0.2,0.4,...,3.5}
+          \draw[very thin,gray] (\x+.5,1) -- (\x,0) -- (\x+\y-.5,-1);
+    \end{scope}
+    \draw[very thick, white] (0,0) -- (3,0);
+    \draw[thick] (0.5,1) -- (0,0) -- (-0.5+\y,-1);
+    \ifnum\y>0\relax\draw[dashed] (0,0) \foreach \x in {1,...,\y} { -- +({\x*1.5/(\y+1)},0) node[cross] {} };\fi
+    \ifnum\y<3\relax\draw[dashed] (3,0) \foreach \x in {\y,...,2} { -- +({-(3-\x)*1.5/(4-\y)},0) node[cross] {} };\fi
+    \fill (1.5,0) circle[radius=1.5pt];
+  \end{scope}
+}
+\end{tikzpicture}\vspace{-0.5cm}}
+\author{Joé Brendel, Johannes Hauber, Joel Schmitz}
 
 \maketitle
 
@@ -179,7 +197,7 @@ The second point of view, which is the one we will adopt in this paper, is that 
 The spaces $B_{dpq}$ appear naturally as spaces having an almost toric base diagram with one single vertex.
 In other words, these spaces are the elementary building blocks of almost toric manifolds and thus very natural objects of study.
 Just like every vertex of a toric moment map image yields a symplectic ball embedding, every vertex of an almost toric base diagram yields a symplectic embedding of a subset of $B_{dpq}$.
-We postpone the discussion of almost toric geometry to \cref{sec:intro_atfs} and to \cref{sec:local_model}. 
+We postpone the discussion of almost toric geometry to \cref{sec:intro_methods} and to \cref{sec:local_model}. 
 
 \begin{maintheorem}
     \label{thm:A}
@@ -308,10 +326,12 @@ Then there is a symplectic form $\omega$ on $X$ for which $X$ contains infinitel
 \end{corollary}
 
 \subsection{Methods}
-\label{sec:intro_atfs}
-\label{sec:intro_deg}
+\label{sec:intro_methods}
 
-To construct and understand the tori considered in this paper, we use almost toric fibrations (ATFs) and to distiguish them, we use the displacement energy germ. Let us briefly discuss these methods. For a discussion and comparison to other works and methods, and in particular the use of the count of Maslov index two $J$-holomorphic disks, we refer to \cref{sec:intro_discussion}.
+To construct and understand the tori considered in this paper we use almost toric fibrations (ATFs).
+To distiguish them we use the displacement energy germ.
+Let us briefly discuss these methods.
+For a discussion and comparison to other works and methods, and in particular the use of the count of Maslov index two $J$-holomorphic disks, we refer to \cref{sec:intro_discussion}.
 
 By the Arnold-Liouville theorem, a compact regular fibre of a completely integrable system is a Lagrangian torus. Vianna \cite{Via16,Via17} noticed that a certain type of completely integrable systems, called \emph{almost toric fibrations}, is a rich source of exotic tori. We give an overview of almost toric fibrations in \cref{sec:atgeometry} and refer to \cite{evans2021atfs} for more details. A crucial feature of ATFs is that, on a fixed symplectic manifold, there are certain operations by which one can produce new almost toric fibrations from a given one. One such operation is called \emph{nodal slide}. A nodal slide produces a one-parameter family of almost toric fibrations on the same space, which very often produces exotic Lagrangian tori. For example, sliding a node across the base point of Clifford torus in $\mathbb{R}^4$ produces a Chekanov torus. We discuss this simple example in detail in \cref{sec:howto_exotic}.
 
@@ -337,12 +357,13 @@ This is how \cref{thm:intro_stretch} is proved.
         \foreach \y in {0,1,2,3} {
           \begin{scope}[shift={(4*\y-1.5,0)}]
             \fill[opacity=0.1] (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
-            \draw[thick] (0.5,1) -- (0,0) -- (-0.5+\y,-1);
             \begin{scope}
               \clip (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
               \foreach \x in {0.2,0.4,...,3.5}
                   \draw[very thin,gray] (\x+.5,1) -- (\x,0) -- (\x+\y-.5,-1);
             \end{scope}
+            \draw[very thick, white] (0,0) -- (3,0);
+            \draw[thick] (0.5,1) -- (0,0) -- (-0.5+\y,-1);
             \ifnum\y>0\relax\draw[dashed] (0,0) \foreach \x in {1,...,\y} { -- +({\x*1.5/(\y+1)},0) node[cross] {} };\fi
             \ifnum\y<3\relax\draw[dashed] (3,0) \foreach \x in {\y,...,2} { -- +({-(3-\x)*1.5/(4-\y)},0) node[cross] {} };\fi
             \fill (1.5,0) circle[radius=1pt] node[anchor=south] {$T^\y_{2,1}(a)$};
@@ -352,6 +373,7 @@ This is how \cref{thm:intro_stretch} is proved.
             \clip[draw] (0,0) circle[radius=1];
             \foreach \x in {-4,-3.8,...,1}
               \draw[very thin,gray] (\x+0.5,1) -- (\x,0) -- (\x-0.5+\y,-1);
+            \draw[very thick, black!20] (-1,0) -- (1,0);
             \fill (0,0) circle[radius=1pt];
           \end{scope}
         }
@@ -364,14 +386,16 @@ This is how \cref{thm:intro_stretch} is proved.
 As discussed above, the tori $T^0_{pq}, \ldots , T^d_{pq} \subset B_{dpq}$ appear as fibres of different almost toric fibrations of $B_{dpq}$.
 More specifically, they lie on the branch cut line of its almost toric base diagram, and $k$ in $T^k_{pq}$ is the number of nodes to one side of its base point (on the left by our conventions), see the upper half of \cref{fig:germ_examples}.
 In particular, fibres $T^k_{pq}(a)$ and $T^{k'}_{pq}(a)$ with $k \neq k'$ do not both appear as fibres in the same almost toric base diagram.
-Indeed, we note that the upper diagrams in \cref{fig:germ_examples} are related by a nodal slide (and a change in branch cut, for better visibility). \smallskip
+Indeed, we note that the upper diagrams in \cref{fig:germ_examples} are related by a nodal slide (and a change in branch cut, for better visibility).
+
+\medskip
 
 The invariant we use to distinguish the Lagrangian tori is the so called \textbf{displacement energy germ}.
-For a compact Lagrangian $L \subset (X,\omega)$, its displacement energy germ is a germ $[e]_L \colon H^1(L;\mathbb{R}) \rightarrow \mathbb{R} \cup \{+\infty\}$, which is derived from displacement energy via \textbf{versal deformations}, introduced in \cite{Che96}, see \cite{brendel2020real,brendel2023local,CheSch10} for other applications of this method.
+For a compact Lagrangian $L \subset (X,\omega)$ its displacement energy germ is a germ $[e]_L \colon H^1(L;\mathbb{R}) \rightarrow \mathbb{R} \cup \{+\infty\}$ which is derived from displacement energy via \textbf{versal deformations} introduced in \cite{Che96}. See \cite{brendel2020real,brendel2023local,CheSch10} for other applications of this method.
 Rougly speaking, the germ $[e]_L$ measures how displacement energy behaves on infinitesimal deformations of the Lagrangian $L$ (in the space of Lagrangians) modulo infinitesimal Hamiltonian isotopies.
 We carefully discuss versal deformations in \cref{sec:versal_deformations}. 
 
-If the Lagrangian in question happens to be an (almost) toric fibre, then its versal deformation is simply given by varying the base point of the fibration, see \cref{sec:vd_AL}. Thus, in order to compute the germs $[e]_{T^k_{pq}(a)}$ (given in \cref{thm:main}), we compute the displacement energy of almost toric fibres in $B_{dpq}$. This is carried out in \cref{sec:upper_bound} and \cref{sec:lower_bound}. See \cref{fig:germ_examples} for a sketch of the level set of these germs. Curiously enough, we do not determine the displacement energy of the tori $T^{k}_{pq}(a)$ themselves\footnote{Some of them are known to be non-displaceable, see \cref{rk:nondisplaceable}}. Indeed, it is sufficient to know $[e]_{T^k_{pq}(a)}$ on an open dense subset in order to distinguish them. 
+If the Lagrangian in question happens to be an (almost) toric fibre, then its versal deformation is simply given by varying the base point of the fibration, see \cref{sec:vd_AL}. Thus, in order to compute the germs $[e]_{T^k_{pq}(a)}$ (given in \cref{thm:main}), we compute the displacement energy of almost toric fibres in $B_{dpq}$. This is carried out in \cref{sec:upper_bound,sec:lower_bound}. See \cref{fig:germ_examples} for a sketch of the level set of these germs. Curiously enough, we do not determine the displacement energy of the tori $T^{k}_{pq}(a)$ themselves\footnote{Some of them are known to be non-displaceable, see \cref{rk:nondisplaceable}}. Indeed, it is sufficient to know $[e]_{T^k_{pq}(a)}$ on an open dense subset in order to distinguish them. 
 
 In the case of the image of the tori $T^k_{pq}$ under partial $B_{dpq}$-embeddings, i.e.\ to prove \cref{thm:B}, the following two properties are key:
 
@@ -435,9 +459,9 @@ On the other hand, our results apply more broadly to any partial $B_{dpq}$-embed
 
 In \cref{sec:local_model}, we discuss almost toric fibrations (\cref{sec:atgeometry}), their fibres (\cref{sec:atfibres}), we introduce the model spaces $B_{dpq}$ (\cref{sec:modelspaces}) and discuss partial $B_{dpq}$\-/embeddings coming from general almost toric base diagrams (\cref{sec:atf_base_diagrams}).
 In \cref{sec:vds}, we introduce the displacement energy germ.
-Sections \cref{sec:lagflux}-\cref{sec:versal_deformations} give a full, self-contained account of the method of versal deformations.
-Versal deformations of (almost) toric fibres are discussed in \cref{sec:vd_AL} and in \cref{sec:howto_exotic}, we explain how to combine nodal slides with computing the displacement energy germ.
-In Sections \ref{sec:upper_bound} and \ref{sec:lower_bound} we compute upper and lower bounds on the displacement energy of almost toric fibres of $B_{dpq}$.
+\cref{sec:lagflux,sec:vdcotangent,sec:versal_deformations} give a full, self-contained account of the method of versal deformations.
+Versal deformations of (almost) toric fibres are discussed in \cref{sec:vd_AL}. In \cref{sec:howto_exotic} we explain how to combine nodal slides with computing the displacement energy germ.
+In \cref{sec:upper_bound,sec:lower_bound} we compute upper and lower bounds on the displacement energy of almost toric fibres of $B_{dpq}$.
 In \cref{sec:main_thm}, these results are combined to prove Theorems \ref{thm:A} and \ref{thm:B}.
 In \cref{sec:examples}, we prove \cref{thm:intro_stretch} and discuss other examples.
 
@@ -758,6 +782,41 @@ We denote by $T^k_{pq}(a) = T(x_a)$ the regular almost toric fibre of a fibratio
 Again, by \cref{thm:nodal_slide}, this definition does not depend on the precise position of the nodes, only on $k$, i.e.\ the number of nodes to the left of $x_a$.
 In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ mapping $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ if $k \neq k'$.
 
+\begin{definition}
+    \label{def:partial_embedding}
+    A \textbf{partial $B_{dpq}$-embedding} into a symplectic manifold $(X,\omega)$ is a symplectic embedding $φ\colon B_{dpq} ⊃ U → (X,ω)$, where $U$ 
+    \begin{enumerate}
+        \item is connected, 
+        \item contains a set of the form $\pi^{-1}(W)$, where $W \subset \Delta_{dpq}$ is a neighbourhood of a line segment containing the origin $(0,0) \in \Delta_{dpq}$ and all nodes.
+ See \cref{fig:partial-Bdpq-embedding}.   
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+  In the Introduction we used a slightly different definition of a partial $B_{dpq}$-embedding, namely being an embedding of a neighbourhood of the Lagrangian skeleton $S$ of $B_{dpq}$, described in \cite[Remark 7.10]{evans2021atfs}.
+
+  Indeed, the two are equivalent:
+  Obviously \cref{def:partial_embedding} gives a neighbourhood of the Lagrangian skeleton.
+  For the other direction, we need to construct a almost toric moment map satisfying 2.\ in \cref{def:partial_embedding}.
+  Let $L$ be the lens space $L(dp²,dpq-1)$, and $CL$ the cone over it.
+  $B_{dpq} ∖ S$ is symplectomorphic to $C L ∖ \{ ⋆\}$, where $⋆$ is the orbifold point in $CL$.
+  $CL$ has a toric moment map which is smooth except at $⋆$, which can be pulled back to $B_{dpq}$ and perturbed slightly to give an almost toric moment map with the desired properties.
+  See \cite{Eva19} for some more details.
+\end{remark}
+
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+  \draw[thick] (0,-1) -- (0,2);
+  \clip (0,-1) rectangle (4,2);
+  \fill[opacity=0.2] (0,-1) rectangle (4,2);
+  \fill[opacity=0.4, text opacity=1, blue] (0,-0.5) .. controls +(1,0.5) and +(0,-0.2) .. node[anchor=north] {$W$} (3.5,1.75) .. controls +(0,0.2) and +(1,0.5) .. (0,0.5);
+  \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
+\end{tikzpicture}  
+    \caption{$W$ in the definition of a partial $B_{dpq}$ embedding.}
+    \label{fig:partial-Bdpq-embedding}
+\end{figure}
+
 \subsection{Almost Toric Base Diagrams Revisited}
 \label{sec:atf_base_diagrams}
 
@@ -841,7 +900,7 @@ Then $p=\det(u_1,v)$ and $q = \det(u_2,v)$.
 \label{sec:vds}
 
 In this section we give a self contained introduction to versal deformations.
-Versal defomations were previously used in .... and introduced in .... 
+Versal defomations were previously used in \cite{brendel2020real,brendel2023local,CheSch10} and introduced in \cite{Che96}.
 
 \subsection{Lagrangian flux}
 \label{sec:lagflux}
@@ -1084,7 +1143,7 @@ For the sake of completeness, we include a proof of \cref{thm:VDtoricfibre}.
 \begin{proof}
     Let $\symcal{U}$ be a simply connected neighbourhood of $L \in \symcal{L}_{L}$.
     Pick an open convex neighbourhood $V \subset \operatorname{im} \mu$ of $x_0$ such that $\mu^{-1}(x) \in \symcal{U}$ for all $x \in V$.
-    By \cref{rem:lazy_vd}, it suffices to show $\operatorname{Flux}_{\symcal{U}} \circ v_L\vert_{V} = \id$ to prove that \eqref{eq:VDtoricfibre} defines a versal deformation.
+    By \cref{def:versal_deformation}, it suffices to show $\operatorname{Flux}_{\symcal{U}} \circ v_L\vert_{V} = \id$ to prove that \eqref{eq:VDtoricfibre} defines a versal deformation.
     Let $a \in H^1(L;\mathbb{R}) \cong \mathbb{R}^n$ such that $x_0 + a \in V$.
 Then 
     \begin{equation}
@@ -1263,7 +1322,7 @@ The displacement energy germs \eqref{eq:babyDEG1} and \eqref{eq:babyDEG2} togeth
       \fill[opacity=0.2] (0,3) rectangle (3,0);
       \foreach \x in {0.2,0.4,...,3}
         \draw[very thin, black!60] (\x,3) -- (\x,\x) -- (3,\x);
-      \draw[white,line width=3pt] (0,0) -- (2,2);
+      \draw[white,very thick] (0,0) -- (2,2);
       \draw[thick] (0,3) -- (0,0) -- (3,0);
       \draw[dashed] (0,0) -- (2,2) node[cross] {};
     \end{scope}
@@ -1272,7 +1331,7 @@ The displacement energy germs \eqref{eq:babyDEG1} and \eqref{eq:babyDEG2} togeth
       \fill[opacity=0.2] (0,3) rectangle (3,-1);
       \foreach \x in {0.2,0.4,...,3}
         \draw[very thin, black!60] (\x,3) -- (\x,-1);
-      \draw[white,line width=3pt] (0,0) -- (2,2);
+      \draw[white,very thick] (0,0) -- (2,2);
       \draw[thick] (0,3) -- (0,-1);
       \draw[dashed] (2,2) node[cross] {} -- (3,3);
       \fill (1,1) circle[radius=1pt] node[anchor=west] {$T^0_{1,1}$};
@@ -1349,40 +1408,6 @@ In the special case $B_{2,1,1} \cong T^*S^2$ of (1), the torus $T_{1,1}^2(a)$ co
 
 In light of this remark it seems reasonable to conjecture that all $T^k_{pq}(a) \subset B_{dpq}$ with $k > 0$ (with the exception of $p=q=k=1$) are non-displaceable.
 
-\begin{definition}
-    \label{def:partial_embedding}
-    A \textbf{partial $B_{dpq}$-embedding} into a symplectic manifold $(X,\omega)$ is a symplectic embedding $φ:B_{dpq} ⊃ U → (X,ω)$, where $U$ 
-    \begin{enumerate}
-        \item is connected, 
-        \item contains a set of the form $\pi^{-1}(W)$, where $W \subset \Delta_{dpq}$ is a neighbourhood of a line segment containing the origin $(0,0) \in \Delta_{dpq}$ and all nodes.
- See \cref{fig:partial-Bdpq-embedding}.   
-    \end{enumerate}
-\end{definition}
-
-\begin{remark}
-  In the Introduction we used a slightly different definition of a partial $B_{dpq}$-embedding, namely being an embedding of a neighbourhood of the Lagrangian skeleton $S$ of $B_{dpq}$.
-
-  Indeed, the two are equivalent:
-  Obviously \cref{def:partial_embedding} gives a neighbourhood of the Lagrangian skeleton.
-  For the other direction, we need to construct a almost toric moment map satisfying 2.\ in \cref{def:partial_embedding}.
-  Let $L$ be the lens space $L(dp²,dpq-1)$, and $CL$ the cone over it.
-  $B_{dpq} ∖ S$ is symplectomorphic to $C L ∖ \{ ⋆\}$, where $⋆$ is the orbifold point in $CL$.
-  $CL$ has a toric moment map which is smooth except at $⋆$, which can be pulled back to $B_{dpq}$ and perturbed slightly to give an almost toric moment map with the desired properties.
-  See \cite{Eva19} for some more details.
-\end{remark}
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}
-  \draw[thick] (0,-1) -- (0,2);
-  \clip (0,-1) rectangle (4,2);
-  \fill[opacity=0.2] (0,-1) rectangle (4,2);
-  \fill[opacity=0.4, text opacity=1, blue] (0,-0.5) .. controls +(1,0.5) and +(0,-0.2) .. node[anchor=north] {$W$} (3.5,1.75) .. controls +(0,0.2) and +(1,0.5) .. (0,0.5);
-  \draw[dashed] (1,0.5) node[cross] {} -- (2,1) node[cross] {} -- (3,1.5) node[cross] {} -- (4,2);
-\end{tikzpicture}  
-    \caption{$W$ in the definition of a partial $B_{dpq}$ embedding.}
-    \label{fig:partial-Bdpq-embedding}
-\end{figure}
 
 \begin{proposition}
 \label{thm:upper_bound_embedded}
