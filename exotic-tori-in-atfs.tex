@@ -1,6 +1,6 @@
 % vim: spelllang=en_gb
 
-\documentclass[12pt,a4paper,abstract=true,draft]{scrartcl}
+\documentclass[12pt,a4paper,abstract=true,final]{scrartcl}
 \usepackage{ifdraft}
 
 % --------------------
@@ -174,7 +174,7 @@ Recall that every Lagrangian submanifold $L \subset X$ has two characteristic cl
 where $Φ = φ_* \colon H_2(X,L) \rightarrow H_2(X,L')$.
 Therefore, the existence of some isomorphism $Φ$ such that \eqref{eq:softcond} holds is a necessary condition for $L$ and $L'$ to be equivalent.
 If such a map $Φ$ exists, we say that $L$ and $L'$ \textbf{have the same classical invariants} and write $L \sim L'$.
-Recall also that $L$ is called \textbf{monotone (with monotonicity constant $C > 0$)} if $a_L = C \, m_L$. 
+Recall also that $L$ is called \textbf{monotone} (with monotonicity constant $C > 0$) if $a_L = C \, m_L$. 
 
 A full classification of Lagrangian tori up to symplectomorphism is out of reach in most ambient spaces of dimension four and above.
 Note that the classification is not even known for $\mathbb{R}^4$, although there is some evidence \cite{Riz19} that every Lagrangian torus in $\mathbb{R}^4$ is Hamiltonian isotopic to either a product torus or a Chekanov torus.
@@ -187,7 +187,7 @@ Lagrangian tori which are not equivalent to standard ones (such as e.g.\ product
 \label{sec:intro_main_results}
 
 In this paper, we study exotic Lagrangian tori in dimension four.
-We construct non-equivalent Lagrangian tori in certain model spaces $B_{dpq}$ and prove that, if there is a symplectic embedding $B_{dpq} \supset U \rightarrow X$ of a neighbourhood $U$ of the Lagrangian skeleton of $B_{dpq}$ into a geometrically bounded $(X,\omega)$, then the images of small enough tori are non-equivalent with respect to symplectomorphisms of the new ambient space $X$.
+We construct non-equivalent Lagrangian tori in certain model spaces $B_{dpq}$ and prove that, if there is a symplectic embedding $B_{dpq} \supset U \rightarrow X$ of a neighbourhood $U$ of the Lagrangian skeleton of $B_{dpq}$ into a geometrically bounded symplectic four-manifold $(X,\omega)$, then the images of small enough tori are non-equivalent with respect to symplectomorphisms of the new ambient space $X$.
 
 More precisely, let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$ and $p,q$ are coprime.
 For every such triple, there is a symplectic manifold $B_{dpq}$, which will serve as model space for us. 
@@ -230,7 +230,7 @@ By \cref{thm:A}, there are three distinct types of monotone Lagrangian tori in $
     \end{enumerate} 
 \end{example}
 
-In order to embed the exotic tori from \cref{thm:A} into a general symplectic manifold $(X,\omega)$, we consider certain symplectic embeddings of the form $\varphi \colon B_{dpq} \supset U \rightarrow X$, which we call \textbf{partial $B_{dpq}$-embeddings}, see \cref{def:partial_embedding}. Every space $B_{dpq}$ contains a configuration consisting of 
+In order to embed the exotic tori from \cref{thm:A} into a general symplectic four-manifold $(X,\omega)$, we consider certain symplectic embeddings of the form $\varphi \colon B_{dpq} \supset U \rightarrow X$, which we call \textbf{partial $B_{dpq}$\-/embeddings}, see \cref{def:partial_embedding}. Every space $B_{dpq}$ contains a configuration consisting of 
 \begin{enumerate}
     \item a Lagrangian $(p,q)$-pinwheel, and
     \item $d-1$ Lagrangian spheres,
@@ -241,22 +241,22 @@ From a symplectic point of view this union can be viewed as Lagrangian skeleton 
 From the algebraic geometry point of view it can be viewed as vanishing cycle of the degeneration of $B_{dpq}$ to the corresponding cyclic quotient singularity.
 See \cite{Eva19} for details on the latter point of view.
 
-Roughly speaking, a partial $B_{dpq}$-embedding is a symplectic embedding of an open neighbourhood of the Lagrangian skeleton of $B_{dpq}$.
-Our second main result distinguishes the images of small enough tori $T^k_{pq}$ via partial $B_{dpq}$-embeddings into geometrically bounded\footnote{This is a mild condition, preventing the symplectic manifold from being too wild in terms of the $J$-holomorphic curves it can contain, see \cref{def:geobdd}.} symplectic manifolds. 
+Roughly speaking, a partial $B_{dpq}$\-/embedding is a symplectic embedding of an open neighbourhood of the Lagrangian skeleton of $B_{dpq}$.
+Our second main result distinguishes the images of small enough tori $T^k_{pq}$ via partial $B_{dpq}$\-/embeddings into geometrically bounded\footnote{This is a mild condition, preventing the symplectic manifold from being too wild in terms of the $J$-holomorphic curves it can contain, see \cref{def:geobdd}.} symplectic manifolds. 
 
 \begin{maintheorem}
     \label{thm:B}
-    Let $\varphi \colon B_{dpq} \supset U \rightarrow X$ be a partial $B_{dpq}$-embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
+    Let $\varphi \colon B_{dpq} \supset U \rightarrow X$ be a partial $B_{dpq}$\-/embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
 Then there is $a_0 > 0$ such that for all $0 < a < a_0$, 
     \begin{equation}
         \varphi(T^k_{pq}(a)) \sim \varphi(T^{k'}_{pq}(a)), \quad 
         \varphi(T^k_{pq}(a)) \ncong \varphi(T^{k'}_{pq}(a)), \quad
         \forall k \neq k' \in \{0,\ldots,d\}.
     \end{equation}
-    Furthermore, if $\varphi' \colon B_{d'p'q'} \supset U' \rightarrow (X,\omega)$ is a partial $B_{d'p'q'}$-embedding, then there is $a_0' > 0$ such that for all $0<a' < a_0'$, if $\varphi(T^k_{pq}(a))$ can be mapped by a symplectomorphism of $X$ to $\varphi'(T^{k'}_{p'q'}(a'))$, then $a=a'$ and either $k = k' = 0$ or $(k,p,q) = (k',p',q')$. 
+    Furthermore, if $\varphi' \colon B_{d'p'q'} \supset U' \rightarrow (X,\omega)$ is a partial $B_{d'p'q'}$\-/embedding, then there is $a_0' > 0$ such that for all $0<a' < a_0'$, if $\varphi(T^k_{pq}(a))$ can be mapped by a symplectomorphism of $X$ to $\varphi'(T^{k'}_{p'q'}(a'))$, then $a=a'$ and either $k = k' = 0$ or $(k,p,q) = (k',p',q')$. 
 \end{maintheorem}
 
-In other words, we distinguish not only Lagrangian tori coming from a fixed partial $B_{dpq}$-embedding, but also Lagrangian tori\footnote{except if $k=k'=0$, in which case our invariant does not detect $(p,q)$} coming from partial $B_{dpq}$-embeddings with different $(p,q)$.
+In other words, we distinguish not only Lagrangian tori coming from a fixed partial $B_{dpq}$\-/embedding, but also Lagrangian tori\footnote{except if $k=k'=0$, in which case our invariant does not detect $(p,q)$} coming from partial $B_{dpq}$\-/embeddings with different $(p,q)$.
 As a continuation of \cref{ex:cotangent}, the following is an immediate consequence of \cref{thm:B} and Weinstein's neighbourhood Theorem.
 
 \begin{corollary}
@@ -265,7 +265,7 @@ As a continuation of \cref{ex:cotangent}, the following is an immediate conseque
     Then every neighbourhood of $N$ contains three different types of tori, Chekanov, Clifford and Polterovich, which have the same classical invariants, but are not related by symplectomorphisms of $X$.
 \end{corollary}
 
-By \cite{Kho13}, every Lagrangian $(p,q)$-pinwheel induces a partial $B_{1pq}$-embedding, see also \cite[Definition 2.10]{EvaSmi18}.
+By \cite{Kho13}, every Lagrangian $(p,q)$-pinwheel induces a partial $B_{1pq}$\-/embedding, see also \cite[Definition 2.10]{EvaSmi18}.
 Another immediate consequence of \cref{thm:B} is the following.
 
 \begin{corollary}
@@ -273,23 +273,23 @@ Another immediate consequence of \cref{thm:B} is the following.
     If $(p,q) ≠ (p',q')$, then there is a one-parameter family of tori in a neighbourhood of $P$ and a one-parameter family of tori in a neighbourhood of $P'$ such that its members are two-by-two inequivalent up to symplectomorphisms of $X$.
 \end{corollary}
 
-To apply \cref{thm:B}, let us now move to examples of symplectic manifolds $(X,\omega)$ which admit partial $B_{dpq}$-embeddings.
-For a given $X$ it is a highly non-trivial question to decide if and for which $d,p,q$ there is a partial $B_{dpq}$-embedding.
-Note that the existence of a partial $B_{dpq}$-embedding in particular implies that $X$ contains a particular configuration consisting of a Lagrangian $(p,q)$-pinwheel and $d-1$ Lagrangian spheres.
-In fact, for $X = \mathbb{C}P^2$, it was shown in \cite{EvaSmi18}, that there is a partial $B_{dpq}$-embedding if and only if $d=1$ and $p$ is a so-called Markov number ($q$ can be determined from $p$ in that case).
+To apply \cref{thm:B}, let us now move to examples of symplectic manifolds $(X,\omega)$ which admit partial $B_{dpq}$\-/embeddings.
+For a given $X$ it is a highly non-trivial question to decide if and for which $d,p,q$ there is a partial $B_{dpq}$\-/embedding.
+Note that the existence of a partial $B_{dpq}$\-/embedding in particular implies that $X$ contains a particular configuration consisting of a Lagrangian $(p,q)$-pinwheel and $d-1$ Lagrangian spheres.
+In fact, for $X = \mathbb{C}P^2$, it was shown in \cite{EvaSmi18}, that there is a partial $B_{dpq}$\-/embedding if and only if $d=1$ and $p$ is a so-called Markov number ($q$ can be determined from $p$ in that case).
 On the other hand, we prove the following, see \cref{thm:toric_embeddings} for the detailed statement.
 
 \begin{proposition}
     \label{thm:intro_stretch}
   Let $(X,\omega)$ be a compact four-dimensional symplectic manifold admitting an (almost) toric structure with a base diagram having finitely many nodes.
-Then there is a sequence of partial $B_{d_i p_i q_i}$-embeddings into $X$ with $p_i \rightarrow \infty$. 
+Then there is a sequence of partial $B_{d_i p_i q_i}$\-/embeddings into $X$ with $p_i \rightarrow \infty$. 
 \end{proposition}
 
 This is proved by considering certain sequences of almost toric mutations, see \cref{sec:stretch_edge}.
 Similar ideas appeared in \cite{EvaUrz21}.
 \cref{thm:intro_stretch} might be of independent interest, as it implies for example that every such manifold contains infinitely many different Lagrangian pinwheels. 
 
-Now let $X$ be as in \cref{thm:intro_stretch} and let $\varphi_i \colon B_{d_i p_i q_i} \supset U_i \rightarrow X$ be the sequence of partial $B_{dpq}$-embeddings.
+Now let $X$ be as in \cref{thm:intro_stretch} and let $\varphi_i \colon B_{d_i p_i q_i} \supset U_i \rightarrow X$ be the sequence of partial $B_{dpq}$\-/embeddings.
 For all $i$, we obtain Lagrangian tori
 \begin{equation}
     \label{eq:l_tori}
@@ -297,7 +297,7 @@ For all $i$, we obtain Lagrangian tori
     \forall k_i \in \{0,\ldots,d_i\}
 \end{equation}
 for all $a_i$ such that $T^{k_i}_{p_i q_i}(a_i) \subset U_i$.
-By the definition of partial $B_{dpq}$-embeddings, there is a segment $(0,b_i)$ on which this holds.
+By the definition of partial $B_{dpq}$\-/embeddings, there is a segment $(0,b_i)$ on which this holds.
 Applying \cref{thm:B}, we obtain the following. 
    
 
@@ -313,11 +313,11 @@ For every $i \in \mathbb{N}$, there is $a_{i,0} > 0$ such that for every pair $n
 \end{maintheorem}
 
 In other words, every such $X$ contains infinitely many one-parameter families of Lagrangian tori such that no member of one family is equivalent by a symplectomorphism of $X$ to a member of another family.
-The parameter $a_i$ is an area parameter in the partial $B_{dpq}$-embedding and can be viewed as the size of the corresponding torus.
+The parameter $a_i$ is an area parameter in the partial $B_{dpq}$\-/embedding and can be viewed as the size of the corresponding torus.
 One drawback of this result is that the sizes of the embeddings may become arbitrarily small along the sequence, meaning $a_{i,0} \rightarrow 0$. 
 
 As was pointed out to us by Jonny Evans, we can apply \cref{thm:B} to certain surfaces of general type studied in \cite{EvaUrz21}.
-The key point in that paper is interpreting Mori's theory of flips in terms of almost toric base diagrams and finding a sequence of mutations (using only two vertices) yielding an infinite sequence of partial $B_{1p_iq_i}$-embeddings with $p_i \rightarrow \infty$.
+The key point in that paper is interpreting Mori's theory of flips in terms of almost toric base diagrams and finding a sequence of mutations (using only two vertices) yielding an infinite sequence of partial $B_{1p_iq_i}$\-/embeddings with $p_i \rightarrow \infty$.
 During the process, the symplectic form is deformed and thus one ends up with a non-canonical symplectic form on the surface of general type.
 Using \cref{thm:B}, the following is a direct corollary of \cite[Theorem 1.1]{EvaUrz21}.
 
@@ -347,10 +347,10 @@ Indeed, we note the following (see \cref{thm:atf_bdpq} for a precise statement).
 
 \begin{proposition}
     \label{thm:intro_partialbdpq}
-    Every vertex of an almost toric base diagram of a symplectic manifold $(X,\omega)$ yields a partial $B_{dpq}$-embedding into $X$. 
+    Every vertex of an almost toric base diagram of a symplectic manifold $(X,\omega)$ yields a partial $B_{dpq}$\-/embedding into $X$. 
 \end{proposition}
 
-By iterated so-called mutations of almost toric base diagrams, one can obtain new partial $B_{dpq}$-embeddings using \cref{thm:intro_partialbdpq}.
+By iterated so-called mutations of almost toric base diagrams, one can obtain new partial $B_{dpq}$\-/embeddings using \cref{thm:intro_partialbdpq}.
 This is how \cref{thm:intro_stretch} is proved.
 
 \begin{figure}
@@ -399,12 +399,12 @@ We carefully discuss versal deformations in \cref{sec:versal_deformations}.
 
 If the Lagrangian in question happens to be an (almost) toric fibre, then its versal deformation is simply given by varying the base point of the fibration, see \cref{sec:vd_AL}. Thus, in order to compute the germs $[e]_{T^k_{pq}(a)}$ (given in \cref{thm:main}), we compute the displacement energy of almost toric fibres in $B_{dpq}$. This is carried out in \cref{sec:upper_bound,sec:lower_bound}. See \cref{fig:germ_examples} for a sketch of the level set of these germs. Curiously enough, we do not determine the displacement energy of the tori $T^{k}_{pq}(a)$ themselves\footnote{Some of them are known to be non-displaceable, see \cref{rk:nondisplaceable}}. Indeed, it is sufficient to know $[e]_{T^k_{pq}(a)}$ on an open dense subset in order to distinguish them. 
 
-In the case of the image of the tori $T^k_{pq}$ under partial $B_{dpq}$-embeddings, i.e.\ to prove \cref{thm:B}, the following two properties are key:
+In the case of the image of the tori $T^k_{pq}$ under partial $B_{dpq}$\-/embeddings, i.e.\ to prove \cref{thm:B}, the following two properties are key:
 
 \begin{enumerate}
     \item The displacement energy germ $[e]_L$ is well-defined, even if $L$ is not monotone.
 This is crucial, since, although the tori $T^k_{pq} \subset B_{dpq}$ are themselves monotone, their embedded versions into $(X,\omega)$ are not; 
-    \item Let $\varphi \colon B_{dpq} \supset U \rightarrow X$ be a partial $B_{dpq}$-embedding.
+    \item Let $\varphi \colon B_{dpq} \supset U \rightarrow X$ be a partial $B_{dpq}$\-/embedding.
 Then for small enough tori $L \subset U$, the displacement energy germ is preserved under $\varphi$, 
     \begin{equation}
         \label{eq:locality}
@@ -412,8 +412,8 @@ Then for small enough tori $L \subset U$, the displacement energy germ is preser
     \end{equation}
 \end{enumerate}
 
-We say that a Lagrangian $\varphi(L)$ arising as the image of $L \subset B_{dpq}$ under a partial $B_{dpq}$-embedding has the \textbf{locality property (for the displacement energy germ)} if \eqref{eq:locality} holds. Note that this property is not trivial.
-Indeed, the germ $[e]_L$ is derived from the displacement energy of a family of tori in $B_{dpq}$, whereas $[e]_{\varphi(L)}$ is derived from the displacement energy of tori in $X$. The upper bound on the displacement energies of embedded tori (appearing as the neighbours of $\varphi(L)$) is proved by displacing them within the given partial $B_{dpq}$-embedding via the method of probes, see \cref{sec:upper_bound}. The lower bound is given by the area of $J$-holomorphic curves via Chekanov's estimate (\cref{thm:chekanov}) together with an area estimate on $J$-holomorphic curves leaving the partial $B_{dpq}$-embedding, see \cref{sec:lower_bound}.
+We say that a Lagrangian $\varphi(L)$ arising as the image of $L \subset B_{dpq}$ under a partial $B_{dpq}$\-/embedding has the \textbf{locality property (for the displacement energy germ)} if \eqref{eq:locality} holds. Note that this property is not trivial.
+Indeed, the germ $[e]_L$ is derived from the displacement energy of a family of tori in $B_{dpq}$, whereas $[e]_{\varphi(L)}$ is derived from the displacement energy of tori in $X$. The upper bound on the displacement energies of embedded tori (appearing as the neighbours of $\varphi(L)$) is proved by displacing them within the given partial $B_{dpq}$\-/embedding via the method of probes, see \cref{sec:upper_bound}. The lower bound is given by the area of $J$-holomorphic curves via Chekanov's estimate (\cref{thm:chekanov}) together with an area estimate on $J$-holomorphic curves leaving the partial $B_{dpq}$\-/embedding, see \cref{sec:lower_bound}.
 
 The locality property of the displacement energy germ was first used in \cite{chekanovschlenk2015} to distinguish embeddings of product tori and then taken up in \cite{brendel2023local} to construct exotic Lagrangian tori in Darboux charts in dimensions $\geqslant 6$.
 In \cref{sec:intro_discussion}, we discuss the parallels and differences between the constructions in dimensions $\geqslant 6$ from \cite{brendel2023local} and our construction in dimension $4$. 
@@ -442,7 +442,7 @@ Then there is a Darboux embedding $\varphi \colon \mathbb{R}^4 \supset U \righta
 See also \cite[Example 5.6]{brendel2023local}. 
 \end{remark}
 
-This suggests that in dimension four, one should not restrict one's attention to Darboux embeddings, but look instead at embeddings of more complicated domains containing interesting tori, such as the partial $B_{dpq}$-embeddings considered here.
+This suggests that in dimension four, one should not restrict one's attention to Darboux embeddings, but look instead at embeddings of more complicated domains containing interesting tori, such as the partial $B_{dpq}$\-/embeddings considered here.
 This comes at the cost of having to construct said embeddings (for which there can be obstructions from symplectic topology, as discovered in \cite{EvaSmi18}), whereas Darboux embeddings exist everywhere. 
 
 Most other works on exotic Lagrangian tori have exclusively studied \emph{monotone} exotic tori, see \cite{Aur15, Che96, CheSch10, EliPol97, GalMik22, Via17, Via16}.
@@ -453,9 +453,9 @@ In \cite{FOOO12}, the authors detect a 1-parametric family of non-displaceable t
 In \cite{SheTonVia19}, the authors consider an interesting invariant $\Psi(L) \in \mathbb{R}_{>0} \cup \{+\infty\}$ based on the count of \emph{minimal area} $J$-holomorphic disks as well as non-trivial input from the Fukaya category of the Lagrangian in question.
 In \cite[Section 7]{SheTonVia19} the invariant $\Psi$ is used to distinguish non-monotone Vianna-type tori in $\mathbb{C}P^2$.
 There is some overlap between this result and our results:
-From all possible mutations of the toric moment polytope of $\mathbb{C}P^2$, we obtain partial $B_{1,p,q}$-embeddings for all Markov numbers $p$ and thus infinitely many distinct non-monotone tori in $\mathbb{C}P^2$.
+From all possible mutations of the toric moment polytope of $\mathbb{C}P^2$, we obtain partial $B_{1,p,q}$\-/embeddings for all Markov numbers $p$ and thus infinitely many distinct non-monotone tori in $\mathbb{C}P^2$.
 The result in \cite[Section 7]{SheTonVia19} is quantitatively stronger, since our results only apply to small tori near the ATF-vertices.
-On the other hand, our results apply more broadly to any partial $B_{dpq}$-embeddings into a geometrically bounded $X$.
+On the other hand, our results apply more broadly to any partial $B_{dpq}$\-/embeddings into a geometrically bounded $X$.
 
 \subsection{Overview}
 
@@ -468,7 +468,7 @@ In \cref{sec:main_thm}, these results are combined to prove Theorems \ref{thm:A}
 In \cref{sec:examples}, we prove \cref{thm:intro_stretch} and discuss other examples.
 
 \subsection{Acknowledgements}
-We thank Jonny Evans for pointing out to us \cite{EvaUrz21} and the application discussed in \cref{thm:quinticgodeaux}.
+We thank Jonny Evans for pointing out to us \cite{EvaUrz21} and the example discussed in \cref{thm:quinticgodeaux}.
 We thank Felix Schlenk for his constant encouragement and carefully reading an earlier draft of this paper.
 JB acknowledges the support of the Israel Science Foundation grant 1102/20 and the ERC Starting Grant 757585.
 JH and JS acknowledge the support of ... 
@@ -480,8 +480,7 @@ JH and JS acknowledge the support of ...
 We use almost toric geometry to define the local model spaces.
 In \cref{sec:atgeometry,sec:atfibres} we give a short overview of almost toric geometry, its basic operations (nodal trades, nodal slides, mutations) and its fibres.
 The reader familiar with the ATF-framework can skip this section.
-In ... we ...
-
+In \cref{sec:local_model} we introduce our local model space $B_{dpq}$, and \cref{sec:atf_base_diagrams} describes the relation of $B_{dpq}$ with almost toric base diagrams.
 
 \subsection{Almost toric fibrations and their base diagrams}
 \label{sec:atgeometry}
@@ -786,7 +785,7 @@ In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ 
 
 \begin{definition}
     \label{def:partial_embedding}
-    A \textbf{partial $B_{dpq}$-embedding} into a symplectic manifold $(X,\omega)$ is a symplectic embedding $φ\colon B_{dpq} ⊃ U → (X,ω)$, where $U$ 
+    A \textbf{partial $B_{dpq}$\-/embedding} into a symplectic manifold $(X,\omega)$ is a symplectic embedding $φ\colon B_{dpq} ⊃ U → (X,ω)$, where $U$ 
     \begin{enumerate}
         \item is connected, 
         \item contains a set of the form $\pi^{-1}(W)$, where $W \subset \Delta_{dpq}$ is a neighbourhood of a line segment containing the origin $(0,0) \in \Delta_{dpq}$ and all nodes.
@@ -795,7 +794,7 @@ In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ 
 \end{definition}
 
 \begin{remark}
-  In the Introduction we used a slightly different definition of a partial $B_{dpq}$-embedding, namely being an embedding of a neighbourhood of the Lagrangian skeleton $S$ of $B_{dpq}$, described in \cite[Remark 7.10]{evans2021atfs}.
+  In the Introduction we used a slightly different definition of a partial $B_{dpq}$\-/embedding, namely being an embedding of a neighbourhood of the Lagrangian skeleton $S$ of $B_{dpq}$, described in \cite[Remark 7.10]{evans2021atfs}.
 
   Indeed, the two are equivalent:
   Obviously \cref{def:partial_embedding} gives a neighbourhood of the Lagrangian skeleton.
@@ -889,7 +888,7 @@ In this sense the spaces $B_{dpq}$ are the "local models" for any almost toric f
 
 \begin{lemma}
   \label{thm:atf_bdpq}
-  If $Δ$ has an ATF-corner of type $(d,p,q)$, then there is a partial $B_{dpq}$-embedding\todo{Kontrollieren ob partial $B_{dpq}$-embedding schon vorher definiert wurde} into $X$.
+  If $Δ$ has an ATF-corner of type $(d,p,q)$, then there is a partial $B_{dpq}$\-/embedding into $X$.
 \end{lemma}
 
 \begin{remark}
@@ -1413,7 +1412,7 @@ In light of this remark it seems reasonable to conjecture that all $T^k_{pq}(a) 
 
 \begin{proposition}
 \label{thm:upper_bound_embedded}
-  Let $φ\colon B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$-embedding.
+  Let $φ\colon B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$\-/embedding.
 Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such that for all $x \in V$, we have $e(φ(T(x))) \leq x_1$.
 \end{proposition}
 
@@ -1610,11 +1609,11 @@ Since $H_2(B_{dpq})$ is generated by Lagrangian spheres (by \cite[Lemma 7.11]{ev
 Therefore \cref{thm:chekanov} and \cref{thm:upper_bound} allows us to conclude.
 \end{proof}
 
-As for the upper bound in \cref{thm:upper_bound_embedded}, there is an analoguous statement for small enough tori in partial $B_{dpq}$-embeddings (\cref{def:partial_embedding}).
+As for the upper bound in \cref{thm:upper_bound_embedded}, there is an analoguous statement for small enough tori in partial $B_{dpq}$\-/embeddings (\cref{def:partial_embedding}).
 
 \begin{proposition}
   \label{thm:displacement_energy_embedded}
-    Let $φ \colon B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$-embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
+    Let $φ \colon B_{dpq} ⊃ U → (X,ω)$ be a partial $B_{dpq}$\-/embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
 Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such that for all $x \in V \setminus R$ we have $e(φ(T(x))) = x_1$.
 \end{proposition}
 
@@ -1722,13 +1721,13 @@ Using \eqref{eq:ATF_fibres_switch}, we can apply \cref{thm:displacement_energy} 
 In light of the fact that \eqref{eq:VD_piprime} is a versal deformation, this proves the claim.
 \end{proof}
 
-Now let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $B_{dpq}$-embedding in the sense of \cref{def:partial_embedding}.
+Now let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $B_{dpq}$\-/embedding in the sense of \cref{def:partial_embedding}.
 In \cref{thm:displacement_energy_embedded}, we have proved that $e(\varphi(T(x))) = e(T(x)) = x_1$ for small enough $x \in \Delta_{dpq}$.
 This means that the same method as in the proof of \cref{thm:main} can be used to determine the displacement energy germ of such $\varphi(T(x)) \subset X$. 
 
 \begin{theorem}
     \label{thm:main_embedded}
-    Let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $B_{dpq}$-embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
+    Let $\varphi \colon B_{dpq} \supset U \rightarrow (X,\omega)$ be a partial $B_{dpq}$\-/embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
 Then there exists $a_0 > 0$ such that for all $a < a_0$, the displacement energy germ of $\varphi(T^k_{pq}(a)) \subset X$ satisfies
         \begin{equation}
             \label{eq:main_germ_embedded}
@@ -1776,16 +1775,20 @@ Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between 
         \item for $p = q = 1$ and arbitrary $d$, the space $B_{d,1,1}$ appears as Milnor fibre of the smoothing of the $A_{d-1}$-singularity (see also \cite[Section 7.3]{evans2021atfs}) and \cite[Lemma 2.19]{LekMay14} yields a count of Maslov index two $J$-holomorphic disks with boundary on the tori $T^k_{1,1}$. This count depends on $k$ and, by monotonicity of the tori, is a symplectic invariant, see \cite{EliPol97}. Thus \cite[Lemma 2.19]{LekMay14} distinguishes the tori.
         \item for $d = 1$ and arbitrary $(p,q)$, the torus $T^1_{pq}(a)$ is non-displaceable by \cite[Proposition 3.6]{LekMay14}. Since $T^0_{pq}$ is displaceable by the methods used in \cref{sec:upper_bound}, we deduce $T^0_{pq} \ncong T^1_{pq}$.
     \end{enumerate}
-    The special case of $d=2$ and $p=q=1$ corresponds to $B_{2,1,1} \cong T^*S^2$ and thus follows from earlier work \cite{AlbFra08}, see also the discussion in \cref{sec:intro_cotangent}. Our method of proof is different from the one used in \cite{LekMay14}. Instead of a count of Maslov index two $J$-holomorphic disks, we rely on the displacement energy germ to distinguish tori. The upshot of the method used in \cite{LekMay14} is that it yields non-displaceability results via computing the Floer homology. Our methods, on the other hand can be applied to non-monotone tori, which will be crucial in \cref{thm:B}. Because of bubbling, the count of Maslov index two $J$-holomorphic disks depends on the choice of $J$ and does not yield an invariant in that case.
+    The special case of $d=2,p=1,q=0$ corresponds to $B_{2,1,0} \cong T^*S^2$ and thus follows from earlier work \cite{AlbFra08}, see also the discussion in \cref{ex:cotangent}.
+    Our method of proof is different from the one used in \cite{LekMay14}.
+    Instead of a count of Maslov index two $J$-holomorphic disks, we rely on the displacement energy germ to distinguish tori.
+    The upshot of the method used in \cite{LekMay14} is that it yields non-displaceability results via computing the Floer homology.
+    Our methods, on the other hand can be applied to non-monotone tori, which will be crucial in \cref{thm:B}. Because of bubbling, the count of Maslov index two $J$-holomorphic disks depends on the choice of $J$ and does not yield an invariant in that case.
 \end{remark}
 
 \section{Examples}
 \label{sec:examples}
 
-\subsection{Polterovich tori in \texorpdfstring{$B_{dpq}$}{B_dpq}.}
+\subsection{Polterovich tori in \texorpdfstring{$B_{dpq}$}{Bdpq}.}
 As discussed in \cite[Remark 7.10]{evans2021atfs}, if $d>1$, the space $B_{dpq}$ contains a Lagrangian $S²$.
-Together with \cref{thm:lag_sphere}, this means every time we have a partial $B_{dpq}$-embedding with $d>1$, we also get a partial $B_{2,1,0}$-embedding "for free".
-In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any partial $B_{dpq}$-embedding with $d>1$.
+Together with \cref{thm:lag_sphere}, this means every time we have a partial $B_{dpq}$\-/embedding with $d>1$, we also get a partial $B_{2,1,0}$\-/embedding "for free".
+In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any partial $B_{dpq}$\-/embedding with $d>1$.
 
 \subsection{Stretching an Edge}
 \label{sec:stretch_edge}
@@ -1793,7 +1796,7 @@ In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any 
 \begin{proposition}
   \label{thm:toric_embeddings}
   Let $Δ ⊂ ℝ²$ be a compact (almost) toric base diagram with finitely many nodes, and $(X,ω)$ the corresponding (almost) toric manifold.
-  Then there is a sequence $(d_i,p_i,q_i)$ with $p_i → ∞$ such that there is a partial $B_{d_i,p_i,q_i}$-embedding into $M$.
+  Then there is a sequence $(d_i,p_i,q_i)$ with $p_i → ∞$ such that there is a partial $B_{d_i,p_i,q_i}$\-/embedding into $M$.
 \end{proposition}
 
 We can assume, after performing nodal trades, that every vertex of $Δ$ has one or multiple corresponding nodes and, by nodal slides, that all the branch cuts are negligibly small.
@@ -1807,7 +1810,7 @@ Recall from \cref{def:atf_corner} that an ATF-corner $u$ consists of a pair $u=(
 
 Also, recall that the piece-wise linear map associated to the change of branch cut is given by $\overline{S}_{(x,dv)}$, as defined in \eqref{eq:half-shear}.
 
-The idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations on $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$-embeddings.
+The idea of the proof of \cref{thm:toric_embeddings} is to perform an infinite sequence of mutations on $Δ$, to obtain a sequence of partial $B_{d_i p_i q_i}$\-/embeddings.
 In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fix an edge and perform iterated mutations at its left end.
 Under this operation the integral affine length of the edge in question increases.
 
@@ -1932,7 +1935,7 @@ In particular, $a_n → ℓ_∞$ and we can choose a strictly monotone subsequen
 
   The vector $v_∞$ is not parallel to $x_f$, since it would contradict the convergence of $w_i$ if it were parallel, so $p_i = \det(x_f, v_i) → ∞$, which means that $w_i$ is an ATF-corner of type $(d_i,p_i,q_i)$ in $Δ_{n_i}$ and $p_i → ∞$.
 
-  Using \cref{thm:atf_bdpq} we get a partial $B_{d_i p_i q_i}$-embedding for every $i ∈ ℤ$.
+  Using \cref{thm:atf_bdpq} we get a partial $B_{d_i p_i q_i}$\-/embedding for every $i ∈ ℤ$.
 \end{proof}
 
 \begin{remark}
