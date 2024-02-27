@@ -1885,25 +1885,27 @@ In particular, $a_n → ℓ_∞$ and we can choose a strictly monotone subsequen
   \emph{Step 4}: Now chose the natural number $k$ realizing the maximum in the definition of $a_{n_i}$ and define $w_i = u_{k}^{n_i}$.
   Actually it follows from the definitions that $k = k_{n_i-1}$, since $a_{n_i}>a_{n_i-1}$ means that the maximum of $a_{n_i}$ must be created by the newly created ATF-corner in $Δ_{n_i}$, which is $u_{k_{n_i-1}}^{n_i}$.
   We have $w_i ∈ ∂Δ_0$: Indeed, the maps $\overline{S}_{u_{k_n}^n}\colon Δ_n \to Δ_{n+1}$ divide $∂Δ_n$ into two parts:
-  If $x∈∂Δ_n$ satisfies $g_n(x) ∈ \qty[g_n(u_{k_n}^n),g_{n+1}(u_{k_n}^{n+1})]$, i.e. $x$ lies in the interval in $∂Δ_n$ from $u_{k_n}^n$ to $u_{k_n}^{n+1}$ in the clockwise direction, we have $\overline{S}_{u_{k_n}^n} x = S_{u_{k_n}^n} x$. Otherwise it is in the fixed half plane of $\overline{S}_{u_{k_n}^n}$.
-  Since $g_{n_i}(w_i) > g_n(u_k^n)$ for all $k ∈ \{1,…,n_c\}$ and $n<n_i$ the point $w_i$ lies in the intersection of the half planes that are fixed by all the mutations that are applied in the sequence from $Δ_0$ to $Δ_{n_i}$.
+  If $x∈∂Δ_n$ satisfies $g_n(x) ∈ \qty[g_n(u_{k_n}^n),g_{n+1}(u_{k_n}^{n+1})]$, i.e. $x$ lies in the interval in $∂Δ_n$ from $u_{k_n}^n$ to $u_{k_n}^{n+1}$ in the clockwise direction, we have $\overline{S}_{u_{k_n}^n} x = S_{u_{k_n}^n} x$. Otherwise, $x$ is in the half plane fixed by $\overline{S}_{u_{k_n}^n}$.
+  Since $g_{n_i}(w_i) > g_n(u_k^n)$ for all $k ∈ \{1,…,n_c\}$ and $n<n_i$, the point $w_i$ lies in the intersection of the half planes that are fixed by all the mutations that are applied in the sequence from $Δ_0$ to $Δ_{n_i}$.
 
-  Define $w_i' = u_{k_{n_i-1}}^{n_i-1}$, which is the ATF-corner at which we mutated to get to $Δ_{n_i}$. Denote by $w_∞ ∈ ∂Δ_0$ the limit point of $w_i$ and denote by $w'_∞$ the limit point of $w'_i$, contained in the line spanned by $e_0$. See \cref{fig:stretch_wi}.
+  Define $w_i' = u_{k_{n_i-1}}^{n_i-1}$, which is the ATF-corner at which we mutated to obtain $Δ_{n_i}$.
+  Denote by $w_∞ ∈ ∂Δ_0$ the limit point of $\{w_i\}_{i ∈ ℕ}$ and denote by $w'_∞$ the limit point of $\{w'_i\}_{i ∈ ℕ}$, contained in the line spanned by $e_0$.
+  See \cref{fig:stretch_wi}.
   Define $v_i$ to be the primitive vector in the ATF-corner $w_i = (x,dv_i)$ pointing along $w_i'-w_i$, and $v_∞ = w_∞' - w_∞$.
   Denote by $f$ the edge of $Δ_0$ containing infinitely many $w_i$, as well as $w_∞$, and define $x_f$ to be the primitive vector pointing along $f$ in the counter-clockwise direction. Analogously, define $x_e$ to be the primitive vector pointing along $e_0$ in the counter-clockwise direction.
-  Then $v_{i+1} = v_i + λx_f - μx_e$ for $λ,μ>0$ and $i$ big enough.
+  Then for $i$ large enough $v_{i+1} = ηv_i + λx_f - μx_e$ with $η,λ,μ>0$.
   We have that $\det(x_f,v_i)>0$, by convexity of the ATF-base diagrams $Δ_n$, and also $\det(x_e,v_i)<0$.
   So
   \[
-    \det(v_{i+1},v_i) = λ\det(x_f,v_i) + μ\det(x_e,v_i) > 0 \; .
+    \det(v_{i+1},v_i) = λ\det(x_f,v_i) - μ\det(x_e,v_i) > 0 \; .
   \]
   Denote the projection onto the unit circle by $π \colon ℝ² ∖\{0\} → S¹$.
   Since $\det(x_e,v_i)<0$, the points $\pi(v_i)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
   Since $v_i$ is primitive, the Euclidean length $\norm{v_i}$ satisfies $\norm{v_i} → ∞$.
 
-  The vector $v_∞$ is not parallel to $x_f$, since it would contradict the convergence of $w_i$ if it were parallel, so $p_i = \det(x_f, v_i) → ∞$, which means tha $w_i$ is an ATF-corner of type $(d_i,p_i,q_i)$ in $Δ_{n_i}$, and $p_i → ∞$.
+  The vector $v_∞$ is not parallel to $x_f$, since it would contradict the convergence of $w_i$ if it were parallel, so $p_i = \det(x_f, v_i) → ∞$, which means that $w_i$ is an ATF-corner of type $(d_i,p_i,q_i)$ in $Δ_{n_i}$ and $p_i → ∞$.
 
-  Using \cref{thm:toric_embeddings} we get partial $B_{d_i,p_i,q_i}$-embedding for all $i ∈ ℤ$.
+  Using \cref{thm:atf_bdpq} we get a partial $B_{d_i p_i q_i}$-embedding for every $i ∈ ℤ$.
 \end{proof}
 
 \begin{remark}
