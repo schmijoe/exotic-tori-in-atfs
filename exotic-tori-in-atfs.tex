@@ -144,13 +144,13 @@ Refname={Theorem,Theorems}]{maintheorem}
 
 \begin{abstract}
     We study exotic Lagrangian tori in dimension four.
-In certain Stein domains, which naturally appear in almost toric fibrations as a generalization of rational homology balls, we find $d+1$ families of monotone Lagrangian tori which are mutually distinct, up to symplectomorphisms.
-We prove that these remain distinct under certain embeddings of subsets $U \subset B_{dpq}$ into geometrically bounded symplectic four-manifolds.
+In certain Stein domains $B_{dpq}$ (which naturally appear in almost toric fibrations as a generalization of rational homology balls) we find $d+1$ families of monotone Lagrangian tori which are mutually distinct, up to symplectomorphisms.
+We prove that these remain distinct under embeddings of $B_{dpq}$ into geometrically bounded symplectic four-manifolds.
 We show that there are infinitely many different such embeddings, in the case in which $X$ is compact and (almost) toric and hence conclude that it contains infinitely many Lagrangian tori which are distinct up to symplectomorphisms of $X$.
 In dimension four, infinitely many different Lagrangian tori were previously known
 only in del Pezzo surfaces.
 
-    Remarkably, either the embedded tori, nor the ambient space $X$ needs to be monotone for our methods to work. 
+    Neither the embedded tori, nor the ambient space $X$ needs to be monotone for our methods to work. 
 \end{abstract}
 
 \section{Introduction}
@@ -184,13 +184,13 @@ Note that the classification is not even known for $\mathbb{R}^4$, although ther
 Finding sets of Lagrangian tori which have the same classical invariants, but are \emph{not} equivalent is thus a well-motivated problem.
 On the one hand, it sheds some light on what a classification of Lagrangian tori could look like, and on the other hand it represents an interesting occurrence of symplectic rigidity in its own right.
 The study of such Lagrangian tori was initiated by \cite{Che96} and \cite{EliPol97} and has attracted much interest since,  see \cite{Aur15, brendel2020real, CheSch10, FOOO12, GalMik22, SheTonVia19, Via17, Via16} , which is a non-exhaustive list.
-Lagrangian tori which are not equivalent to standard ones, such as e.g.\ product tori in $\mathbb{R}^{2n}$ or toric fibres in toric manifolds, are sometimes called \emph{exotic} or \emph{symplectically knotted}. 
+Lagrangian tori which are not equivalent to standard ones, such as e.g.\ product tori in $\mathbb{R}^{2n}$ or toric fibres in toric manifolds, are sometimes called \emph{exotic} or \emph{symplectically knotted}.
 
 \subsection{Main results}
 \label{sec:intro_main_results}
 
 In this paper, we study exotic Lagrangian tori in dimension four.
-We construct non-equivalent Lagrangian tori in certain model spaces, which we denote by $B_{dpq}$ and introduce in \cref{sec:modelspaces}, and prove that, if there is a symplectic embedding $B_{dpq} \supset U \rightarrow X$ of a neighbourhood $U$, of the Lagrangian skeleton of $B_{dpq}$, into a geometrically bounded symplectic four-manifold $(X,\omega)$, then the images of small enough tori are non-equivalent with respect to symplectomorphisms of the new ambient space $X$.
+We construct non-equivalent Lagrangian tori in certain model spaces $B_{dpq}$. If there is a symplectic embedding $B_{dpq} \supset U \rightarrow X$ of a neighbourhood $U$ of the Lagrangian skeleton of $B_{dpq}$ into a geometrically bounded symplectic four-manifold $(X,\omega)$, then we prove the images of small enough tori are non-equivalent with respect to symplectomorphisms of the new ambient space $X$.
 
 More precisely, let $d,p,q \in \mathbb{N}$ be integers such that $d≥1$ and $p,q$ are coprime.
 For every such triple, there is a symplectic manifold $B_{dpq}$, which will serve as model space for us. 
@@ -202,12 +202,12 @@ The second point of view, which is the one we will adopt in this paper, is that 
 The spaces $B_{dpq}$ appear naturally as spaces having an almost toric base diagram with one single vertex.
 In other words, these spaces are the elementary building blocks of almost toric manifolds and thus very natural objects to study.
 Just like every vertex of a toric moment map image yields a symplectic ball embedding, every vertex of an almost toric base diagram yields a symplectic embedding of a subset of $B_{dpq}$.
-We postpone the discussion of almost toric geometry to \cref{sec:intro_methods} and to \cref{sec:local_model}. 
+We postpone the discussion of almost toric geometry to \cref{sec:intro_methods,sec:local_model}. 
 
 \begin{maintheorem}
     \label{thm:A}
     Let $(d,p,q)$ be a triple as above.
-Then for every $a>0$, there are $d+1$ monotone Lagrangian tori $T^0_{pq}(a), \ldots , T^d_{pq}(a) \subset B_{dpq}$ with montonicity constant $\frac{a}{2}$ which have the same classical invariants, but are two-by-two inequivalent, i.e.\ 
+Then for every $a>0$, there are $d+1$ monotone Lagrangian tori $T^0_{pq}(a), \ldots , T^d_{pq}(a) \subset B_{dpq}$ with montonicity constant $\frac{a}{2}$ which have the same classical invariants, but are pairwise inequivalent, i.e.\ 
     \begin{equation}
         T^k_{pq}(a) \sim T^{k'}_{pq}(a), \quad 
          T^k_{pq}(a) \ncong T^{k'}_{pq}(a), \quad
@@ -238,18 +238,18 @@ In order to embed the exotic tori from \cref{thm:A} into a general symplectic fo
     \item a Lagrangian $(p,q)$-pinwheel, and
     \item $d-1$ Lagrangian spheres,
 \end{enumerate}
-which are \emph{visible} in the almost toric base diagram of $B_{dpq}$, see also \cite[Chapter 5]{evans2021atfs}.
+which are \emph{visible} in the almost toric base diagram of $B_{dpq}$, see also \cite[Remark 7.10]{evans2021atfs}.
 The union of these Lagrangian subspaces is connected and forms a chain starting with the pinwheel followed by the spheres, such that every member of the chain intersects its neighbours transversely.
 From a symplectic point of view this union can be viewed as Lagrangian skeleton of the Stein domain $B_{dpq}$.
 From the algebraic geometry point of view it can be viewed as vanishing cycle of the degeneration of $B_{dpq}$ to the corresponding cyclic quotient singularity.
 See \cite{Eva19} for details on the latter point of view.
 
 Roughly speaking, a partial $B_{dpq}$\-/embedding is a symplectic embedding of an open neighbourhood of the Lagrangian skeleton of $B_{dpq}$.
-Our second main result distinguishes the images of small enough tori $T^k_{pq}$ via partial $B_{dpq}$\-/embeddings into geometrically bounded\footnote{This is a mild condition, preventing the symplectic manifold from being too wild in terms of the $J$-holomorphic curves it can contain, see \cref{def:geobdd}.} symplectic manifolds. 
+Our second main result distinguishes the images of small enough tori $T^k_{pq}$ via partial $B_{dpq}$\-/embeddings into geometrically bounded symplectic four-manifolds. 
 
 \begin{maintheorem}
     \label{thm:B}
-    Let $\varphi \colon B_{dpq} \supset U \rightarrow X$ be a partial $B_{dpq}$\-/embedding into a geometrically bounded symplectic manifold $(X,\omega)$.
+    Let $\varphi \colon B_{dpq} \supset U \rightarrow X$ be a partial $B_{dpq}$\-/embedding into a geometrically bounded symplectic four-manifold $(X,\omega)$.
 Then there is $a_0 > 0$ such that for all $0 < a < a_0$, 
     \begin{equation}
         \varphi(T^k_{pq}(a)) \sim \varphi(T^{k'}_{pq}(a)), \quad 
@@ -272,8 +272,9 @@ By \cite{Kho13}, every Lagrangian $(p,q)$-pinwheel induces a partial $B_{1pq}$\-
 Another immediate consequence of \cref{thm:B} is the following.
 
 \begin{corollary}
+    \label{thm:pinwheels}
     Let $P \subset X$ be a Lagrangian $(p,q)$-pinweel and $P' \subset X$ a Lagrangian $(p',q')$-pinwheel in a geometrically bounded symplectic manifold $(X,\omega)$.
-    If $(p,q) ≠ (p',q')$, then there is a one-parameter family of tori in a neighbourhood of $P$ and a one-parameter family of tori in a neighbourhood of $P'$, such that its members are two-by-two inequivalent up to symplectomorphisms of $X$.
+    If $(p,q) ≠ (p',q')$, then there is a one-parameter family of tori in a neighbourhood of $P$ and a one-parameter family of tori in a neighbourhood of $P'$, such that its members are pairwise inequivalent up to symplectomorphisms of $X$.
 \end{corollary}
 
 To apply \cref{thm:B}, let us now move to examples of symplectic manifolds $(X,\omega)$ which admit partial $B_{dpq}$\-/embeddings.
@@ -301,7 +302,7 @@ For all $i$, we obtain Lagrangian tori
 \end{equation}
 for all $a_i$ such that $T^{k_i}_{p_i q_i}(a_i) \subset U_i$.
 By the definition of partial $B_{dpq}$\-/embeddings, there is a segment $(0,b_i)$ on which this holds.
-Applying \cref{thm:B}, we obtain the following. 
+Applying \cref{thm:B}, we obtain the following.
    
 
 \begin{maintheorem}
@@ -327,20 +328,21 @@ Using \cref{thm:B}, the following is a direct corollary of \cite[Theorem 1.1]{Ev
 \begin{corollary}
     \label{thm:quinticgodeaux}
     Let $X$ be a quintic surface or a simply connected Godeaux surface.
-Then there is a symplectic form $\omega$ on $X$ for which $X$ contains infinitely many one-parameter families of Lagrangian tori the members of which are two-by-two inequivalent up to symplectomorphisms of $(X,\omega)$.
+Then there is a symplectic form $\omega$ on $X$ for which $X$ contains infinitely many one-parameter families of Lagrangian tori the members of which are pairwise inequivalent up to symplectomorphisms of $(X,\omega)$.
 \end{corollary}
 
 \subsection{Methods}
 \label{sec:intro_methods}
 
-To construct and understand the tori considered in this paper we use almost toric fibrations, abbreviated in the following by ATFs. To distiguish those tori we use the displacement energy germ.
+To construct and understand the tori considered in this paper we use almost toric fibrations, abbreviated in the following by ATFs; to distiguish those tori we use the displacement energy germ.
 Let us briefly discuss these methods.
 For a discussion and comparison to other works and methods, and in particular the use of the count of Maslov index two $J$-holomorphic disks, we refer to \cref{sec:intro_discussion}.
+In \cref{sec:howto_exotic} we apply our methods to a simple example.
 
 By the Arnold-Liouville theorem, a compact regular fibre of a completely integrable system is a Lagrangian torus. Vianna \cite{Via16,Via17} noticed that a certain type of completely integrable systems, called \emph{almost toric fibrations}, is a rich source of exotic tori. We give an overview of almost toric fibrations in \cref{sec:atgeometry} and refer to \cite{evans2021atfs} for more details. A crucial feature of ATFs is that, on a fixed symplectic manifold, there are certain operations by which one can produce new almost toric fibrations from a given one. One such operation is called \emph{nodal slide}. A nodal slide produces a one-parameter family of almost toric fibrations on the same space, which very often produces exotic Lagrangian tori. For example, sliding a node across the base point of Clifford torus in $\mathbb{R}^4$ produces a Chekanov torus. We discuss this simple example in detail in \cref{sec:howto_exotic}.
 
 In terms of almost toric geometry, the model spaces $B_{dpq}$ are particularly simple.
-Indeed, the almost toric base diagrams has $d$ nodes with coinciding eigenline, see \cref{fig:Bdpq_moment_image_alt} for two possible ATF-base diagrams that are related to each other by changing the branch cut. Subsequently sliding $d$ nodes across a given base point produces the $d+1$ Lagrangian tori in \cref{thm:A}.
+Indeed, the almost toric base diagrams of $B_{dpq}$ have $d$ nodes with coinciding eigenline, see \cref{fig:Bdpq_moment_image_alt} for two possible ATF-base diagrams that are related to each other by changing the branch cut. Subsequently sliding $d$ nodes across a given base point produces the $d+1$ Lagrangian tori in \cref{thm:A}.
 The pair $(p,q)$ determines the integral affine angle between the branch cut and the boundary of the almost toric base diagram.
 This is discussed in detail in \cref{sec:modelspaces}.
 
@@ -414,11 +416,10 @@ Then for small enough tori $L \subset U$, the displacement energy germ is preser
     \end{equation}
 \end{enumerate}
 
-We say that a Lagrangian $\varphi(L)$ arising as the image of $L \subset B_{dpq}$ under a partial $B_{dpq}$\-/embedding has the \textbf{locality property}, for the displacement energy germ, if \eqref{eq:locality} holds. Note that this property is not trivial.
+We say that a Lagrangian $\varphi(L)$ arising as the image of $L \subset B_{dpq}$ under a partial $B_{dpq}$\-/embedding has the \emph{locality property for the displacement energy germ} if \eqref{eq:locality} holds. Note that this property is not trivial.
 Indeed, the germ $[e]_L$ is derived from the displacement energy of a family of tori in $B_{dpq}$, whereas $[e]_{\varphi(L)}$ is derived from the displacement energy of tori in $X$. The upper bound on the displacement energies of embedded tori, appearing as the neighbours of $\varphi(L)$, is proved by displacing them within the given partial $B_{dpq}$\-/embedding via the method of probes, see \cref{sec:upper_bound}. The lower bound is given by the area of $J$-holomorphic curves via Chekanov's estimate \cref{thm:chekanov}, together with an area estimate on $J$-holomorphic curves leaving the partial $B_{dpq}$\-/embedding, see \cref{sec:lower_bound}.
 
 The locality property of the displacement energy germ was first used in \cite{chekanovschlenk2015} to distinguish embeddings of product tori and then taken up in \cite{brendel2023local} to construct exotic Lagrangian tori in Darboux charts in dimensions $\geqslant 6$.
-In \cref{sec:intro_discussion}, we discuss the parallels and differences between the constructions in dimensions $\geqslant 6$ from \cite{brendel2023local} and our construction in dimension $4$. 
 
 \subsection{Discussion and comparison to other works}
 \label{sec:intro_discussion}
@@ -428,7 +429,7 @@ The first-named author has recently proved that in dimension six and higher, the
 \begin{theorem}\cite[Theorem D]{brendel2023local}
     \label{thm:Bre23}
     Let $(X,\omega)$ be a geometrically bounded symplectic manifold of dimension greater than or equal to six.
-    Then every open set of $X$ contains infinitely many Lagrangian tori which have the same classical invariants, but are two-by-two inequivalent up to symplectomorphisms of $(X,\omega)$.
+    Then every open set of $X$ contains infinitely many Lagrangian tori which have the same classical invariants, but are pairwise inequivalent up to symplectomorphisms of $(X,\omega)$.
 \end{theorem}
 
 The tori in \cref{thm:Bre23} are constructed by embedding exotic tori in $\mathbb{R}^{2n}$ via Darboux charts into $X$.
@@ -441,7 +442,7 @@ Even embedding the Chekanov torus into some four-dimensional symplectic manifold
 \begin{remark}
     Let $X = S^2 \times S^2$ be equipped with a non-monotone symplectic form.
 Then there is a Darboux embedding $\varphi \colon \mathbb{R}^4 \supset U \rightarrow X$, a Chekanov torus $L \subset U$ and a product torus $L' \subset U$ such that $\varphi(L) \cong \varphi(L')$.
-See also \cite[Example 5.6]{brendel2023local}. 
+See also \cite[Example 5.6]{brendel2023local}.
 \end{remark}
 
 This suggests that in dimension four, one should not restrict one's attention to Darboux embeddings, but look instead at embeddings of more complicated domains containing interesting tori, such as the partial $B_{dpq}$\-/embeddings considered here.
@@ -455,8 +456,8 @@ In \cite{FOOO12}, the authors detect a 1-parametric family of non-displaceable t
 In \cite{SheTonVia19}, the authors consider an interesting invariant $\Psi(L) \in \mathbb{R}_{>0} \cup \{+\infty\}$ based on the count of \emph{minimal area} $J$-holomorphic disks as well as non-trivial input from the Fukaya category of the Lagrangian in question.
 In \cite[Section 7]{SheTonVia19} the invariant $\Psi$ is used to distinguish non-monotone Vianna-type tori in $\mathbb{C}P^2$.
 There is some overlap between this result and our results:
-From all possible mutations of the toric moment polytope of $\mathbb{C}P^2$, we obtain partial $B_{1,p,q}$\-/embeddings for all Markov numbers $p$ and thus infinitely many distinct non-monotone tori in $\mathbb{C}P^2$.
-The result in \cite[Section 7]{SheTonVia19} is quantitatively stronger, since our results only apply to small tori near the ATF-vertices.
+From all possible mutations of the toric moment polytope of $\mathbb{C}P^2$, we obtain partial $B_{1pq}$\-/embeddings for all Markov numbers $p$ and thus infinitely many distinct non-monotone tori in $\mathbb{C}P^2$.
+The result in \cite[Section 7]{SheTonVia19} is quantitatively stronger\footnote{Although the displacement energy germ also distinguishes these tori, see \cite[Example 3.7]{brendel2023local}.}, since our results only apply to small tori near the ATF-vertices.
 On the other hand, our results apply more broadly to any partial $B_{dpq}$\-/embeddings into a geometrically bounded $X$.
 
 \subsection{Overview}
@@ -687,7 +688,7 @@ Then for every $x \in \Delta \setminus \Sigma$, there is a symplectomorphism $\p
 \begin{remark}
     \label{rk:slides_ray}
     The claim of \cref{thm:nodal_slide} fails for points which are contained in a segment on which a nodal slide is supported, even if both points correspond to regular almost toric fibres.
-In fact, this is one of the main sources to construct so-called exotic Lagrangian tori, i.e.\ sets of tori for which there is no ambient symplectomorphism mapping one to the other.
+In fact, this is one of the main sources to construct exotic Lagrangian tori.
 This approach was pioneered by Vianna \cite{Via16,Via17}.
 The simplest example in which this occurs is $\mathbb{R}^4 = \mathbb{C}^2$.
 Let $T_{\text Cl}(a) = S^1(a) \times S^1(a) \subset \mathbb{C} \times \mathbb{C}$ be the Clifford torus.
@@ -748,7 +749,7 @@ By \cite[Theorem 8.10]{evans2021atfs}, this means that the space $B_{dpq}$ is we
 We turn to the almost toric fibres of $B_{dpq}$.
 For every $x \notin R$, we denote the corresponding almost toric fibre by $T(x) \subset B_{dpq}$.
 This definition is independent of the position of the nodes in $\Delta_{dpq}$ by \cref{thm:nodal_slide}.
-In case $x \in R$, the definition depends on how many nodes are to the right and to the left of $x$.
+In case $x \in R$, the definition depends on how many nodes are to the right and to the left of $x$:
 
 For every $a > 0$ and $k \in \{0,\ldots,d\}$, let $x_a = \left( a,\frac{aq}{p} \right) \in R$ and $\Delta_{dpq}$ be an almost toric base diagram as above for which $k$ of the $d$ nodes are to the left of the point $x_a$ and that $x_a$ is not a node (As in \cref{fig:our_tori}).
 
@@ -796,11 +797,11 @@ In \cref{sec:main_thm}, we show that there is no symplectomorphism of $B_{dpq}$ 
 \end{definition}
 
 \begin{remark}
-  In the Introduction we used a slightly different definition of a partial $B_{dpq}$\-/embedding, namely defining a partial $B_{dpq}$\-/embedding as an embedding of a neighbourhood of the Lagrangian skeleton $S$ of $B_{dpq}$, as described in \cite[Remark 7.10]{evans2021atfs}.
+  In the introduction we used a slightly different definition of a partial $B_{dpq}$\-/embedding, namely defining a partial $B_{dpq}$\-/embedding as an embedding of a neighbourhood of the Lagrangian skeleton $S$ of $B_{dpq}$, as described in \cite[Remark 7.10]{evans2021atfs}.
 
   Indeed, the two are equivalent:
   Obviously \cref{def:partial_embedding} gives a neighbourhood of the Lagrangian skeleton.
-  For the other direction, we need to construct a almost toric moment map satisfying 2.\ in \cref{def:partial_embedding}.
+  For the other direction, we need to construct an almost toric moment map satisfying 2.\ in \cref{def:partial_embedding}.
   Let $L$ be the lens space $L(dp²,dpq-1)$, and $CL$ the cone over it.
   $B_{dpq} ∖ S$ is symplectomorphic to $C L ∖ \{ ⋆\}$, where $⋆$ is the orbifold point in $CL$.
   $CL$ has a toric moment map which is smooth except at $⋆$, which can be pulled back to $B_{dpq}$ and perturbed slightly to give an almost toric moment map with the desired properties.
@@ -839,7 +840,7 @@ This allows us to give a more detailed description of $Δ$.
   \label{fig:atf_example2}
 \end{figure}
 
-$Δ$ is a rational not necessarily compact polygon\footnote{That is an intersection of half-spaces of the form $H_{v,c} = \{x ∈ ℝ² | ⟨x,v⟩+c > 0\}$ with $v ∈ ℤ², c ∈ ℝ$.} with two types of vertices: Either a Delzant-vertex $x ∈ ∂Δ$, i.e.\ the primitive vectors $u_1,u_2$ pointing along the two edges emerging at the vertex form a $ℤ$-basis of $ℤ²$, with no branch cut intersecting $∂Δ$ at $x$. See e.g.\ \cref{fig:atf_example2}.
+$Δ$ is a rational not necessarily compact polygon\footnote{An intersection of half-spaces of the form $H_{v,c} = \{x ∈ ℝ² | ⟨x,v⟩+c > 0\}$ with $v ∈ ℤ², c ∈ ℝ$.} with two types of vertices: Either a Delzant-vertex $x ∈ ∂Δ$, i.e.\ the primitive vectors $u_1,u_2$ pointing along the two edges emerging at the vertex form a $ℤ$-basis of $ℤ²$, with no branch cut intersecting $∂Δ$ at $x$. See e.g.\ \cref{fig:atf_example2}.
 Or $x$ is the intersection of one or multiple branch cuts with $∂Δ$:
 
 \begin{definition}
@@ -853,7 +854,7 @@ An ATF-corner $(x,dv)$ is \textbf{isolated} if it is the only ATF-corner at the 
 Let $(x,dv)$ be an ATF-corner of $Δ$ and $u_1,u_2$ be the primitive vectors pointing along the edges emerging from $x$.
 Using \cref{thm:change_branchcut}, we may perform a change of branch cut at each node belonging to $(x,dv)$, thus obtaining the almost toric base diagram $Δ' = \overline{S}_{dv}Δ$.
 We may assume that $u_1$ lies in the fixed half plane of $\overline{S}_{dv}$.
-If $(x,dv)$ is isolated, then in $Δ'$ there is no branch cut intersection with $∂Δ'$ at $x$, so $u_1 = -S_{dv}u_2$ or $u_1$ and $S_{dv}u_2$ form a Delzant vertex.
+If $(x,dv)$ is isolated, then in $Δ'$ there is no branch cut intersection with $∂Δ'$ at $x$, so either $u_1 = -S_{dv}u_2$ or $u_1$ and $S_{dv}u_2$ form a Delzant vertex.
 By a nodal trade we can assume that the last case does not appear.
 The case for non-isolated ATF-corners at $x ∈ ∂Δ$ is similar, if we change the branch cut at all ATF-corners at $x$, we should map $u_1,u_2$ onto parallel vectors, such that the vertex $x ∈ ∂Δ$ is mapped to the interior of an edge.
 Note that we can always \textbf{isolate} an ATF-corner at $x$ by changing the branch cut for all other ATF-corners at $x$.
@@ -909,7 +910,7 @@ Versal defomations were previously used in \cite{brendel2020real,brendel2023loca
 \label{sec:lagflux}
 
 The goal of this subsection is to introduce the Lagrangian flux.
-This notion was introduced in \cite[Section 2.4]{evans2021atfs} in the context of Lagrangian torus fibrations, and the proofs in this section are similar to the exposition in \cite[Section 10.2]{McDuffSalamonSympTop}, which introduces the notion of symplectic flux.
+This notion is described in \cite[Section 2.4]{evans2021atfs} in the context of Lagrangian torus fibrations, and the proofs in this section are similar to the exposition in \cite[Section 10.2]{McDuffSalamonSympTop}, which introduces the notion of symplectic flux.
 
 Let $\symcal{L}$ the space of Lagrangians in $X$ equipped with the $\symcal{C}^1$-topology.
 See \cite{ono2008LagrangianFlux} for more details on the $\symcal{C}^1$-topology on the space of Lagrangians. 
@@ -989,7 +990,7 @@ Their graphs $\Gamma_{\alpha}, \Gamma_{\beta}$ are Hamiltonian isotopic if and o
 If $[\alpha] = [\beta]$, the linear isotopy $\Lambda_t = Γ_{(1-t)α + t β}$ is a Lagrangian isotopy with $\Flux(Λ_s|_{s ∈ [0,t]}) = 0$ for all $t \in [0,1]$.
 Therefore $\Lambda$ is generated by a Hamiltonian isotopy by \cref{thm:hamiltonian_flux}.
 
-  Assuming that the graphs $Γ_α$ and $Γ_β$ we can extend a Lagrangian isotopy from $0$ to $α$, for example given by $Γ_{tα}$, by the Hamiltonian isotopy from $Γ_α$ to $Γ_β$ to get a Lagrangian isotopy $Λ_t$ from the zero section to $Γ_β$.
+  Assuming that the graphs $Γ_α$ and $Γ_β$ are Hamiltonian isotopic, we can extend a Lagrangian isotopy from $L_0$ to $Γ_α$, for example given by $Γ_{tα}$, by the Hamiltonian isotopy from $Γ_α$ to $Γ_β$ to get a Lagrangian isotopy $Λ_t$ from the zero section to $Γ_β$.
 By \cref{thm:hamiltonian_flux} adding the Hamiltonian part does not change the flux map, so $[α] = \Flux(Λ_t) = [β]$, by \cref{thm:graph_flux}.
 \end{proof}
 
@@ -1099,7 +1100,7 @@ It is denoted by
   \]
   where $φ^*$ denotes the induced map on cohomology.
 
-  Consequently, if there is no isomorphism $M \colon H^1(L';ℤ) → H^1(L;ℤ)$ such that $[I]_L ∘ M = [I]_{L'}$ there is no symplectomorphism $φ$ with $φ(L) = L'$.
+  Consequently, if there is no isomorphism $Φ \colon H^1(L';ℤ) → H^1(L;ℤ)$ such that $[I]_L ∘ Φ = [I]_{L'}$ there is no symplectomorphism $φ$ with $φ(L) = L'$.
 \end{proposition}
 
 \begin{proof}
@@ -1122,7 +1123,7 @@ Such a local moment map can be constructed, for example, in the neighbourhood $U
 In that case, $\mu$ corresponds to action coordinates.
 Let $L = \mu^{-1}(x_0)$ be a regular fibre of $\mu$.
 Since $L$ is diffeomorphic to a torus and $H^1(L;\mathbb{R}) \cong \mathbb{R}^n$, we expect an $n$-dimensional versal deformation.
-It is therefore natural to look at neighbouring fibres, i.e.\ Lagrangian tori of the form $\mu^{-1}(x_0 + b)$ for small $b \in \mathbb{R}^n$.
+It is therefore natural to look at neighbouring fibres, i.e.\ Lagrangian tori of the form $\mu^{-1}(x_0 + a)$ for small $a \in \mathbb{R}^n$.
 By \cref{def:versal_deformation} neighbouring Lagrangians in a versal deformation are parametrized by their Lagrangian flux.
 In fact, the local moment map coincides with the flux map, restricted to fibres $\mu^{-1}(x)$, see for example \cite[Lemma 2.15]{evans2021atfs}.
 In the language of versal deformations, this observation yields the following.
@@ -1194,7 +1195,7 @@ In this paper we are mainly interested in the case where $\mu$ is obtained as th
 \subsection{How to distinguish Tori using the Displacement Energy Germ}
 \label{sec:howto_exotic}
 
-Since this will be the main technique in the proof of \cref{thm:main}, let us briefly outline how to combine almost toric fibrations with versal deformations to distinguish Lagrangian tori. 
+Since this will be the main technique in the proof of \cref{thm:A,thm:B}, let us briefly outline how to combine almost toric fibrations with versal deformations to distinguish Lagrangian tori. 
 
 Let $L \subset (X,\omega)$ be a Lagrangian torus which we suspect to be exotic and let $I(\cdot)$ be a symplectic invariant of Lagrangian submanifolds as in the discussion surrounding \cref{def:invariant_germs}.
 All exotic tori known to the authors have the property that most neighbouring tori are themselves Hamiltonian isotopic to standard (non-exotic) tori, e.g.\ product tori in $\mathbb{R}^{2n}$ and toric fibres in toric manifolds.
@@ -1205,7 +1206,7 @@ Therefore, the germ $[I]_L$ can be computed on an open dense set of the origin o
 \end{enumerate}
 We called this property the \textit{instability of the exotic torus $L$} in \cite{brendel2023local} and refer to \cite[Sections 1.6, 5.1]{brendel2023local} for a further discussion of instability.
 In our case, we use the displacement energy $I(\cdot) = e(\cdot)$ as an invariant to distinguish Lagrangian tori, see \cref{sec:lower_bound} for a discussion of $e(\cdot)$.
-Since $e(\cdot) \in \mathbb{R} \cup \{+\infty\}$, we obtain a germ $[e]_L \colon H^1(L;\mathbb{R}) \cong \mathbb{R}^n \rightarrow \mathbb{R} \cup \{+\infty\}$. 
+Since $e(\cdot) \in \mathbb{R} \cup \{+\infty\}$, we obtain a germ $[e]_L \colon H^1(L;\mathbb{R}) \cong \mathbb{R}^n \dashrightarrow \mathbb{R} \cup \{+\infty\}$. 
 
 \begin{definition}
     \label{def:deg_equiv}
@@ -1231,7 +1232,6 @@ The following is an immediate consequence of \cref{thm:invariant_germs}.
 Then there is no symplectomorphism of $X$ mapping $L$ to $L'$. 
 \end{proposition}
 
-The use of ATFs to construct exotic tori was pioneered by Vianna \cite{Via16,Via17}.
 Computing the displacement energy germ is particularly easy for almost toric fibres.
 Firstly because every regular almost toric fibre has a natural versal deformation by \cref{thm:VDatffibres} and secondly because in an almost toric fibration, it is particularly easy to identify which standard torus a versal deformation is Hamiltonian isotopic to.
 Compare step (2) in the above outline.
@@ -1406,7 +1406,7 @@ In fact, the tori $T^k_{pq}$ have been shown to have non-vanishing Lagrangian Fl
     \end{enumerate}
     Indeed, for the first claim, note that $B_{d,1,1}$ appears as Milnor fibre of the smoothing of the $A_{d-1}$-singularity and thus \cite[Proposition 2.20]{LekMay14} implies the claim.
 For the second claim, see \cite[Proposition 3.6]{LekMay14}.
-In the special case $B_{2,1,1} \cong T^*S^2$ of (1), the torus $T_{1,1}^2(a)$ corresponds to the so-called \emph{Polterovich torus}, which had been shown to be non-displaceable earlier by Albers--Frauenfelder \cite{AlbFra08}.
+In the special case $B_{2,1,1} \cong T^*S^2$ of 1., the torus $T_{1,1}^2(a)$ corresponds to the so-called \emph{Polterovich torus}, which had been shown to be non-displaceable earlier by Albers--Frauenfelder \cite{AlbFra08}.
 \end{remark}
 
 In light of this remark it seems reasonable to conjecture that all $T^k_{pq}(a) \subset B_{dpq}$ with $k > 0$ (with the exception of $p=q=k=1$) are non-displaceable.
@@ -1527,7 +1527,7 @@ As a simple corollary we get that a $J$-curve crossing a certain distance, measu
   We want to place pairwise disjoint balls on $γ$.
   We have that $d((u ∘ γ) (1),A^-) ≥ δ$, so by the intermediate value theorem for each $0 ≤ n < N$ there is a $t_n ∈ [0,1]$ s.t.\ $d((u ∘ γ) (t_n),A^-) = (2n+1)r_0$.
   Also there is a $t_N$ such that $d((u ∘ γ) (t_N),A^-) = 2Nr_0 + δ_r/2$.
-  Picking $x_n = (u ∘ γ)(t_n)$ for $0 ≤ n ≤ N$ and using the triangle inequality we have that $B_{r_0}(x_n) ⊂ M ∖ ( A^+ ⊔ A^-)$ are pairwise disjoint.
+  Picking $x_n = (u ∘ γ)(t_n)$ for $0 ≤ n ≤ N$ and using the triangle inequality we have that $\{B_{r_0}(x_n) \mid 0 ≤ n < N\} \cup \{B_{δ_r/2}(x_N)\}$ are pairwise disjoint.
   See \cref{fig:small_buffer}.
   Applying \cref{thm:monotonicity} to each $B_r(x_n)$ we get the desired result.
 \end{proof}
@@ -1561,7 +1561,7 @@ Then we have
     Without any nodes, this is the toric moment image of $ℂ × T^* S^1$ under the moment map
   \begin{align*}
     μ_0 \colon ℂ × T^* S^1 &→ \mathbb{R}_{≥ 0} \times \mathbb{R}\\
-    (z,p,θ) &↦ (\abs{z}^2, p) \; ,
+    (z,p,θ) &↦ (π\abs{z}^2, p) \; ,
   \end{align*}
   where $ℂ × T^* S^1$ is equipped with the symplectic structure $ω_0 = ω_ℂ ⊕  ω_{T^*S¹}$, the two direct summands being the standard symplectic structures on $ℂ$ and $T^*S¹$ respectively.
 We also equip $ℂ × T^*S¹$ with the complex structure $J_0 = i \oplus i $.
@@ -1638,7 +1638,7 @@ Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such th
 \section{Proof of Main Theorem}
 \label{sec:main_thm}
 
- Let $d,p,q \in \mathbb{N}$ be integers such that $d \geqslant 1$ and $p,q$ coprime with $p > q \geqslant 0$.
+ Let $d,p,q \in \mathbb{N}$ be integers such that $d \geqslant 1$ and $p,q$ coprime, and thinking of $q$ as en element of $ℤ_p/{±1}$.
 
  \cref{thm:displacement_energy} yields the first step of the outline given in \cref{sec:howto_exotic}. To compute the displacement energy germ $[e]_L$ of $L = T^k_{pq}(a)$ (see \cref{def:our_tori}) on an open dense subset, we adapt the method in \cref{sec:howto_exotic} to the case at hand.
 
@@ -1687,7 +1687,7 @@ Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such th
       \draw (0,-1) node[anchor=north] {$[e]_{T^k_{pq}(a)}$};
     \end{scope}
   \end{tikzpicture}   
-  \caption{Image of the almost toric moment maps $\pi$ and $\pi'$, before and after changing the branch cut. To the right the level sets of the displacement energy germ of the fibre $T^k_{pq}(a) = T(x_a)$ as in \eqref{eq:displacement_energy_germ}.}
+  \caption{Image of the almost toric moment maps $\pi$ and $\pi'$, before and after changing the branch cut. To the right are the level sets of the displacement energy germ of the fibre $T^k_{pq}(a) = T(x_a)$ as in \eqref{eq:displacement_energy_germ}.}
   \label{fig:mod_moment_map}
 \end{figure}
 
@@ -1708,7 +1708,7 @@ In matrix form, the corresponding shear map is given by
     Furthermore, the respective almost toric fibres are identified as follows,
     \begin{equation}
         \label{eq:ATF_fibres_switch}
-        (\pi')^{-1}(\overline{S}_{kv}(x)) = \pi^{-1}(x), \quad
+        (\pi')^{-1}\qty(\overline{S}_{kv}(x)) = \pi^{-1}(x), \quad
         x \in \operatorname{int} \Delta.
     \end{equation}
     By \cref{thm:VDatffibres}, we obtain a versal deformation of $L =T^k_{pq}(a)$ by setting
@@ -1748,12 +1748,12 @@ Then there exists $a_0 > 0$ such that for all $a < a_0$, the displacement energy
 Using \cref{thm:main,thm:main_embedded}, we can prove \cref{thm:A,thm:B}: 
 
 \begin{proof}[Proof of \cref{thm:A,thm:B}]
-We show that if $[e]_{T^k_{pq}(a)} \circ Φ ~ [e]_{T^{k'}_{p'q'}(a')}$ for $Φ \in \GL(2;\mathbb{Z})$, then $a = a'$ and either $k=k' = 0$ or $(k,p,q) = (k',p',q')$.
-$a = a'$ is obvious.
+We show that if $[e]_{T^k_{pq}(a)} \circ Φ \sim [e]_{T^{k'}_{p'q'}(a')}$ for some $Φ \in \GL(2;\mathbb{Z})$, then $a = a'$ and either $k=k' = 0$ or $(k,p,q) = (k',p',q')$.
+The statement that $a = a'$ is obviously true.
 Equations \eqref{eq:main_germ} and \eqref{eq:main_germ_embedded} are both given as the minimum of two linear functions $α^k_{pq},β^k_{pq}$, where
 \[α^{ka}_{pq}(b) = a + \det(b,\mqty(0 \\ 1)) \quad β^k_pq(b) = a - \det(b,\mqty(kp² \\ kpq-1)) \; .\]
 The set $\{α^k_{pq} = β^k_{pq}\}$ is given by the space spanned by the vector $v=(p,q)$.
-Let $u_1 = \mqty(0 \\ 1)$ and $u_2 = \mqty(kp² \\ kpq -1)$ the vectors pointing along the level sets of $α^k_{pq}$ and $β^k_{pq}$ respectively, and define $v',u'_1,u'_2$ similarly.
+Denote by $u_1 = \mqty(0 \\ 1)$ and $u_2 = \mqty(kp² \\ kpq -1)$ the vectors pointing along the level sets of $α^k_{pq}$ and $β^k_{pq}$ respectively, and define the vectors $v',u'_1,u'_2$ similarly.
 
 Suppose $\min\qty{α^k_{pq},β^k_{pq}} ∘ Φ \sim \min\qty{α^{k'}_{p'q'},β^{k'}_{p'q'}}$.
 Then $Φ(v') = v$ and $Φ(\{u'_1,u'_2\}) = \{u_1,u_2\}$.
@@ -1762,8 +1762,8 @@ Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between 
 
     We show that $T^k_{pq}(a) \sim T^{k'}_{pq}(a)$.
     Denote by $π_k,π_{k'}$ the almost toric moment maps used in \cref{def:our_tori} for $T^k_{pq}(a), T^{k'}_{pq}(a)$ respectively. We have $T^k_{pq}(a) = π_k^{-1}(x_a)$ and $T^{k'}_{pq}(a) = π_{k'}^{-1}(x_a)$.
-    Let $ε>0$ and take the Lagrangian isotopies $Λ_t^k = π_k^{-1}(x_a+(0,tε))$ and $Λ_t^{k'} = π_{k'}^{-1}(x_a+(0,tε))$.
-    By \cref{thm:VDtoricfibre}, $\Flux(Λ^k) = \Flux(Λ^{k'}) = ε$.
+    Suppose that $ε>0$ and take the Lagrangian isotopies $Λ_t^k = π_k^{-1}(x_a+(0,tε))$ and $Λ_t^{k'} = π_{k'}^{-1}(x_a+(0,tε))$.
+    By \cref{thm:VDtoricfibre}, $\Flux(Λ^k) = \Flux(Λ^{k'}) = (0,ε)$.
     Using a nodal slide as in \cref{thm:nodal_slide} we may identify $Λ_1^k$ and $Λ_1^{k'}$.
     Concatenating $Λ^k$ and the inverse of $Λ^{k'}$ we get a Lagrangian isotopy $Λ$ from $T^k_{pq}(a)$ to $T^{k'}_{pq}(a)$ with $\Flux(Λ) = \Flux(Λ^k) - \Flux(Λ^{k'}) = 0$.
     The Maslov class is preserved under Lagrangian isotopies, and $\Flux(Λ) = 0$ means that the area class is preserved as well.
@@ -1781,13 +1781,14 @@ Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between 
     Our method of proof is different from the one used in \cite{LekMay14}.
     Instead of a count of Maslov index two $J$-holomorphic disks, we rely on the displacement energy germ to distinguish tori.
     The upshot of the method used in \cite{LekMay14} is that it yields non-displaceability results via computing the Floer homology.
-    Our methods, on the other hand can be applied to non-monotone tori, which will be crucial in \cref{thm:B}. Because of bubbling, the count of Maslov index two $J$-holomorphic disks depends on the choice of $J$ and does not yield an invariant in that case.
+    Our methods, on the other hand can be applied to non-monotone tori, which is crucial in \cref{thm:B}. Because of bubbling, the count of Maslov index two $J$-holomorphic disks depends on the choice of $J$ and does not yield an invariant in that case.
 \end{remark}
 
 \section{Examples}
 \label{sec:examples}
 
-\subsection{Polterovich tori in \texorpdfstring{$B_{dpq}$}{Bdpq}.}
+Along with \cref{thm:lag_sphere,thm:pinwheels,thm:quinticgodeaux} given in the introduction, we have the following fun-fact:
+
 As discussed in \cite[Remark 7.10]{evans2021atfs}, if $d>1$, the space $B_{dpq}$ contains a Lagrangian $S²$.
 Together with \cref{thm:lag_sphere}, this means every time we have a partial $B_{dpq}$\-/embedding with $d>1$, we also get a partial $B_{2,1,0}$\-/embedding "for free".
 In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any partial $B_{dpq}$\-/embedding with $d>1$.
@@ -1817,10 +1818,10 @@ In order to avoid some cyclical behaviour in the sequence $(d_i,p_i,q_i)$, we fi
 Under this operation the integral affine length of the edge in question increases.
 
 \begin{remark}
-    Let us briefly describe what the algorithm in the proof of \cref{thm:toric_embeddings} yields for the case of $X = \mathbb{C}P^2$.
-    Vianna \cite{Via16} proved that the set of ATF-base diagrams of $\mathbb{C}P^2$ obtained from the toric Delzant polytope by mutations is, up to nodal slides, in bijection with so-called Markov triples, i.e.\ solutions to the Markov equation.
-  In the case of $\mathbb{C}P^2$ it follows immediately from the definition of the sequence of mutations used in the proof of \cref{thm:toric_embeddings} that, starting from the standard toric structure, this sequence corresponds to the unique branch of Markov triples in the Markov tree that contain a $1$.
-    If we start at another Markov triangle, it corresponds to the branch in the Markov tree obtained by fixing one number in the Markov triple.
+  Let us briefly describe what the algorithm in the proof of \cref{thm:toric_embeddings} yields for the case of $X = \mathbb{C}P^2$.
+  Vianna \cite{Via16} proved that the set of ATF-base diagrams of $\mathbb{C}P^2$ obtained from the toric Delzant polytope by mutations is, up to nodal slides, in bijection with so-called Markov triples, i.e.\ solutions to the Markov equation.
+  In the case of $\mathbb{C}P^2$ it follows immediately from the definition of the sequence of mutations used in the proof of \cref{thm:toric_embeddings} that, starting from the standard toric structure, this sequence corresponds to the unique path of Markov triples in the Markov tree that contain a one.
+  If we start at another Markov triple, it corresponds to the path in the Markov tree obtained by fixing one number in the Markov triple.
 For more details on this, and in particular the combinatorics of the sequences involved, we refer to \cite[Section~8.4, Appendix~I]{evans2021atfs}.
 \end{remark}
 
@@ -1935,7 +1936,7 @@ In particular, $a_n → ℓ_∞$ and we can choose a strictly monotone subsequen
   Since $\det(x_e,v_i)<0$, the points $\pi(v_i)$ are contained in a half-circle, and thus they converge strictly monotonically to $π(v_∞)$.
   Since $v_i$ is primitive, the Euclidean length $\norm{v_i}$ satisfies $\norm{v_i} → ∞$.
 
-  The vector $v_∞$ is not parallel to $x_f$, since it would contradict the convergence of $w_i$ if it were parallel, so $p_i = \det(x_f, v_i) → ∞$, which means that $w_i$ is an ATF-corner of type $(d_i,p_i,q_i)$ in $Δ_{n_i}$ and $p_i → ∞$.
+  The vector $v_∞$ is not parallel to $x_f$, since it would contradict the convergence of $w_i$ if it were parallel. So $p_i = \det(x_f, v_i) → ∞$ and $w_i$ is an ATF-corner of type $(d_i,p_i,q_i)$ in $Δ_{n_i}$.
 
   Using \cref{thm:atf_bdpq} we get a partial $B_{d_i p_i q_i}$\-/embedding for every $i ∈ ℤ$.
 \end{proof}
@@ -1945,6 +1946,6 @@ In particular, $a_n → ℓ_∞$ and we can choose a strictly monotone subsequen
     We have $n_c'=2$ so that the number of ATF-corners appearing infinitely many times is two, so we always swap back and forth, as in the sequence of mutations used in \cite{EvaUrz21}.
 \end{remark}
 
-
+\emergencystretch=1em
 \printbibliography
 \end{document}
