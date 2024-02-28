@@ -115,6 +115,9 @@ Refname={Theorem,Theorems}]{maintheorem}
 \DeclareMathOperator{\Flux}{Flux}
 \DeclareMathOperator{\Crit}{Crit}
 
+% Fix \norm spacing
+\renewcommand{\norm}[1]{\left\lVert#1\mkern 1.2mu \right\rVert}
+
 \begin{document}
 \title{Semi-Local Exotic Lagrangian Tori in Dimension Four\\
 \bigskip
@@ -496,7 +499,7 @@ An \textbf{almost toric fibration (ATF)} is a Lagrangian torus fibration on a fo
 Almost toric fibrations were introduced by Sy\-ming\-ton \cite{symington2002FourDF}, based on earlier work by Zung \cite{Zun96,Zun97,Zun03}.
 As opposed to toric manifolds, there is no globally defined Hamiltonian torus action at play, nor is there a moment map.
 The analogue of the moment map image is given by the so-called \textbf{almost toric base diagram}.
-As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4] and {symington2002FourDF} \cite[Theorem 8.5]{evans2021atfs}. 
+As in the case of Delzant polytopes, every almost toric base diagram defines a unique symplectic manifold, see \cite[Corollary 5.4]{symington2002FourDF} and  \cite[Theorem 8.5]{evans2021atfs}. 
 
 For us\footnote{The general almost toric framework allows for much more generality, e.g.\ base diagrams carrying topology, non-convexity etc.\, but for our purposes the description we give here is sufficient.}, the almost toric base diagram is given by a rational convex polytope $\Delta \subset \mathbb{R}^2$ in the plane decorated with nodes and branch cuts\footnote{By a small abuse of notation, we denote by the symbol $\Delta$ the almost toric base diagram, as well as the subset $\Delta \subset \mathbb{R}^2$ without decorations.}.
 Given an almost toric fibration $F \colon X \rightarrow B \subset \mathbb{R}^2$, the corresponding base diagram is computed, roughly speaking, by attempting to find global action coordinates on the locus of regular values of $F$ in the base $B$.
@@ -1455,7 +1458,7 @@ We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bo
 We do not use the word \textit{tame} in order to avoid confusion with the notion of $\omega$-tame.} if there is a Riemannian metric $g$ on $X$ such that 
     \begin{enumerate}
         \item $g$ is complete,
-        \item there are constants $c_1,c_2 > 0$ such that $\omega(JV,V) ≥ c_1 \Vert V \Vert_g^2$ and $\vert \omega(V,W) \vert ≤ c_2 \Vert V \Vert_g \Vert W \Vert_g$ for all tangent vectors $V,W$, and
+        \item there are constants $c_1,c_2 > 0$ such that $\omega(JV,V) ≥ c_1 \norm{V}_g^2$ and $\abs{\omega(V,W)} ≤ c_2 \norm{V}_g \norm{W}_g$ for all tangent vectors $V,W$, and
         \item the sectional curvature of $g$ is bounded from above and the injectivity radius is bounded from below.
     \end{enumerate}
     Denote the space of such almost complex structures by $\symcal{J}_{\text{geo}}(X,\omega)$.
