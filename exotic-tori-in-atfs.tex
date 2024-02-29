@@ -144,7 +144,7 @@ Refname={Theorem,Theorems}]{maintheorem}
 
 \begin{abstract}
     We study exotic Lagrangian tori in dimension four.
-In certain Stein domains $B_{dpq}$ (which naturally appear in almost toric fibrations as a generalization of rational homology balls) we find $d+1$ families of monotone Lagrangian tori which are mutually distinct, up to symplectomorphisms.
+In certain Stein domains $B_{dpq}$ (which naturally appear in almost toric fibrations) we find $d+1$ families of monotone Lagrangian tori which are mutually distinct, up to symplectomorphisms.
 We prove that these remain distinct under embeddings of $B_{dpq}$ into geometrically bounded symplectic four-manifolds.
 We show that there are infinitely many different such embeddings, in the case in which $X$ is compact and (almost) toric and hence conclude that it contains infinitely many Lagrangian tori which are distinct up to symplectomorphisms of $X$.
 In dimension four, infinitely many different Lagrangian tori were previously known
@@ -474,8 +474,6 @@ In \cref{sec:examples}, we prove \cref{thm:intro_stretch} and discuss other exam
 We thank Jonny Evans for pointing out to us \cite{EvaUrz21} and the example discussed in \cref{thm:quinticgodeaux}.
 We thank Felix Schlenk for his constant encouragement and carefully reading an earlier draft of this paper.
 JB acknowledges the support of the Israel Science Foundation grant 1102/20 and the ERC Starting Grant 757585.
-JH and JS acknowledge the support of ... 
-
 
 \section{Local model}
 \label{sec:local_model}
@@ -1775,7 +1773,8 @@ Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between 
     As mentioned in \cref{rk:lekili}, some special cases of \cref{thm:A} can be deduced from \cite{LekMay14}. Indeed, 
     \begin{enumerate}
         \item for $p = q = 1$ and arbitrary $d$, the space $B_{d,1,1}$ appears as Milnor fibre of the smoothing of the $A_{d-1}$-singularity (see also \cite[Section 7.3]{evans2021atfs}) and \cite[Lemma 2.19]{LekMay14} yields a count of Maslov index two $J$-holomorphic disks with boundary on the tori $T^k_{1,1}$. This count depends on $k$ and, by monotonicity of the tori, is a symplectic invariant, see \cite{EliPol97}. Thus \cite[Lemma 2.19]{LekMay14} distinguishes the tori.
-        \item for $d = 1$ and arbitrary $(p,q)$, the torus $T^1_{pq}(a)$ is non-displaceable by \cite[Proposition 3.6]{LekMay14}. Since $T^0_{pq}$ is displaceable by the methods used in \cref{sec:upper_bound}, we deduce $T^0_{pq} \ncong T^1_{pq}$.
+        \item for $d = 1,p \neq 1$ and $(p,q) ≠ (1,0)$, the torus $T^1_{pq}(a)$ is non-displaceable by \cite[Proposition 3.6]{LekMay14}.
+        Since $T^0_{pq}$ is displaceable by the methods used in \cref{sec:upper_bound}, we deduce $T^0_{pq} \ncong T^1_{pq}$.
     \end{enumerate}
     The special case of $d=2,p=1,q=0$ corresponds to $B_{2,1,0} \cong T^*S^2$ and thus follows from earlier work \cite{AlbFra08}, see also the discussion in \cref{ex:cotangent}.
     Our method of proof is different from the one used in \cite{LekMay14}.
@@ -1787,11 +1786,12 @@ Similarly to \cref{rem:atf_corner_type_calc}, the integral affine angle between 
 \section{Examples}
 \label{sec:examples}
 
-Along with \cref{thm:lag_sphere,thm:pinwheels,thm:quinticgodeaux} given in the introduction, we have the following fun-fact:
+Along with \cref{thm:lag_sphere,thm:pinwheels,thm:quinticgodeaux} given in the introduction, we have the following:
 
 As discussed in \cite[Remark 7.10]{evans2021atfs}, if $d>1$, the space $B_{dpq}$ contains a Lagrangian $S²$.
 Together with \cref{thm:lag_sphere}, this means every time we have a partial $B_{dpq}$\-/embedding with $d>1$, we also get a partial $B_{2,1,0}$\-/embedding "for free".
 In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any partial $B_{dpq}$\-/embedding with $d>1$.
+By \cref{thm:B} small enough such tori are distinct from the $T_{pq}^k$ coming from the same embedding.
 
 \subsection{Stretching an Edge}
 \label{sec:stretch_edge}
