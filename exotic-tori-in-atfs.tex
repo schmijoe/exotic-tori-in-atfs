@@ -78,7 +78,10 @@
 
 % For more fine grained typesetting in final mode.
 % Else set the tolerance for overfull warnings higher.
-\ifdraft{\hfuzz=1.5pt}{\usepackage{microtype}}
+\ifdraft{\hfuzz=1.5pt}{
+\usepackage{microtype}
+\usepackage{fnpct}
+}
 
 % Links and stuff
 \usepackage[final]{hyperref}
@@ -289,7 +292,7 @@ Another immediate consequence of \cref{thm:B} is the following.
 To apply \cref{thm:B}, let us now move to examples of symplectic manifolds $(X,\omega)$ which admit partial $B_{dpq}$\-/embeddings.
 For a given $X$ it is a highly non-trivial question to decide if, and for which triple $(d,p,q)$, there is a partial $B_{dpq}$\-/embedding.
 Note that the existence of a partial $B_{dpq}$\-/embedding in particular implies that $X$ contains a particular configuration consisting of a Lagrangian $(p,q)$-pinwheel and $d-1$ Lagrangian spheres.
-In fact, for $X = \mathbb{C}P^2$, it was shown in \cite{EvaSmi18}, that there is a partial $B_{dpq}$\-/embedding if and only if $d=1$ and $p$ is a so-called Markov number, the number $q$ can be determined from $p$ in this case.\todo{Vielleicht auch nicht. equiv. mit markov vermutung.}
+In fact, for $X = \mathbb{C}P^2$, it was shown in \cite{EvaSmi18}, that there is a partial $B_{dpq}$\-/embedding if and only if $d=1$ and $p$ is a so-called Markov number.
 On the other hand, we prove the following, see \cref{thm:toric_embeddings} for the detailed statement.
 
 \begin{proposition}
@@ -328,7 +331,7 @@ For every $i \in \mathbb{N}$, there is $a_{i,0} > 0$ such that for every pair $n
 In other words, every such $X$ contains infinitely many one-parameter families of Lagrangian tori such that no member of one family is equivalent,  by a symplectomorphism of $X$, to a member of another family.
 The parameter $a_i$ is an area parameter in the partial $B_{dpq}$\-/embedding and can be viewed as the size of the corresponding torus.
 One drawback of this result is that the sizes of the embeddings may become arbitrarily small along the sequence, meaning $a_{i,0} \rightarrow 0$.
-See \cref{rem:possible_uniform_lower_bound} for a possibility how this could be imporved.
+See \cref{rem:possible_uniform_lower_bound} for a possibility how this could be improved.
 
 As was pointed out to us by Jonny Evans, we can apply \cref{thm:B} to certain surfaces of general type studied in \cite{EvaUrz21}.
 The key point in that paper is interpreting Mori's theory of flips in terms of almost toric base diagrams and finding a sequence of mutations, that uses only two vertices,  yielding an infinite sequence of partial $B_{1p_iq_i}$\-/embeddings with $p_i \rightarrow \infty$.
@@ -544,7 +547,7 @@ Every node in the almost toric base diagram has a unique \textbf{eigendirection}
 Although the eigendirection is not explicitly part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question.
 In the current paper, we always choose the branch cut to coincide with the eigendirection.
 As a consequence, the almost toric base diagram "closes up", which is discussed in \cite[Section 7.2]{evans2021atfs}, and thus yields a convex polytope.
-With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}\footnote{This is non-standard terminology. In contrast to "almost toric fibration", we want to empathize that it gives local action coordinates.}.
+With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}.\footnote{This is non-standard terminology. In contrast to "almost toric fibration", we want to empathize that it gives local action coordinates.}
 Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts.
 Assuming the branch cuts can be chosen such that $\Delta_0$ is simply connected\todo{Is this indeed an assumption?}, there are global action coordinates on its intersection with the regular locus, see \cite{Dui80}.
 Away from the branch cut and nodes, all singularities are of toric type, i.e.\ elliptic-regular or elliptic-elliptic, meaning that the map given by action coordinates can be smoothly extended over the singularities to yield a moment map $\pi\vert_{X_0} \colon X_0 \rightarrow \Delta_0$ of a Hamiltonian $T^2$-action.
@@ -1150,55 +1153,6 @@ Then
 
 The components $\mu_i$ of the moment map $\mu$ generate $n$ closed orbits in $L$, which yield a natural identification $H_1(L) \cong \mathbb{Z}^n \subset \mathbb{R}^n$.
 Dually, we obtain an identification $H^1(L;\mathbb{R}) \cong \mathbb{R}^n$ used in \eqref{eq:VDtoricfibre}.
-For the sake of completeness, we include a proof of \cref{thm:VDtoricfibre}.
-
-\begin{proof}
-    Let $\symcal{U}$ be a simply connected neighbourhood of $L \in \symcal{L}_{L}$.
-    Pick an open convex neighbourhood $V \subset \operatorname{im} \mu$ of $x_0$ such that $\mu^{-1}(x) \in \symcal{U}$ for all $x \in V$.
-    By \cref{def:versal_deformation}, it suffices to show $\operatorname{Flux}_{\symcal{U}} \circ v_L\vert_{V} = \id$ to prove that \eqref{eq:VDtoricfibre} defines a versal deformation.
-    Let $a \in H^1(L;\mathbb{R}) \cong \mathbb{R}^n$ such that $x_0 + a \in V$.
-Then 
-    \begin{equation}
-        \operatorname{Flux}_{\symcal{U}} ( v_L\vert_{V} (a))
-        = \operatorname{Flux}_{\symcal{U}} (\mu^{-1}(x_0 + a))
-        = \operatorname{Flux} \{t \mapsto \mu^{-1}(x_0 + ta) \}_{t \in [0,1]}.
-    \end{equation}
-    The Lagrangian isotopy $\Lambda = \{t \mapsto \mu^{-1}(x_0 + ta) \}_{t \in [0,1]}$ is contained in $\symcal{U}$ by the convexity and the choice of $V \subset \operatorname{im} \mu$.
-    The last equality follows from the definition \eqref{eq:localflux} of $\operatorname{Flux}_{\symcal{U}}$ and the fact that we can homotope any given Lagrangian isotopy in $\symcal{U}$ with endpoints $L$ and $\mu^{-1}(x_0 + a)$ to $\Lambda$ by the fact that $\symcal{U}$ is simply connected. 
-
-    Let $ξ \in H_1(L)$, then we define the following flux cylinder (as in \cref{def:flux_map}) of $\xi$ over $\Lambda$, 
-    \begin{equation}
-        C_{\xi} \colon [0,1] \times S^1 \rightarrow X, \quad
-        (t,s) \mapsto φ_s(\gamma(t)),
-    \end{equation}
-    where $\gamma \colon [0,1] \rightarrow X$ is a smooth path satisfying $\mu(\gamma(t)) = x_0 + ta$ and $φ_s$ is the flow of the $S^1$-moment map $H_{\xi} = \langle \mu , \xi \rangle$.
-    This expression makes sense under the identification $H_1(L) \cong \mathbb{Z}^n$ via orbits of the moment map, and implies that $[\partial C_{\xi} \cap L] = \xi$.
-    We have $C_{\xi}(\{t\} \times S^1) \subset \Lambda_t$ showing that $C_{\xi}$ defines a flux cylinder with the desired properties.
-    Denoting the Hamiltonian vector field of $H_{\xi}$ by $X_{\xi}$, we compute
-    \begin{align*}
-        \langle \operatorname{Flux} \Lambda , \xi \rangle
-        &= \int_{C_{\xi}} \omega \\
-        &= \int_0^1 \int_0^1 \omega\qty(\qty(X_{\xi} \circ φ_s \circ \gamma)(t) , \qty(φ_s)_*\dot{\gamma}(t) ) ds \, dt \\
-        &= \int_0^1 \int_0^1 dH_{\xi}\vert_{φ_s(\gamma(t))} (φ_s)_*\dot{\gamma}(t) ds\, dt \\
-        &= \int_0^1 dH_{\xi}\vert_{\gamma(t)} (\dot{\gamma}(t))dt \\
-        &= \int_0^1 \frac{d (H_{\xi} \circ \gamma)}{dt} (t) dt \\
-        &= H_{\xi}(\gamma(1)) - H_{\xi}(\gamma(0)) \\
-        &= \langle \mu(\gamma(1)) - \mu(\gamma(0)), \xi \rangle \\
-        &= \langle a , \xi \rangle,
-    \end{align*}
-which proves the claim.
-\end{proof}
-
-
-In this paper we are mainly interested in the case where $\mu$ is obtained as the restriction of an almost toric moment map, see \cref{thm:toricmomentmap}. 
-
-\begin{corollary}
-    \label{thm:VDatffibres}
-    Let $\pi \colon X \rightarrow \Delta$ be an almost toric moment map of an almost toric fibration.
-    Let $x_0 \in \operatorname{int}\Delta$ be a point which is not a node, nor lies on a branch cut.
-    Then $\nu_L(a) = \pi^{-1}(x_0 + a)$, which is defined for small enough $a$, is a versal deformation of the almost toric fibre $L = \pi^{-1}(x_0)$.
-\end{corollary}
-
 
 \subsection{How to distinguish tori using the displacement energy germ}
 \label{sec:howto_exotic}
@@ -1241,7 +1195,7 @@ Then there is no symplectomorphism of $X$ mapping $L$ to $L'$.
 \end{proposition}
 
 Computing the displacement energy germ is particularly easy for almost toric fibres.
-Firstly because every regular almost toric fibre has a natural versal deformation by \cref{thm:VDatffibres} and secondly because in an almost toric fibration, it is particularly easy to identify the standard torus to which a versal deformation is Hamiltonian isotopic to.
+Firstly because every regular almost toric fibre has a natural versal deformation by \cref{thm:VDtoricfibre} and secondly because in an almost toric fibration, it is particularly easy to identify the standard torus to which a versal deformation is Hamiltonian isotopic to.
 Compare step (2) in the above outline.
 Let us illustrate this by means of the basic example of the Chekanov torus in $\mathbb{R}^4 = \mathbb{C}^2$.
 
@@ -1308,7 +1262,7 @@ Therefore $e(\pi^{-1}(x)) = \min \{x_1,x_2\}$ for such almost toric fibres.
 This corresponds to Step (2) in the outline above.
 See the upper middle diagram in \cref{fig:babys_second_vd} for the level sets of $x \mapsto e(\pi^{-1}(x))$.
 The displacement energy of the Chekanov tori on the branch cut cannot be determined in this way, as they are not symplectomorphic to product tori.
-In order to apply \cref{thm:VDatffibres}, we use \cref{thm:change_branchcut} to change the branch cut in order for the Chekanov tori not to lie on the branch cut.
+In order to apply \cref{thm:VDtoricfibre}, we use \cref{thm:change_branchcut} to change the branch cut in order for the Chekanov tori not to lie on the branch cut.
 We find
 \begin{equation}
     \label{eq:babyDEG2}
@@ -1412,20 +1366,12 @@ Then the displacement energy of the regular almost toric fibre $T(x)$ satisfies
 \end{figure}
 We will use the probe $P = \{(s,x_2) \, \vert \, s ≥ 0\} \subset \Delta_{dpq}$, where $x_2$ is the second component of $x \in \Delta_{dpq}$.
 It intersects the boundary $∂ \Delta_{dpq}$ integrally transversally in the sense of \cite[Section 2.1]{mcduff2011displacing}.
-However, note that $P$ may intersect nodes or the branch cut,\footnote{Exercise: We could also choose the probe $P'$ crossing the branch cut and bending down. In which direction would it bend? For what values of $p,q$ would $P'$ still be able to displace any $x$ close to the branch cut?} depending on the position of nodes in $\Delta_{dpq}$.
+However, note that $P$ may intersect nodes or the branch cut, depending on the position of nodes in $\Delta_{dpq}$.
 Since $x ∉ R$, we can, by \cref{thm:nodal_slide}, carry out a nodal slide such that $P$ is disjoint from the nodes and the branch cut.
 By \cref{thm:toricmomentmap}, the almost toric moment map is toric on the preimage of a neighbourhood of $P$ and thus $P$ is a probe of infinite length.
 See \cref{fig:clear_the_probe}.
 
-By \cite[Lemma 2.4]{mcduff2011displacing}, the almost toric fibre $T(x)$ is displaceable.
-To compute the upper bound on displacement energy, we follow the same line of argument as in \cite[Proposition 3.4]{brendel2020real}.
-Let us give a brief outline for the reader's convenience.
-We can view $\pi^{-1}(P)$ as the level set $\pi_2^{-1}(x_2)$ and note that $\pi_2$ generates a free Hamiltonian $S^1$-action on the preimage of a neighbourhood of $P$, which is disjoint from the nodes and branch cut.
-Therefore, we can perform symplectic reduction to obtain a symplectic quotient $\pi_2^{-1}(x_2)/S^1$.
-This symplectic quotient is a copy of $\mathbb{R}^2$ equipped with the standard symplectic form.
-The Lagrangian torus $T(x)$ is contained in $\pi_2^{-1}(x_2)$ and invariant under the $S^1$-action by which we reduce.
-One can check that it projects to a circle $C \subset \pi_2^{-1}(x_2)/S^1$ which encloses symplectic area $x_1$ in the reduced space.
-This circle has displacement energy $e(C) = x_1$, and any Hamiltonian diffeomorphism displacing $C$ with energy $e$ lifts to a Hamiltonian diffeomorphism displacing $T(x)$ with energy $e$ by \cite[Lemma 3.1]{brendel2020real}, showing that $e(T(x))≥x_1$ as required.
+By \cite[Proposition 3.4]{brendel2020real}, the almost toric fibre $T(x)$ is displaceable and satisfies $e(T(x)) ≤ x_1$.
 \end{proof}
 
 \begin{remark}
@@ -1652,13 +1598,13 @@ Take $δ>0$ such that the expression $C(Nr_0^2 + δ_r^2/4)$ in \cref{thm:small_b
 \caption{(a) Area $A_0$ obtained from Step 1 is obstructed by node and branch cut.\\
 (b) $A_0$ is cleared by a nodal slide.
 Now $π^{-1}(A_0) ≅ μ_0^{-1}(A_0)$.
-Any $J$-curve escaping $π^{-1}(A_0)$ must have sufficiently large area.}
+Any $J$-curve $u$ escaping $π^{-1}(A_0)$ must have sufficiently large area.}
 \label{fig:clear_the_area}
 \end{figure}
 
   \emph{Step 2:}
   Let us now return to $B_{dpq}$.
-  Since $x \notin R$ and $A_0 \subset \mathbb{R}_{≥ 0} \times \mathbb{R}$ is compact, we can perform a nodal slide whose support does not contain $x$ to remove all nodes and branch cuts from $A_0$, see also \cref{thm:nodal_slide}.
+  Since $x \notin R$ and $A_0 \subset \mathbb{R}_{≥ 0} \times \mathbb{R}$ is compact, we can perform a nodal slide as in \cref{fig:clear_the_area} whose support does not contain $x$ to remove all nodes and branch cuts from $A_0$, see also \cref{thm:nodal_slide}.
   Let $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ be the almost toric moment map associated to this almost toric fibration.
   Since $A_0$ does not contain any nodes or branch cuts, the restriction $\pi\vert_{\pi^{-1}(A_0)} \colon \pi^{-1}(A_0) \rightarrow A_0$ is a toric moment map and thus, using Delzant's theorem \cite[Theorem 2.1]{Del88}, we identify $\pi^{-1}(A_0) ⊂ B_{dpq}$ with $μ_0^{-1}(A_0) ⊂ ℂ × T^* S¹$ by an equi\-va\-ri\-ant symplectomorphism.
   Let $J_{B_{dpq}}$ be a geometrically bounded almost complex structure on $B_{dpq}$, which exists by \cref{rem:Bdpq_geometrically_bounded}.
@@ -1765,7 +1711,7 @@ Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such th
     Let $\pi \colon B_{dpq} \rightarrow \Delta_{dpq}$ be an almost toric moment map with $k$ nodes to the left of the point $x_a =\left( a, \frac{aq}{p}\right)$.
 Then the almost toric fibre of $\pi$ over $x_a$ is $T^k_{pq}(a)$ by \cref{def:our_tori}.
 Note that if $k \neq 0$, then $x_a$ lies on a branch cut of $\Delta_{dpq}$, as on the left-hand side of \cref{fig:mod_moment_map}.
-To apply \cref{thm:VDatffibres} we perform changes in branch cut to the $k$ nodes to the left of $x_a$.
+To apply \cref{thm:VDtoricfibre} we perform changes in branch cut to the $k$ nodes to the left of $x_a$.
 As a result, we obtain a new almost toric moment map $\pi' \colon B_{dpq} \rightarrow \Delta'$, see the right-hand side of \cref{fig:mod_moment_map}.
 By \cref{thm:change_branchcut}, its image $\Delta'$ is given by $\overline{S}_v^k (\Delta_{dpq}) = \overline{S}_{kv}(\Delta_{dpq})$ with $v = (-p,-q)$.
 In matrix form, the corresponding shear map is given by 
@@ -1781,7 +1727,7 @@ In matrix form, the corresponding shear map is given by
         (\pi')^{-1}\qty(\overline{S}_{kv}(x)) = \pi^{-1}(x), \quad
         x \in \operatorname{int} \Delta.
     \end{equation}
-    By \cref{thm:VDatffibres}, we obtain a versal deformation of $L =T^k_{pq}(a)$ by setting
+    By \cref{thm:VDtoricfibre}, we obtain a versal deformation of $L =T^k_{pq}(a)$ by setting
     \begin{equation}
         \label{eq:VD_piprime}
         v_L(b) = (\pi')^{-1}(x_a + b), \quad
