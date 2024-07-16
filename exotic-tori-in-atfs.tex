@@ -325,9 +325,10 @@ For every $i \in \mathbb{N}$, there is $a_{i,0} > 0$ such that for every pair $n
     for the tori defined in \eqref{eq:l_tori}.
 \end{maintheorem}
 
-In other words, every such $X$ contains infinitely many one-parameter families of Lagrangian tori such that no member of one family is equivalen,  by a symplectomorphism of $X$, to a member of another family.
+In other words, every such $X$ contains infinitely many one-parameter families of Lagrangian tori such that no member of one family is equivalent,  by a symplectomorphism of $X$, to a member of another family.
 The parameter $a_i$ is an area parameter in the partial $B_{dpq}$\-/embedding and can be viewed as the size of the corresponding torus.
 One drawback of this result is that the sizes of the embeddings may become arbitrarily small along the sequence, meaning $a_{i,0} \rightarrow 0$.
+See \cref{rem:possible_uniform_lower_bound} for a possibility how this could be imporved.
 
 As was pointed out to us by Jonny Evans, we can apply \cref{thm:B} to certain surfaces of general type studied in \cite{EvaUrz21}.
 The key point in that paper is interpreting Mori's theory of flips in terms of almost toric base diagrams and finding a sequence of mutations, that uses only two vertices,  yielding an infinite sequence of partial $B_{1p_iq_i}$\-/embeddings with $p_i \rightarrow \infty$.
@@ -1618,6 +1619,42 @@ Take $δ>0$ such that the expression $C(Nr_0^2 + δ_r^2/4)$ in \cref{thm:small_b
         A_0 &= \{y ∈ \im μ_0 \mid d_{μ_0}(x,y) ≤ δ \} \; ,\\
         A_0^+ &=\{y ∈ \im μ_0 \mid d_{μ_0}(x,y) = δ \} \; .
   \end{align}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+  \begin{scope}[shift={(-5,0)}]
+    \draw[fill,opacity=0.1] (0,-1) rectangle (4,2);
+    \draw[dashed] (1,0) node[cross] {} -- (3,1) node[cross] {} -- (4,1.5);
+    \fill[opacity=0.2,text opacity=1,red] (0,1) .. controls +(0,0.5) and +(0,0.5) .. node[near start, anchor=south] {$A_0$} (3.5,0.5)
+      .. controls +(0,-0.5) and +(0,-.5) .. (0,0);
+    \draw[fill] (0.75,0.5) circle[radius=1pt] node[anchor=south] {x};
+    \draw[thick] (0,-1) -- (0,2);
+    \draw (2,-1) node[anchor=north] {(a)};
+  \end{scope}
+  \begin{scope}[shift={(0,0)}]
+    \draw[fill,opacity=0.1] (0,-1) rectangle (4,2);
+    \draw[dashed] (3,1) node[cross] {} -- (3.5,1.25) node[cross] {} -- (4,1.5);
+    \begin{scope}
+      \fill[opacity=0.2,text opacity=1,red] (0,1) .. controls +(0,0.5) and +(0,0.5) .. node[near start, anchor=south] {$A_0$} (3.5,0.5)
+        .. controls +(0,-0.5) and +(0,-.5) .. (0,0);
+      \clip (0,1) .. controls +(0,0.5) and +(0,0.5) .. (3.5,0.5)
+        .. controls +(0,-0.5) and +(0,-.5) .. (0,0);
+      \fill[draw,fill opacity=0.2,text opacity=1,blue!70]
+        (3,1) .. controls +(0,0) and +(1,.5) .. node[near end,anchor=north] {$u$} (.75,.5)
+        .. controls +(1,.5) and +(0,0) .. (2,1.5);
+    \end{scope}
+    \draw[fill] (0.75,0.5) circle[radius=1pt] node[anchor=south] {x};
+    \draw[thick] (0,-1) -- (0,2);
+    \draw (2,-1) node[anchor=north] {(b)};
+  \end{scope}
+\end{tikzpicture}
+\caption{(a) Area $A_0$ obtained from Step 1 is obstructed by node and branch cut.\\
+(b) $A_0$ is cleared by a nodal slide.
+Now $π^{-1}(A_0) ≅ μ_0^{-1}(A_0)$.
+Any $J$-curve escaping $π^{-1}(A_0)$ must have sufficiently large area.}
+\label{fig:clear_the_area}
+\end{figure}
 
   \emph{Step 2:}
   Let us now return to $B_{dpq}$.
