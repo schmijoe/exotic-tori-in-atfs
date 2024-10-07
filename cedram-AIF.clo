@@ -1,0 +1,5 @@
+\setpublname[Ann. Inst. Fourier, Grenoble]{Annales de l'institut Fourier}%
+\let\iftagsleft@\iftrue 
+\cdr@uppercaseheadauthorsfalse
+\cdr@EqCountersInSectionstrue
+\PassOptionsToPackage{leqno}{amsmath}%

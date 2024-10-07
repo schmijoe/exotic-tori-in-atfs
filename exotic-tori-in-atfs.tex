@@ -1,15 +1,14 @@
 % vim: spelllang=en_gb
 
-\documentclass[12pt,a4paper,abstract=true,final]{scrartcl}
-\usepackage{ifdraft}
+\documentclass[AIF,Unicode,manuscript]{cedram}
 
 % --------------------
 % Set Language Options
 % --------------------
 
-\usepackage[nswissgerman,french,main=english]{babel}
-\usepackage[autostyle,english=american,german=swiss]{csquotes}
-\MakeOuterQuote{"}
+%\usepackage[nswissgerman,french,main=english]{babel}
+%\usepackage[autostyle,english=american,german=swiss]{csquotes}
+%\MakeOuterQuote{"}
 
 \usepackage[shortcuts]{extdash}
 
@@ -17,9 +16,9 @@
 % Font & Symbols
 % --------------
 
-\usepackage{amssymb,mathtools}
+\usepackage{amssymb,mathtools,amsmath}
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-\usepackage[oldstyle,proportional]{libertinus-otf}
+%\usepackage[oldstyle,proportional]{libertinus-otf}
 
 % ---------------
 % Set Page Layout
@@ -28,19 +27,19 @@
 % Get length of 65 characters
 %\setlxvchars
 
-\usepackage[driver=auto]{geometry}
+%\usepackage[driver=auto]{geometry}
 % A5: 148mm × 210mm
 % A4: 210mm × 297mm
-\geometry{
-  width=140mm,
-  height=217mm,
-  marginparsep=3mm,
-  marginparwidth=30mm,
-}
-\ifdraft{\geometry{
-  inner=10mm,
-  marginparwidth=50mm
-}}{}
+%\geometry{
+%  width=140mm,
+%  height=217mm,
+%  marginparsep=3mm,
+%  marginparwidth=30mm,
+%}
+%\ifdraft{\geometry{
+%  inner=10mm,
+%  marginparwidth=50mm
+%}}{}
 
 
 % ---------------------
@@ -48,16 +47,16 @@
 % ---------------------
 
 % Various Math Environments
-\usepackage{amsthm,thmtools}
+\usepackage{amsthm}%,thmtools}
 \usepackage{physics} % various shortcuts
 
 % Bibliography
-\usepackage[style=numeric-comp,url=false,isbn=false,maxnames=6]{biblatex}
-\addbibresource{bibliography.bib}
+%\usepackage[style=numeric-comp,url=false,isbn=false,maxnames=6]{biblatex}
+%\addbibresource{bibliography.bib}
 
 % For general figures
-\usepackage[final]{graphicx}
-\graphicspath{{/img}}
+%\usepackage[final]{graphicx}
+%\graphicspath{{/img}}
 \usepackage{subcaption}
 \usepackage{tikz}
 \usetikzlibrary{babel,cd,shapes,3d}
@@ -78,37 +77,41 @@
 
 % For more fine grained typesetting in final mode.
 % Else set the tolerance for overfull warnings higher.
-\ifdraft{\hfuzz=1.5pt}{
 \usepackage{microtype}
 \usepackage{fnpct}
-}
 
 % Links and stuff
-\usepackage[final]{hyperref}
+%\usepackage[final]{hyperref}
 \usepackage[noabbrev,capitalize]{cleveref}
 
-\hypersetup{
-  pdfcreator = {},
-  pdfproducer = {}
-}
-\pdfvariable suppressoptionalinfo \numexpr 1+2+4+8+16+32+64+128+256+512 \relax
+%\hypersetup{
+%  pdfcreator = {},
+%  pdfproducer = {}
+%}
+%\pdfvariable suppressoptionalinfo \numexpr 1+2+4+8+16+32+64+128+256+512 \relax
 
 
 % For Todonotes
-\usepackage[obeyDraft]{luatodonotes}
+%\usepackage[obeyDraft]{luatodonotes}
 
 % --------------------------------------------
 % Define Theorem Environments & Math Operators
 % --------------------------------------------
 
-\declaretheorem[numberwithin=section]{theorem}
-\declaretheorem[sibling=theorem]{lemma, proposition, corollary}
-\declaretheorem[sibling=theorem,style=definition]{definition, example}
-\declaretheorem[sibling=theorem,style=remark]{remark}
-\declaretheorem[name=Theorem,
-refname={Theorem,Theorems},
-Refname={Theorem,Theorems}]{maintheorem}
+%\declaretheorem[numberwithin=section]{theorem}
+%\declaretheorem[sibling=theorem]{lemma, proposition, corollary}
+%\declaretheorem[sibling=theorem,style=definition]{definition, example}
+%\declaretheorem[sibling=theorem,style=remark]{remark}
+%\declaretheorem[name=Theorem,
+%refname={Theorem,Theorems},
+%Refname={Theorem,Theorems}]{maintheorem}
+%\renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\newtheorem{maintheorem}{Theorem}
 \renewcommand{\themaintheorem}{\Alph{maintheorem}}
+\crefname{maintheorem}{THEOREM}{THEOREMS}
+\crefname{theo}{THEOREM}{THEOREMS}
+\crefname{prop}{PROPOSITION}{PROPOSITIONS}
+\crefname{coro}{COROLARRY}{COROLARRIES}
 
 
 \DeclareMathOperator{\id}{id}
@@ -126,12 +129,66 @@ Refname={Theorem,Theorems}]{maintheorem}
 \DeclareMathOperator{\Crit}{Crit}
 
 % Fix \norm spacing
-\renewcommand{\norm}[1]{\left\lVert#1\mkern 1.2mu \right\rVert}
+%\renewcommand{\norm}[1]{\left\lVert#1\mkern 1.2mu \right\rVert}
+
+\title{Semi-Local Exotic Lagrangian Tori in Dimension Four}%\\
+%\bigskip
+%\begin{tikzpicture}[scale=0.9]
+%\foreach \y in {0,1,2,3} {
+%  \begin{scope}[shift={(4*\y-1.5,0)}]
+%    \fill[opacity=0.1] (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
+%    \begin{scope}
+%      \clip (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
+%      \foreach \x in {0.2,0.4,...,3.5}
+%          \draw[very thin,gray] (\x+.5,1) -- (\x,0) -- (\x+\y-.5,-1);
+%    \end{scope}
+%    \draw[very thick, white] (0,0) -- (3,0);
+%    \draw[thick] (0.5,1) -- (0,0) -- (-0.5+\y,-1);
+%    \ifnum\y>0\relax\draw[dashed] (0,0) \foreach \x in {1,...,\y} { -- +({\x*1.5/(\y+1)},0) node[cross] {} };\fi
+%    \ifnum\y<3\relax\draw[dashed] (3,0) \foreach \x in {\y,...,2} { -- +({-(3-\x)*1.5/(4-\y)},0) node[cross] {} };\fi
+%    \fill (1.5,0) circle[radius=1.5pt];
+%  \end{scope}
+%}
+%\end{tikzpicture}\vspace{-0.5cm}}
+\author{\firstname{Joé} \lastname{Brendel}}
+\address{ETH Zürich}
+\email[J. Brendel]{joe@brendel.lu}
+\author{\firstname{Johannes} \lastname{Hauber}}
+\address{Université de Neuchâtel}
+\email[J. Hauber]{johannes.hauber@unine.ch}
+\author{\firstname{Joel} \lastname{Schmitz}}
+\address{Université de Neuchâtel}
+\email[J. Schmitz]{joel.schmitz@unine.ch}
+%\date{March 1, 2024}
+
+\begin{abstract}
+We study exotic Lagrangian tori in dimension four.
+In certain Stein domains $B_{dpq}$ (which naturally appear in almost toric fibrations) we find $d+1$ families of monotone Lagrangian tori which are mutually distinct, up to symplectomorphisms.
+We prove that these remain distinct under embeddings of $B_{dpq}$ into geometrically bounded symplectic four-manifolds.
+We show that there are infinitely many different such embeddings when $X$ is compact and (almost) toric and hence conclude that $X$ contains arbitrarily many Lagrangian tori which are distinct up to symplectomorphisms of $X$.
+In dimension four arbitrarily many different Lagrangian tori were previously known
+only in del Pezzo surfaces.
+
+Neither the embedded tori, nor the ambient space $X$ needs to be monotone for our methods to work. 
+\end{abstract}
+
+\begin{altabstract}
+Nous étudions tores lagrangiens exotiques en dimension quatre.
+Dans certains domaines de Stein $B_{dpq}$ (qui apparaissent naturellement dans les fibrations presque toriques), nous trouvons $d+1$ familles de tores lagrangiens monotones qui sont mutuellement distincts, jusqu'aux symplectomorphismes.
+Nous prouvons que ces familles restent distinctes sous les plongements de $B_{dpq}$ dans des variétés symplectiques géométriquement bornés de quatre dimensions.
+Nous montrons qu'il existe une infinité de tels plongements lorsque $X$ est compact et (presque) torique et concluons donc que $X$ contient un nombre arbitraire de tores lagrangiens distincts jusqu'aux symplectomorphismes de $X$.
+En dimension quatre, un nombre arbitraire de tores lagrangiens différents était précédemment connu
+seulement dans les surfaces del Pezzo.
+
+Ni les tores plongés, ni l'espace ambiant $X$ n'ont besoin d'être monotones pour que nos méthodes fonctionnent. 
+\end{altabstract}
 
 \begin{document}
-\title{Semi-Local Exotic Lagrangian Tori in Dimension Four\\
-\bigskip
-\begin{tikzpicture}[scale=0.9]
+
+\maketitle
+
+\begin{center}
+  \begin{tikzpicture}[scale=0.7]
 \foreach \y in {0,1,2,3} {
   \begin{scope}[shift={(4*\y-1.5,0)}]
     \fill[opacity=0.1] (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
@@ -147,22 +204,8 @@ Refname={Theorem,Theorems}]{maintheorem}
     \fill (1.5,0) circle[radius=1.5pt];
   \end{scope}
 }
-\end{tikzpicture}\vspace{-0.5cm}}
-\author{Joé Brendel, Johannes Hauber, Joel Schmitz}
-\date{March 1, 2024}
-
-\maketitle
-
-\begin{abstract}
-We study exotic Lagrangian tori in dimension four.
-In certain Stein domains $B_{dpq}$ (which naturally appear in almost toric fibrations) we find $d+1$ families of monotone Lagrangian tori which are mutually distinct, up to symplectomorphisms.
-We prove that these remain distinct under embeddings of $B_{dpq}$ into geometrically bounded symplectic four-manifolds.
-We show that there are infinitely many different such embeddings when $X$ is compact and (almost) toric and hence conclude that $X$ contains arbitrarily many Lagrangian tori which are distinct up to symplectomorphisms of $X$.
-In dimension four arbitrarily many different Lagrangian tori were previously known
-only in del Pezzo surfaces.
-
-Neither the embedded tori, nor the ambient space $X$ needs to be monotone for our methods to work. 
-\end{abstract}
+\end{tikzpicture}
+\end{center}
 
 \section{Introduction}
 
@@ -195,7 +238,7 @@ Note that the classification is not even known for $\mathbb{R}^4$, although ther
 Finding sets of Lagrangian tori which have the same classical invariants, but are \emph{not} equivalent is thus a well-motivated problem.
 On the one hand, it sheds some light on what a classification of Lagrangian tori could look like, and on the other hand it represents an interesting occurrence of symplectic rigidity in its own right.
 The study of such Lagrangian tori was initiated by \cite{Che96} and \cite{EliPol97} and has attracted much interest since,  see \cite{Aur15, brendel2020real, CheSch10, FOOO12, GalMik22, SheTonVia19, Via17, Via16} , which is a non-exhaustive list.
-If we have a natural source of "standard Lagrangians", like product tori or
+If we have a natural source of ``standard Lagrangians'', like product tori or
 toric fibres, we will say a Lagrangian is \emph{exotic} or \emph{symplectically knotted} if it is not equivalent to a standard Lagrangian.
 
 \subsection{Main results}
@@ -322,7 +365,7 @@ Applying \cref{thm:B}, we obtain the following.
     Let $(X,\omega)$ be a compact four-dimensional symplectic manifold admitting an (almost) toric structure with a base diagram having finitely many nodes.
 For every $i \in \mathbb{N}$, there is $a_{i,0} > 0$ such that for every pair $n \neq m$, we have
     \begin{equation}
-        L^{k_n}_n(a_n) \ncong L^{k_m}_m(a_m), \quad
+        L^{k_n}_n(a_n) \ncong L^{k_m}_m(a_m), \;
         \forall 0 ≤ k_n ≤ d_n,\; 1 ≤ k_m ≤ d_m, \; a_n < a_{n,0}, \; a_m < a_{m,0},
     \end{equation}
     for the tori defined in \eqref{eq:l_tori}.
@@ -372,7 +415,7 @@ This is how \cref{thm:intro_stretch} is proved.
 
 \begin{figure}
     \centering
-      \begin{tikzpicture}[scale=0.9]
+      \begin{tikzpicture}[scale=0.7]
         \foreach \y in {0,1,2,3} {
           \begin{scope}[shift={(4*\y-1.5,0)}]
             \fill[opacity=0.1] (0.5,1) -- (0,0) -- (-0.5+\y,-1) -- (3,-1) -- (3,1);
@@ -546,8 +589,8 @@ In this paper, we will always make a special choice of almost toric base diagram
 Every node in the almost toric base diagram has a unique \textbf{eigendirection}, i.e.\ a direction in $\mathbb{R}^2$ yielding an action coordinate which is preserved under the monodromy of the given node.
 Although the eigendirection is not explicitly part of the decorations of the almost toric base diagram, it can always be read off from the angle the branch cut forms at the node in question.
 In the current paper, we always choose the branch cut to coincide with the eigendirection.
-As a consequence, the almost toric base diagram "closes up", which is discussed in \cite[Section 7.2]{evans2021atfs}, and thus yields a convex polytope.
-With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}.\footnote{This is non-standard terminology. In contrast to "almost toric fibration", we want to empathize that it gives local action coordinates.}
+As a consequence, the almost toric base diagram ``closes up'', which is discussed in \cite[Section 7.2]{evans2021atfs}, and thus yields a convex polytope.
+With this convention, there is an analogue of the moment map, given by a continuous map $\pi \colon X \rightarrow \Delta$, which we call \textbf{almost toric moment map}.\footnote{This is non-standard terminology. In contrast to ``almost toric fibration'', we want to empathize that it gives local action coordinates.}
 Let $\Delta_0 \subset \Delta$ be the complement of nodes and branch cuts.
 Assuming the branch cuts can be chosen such that $\Delta_0$ is simply connected\todo{Is this indeed an assumption?}, there are global action coordinates on its intersection with the regular locus, see \cite{Dui80}.
 Away from the branch cut and nodes, all singularities are of toric type, i.e.\ elliptic-regular or elliptic-elliptic, meaning that the map given by action coordinates can be smoothly extended over the singularities to yield a moment map $\pi\vert_{X_0} \colon X_0 \rightarrow \Delta_0$ of a Hamiltonian $T^2$-action.
@@ -604,7 +647,7 @@ The \textbf{nodal slide} consists of moving the focus-focus singularity in a non
 
 \begin{figure}
   \centering
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=0.85]
     \begin{scope}[shift={(-4,0)}]
       \draw[very thin,black!60] (-2,2) grid (3,-2);
       \fill[blue, opacity=0.1] (-2,2) rectangle (3,0);
@@ -679,7 +722,7 @@ If $x$ is neither a node, nor contained in the boundary, then $T(x)$ is a Lagran
 
 \begin{remark}
     \label{rk:pinchedtorus}
-    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres, i.e.\ Lagrangian tori, by viewing it as a Lagrangian torus which is "pinched" along a curve on the torus.
+    A Lagrangian Whitney sphere living over the node of an ATF-base diagram can be interpreted as a limit of regular fibres, i.e.\ Lagrangian tori, by viewing it as a Lagrangian torus which is ``pinched'' along a curve on the torus.
 The homology class of this curve determines the topological monodromy of the torus bundle in a neighbourhood of the node.
 \end{remark}
 
@@ -898,7 +941,7 @@ By a change of basis, any isolated ATF-corner $(x,dv)$ can be locally mapped by 
   We say the ATF-corner $(x,dv)$ is of \textbf{type $(d,p,q)$}, if (perhaps after isolating it) it locally maps via a $\GL(2,ℤ)$ transformation into $Δ'_{dpq}$. More precisely, there is an integral affine bijection $A\colon U → V$ where $U ⊂ Δ$ is a neighbourhood of the branch cut of $(x,dv)$ and $V ⊂ Δ'_{dpq}$ is a neighbourhood of the branch cut of $(0,d(p,q))$.
 \end{definition}
 
-In this sense the spaces $B_{dpq}$ are the "local models" for any almost toric fibration, as we can obtain the total space $X$ by glueing together different $B_{dpq}$ models.
+In this sense the spaces $B_{dpq}$ are the ``local models'' for any almost toric fibration, as we can obtain the total space $X$ by glueing together different $B_{dpq}$ models.
 
 \begin{lemma}
   \label{thm:atf_bdpq}
@@ -1021,7 +1064,7 @@ We do not need this stronger statement for our purposes.}
 \label{sec:versal_deformations}
 
 Let us return to the case of a general symplectic manifold $(X,\omega)$.
-Then $L_0$ admits an embedding of a Weinstein-neighbourhood $φ\colon T^*L_0 \dashrightarrow X$, where "$\dashrightarrow$" means that the map is only defined near the zero-section, which means that we can hope to prove a local result analogous to \cref{thm:cotangent_classification}.
+Then $L_0$ admits an embedding of a Weinstein-neighbourhood $φ\colon T^*L_0 \dashrightarrow X$, where ``$\dashrightarrow$'' means that the map is only defined near the zero-section, which means that we can hope to prove a local result analogous to \cref{thm:cotangent_classification}.
 Since the proof of \cref{thm:graph_hamiltonian_isotopic} relies on a linear interpolation of $1$-forms, we introduce the following notion.
 
 \begin{definition}
@@ -1044,7 +1087,7 @@ Hence, the local flux map \eqref{eq:localflux} makes sense on them.
 The fact that $\symcal{U}$ is convex guarantees that the linear Hamiltonian isotopy of \cref{thm:graph_hamiltonian_isotopic} between $L_1$ and $L_2$ is completely contained in $\symcal{U}$.
 \end{proof}
 
-A versal deformation is a continuous "local section of the flux map":
+A versal deformation is a continuous ``local section of the flux map'':
 
 \begin{definition}
   \label{def:versal_deformation}
@@ -1275,7 +1318,7 @@ The displacement energy germs \eqref{eq:babyDEG1} and \eqref{eq:babyDEG2} togeth
 
 \begin{figure}
   \centering
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=0.83]
     \begin{scope}[shift={(-2,-1.5)}]
       \fill[opacity=0.1] (0,3) rectangle (3,0);
       \draw[thick] (0,3) -- (0,0) -- (3,0);
@@ -1432,7 +1475,7 @@ Chekanov's theorem only holds for a specific class of symplectic manifolds, name
 \begin{definition}
     \label{def:geobdd}
     Let $(X,\omega)$ be a symplectic manifold.
-    We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{Sometimes the word "tame" is used with similar meaning. See e.g. \cite[Definition 4.1.1]{sikorav1994}.} if there is a Riemannian metric $g$ on $X$ such that 
+    We call an almost complex structure $J$ on $(X,\omega)$ \textbf{geometrically bounded}\footnote{Sometimes the word ``tame'' is used with similar meaning. See e.g. \cite[Definition 4.1.1]{sikorav1994}.} if there is a Riemannian metric $g$ on $X$ such that 
     \begin{enumerate}
         \item $g$ is complete,
         \item there are constants $C_1,C_2 > 0$ such that $\omega(JV,V) ≥ C_1 \norm{V}_g^2$ and $\abs{\omega(V,W)} ≤ C_2 \norm{V}_g \norm{W}_g$ for all tangent vectors $V,W$, and
@@ -1670,7 +1713,7 @@ Then there exists a neighbourhood $V \subset \Delta_{dpq}$ of the origin such th
 
 \begin{figure}
   \centering
-  \begin{tikzpicture}
+  \begin{tikzpicture}[scale=0.85]
     \begin{scope}[shift={(-5,-0.5)}]
       \draw[fill,opacity=0.1] (0,-1) rectangle (4,2);
       \draw[very thin,black!60] \foreach \x in {0.33,0.66,...,3.99} {(\x,-1) -- (\x,2)};
@@ -1805,7 +1848,7 @@ So if $\min\qty{α^k_{pq},β^k_{pq}} ∘ Φ \sim \min\qty{α^{k'}_{p'q'},β^{k'}
 Along with \cref{thm:lag_sphere,thm:pinwheels,thm:quinticgodeaux} given in the introduction, we have the following:
 
 As discussed in \cite[Remark 7.10]{evans2021atfs}, if $d>1$, the space $B_{dpq}$ contains a Lagrangian $S²$.
-Together with \cref{thm:lag_sphere}, this means every time we have a partial $B_{dpq}$\-/embedding with $d>1$, we also get a partial $B_{2,1,0}$\-/embedding "for free".
+Together with \cref{thm:lag_sphere}, this means every time we have a partial $B_{dpq}$\-/embedding with $d>1$, we also get a partial $B_{2,1,0}$\-/embedding ``for free''.
 In particular a Polterovich torus $T^2_{1,0} ⊂ B_{2,1,0}$ is contained in any partial $B_{dpq}$\-/embedding with $d>1$.
 By \cref{thm:B} small enough such tori are distinct from the $T_{pq}^k$ coming from the same embedding.
 
@@ -1965,5 +2008,5 @@ In particular, $a_n → ℓ_∞$ and we can choose a strictly monotone subsequen
 \end{remark}
 
 \emergencystretch=1em
-\printbibliography
+\bibliography{bibliography.bib}
 \end{document}
